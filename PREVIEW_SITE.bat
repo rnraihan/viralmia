@@ -1,0 +1,3 @@
+@echo off
+echo Opening Viral Mia website preview in your browser...
+start "" "%~dp0dist\index.html"
