@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.viralmia.me/sitemap.xml
+Sitemap: https://viralmia.me/sitemap.xml

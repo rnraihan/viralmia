@@ -12,7 +12,7 @@ if (!GEMINI_API_KEY) {
   process.exit(1);
 }
 
-// Unsplash fallback curated food photos
+// Unsplash high quality food images
 const FALLBACK_IMAGES = [
   'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=1200&q=80',
   'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1200&q=80',
@@ -20,7 +20,9 @@ const FALLBACK_IMAGES = [
   'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=1200&q=80',
   'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=1200&q=80',
   'https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=1200&q=80',
-  'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80'
+  'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80',
+  'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1200&q=80',
+  'https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1200&q=80'
 ];
 
 async function generateNextPost() {
@@ -58,6 +60,15 @@ Return a STRICT JSON object with these EXACT keys:
   "cookTime": "e.g. 15 mins",
   "servings": "e.g. 4",
   "calories": "e.g. 350 kcal",
+  "rating": "4.9",
+  "reviewCount": ${Math.floor(Math.random() * 20) + 35},
+  "nutrition": {
+    "calories": "380 kcal",
+    "protein": "26g",
+    "carbs": "38g",
+    "fat": "14g",
+    "fiber": "5g"
+  },
   "story": "Warm, cozy, humorous personal life story (150 words) about why Mia made this dish on a busy day, relatable to working millennials and families",
   "ingredients": ["Array of ingredients with exact US measurements (cups, oz, tbsp)"],
   "instructions": ["Step 1: description", "Step 2: description", "Step 3: description", "Step 4: description"],
@@ -96,27 +107,22 @@ Return a STRICT JSON object with these EXACT keys:
 
     const recipeData = JSON.parse(candidate);
 
-    // Attach high-res food image
     const randomImage = FALLBACK_IMAGES[Math.floor(Math.random() * FALLBACK_IMAGES.length)];
     recipeData.heroImage = randomImage;
 
-    // Ensure slug
     if (!recipeData.slug) {
       recipeData.slug = targetTopic.topic.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
     }
 
-    // Save to posts directory
     if (!fs.existsSync(POSTS_DIR)) fs.mkdirSync(POSTS_DIR, { recursive: true });
     const postFilePath = path.join(POSTS_DIR, `${recipeData.slug}.json`);
     fs.writeFileSync(postFilePath, JSON.stringify(recipeData, null, 2));
     console.log(`✅ Saved recipe post: posts/${recipeData.slug}.json`);
 
-    // Mark topic as done
     targetTopic.status = 'done';
     fs.writeFileSync(TOPICS_FILE, JSON.stringify(topics, null, 2));
 
-    // Rebuild static site
-    console.log('🔄 Rebuilding static site...');
+    console.log('🔄 Rebuilding static site with new recipe...');
     execSync('node build.js', { stdio: 'inherit' });
     console.log('✨ Auto-generation & build finished successfully!');
 
