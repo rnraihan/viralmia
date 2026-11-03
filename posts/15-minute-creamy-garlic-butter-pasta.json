@@ -1,0 +1,46 @@
+{
+  "id": "1",
+  "slug": "15-minute-creamy-garlic-butter-pasta",
+  "title": "15-Minute Creamy Garlic Butter Pasta with Lemon",
+  "description": "The ultimate quick weeknight comfort dinner! Velvety garlic butter sauce tossed with al dente pasta and a splash of fresh lemon juice, ready in just 15 minutes.",
+  "category": "Quick Dinners",
+  "date": "2026-11-03",
+  "readTime": "3 min read",
+  "prepTime": "5 mins",
+  "cookTime": "10 mins",
+  "servings": "4",
+  "calories": "410 kcal",
+  "heroImage": "https://images.unsplash.com/photo-1621996346565-e3d5d6281e04?auto=format&fit=crop&w=1200&q=80",
+  "story": "It was a pouring rainy Tuesday night, and after a chaotic 9-hour workday, my fridge was looking embarrassingly empty. All I had was half a box of spaghetti, butter, and a couple of garlic cloves sitting in my basket. My feet were throbbing, my stomach was growling, and takeout was estimating a 50-minute delivery time. That was when I threw this 15-minute pasta together, and honestly? It turned out to be one of the best comfort meals I’ve ever tasted. Warm, silky, garlicky, with just enough lemon zest to make it feel like a cozy Italian restaurant dinner.",
+  "ingredients": [
+    "8 oz (225g) spaghetti, fettuccine, or linguine",
+    "4 tablespoons unsalted butter (good quality butter makes a huge difference!)",
+    "5 cloves garlic, finely minced",
+    "1/2 cup grated Parmesan cheese (freshly grated melts best)",
+    "1/2 cup heavy cream (or whole milk for a lighter version)",
+    "1 tablespoon fresh lemon juice + 1/2 tsp lemon zest",
+    "1/2 teaspoon red pepper flakes (optional for a subtle kick)",
+    "Salt and freshly cracked black pepper to taste",
+    "Fresh chopped parsley for garnish"
+  ],
+  "instructions": [
+    "Boil the Pasta: Bring a large pot of heavily salted water to a rolling boil. Add pasta and cook until al dente according to package instructions. Crucial: Reserve 1/2 cup of starchy pasta water before draining!",
+    "Sauté the Garlic: While pasta cooks, melt the butter in a large skillet over medium-low heat. Add the minced garlic and red pepper flakes. Sauté for about 60 seconds until fragrant and golden—do not burn the garlic!",
+    "Build the Sauce: Pour in the heavy cream and let it gently simmer for 2 minutes. Stir in the freshly grated Parmesan cheese until melted and smooth.",
+    "Toss and Emulsify: Add the drained pasta directly into the skillet. Drizzle in a few tablespoons of the reserved starchy pasta water and toss vigorously until the glossy sauce coats every single strand.",
+    "Finish and Serve: Stir in the fresh lemon juice and zest. Season with black pepper and a pinch of salt. Garnish generously with fresh parsley and extra Parmesan. Serve immediately hot!"
+  ],
+  "proHack": "Always salt your pasta water until it tastes like the ocean, and NEVER rinse your cooked pasta! The starch clinging to the noodles is the secret glue that helps the glossy garlic butter sauce stick to every bite instead of pooling at the bottom of the bowl.",
+  "storage": "Store leftovers in an airtight glass container in the refrigerator for up to 3 days. When reheating, add 1 tablespoon of milk or water in the microwave or skillet to bring the creamy sauce back to life without separating.",
+  "faqs": [
+    {
+      "question": "Can I make this pasta gluten-free?",
+      "answer": "Yes! Swap the standard pasta with any good gluten-free pasta (like brown rice or chickpea pasta). The sauce is naturally gluten-free as we don't use any flour roux."
+    },
+    {
+      "question": "What protein can I add to make this a full meal?",
+      "answer": "Grilled chicken breast, pan-seared shrimp, or even crispy bacon bits pair heavenly with this garlic butter sauce."
+    }
+  ],
+  "keywords": ["garlic butter pasta", "15 minute dinner", "easy pasta recipe", "comfort food", "weeknight meals"]
+}

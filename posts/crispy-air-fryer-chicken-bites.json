@@ -1,0 +1,46 @@
+{
+  "id": "2",
+  "slug": "crispy-air-fryer-chicken-bites",
+  "title": "Crispy Air Fryer Chicken Bites That Taste Like Takeout",
+  "description": "Crispy on the outside, juicy on the inside! These 12-minute air fryer chicken bites are seasoned to perfection with zero deep-frying oil.",
+  "category": "Air Fryer Meals",
+  "date": "2026-11-03",
+  "readTime": "4 min read",
+  "prepTime": "10 mins",
+  "cookTime": "12 mins",
+  "servings": "3",
+  "calories": "320 kcal",
+  "heroImage": "https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=1200&q=80",
+  "story": "My boyfriend came home from the gym last Friday desperately craving chicken nuggets from our neighborhood drive-thru. Instead of spending $15 on greasy fast food, I challenged myself to recreate a healthier, crunchier version right in our little air fryer using whatever was in the freezer. When he took his first bite, his eyes widened and he genuinely swore they were better than restaurant takeout. Now, this is our official Friday movie-night staple!",
+  "ingredients": [
+    "1.5 lbs boneless skinless chicken breasts or thighs, cut into 1-inch bite-sized cubes",
+    "1 tablespoon olive oil or avocado oil",
+    "1/2 cup Panko breadcrumbs (for maximum crunch)",
+    "1/4 cup grated Parmesan cheese",
+    "1 teaspoon smoked paprika",
+    "1 teaspoon garlic powder",
+    "1/2 teaspoon onion powder",
+    "1/2 teaspoon dried oregano",
+    "1/2 teaspoon kosher salt and cracked black pepper"
+  ],
+  "instructions": [
+    "Prep the Chicken: Pat the cubed chicken completely dry with paper towels. Toss with olive oil so the seasoning adheres evenly.",
+    "Make the Crunchy Coating: In a shallow bowl, whisk together the Panko breadcrumbs, Parmesan, smoked paprika, garlic powder, onion powder, oregano, salt, and pepper.",
+    "Coat the Bites: Dredge each piece of chicken through the breadcrumb mixture, pressing firmly so every side gets coated in golden crumbs.",
+    "Preheat & Arrange: Preheat your air fryer to 400°F (200°C) for 3 minutes. Lightly spray the basket with avocado oil spray. Place chicken in a single layer with space between pieces so hot air circulates.",
+    "Air Fry: Cook at 400°F for 10-12 minutes, shaking the basket halfway at the 6-minute mark. Chicken is ready when golden brown and internal temperature reads 165°F (74°C). Serve with honey mustard or BBQ sauce!"
+  ],
+  "proHack": "Do not skip drying your chicken with paper towels! Excess moisture on the surface creates steam inside the air fryer, which makes the breading soggy. Dry chicken = ultra crispy chicken every single time.",
+  "storage": "Keep in an airtight container in the fridge for up to 4 days. To reheat and regain maximum crunch, pop them back in the air fryer at 375°F for 3-4 minutes. Avoid the microwave, which turns the breading soft.",
+  "faqs": [
+    {
+      "question": "Can I use chicken thighs instead of breasts?",
+      "answer": "Absolutely! Chicken thighs have slightly more fat, making the bites extra juicy and forgiving if cooked an extra minute or two."
+    },
+    {
+      "question": "Can I freeze these ahead of time?",
+      "answer": "Yes! Bread the chicken, freeze them uncooked on a baking sheet for 2 hours, then transfer to a freezer bag. Air fry straight from frozen at 380°F for 14-16 minutes!"
+    }
+  ],
+  "keywords": ["air fryer chicken", "crispy chicken bites", "healthy takeout", "easy air fryer dinner", "high protein snack"]
+}

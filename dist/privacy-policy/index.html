@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy | Viral Mia</title>
+  <meta name="description" content="Quick 15-minute meals, easy comfort food recipes, and life-saving kitchen hacks with Mia. Simple, delicious home cooking made fun.">
+  <link rel="canonical" href="https://www.viralmia.me">
+  
+  <!-- OpenGraph / Social -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Privacy Policy">
+  <meta property="og:description" content="Quick 15-minute meals, easy comfort food recipes, and life-saving kitchen hacks with Mia. Simple, delicious home cooking made fun.">
+  <meta property="og:url" content="https://www.viralmia.me">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1200&q=80">
+  <meta property="og:site_name" content="Viral Mia">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Privacy Policy">
+  <meta name="twitter:description" content="Quick 15-minute meals, easy comfort food recipes, and life-saving kitchen hacks with Mia. Simple, delicious home cooking made fun.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1200&q=80">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+:root {
+  --primary: #d94830;
+  --primary-hover: #b83620;
+  --primary-soft: #fff1ee;
+  --accent: #2a7b66;
+  --bg: #faf7f2;
+  --card-bg: #ffffff;
+  --text-main: #23272a;
+  --text-muted: #6b7280;
+  --border: #ede7de;
+  --radius: 12px;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  --shadow-hover: 0 8px 30px rgba(217, 72, 48, 0.12);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg);
+  color: var(--text-main);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, .font-serif {
+  font-family: 'Playfair Display', Georgia, serif;
+  color: #1a1e21;
+  line-height: 1.3;
+}
+
+a { color: inherit; text-decoration: none; transition: all 0.2s; }
+
+/* Navbar */
+.navbar {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.logo span { color: var(--text-main); font-weight: 400; font-style: italic; }
+.nav-links {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  font-size: 15px;
+  font-weight: 600;
+}
+.nav-links a:hover { color: var(--primary); }
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 60px 24px 40px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.hero-badge {
+  display: inline-block;
+  background: var(--primary-soft);
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 6px 16px;
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+.hero h1 { font-size: 46px; margin-bottom: 18px; font-weight: 800; }
+.hero p { font-size: 18px; color: var(--text-muted); }
+
+/* Category Pills */
+.categories-bar {
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  padding: 0 24px;
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+.cat-pill {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.cat-pill:hover, .cat-pill.active {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+/* Post Grid */
+.posts-grid {
+  max-width: 1200px;
+  margin: 0 auto 80px;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 32px;
+}
+.post-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+.post-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(217, 72, 48, 0.3);
+}
+.post-card-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  background: #eee;
+}
+.post-card-body {
+  padding: 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.post-card-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--primary);
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.post-card-title {
+  font-size: 22px;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+.post-card:hover .post-card-title { color: var(--primary); }
+.post-card-desc {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  flex: 1;
+}
+.post-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+  padding-top: 14px;
+}
+
+/* Article Page */
+.article-container {
+  max-width: 860px;
+  margin: 40px auto 80px;
+  padding: 0 24px;
+}
+.article-header { text-align: center; margin-bottom: 32px; }
+.article-cat {
+  display: inline-block;
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+.article-title { font-size: 44px; margin-bottom: 18px; font-weight: 800; }
+.article-meta {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+.article-hero-img {
+  width: 100%;
+  max-height: 480px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  margin-bottom: 40px;
+  box-shadow: var(--shadow);
+}
+.article-body { font-size: 18px; line-height: 1.8; color: #2d3135; }
+.article-body p { margin-bottom: 22px; }
+.article-body h2 { font-size: 28px; margin: 38px 0 18px; font-weight: 700; border-bottom: 2px solid var(--border); padding-bottom: 8px; }
+
+/* Recipe Details Box */
+.recipe-stats-box {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin: 32px 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+.stat-item { padding: 8px; }
+.stat-label { font-size: 12px; text-transform: uppercase; color: var(--text-muted); font-weight: 700; letter-spacing: 0.5px; }
+.stat-value { font-size: 18px; font-weight: 800; color: var(--primary); margin-top: 4px; }
+
+/* Story Box */
+.story-box {
+  background: #fdfaf6;
+  border-left: 4px solid var(--primary);
+  padding: 24px;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  margin: 30px 0;
+  font-style: normal;
+}
+.story-box-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Ingredients Checklist */
+.ingredients-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  margin: 32px 0;
+}
+.ingredient-list { list-style: none; margin-top: 16px; }
+.ingredient-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid #f2ede6;
+  font-size: 17px;
+}
+.ingredient-item input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+
+/* Step Instructions */
+.steps-list { list-style: none; counter-reset: recipe-step; margin: 24px 0; }
+.step-item {
+  position: relative;
+  padding-left: 56px;
+  margin-bottom: 24px;
+  font-size: 17px;
+}
+.step-item::before {
+  counter-increment: recipe-step;
+  content: counter(recipe-step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 38px;
+  height: 38px;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 16px;
+}
+
+/* Pro Hack Box */
+.hack-box {
+  background: linear-gradient(135deg, #eef9fe 0%, #e3f4fd 100%);
+  border: 1px solid #bde3f8;
+  border-radius: var(--radius);
+  padding: 26px;
+  margin: 36px 0;
+  box-shadow: 0 4px 15px rgba(0, 136, 204, 0.06);
+}
+.hack-title {
+  color: #0077b6;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* FAQ Accordion */
+.faq-box { margin: 32px 0; }
+.faq-item {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 18px 22px;
+  margin-bottom: 12px;
+}
+.faq-question { font-weight: 700; font-size: 17px; color: var(--text-main); margin-bottom: 6px; }
+.faq-answer { font-size: 15px; color: var(--text-muted); }
+
+/* Footer */
+.footer {
+  background: #1a1e21;
+  color: #a0aec0;
+  padding: 60px 24px 30px;
+  margin-top: 80px;
+}
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #2d3748;
+}
+.footer-brand h3 { color: #fff; font-size: 24px; margin-bottom: 12px; }
+.footer-links h4 { color: #fff; font-size: 16px; margin-bottom: 16px; }
+.footer-links ul { list-style: none; }
+.footer-links li { margin-bottom: 10px; }
+.footer-links a:hover { color: var(--primary); }
+.footer-bottom {
+  max-width: 1200px;
+  margin: 30px auto 0;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 34px; }
+  .article-title { font-size: 30px; }
+  .posts-grid { grid-template-columns: 1fr; }
+  .recipe-stats-box { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .footer-container { grid-template-columns: 1fr; gap: 30px; }
+  .nav-links { display: none; }
+}
+</style>
+  
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="/" class="logo">ViralMia <span>Kitchen</span></a>
+      <nav class="nav-links">
+        <a href="/">Home</a>
+        <a href="/#recipes">Quick Meals</a>
+        <a href="/#hacks">Kitchen Hacks</a>
+        <a href="/about">About Mia</a>
+        <a href="/contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  
+    <div class="article-container">
+      <header class="article-header"><h1 class="article-title">Privacy Policy</h1></header>
+      <div class="article-body">
+        <p>Last updated: November 2026</p>
+        <p>At ViralMia.me, the privacy of our visitors is of extreme importance to us. This privacy policy document outlines the types of personal information received and collected by ViralMia.me and how it is used.</p>
+        <h2>Log Files & Cookies</h2>
+        <p>Like many other websites, ViralMia.me makes use of log files and cookies to analyze trends, administer the site, track user movement around the site, and gather demographic information.</p>
+        <h2>Google AdSense & Third-Party Advertising</h2>
+        <p>Third-party vendors, including Google, use cookies to serve ads based on a user's prior visits to our website. Google's use of advertising cookies enables it and its partners to serve ads based on your visit to this site and/or other sites on the Internet. Users may opt out of personalized advertising by visiting Google Ads Settings.</p>
+      </div>
+    </div>
+  
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h3>Viral Mia</h3>
+        <p>Your daily cozy destination for 15-minute weeknight dinners, budget-friendly comfort food, and life-saving kitchen hacks that make home cooking joyful again.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="/">All Recipes</a></li>
+          <li><a href="/about">About Mia</a></li>
+          <li><a href="/contact">Get in Touch</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/privacy-policy">Privacy Policy</a></li>
+          <li><a href="/terms">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 ViralMia.me. Made with love for busy home cooks everywhere.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

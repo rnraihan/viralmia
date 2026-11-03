@@ -1,0 +1,37 @@
+name: ViralMia Auto Post 3x Daily
+
+on:
+  schedule:
+    # Runs at 12:00, 17:00, 23:00 UTC (8:00 AM, 1:00 PM, 7:00 PM US Eastern Time)
+    - cron: '0 12,17,23 * * *'
+  workflow_dispatch: # Allows manual trigger from GitHub UI anytime
+
+permissions:
+  contents: write
+
+jobs:
+  auto-post:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Generate New Recipe Post via Gemini AI
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          node auto_generate.js
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name "ViralMia Bot"
+          git config --global user.email "bot@viralmia.me"
+          git add posts/ topics.json dist/
+          git commit -m "🤖 Auto-published new recipe: $(date '+%Y-%m-%d %H:%M')" || echo "No changes to commit"
+          git push origin main

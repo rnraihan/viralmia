@@ -1,0 +1,14 @@
+{
+  "name": "viralmia",
+  "version": "1.0.0",
+  "description": "Viral Mia - Quick 15-Minute Recipes & Smart Kitchen Hacks",
+  "main": "build.js",
+  "scripts": {
+    "build": "node build.js",
+    "generate": "node auto_generate.js",
+    "serve": "npx serve dist"
+  },
+  "keywords": ["food-blog", "recipes", "kitchen-hacks", "cloudflare-pages"],
+  "author": "Mia",
+  "license": "MIT"
+}
