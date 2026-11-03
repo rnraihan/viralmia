@@ -1825,14 +1825,14 @@ function buildSitemap(posts) {
   const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 ${allUrls.map(u => `  <url>
-    <loc>${u.loc}</loc>
+    <loc>${u.loc.replace(/&/g, '&amp;')}</loc>
     ${u.lastmod ? `<lastmod>${u.lastmod}</lastmod>` : `<lastmod>${new Date().toISOString().split('T')[0]}</lastmod>`}
     <changefreq>${u.changefreq}</changefreq>
     <priority>${u.priority}</priority>
     ${u.image ? `
     <image:image>
-      <image:loc>${u.image}</image:loc>
-      <image:title>${u.title.replace(/&/g, '&amp;')}</image:title>
+      <image:loc>${u.image.replace(/&/g, '&amp;')}</image:loc>
+      <image:title>${u.title.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</image:title>
     </image:image>` : ''}
   </url>`).join('\n')}
 </urlset>`;

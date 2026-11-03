@@ -42,7 +42,7 @@
     <priority>0.9</priority>
     
     <image:image>
-      <image:loc>https://images.unsplash.com/photo-1608897013039-887f21d8c804?auto=format&fit=crop&w=1200&q=80</image:loc>
+      <image:loc>https://images.unsplash.com/photo-1608897013039-887f21d8c804?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>15-Minute Creamy Garlic Butter Pasta with Lemon</image:title>
     </image:image>
   </url>
@@ -53,7 +53,7 @@
     <priority>0.9</priority>
     
     <image:image>
-      <image:loc>https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=1200&q=80</image:loc>
+      <image:loc>https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>Crispy Air Fryer Chicken Bites That Taste Like Takeout</image:title>
     </image:image>
   </url>
@@ -64,7 +64,7 @@
     <priority>0.9</priority>
     
     <image:image>
-      <image:loc>https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=1200&q=80</image:loc>
+      <image:loc>https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
       <image:title>How to Keep Strawberries Fresh for Up to 3 Weeks (The Science Hack)</image:title>
     </image:image>
   </url>
