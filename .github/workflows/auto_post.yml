@@ -30,8 +30,8 @@ jobs:
 
       - name: Commit and Push Changes
         run: |
-          git config --global user.name "ViralMia Bot"
-          git config --global user.email "bot@viralmia.me"
+          git config --global user.name "Mia"
+          git config --global user.email "mia@viralmia.me"
           git add posts/ topics.json dist/
-          git commit -m "🤖 Auto-published new recipe: $(date '+%Y-%m-%d %H:%M')" || echo "No changes to commit"
+          git commit -m "✨ Fresh home recipe published: $(date '+%Y-%m-%d')" || echo "No changes to commit"
           git push origin main
