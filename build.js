@@ -1124,6 +1124,9 @@ function layout(title, content, meta = {}) {
 
     gtag('config', 'G-DWE4LNEEMC');
   </script>
+
+  <!-- Bing Webmaster Verification -->
+  <meta name="msvalidate.01" content="10C2D4086B957B65F94D90B4447965A6">
   <meta name="description" content="${metaDesc}">
   <link rel="canonical" href="${canonical}">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -1855,6 +1858,12 @@ Allow: /
 Sitemap: ${SITE_URL}/sitemap.xml
 `;
   fs.writeFileSync(path.join(DIST_DIR, 'robots.txt'), robotsTxt);
+
+  const bingAuthXml = `<?xml version="1.0"?>
+<users>
+\t<user>10C2D4086B957B65F94D90B4447965A6</user>
+</users>`;
+  fs.writeFileSync(path.join(DIST_DIR, 'BingSiteAuth.xml'), bingAuthXml);
 }
 
 // Main Build
