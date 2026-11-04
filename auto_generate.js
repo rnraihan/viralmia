@@ -267,6 +267,5 @@ async function callGeminiWithFallback(prompt, temperature) {
 
   throw lastError || new Error('All model fallbacks exhausted.');
 }
-}
 
 generateNextPost();
