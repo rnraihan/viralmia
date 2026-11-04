@@ -217,15 +217,46 @@ Return a STRICT, RAW JSON object (no markdown code blocks, just raw JSON) with t
 }
 
 async function callGeminiWithFallback(prompt, temperature) {
-  const models = [
-    'gemini-2.0-flash',
-    'gemini-2.5-flash',
-    'gemini-2.0-flash-lite',
-    'gemini-1.5-flash-latest',
-    'gemini-1.5-flash-8b',
-    'gemini-1.5-flash',
-    'gemini-pro'
-  ];
+  // 1. Dynamically discover active models for this API key
+  let models = [];
+  try {
+    console.log('🔍 Querying available models from Gemini ModelService...');
+    const listUrl = `https://generativelanguage.googleapis.com/v1beta/models?key=${GEMINI_API_KEY}`;
+    const listRes = await fetch(listUrl);
+    if (listRes.ok) {
+      const listData = await listRes.json();
+      const allModels = listData.models || [];
+      const contentModels = allModels
+        .filter(m => (m.supportedGenerationMethods || []).includes('generateContent'))
+        .map(m => m.name.replace('models/', ''));
+
+      console.log('📋 Discovered supported models:', contentModels.join(', '));
+
+      // Prioritize flash models, then any content models
+      const flashModels = contentModels.filter(m => m.includes('flash'));
+      const otherModels = contentModels.filter(m => !m.includes('flash'));
+      models = [...flashModels, ...otherModels];
+    } else {
+      const listErr = await listRes.text();
+      console.warn(`⚠️ Failed to list models (${listRes.status}):`, listErr);
+    }
+  } catch (err) {
+    console.warn('⚠️ Could not query model list:', err.message);
+  }
+
+  // Fallback candidate list if discovery failed
+  if (models.length === 0) {
+    models = [
+      'gemini-1.5-flash-002',
+      'gemini-1.5-flash-001',
+      'gemini-1.5-pro-002',
+      'gemini-1.5-pro-001',
+      'gemini-2.0-flash-exp',
+      'gemini-2.5-flash',
+      'gemini-1.5-flash',
+      'gemini-pro'
+    ];
+  }
 
   let lastError = null;
 
@@ -248,7 +279,7 @@ async function callGeminiWithFallback(prompt, temperature) {
 
       if (!response.ok) {
         const errText = await response.text();
-        console.warn(`⚠️ Model "${model}" returned HTTP ${response.status}: ${errText.substring(0, 140)}...`);
+        console.warn(`⚠️ Model "${model}" returned HTTP ${response.status}:`, errText);
         lastError = new Error(`Model ${model} failed (${response.status})`);
         continue;
       }
