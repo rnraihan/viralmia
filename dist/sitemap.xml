@@ -2,38 +2,49 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://viralmia.me/</loc>
-    <lastmod>2026-11-03</lastmod>
+    <lastmod>2026-11-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     
   </url>
   <url>
     <loc>https://viralmia.me/about</loc>
-    <lastmod>2026-11-03</lastmod>
+    <lastmod>2026-11-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     
   </url>
   <url>
     <loc>https://viralmia.me/contact</loc>
-    <lastmod>2026-11-03</lastmod>
+    <lastmod>2026-11-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     
   </url>
   <url>
     <loc>https://viralmia.me/privacy-policy</loc>
-    <lastmod>2026-11-03</lastmod>
+    <lastmod>2026-11-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
     
   </url>
   <url>
     <loc>https://viralmia.me/terms</loc>
-    <lastmod>2026-11-03</lastmod>
+    <lastmod>2026-11-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
     
+  </url>
+  <url>
+    <loc>https://viralmia.me/recipes/sheet-pan-sausage-and-veggies</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>Crispy Sheet Pan Sausage and Veggies (The High-Heat Trick)</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://viralmia.me/recipes/15-minute-creamy-garlic-butter-pasta</loc>
