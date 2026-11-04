@@ -188,31 +188,8 @@ Return a STRICT, RAW JSON object (no markdown code blocks, just raw JSON) with t
   "keywords": ["5", "distinct", "high-intent", "search", "keywords"]
 }`;
 
-  const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`;
-
   try {
-    const response = await fetch(apiUrl, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        contents: [{ parts: [{ text: prompt }] }],
-        generationConfig: {
-          responseMimeType: "application/json",
-          temperature: parseFloat(dynamicTemp)
-        }
-      })
-    });
-
-    if (!response.ok) {
-      const errText = await response.text();
-      throw new Error(`Gemini API error (${response.status}): ${errText}`);
-    }
-
-    const data = await response.json();
-    const candidate = data.candidates?.[0]?.content?.parts?.[0]?.text;
-    if (!candidate) throw new Error('No content returned from Gemini.');
-
-    const recipeData = JSON.parse(candidate);
+    const recipeData = await callGeminiWithFallback(prompt, dynamicTemp);
 
     // Pick contextual high-res food image
     recipeData.heroImage = selectSmartImage(recipeData.title || targetTopic.topic, targetTopic.category);
@@ -237,6 +214,59 @@ Return a STRICT, RAW JSON object (no markdown code blocks, just raw JSON) with t
     console.error('❌ Failed to generate post:', err.message);
     process.exit(1);
   }
+}
+
+async function callGeminiWithFallback(prompt, temperature) {
+  const models = [
+    'gemini-2.0-flash',
+    'gemini-2.5-flash',
+    'gemini-2.0-flash-lite',
+    'gemini-1.5-flash-latest',
+    'gemini-1.5-flash-8b',
+    'gemini-1.5-flash',
+    'gemini-pro'
+  ];
+
+  let lastError = null;
+
+  for (const model of models) {
+    try {
+      console.log(`🤖 Requesting Gemini API with model: "${model}"...`);
+      const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${GEMINI_API_KEY}`;
+
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          contents: [{ parts: [{ text: prompt }] }],
+          generationConfig: {
+            responseMimeType: "application/json",
+            temperature: parseFloat(temperature)
+          }
+        })
+      });
+
+      if (!response.ok) {
+        const errText = await response.text();
+        console.warn(`⚠️ Model "${model}" returned HTTP ${response.status}: ${errText.substring(0, 140)}...`);
+        lastError = new Error(`Model ${model} failed (${response.status})`);
+        continue;
+      }
+
+      const data = await response.json();
+      const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
+      if (text) {
+        console.log(`✨ Successfully generated recipe using active model "${model}"!`);
+        return JSON.parse(text);
+      }
+    } catch (err) {
+      console.warn(`⚠️ Exception calling model "${model}": ${err.message}`);
+      lastError = err;
+    }
+  }
+
+  throw lastError || new Error('All model fallbacks exhausted.');
+}
 }
 
 generateNextPost();
