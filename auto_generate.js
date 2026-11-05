@@ -41,6 +41,11 @@ const CURATED_FOOD_IMAGES = {
     'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=1200&q=80',
     'https://images.unsplash.com/photo-1506084868230-bb9d95c24759?auto=format&fit=crop&w=1200&q=80'
   ],
+  eggs: [
+    'https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&fit=crop&w=1200&q=80',
+    'https://images.unsplash.com/photo-1506976785307-8732e854ad03?auto=format&fit=crop&w=1200&q=80',
+    'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=1200&q=80'
+  ],
   dessert: [
     'https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=1200&q=80',
     'https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=1200&q=80',
@@ -64,7 +69,9 @@ function selectSmartImage(topic, category) {
   const text = `${topic} ${category}`.toLowerCase();
   let pool = CURATED_FOOD_IMAGES.general;
 
-  if (text.includes('pasta') || text.includes('spaghetti') || text.includes('noodle') || text.includes('lasagna')) {
+  if (text.includes('egg') || text.includes('omelet') || text.includes('boiled')) {
+    pool = CURATED_FOOD_IMAGES.eggs;
+  } else if (text.includes('pasta') || text.includes('spaghetti') || text.includes('noodle') || text.includes('lasagna')) {
     pool = CURATED_FOOD_IMAGES.pasta;
   } else if (text.includes('air fryer')) {
     pool = CURATED_FOOD_IMAGES.airFryer;
@@ -72,7 +79,7 @@ function selectSmartImage(topic, category) {
     pool = CURATED_FOOD_IMAGES.chicken;
   } else if (text.includes('soup') || text.includes('stew') || text.includes('chili')) {
     pool = CURATED_FOOD_IMAGES.soup;
-  } else if (text.includes('pancake') || text.includes('egg') || text.includes('breakfast') || text.includes('toast') || text.includes('oat')) {
+  } else if (text.includes('pancake') || text.includes('waffle') || text.includes('breakfast') || text.includes('toast') || text.includes('oat')) {
     pool = CURATED_FOOD_IMAGES.breakfast;
   } else if (text.includes('dessert') || text.includes('cookie') || text.includes('cake') || text.includes('sweet') || text.includes('chocolate')) {
     pool = CURATED_FOOD_IMAGES.dessert;
