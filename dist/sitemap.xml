@@ -47,6 +47,17 @@
     </image:image>
   </url>
   <url>
+    <loc>https://viralmia.me/recipes/one-pot-creamy-tuscan-garlic-chicken</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>The $4-Per-Serving Creamy Tuscan Chicken That Beats My Local Italian Spot</image:title>
+    </image:image>
+  </url>
+  <url>
     <loc>https://viralmia.me/recipes/20-minute-creamy-tomato-basil-soup</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>weekly</changefreq>
