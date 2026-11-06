@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Viral Mia VIP Fan Club & Secret Kitchen Hub | fans.viralmia.me</title>
+  
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DWE4LNEEMC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-DWE4LNEEMC');
+  </script>
+
+  <meta name="description" content="Welcome to the Official Viral Mia Fan Club! Get exclusive 10-minute dinner recipes, viral kitchen hacks, printable cheat sheets, and direct links to Mia's latest dishes.">
+  <link rel="canonical" href="https://fans.viralmia.me">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Mia">
+  <meta name="theme-color" content="#d94830">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍳</text></svg>">
+  
+  <!-- OpenGraph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Viral Mia VIP Hub">
+  <meta property="og:title" content="Viral Mia VIP Fan Club & Secret Kitchen Hub">
+  <meta property="og:description" content="Exclusive 10-minute dinner recipes, viral kitchen hacks, printable meal cheat sheets, and direct links to Mia's creations.">
+  <meta property="og:url" content="https://fans.viralmia.me">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1200&q=80">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #d94830;
+      --primary-hover: #b53520;
+      --primary-glow: rgba(217, 72, 48, 0.28);
+      --accent: #23745c;
+      --accent-light: #e8f5f1;
+      --gold: #f59e0b;
+      --bg-dark: #121413;
+      --card-bg: rgba(255, 255, 255, 0.94);
+      --card-border: rgba(230, 223, 213, 0.7);
+      --text-main: #181d1a;
+      --text-muted: #5e6660;
+      --radius-pill: 999px;
+      --radius-card: 22px;
+      --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: radial-gradient(circle at top center, #fff4ee 0%, #faf6f0 50%, #f3eee6 100%);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px 16px 60px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Ambient Background Glow */
+    body::before {
+      content: "";
+      position: fixed;
+      top: -150px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(217, 72, 48, 0.12) 0%, rgba(245, 158, 11, 0.06) 40%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 580px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    /* Profile Header */
+    .profile-card {
+      text-align: center;
+      padding: 10px 0 6px;
+    }
+
+    .avatar-wrapper {
+      position: relative;
+      width: 108px;
+      height: 108px;
+      margin: 0 auto 16px;
+      border-radius: 50%;
+      padding: 4px;
+      background: linear-gradient(135deg, #d94830, #f59e0b, #23745c);
+      box-shadow: 0 10px 28px rgba(217, 72, 48, 0.28);
+      animation: floatAvatar 4s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatAvatar {
+      0% { transform: translateY(0px); }
+      100% { transform: translateY(-5px); }
+    }
+
+    .avatar-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      background: #fff;
+    }
+
+    .badge-vip {
+      position: absolute;
+      bottom: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #181d1a;
+      color: #ffd166;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      padding: 3px 12px;
+      border-radius: var(--radius-pill);
+      border: 1.5px solid #ffd166;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.18);
+      white-space: nowrap;
+    }
+
+    .title-h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      font-weight: 800;
+      color: #121614;
+      line-height: 1.15;
+      margin-bottom: 6px;
+    }
+
+    .subhead {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      max-width: 440px;
+      margin: 0 auto 12px;
+    }
+
+    .stats-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid var(--card-border);
+      padding: 6px 16px;
+      border-radius: var(--radius-pill);
+      font-size: 13px;
+      font-weight: 600;
+      color: #3b423e;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    }
+    .stats-pill span { color: var(--primary); font-weight: 800; }
+
+    /* VIP Newsletter Card */
+    .vip-card {
+      background: linear-gradient(135deg, #ffffff 0%, #fff7f4 100%);
+      border: 1.5px solid rgba(217, 72, 48, 0.25);
+      border-radius: var(--radius-card);
+      padding: 24px;
+      text-align: center;
+      box-shadow: 0 14px 34px rgba(217, 72, 48, 0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .vip-card::after {
+      content: "SECRET RECIPES";
+      position: absolute;
+      top: 10px;
+      right: -28px;
+      transform: rotate(32deg);
+      background: var(--gold);
+      color: #1a1e1c;
+      font-size: 9px;
+      font-weight: 800;
+      padding: 3px 30px;
+      letter-spacing: 0.8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .vip-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 21px;
+      font-weight: 700;
+      color: #121614;
+      margin-bottom: 6px;
+    }
+
+    .vip-desc {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      line-height: 1.45;
+    }
+
+    .vip-form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    @media (min-width: 480px) {
+      .vip-form {
+        flex-direction: row;
+      }
+    }
+
+    .vip-input {
+      flex: 1;
+      padding: 13px 18px;
+      border-radius: var(--radius-pill);
+      border: 1.5px solid #ded5c9;
+      background: #ffffff;
+      font-size: 14.5px;
+      color: #181d1a;
+      outline: none;
+      transition: all 0.2s;
+    }
+
+    .vip-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px var(--primary-glow);
+    }
+
+    .vip-btn {
+      background: linear-gradient(135deg, var(--primary), var(--primary-hover));
+      color: #ffffff;
+      border: none;
+      padding: 13px 24px;
+      border-radius: var(--radius-pill);
+      font-size: 14.5px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(217, 72, 48, 0.35);
+      transition: all 0.25s var(--ease-smooth);
+      white-space: nowrap;
+    }
+
+    .vip-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(217, 72, 48, 0.45);
+    }
+
+    /* Links Section */
+    .links-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .link-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: var(--card-bg);
+      border: 1.5px solid var(--card-border);
+      border-radius: 18px;
+      padding: 14px 18px;
+      text-decoration: none;
+      color: var(--text-main);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.03);
+      transition: all 0.25s var(--ease-smooth);
+      backdrop-filter: blur(8px);
+      position: relative;
+    }
+
+    .link-card:hover {
+      transform: translateY(-3px) scale(1.01);
+      border-color: rgba(217, 72, 48, 0.4);
+      box-shadow: 0 12px 28px rgba(217, 72, 48, 0.14);
+      background: #ffffff;
+    }
+
+    .link-card.highlight {
+      border-color: rgba(217, 72, 48, 0.35);
+      background: linear-gradient(90deg, #fff7f4 0%, #ffffff 100%);
+    }
+
+    .link-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+      background: #fff0eb;
+      color: var(--primary);
+    }
+
+    .link-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .link-title {
+      font-size: 15.5px;
+      font-weight: 700;
+      color: #121614;
+      line-height: 1.25;
+      margin-bottom: 2px;
+    }
+
+    .link-subtitle {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .link-arrow {
+      color: #a4adA7;
+      font-size: 18px;
+      font-weight: 700;
+      transition: transform 0.2s;
+    }
+
+    .link-card:hover .link-arrow {
+      transform: translateX(4px);
+      color: var(--primary);
+    }
+
+    /* Social Icons Row */
+    .social-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
+      padding: 10px 0;
+    }
+
+    .social-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 1px solid var(--card-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: #3d4541;
+      text-decoration: none;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+      transition: all 0.2s;
+    }
+
+    .social-btn:hover {
+      transform: translateY(-3px);
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+      box-shadow: 0 6px 16px rgba(217, 72, 48, 0.35);
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(120px);
+      background: #181d1a;
+      color: #ffffff;
+      padding: 14px 26px;
+      border-radius: var(--radius-pill);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      font-size: 14px;
+      font-weight: 600;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: transform 0.4s var(--ease-smooth);
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .toast.active {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      font-size: 12.5px;
+      color: #838e87;
+      margin-top: 24px;
+    }
+
+    footer a {
+      color: var(--primary);
+      text-decoration: underline;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- Profile / Brand Header -->
+    <header class="profile-card">
+      <div class="avatar-wrapper">
+        <img class="avatar-img" src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=260&q=80" alt="Mia - Viral Mia Kitchen" width="100" height="100">
+        <div class="badge-vip">★ VIP FANS ★</div>
+      </div>
+      <h1 class="title-h1">Viral Mia Fan Club</h1>
+      <p class="subhead">Quick 15-Minute Meals • Secret Kitchen Hacks • US Budget Foodie Hub</p>
+      
+      <div class="stats-pill">
+        <span>15,000+</span> Home Cooks • <span>Daily</span> Viral Recipes
+      </div>
+    </header>
+
+    <!-- VIP Newsletter Signup Card -->
+    <section class="vip-card">
+      <div class="vip-title">Get Mia's Secret 10-Minute Recipe Vault 🍳</div>
+      <p class="vip-desc">Subscribe to receive unreleased quick weeknight dinner cheat sheets, pantry hack cards, and VIP grocery lists directly.</p>
+      <form class="vip-form" id="vipSignupForm" onsubmit="handleVipSignup(event)">
+        <input type="email" class="vip-input" id="vipEmail" placeholder="Enter your email address..." required>
+        <button type="submit" class="vip-btn">Unlock VIP Recipes →</button>
+      </form>
+    </section>
+
+    <!-- Links Stack -->
+    <main class="links-stack">
+      
+      <!-- Link 1: Official Main Site -->
+      <a href="https://viralmia.me" class="link-card highlight" target="_blank" rel="noopener">
+        <div class="link-icon" style="background: #fff2ef; color: #d94830;">🌟</div>
+        <div class="link-content">
+          <div class="link-title">Official Recipe Blog: viralmia.me</div>
+          <div class="link-subtitle">Browse full tested 15-minute comfort food recipes</div>
+        </div>
+        <div class="link-arrow">→</div>
+      </a>
+
+      <!-- Link 2: Hard-Boiled Egg Hack -->
+      <a href="https://viralmia.me/recipes/how-to-peel-hard-boiled-eggs-water-hack" class="link-card" target="_blank" rel="noopener">
+        <div class="link-icon" style="background: #fef8e7; color: #d97706;">🥚</div>
+        <div class="link-content">
+          <div class="link-title">The Viral Water-Glass Egg Peeling Hack</div>
+          <div class="link-subtitle">Peel fresh eggs in 3 seconds flat with zero shell tears</div>
+        </div>
+        <div class="link-arrow">→</div>
+      </a>
+
+      <!-- Link 3: 3-Ingredient Banana Pancakes -->
+      <a href="https://viralmia.me/recipes/3-ingredient-banana-pancakes-no-sugar" class="link-card" target="_blank" rel="noopener">
+        <div class="link-icon" style="background: #fdf2f8; color: #db2777;">🥞</div>
+        <div class="link-content">
+          <div class="link-title">3-Ingredient Fluffy Banana Pancakes</div>
+          <div class="link-subtitle">Zero flour, zero added sugar, ready in 10 minutes</div>
+        </div>
+        <div class="link-arrow">→</div>
+      </a>
+
+      <!-- Link 4: Creamy Tomato Basil Soup -->
+      <a href="https://viralmia.me/recipes/20-minute-creamy-tomato-basil-soup" class="link-card" target="_blank" rel="noopener">
+        <div class="link-icon" style="background: #e8f5f1; color: #23745c;">🍅</div>
+        <div class="link-content">
+          <div class="link-title">20-Minute Creamy Tomato Basil Soup</div>
+          <div class="link-subtitle">Ultimate silky grilled-cheese dipping comfort soup</div>
+        </div>
+        <div class="link-arrow">→</div>
+      </a>
+
+      <!-- Link 5: Sheet Pan Sausage & Veggies -->
+      <a href="https://viralmia.me/recipes/sheet-pan-sausage-and-veggies" class="link-card" target="_blank" rel="noopener">
+        <div class="link-icon" style="background: #eff6ff; color: #2563eb;">🥦</div>
+        <div class="link-content">
+          <div class="link-title">Sheet Pan Crispy Sausage & Veggies</div>
+          <div class="link-subtitle">One pan, 25 minutes, near zero sink cleanup</div>
+        </div>
+        <div class="link-arrow">→</div>
+      </a>
+
+      <!-- Link 6: Contact & Sponsorships -->
+      <a href="mailto:mia@viralmia.me?subject=Viral%20Mia%20VIP%20Fan%20Message" class="link-card">
+        <div class="link-icon" style="background: #f3f4f6; color: #4b5563;">✉️</div>
+        <div class="link-content">
+          <div class="link-title">Send a Note or Brand Inquiry to Mia</div>
+          <div class="link-subtitle">mia@viralmia.me • Personal replies to fan questions</div>
+        </div>
+        <div class="link-arrow">→</div>
+      </a>
+
+    </main>
+
+    <!-- Social Row -->
+    <div class="social-row">
+      <a href="https://pinterest.com" target="_blank" rel="noopener" class="social-btn" title="Pinterest" aria-label="Pinterest">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345-.09.375-.291 1.199-.334 1.373-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12 0-6.627-5.373-12-12-12z"/></svg>
+      </a>
+      <a href="https://instagram.com" target="_blank" rel="noopener" class="social-btn" title="Instagram" aria-label="Instagram">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      </a>
+      <a href="https://tiktok.com" target="_blank" rel="noopener" class="social-btn" title="TikTok" aria-label="TikTok">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.298-.002.595.042.88.13V9.4a6.33 6.33 0 0 0-1-.08A6.34 6.34 0 0 0 3 15.66a6.34 6.34 0 0 0 10.82 4.47 6.27 6.27 0 0 0 1.88-4.47V8.67a8.21 8.21 0 0 0 4.89 1.6V6.82a4.85 4.85 0 0 1-1-.13z"/></svg>
+      </a>
+      <a href="https://youtube.com" target="_blank" rel="noopener" class="social-btn" title="YouTube" aria-label="YouTube">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+      </a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>© 2026 Viral Mia Kitchen. All rights reserved.</p>
+      <p style="margin-top: 4px;">Explore all recipes on <a href="https://viralmia.me" target="_blank" rel="noopener">viralmia.me</a></p>
+    </footer>
+
+  </div>
+
+  <!-- Toast Element -->
+  <div class="toast" id="toastMessage">
+    <span>🎉</span>
+    <span id="toastText">Welcome to Mia's VIP Kitchen! Check your email!</span>
+  </div>
+
+  <script>
+    function handleVipSignup(e) {
+      e.preventDefault();
+      const email = document.getElementById('vipEmail').value.trim();
+      if (!email) return;
+
+      // Track in GA4
+      if (typeof gtag === 'function') {
+        gtag('event', 'sign_up', {
+          method: 'vip_fan_club',
+          event_category: 'engagement',
+          event_label: email
+        });
+      }
+
+      // Save locally
+      try {
+        const subs = JSON.parse(localStorage.getItem('viralmia_vip_fans') || '[]');
+        subs.push({ email: email, joinedAt: new Date().toISOString() });
+        localStorage.setItem('viralmia_vip_fans', JSON.stringify(subs));
+      } catch (err) {}
+
+      // Show Toast
+      const toast = document.getElementById('toastMessage');
+      const toastText = document.getElementById('toastText');
+      toastText.innerText = `🎉 You're in! Welcome to Mia's VIP Club (${email})`;
+      toast.classList.add('active');
+
+      document.getElementById('vipEmail').value = '';
+
+      setTimeout(() => {
+        toast.classList.remove('active');
+      }, 5000);
+    }
+  </script>
+</body>
+</html>
