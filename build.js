@@ -198,16 +198,33 @@ img { max-width: 100%; height: auto; display: block; }
 .hero-wrapper {
   position: relative;
   background-color: #121614;
-  background-image: 
-    linear-gradient(180deg, rgba(16, 20, 18, 0.72) 0%, rgba(16, 20, 18, 0.90) 100%),
-    url('https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&w=2000&q=85');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   border-bottom: 1px solid var(--border);
   padding: 85px 24px 75px;
   overflow: hidden;
   box-shadow: inset 0 -40px 60px rgba(0,0,0,0.3);
+}
+
+.hero-bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(16, 20, 18, 0.72) 0%, rgba(16, 20, 18, 0.90) 100%);
+  z-index: 1;
+  pointer-events: none;
 }
 
 /* Floating Culinary Emoji Particles */
@@ -218,7 +235,7 @@ img { max-width: 100%; height: auto; display: block; }
   filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5));
   pointer-events: none;
   animation: floatParticle 8s infinite ease-in-out alternate;
-  z-index: 1;
+  z-index: 2;
 }
 .fp-1 { top: 12%; left: 6%; animation-duration: 9s; }
 .fp-2 { top: 20%; right: 7%; animation-duration: 7s; font-size: 38px; }
@@ -1157,7 +1174,7 @@ function layout(title, content, meta = {}) {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://images.unsplash.com">
   <link rel="dns-prefetch" href="https://images.unsplash.com">
-  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&w=1200&q=80" fetchpriority="high">
+  ${meta.preloadImage ? `<link rel="preload" as="image" href="${meta.preloadImage}" fetchpriority="high">` : ''}
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>${GLOBAL_CSS}</style>
@@ -1404,6 +1421,18 @@ function buildHomePage(posts, currentCategory = 'All') {
   const content = `
     <!-- Cinematic Hero Section with Background Atmosphere -->
     <section class="hero-wrapper">
+      <img 
+        class="hero-bg-img" 
+        src="https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&w=1200&q=75" 
+        alt="Cozy skillet cooking background" 
+        fetchpriority="high" 
+        decoding="async" 
+        loading="eager"
+        width="1200" 
+        height="600"
+      >
+      <div class="hero-overlay"></div>
+
       <!-- Floating Foodie Emojis -->
       <span class="floating-particle fp-1" title="Fresh Pasta">🍝</span>
       <span class="floating-particle fp-2" title="Fresh Basil">🌿</span>
@@ -1487,7 +1516,8 @@ function buildHomePage(posts, currentCategory = 'All') {
 
   return layout('Quick 15-Minute Meals & Smart Kitchen Hacks', content, {
     canonical: currentCategory === 'All' ? SITE_URL : `${SITE_URL}/category/${currentCategory.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`,
-    schemas: [websiteSchema, orgSchema]
+    schemas: [websiteSchema, orgSchema],
+    preloadImage: 'https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&w=1200&q=75'
   });
 }
 
@@ -1615,7 +1645,7 @@ function buildRecipePage(post) {
         </div>
       </header>
 
-      <img class="article-hero reveal-on-scroll" src="${post.heroImage}" alt="${post.title}" width="1200" height="675">
+      <img class="article-hero reveal-on-scroll" src="${post.heroImage}" alt="${post.title}" width="1200" height="675" fetchpriority="high" decoding="async">
 
       <!-- Personal Diary Intro -->
       <div class="diary-card reveal-on-scroll">
@@ -1736,6 +1766,7 @@ function buildRecipePage(post) {
     description: post.description,
     canonical: `${SITE_URL}/recipes/${post.slug}`,
     image: post.heroImage,
+    preloadImage: post.heroImage,
     type: 'article',
     schemas
   });

@@ -47,7 +47,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://images.unsplash.com">
   <link rel="dns-prefetch" href="https://images.unsplash.com">
-  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&w=1200&q=80" fetchpriority="high">
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1608897013039-887f21d8c804?auto=format&fit=crop&w=1200&q=80" fetchpriority="high">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
@@ -209,16 +209,33 @@ img { max-width: 100%; height: auto; display: block; }
 .hero-wrapper {
   position: relative;
   background-color: #121614;
-  background-image: 
-    linear-gradient(180deg, rgba(16, 20, 18, 0.72) 0%, rgba(16, 20, 18, 0.90) 100%),
-    url('https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&w=2000&q=85');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   border-bottom: 1px solid var(--border);
   padding: 85px 24px 75px;
   overflow: hidden;
   box-shadow: inset 0 -40px 60px rgba(0,0,0,0.3);
+}
+
+.hero-bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(16, 20, 18, 0.72) 0%, rgba(16, 20, 18, 0.90) 100%);
+  z-index: 1;
+  pointer-events: none;
 }
 
 /* Floating Culinary Emoji Particles */
@@ -229,7 +246,7 @@ img { max-width: 100%; height: auto; display: block; }
   filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5));
   pointer-events: none;
   animation: floatParticle 8s infinite ease-in-out alternate;
-  z-index: 1;
+  z-index: 2;
 }
 .fp-1 { top: 12%; left: 6%; animation-duration: 9s; }
 .fp-2 { top: 20%; right: 7%; animation-duration: 7s; font-size: 38px; }
@@ -1109,7 +1126,7 @@ img { max-width: 100%; height: auto; display: block; }
   .newsletter-banner h2 { font-size: 28px; }
 }
 </style>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Recipe","name":"15-Minute Creamy Garlic Butter Pasta with Lemon","image":["https://images.unsplash.com/photo-1608897013039-887f21d8c804?auto=format&fit=crop&w=1200&q=80"],"author":{"@type":"Person","name":"Mia","url":"https://viralmia.me/about"},"publisher":{"@type":"Organization","name":"Viral Mia Kitchen","logo":{"@type":"ImageObject","url":"https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=400&q=80"}},"datePublished":"2026-11-03","dateModified":"2026-11-03","description":"The ultimate quick weeknight comfort dinner! Velvety garlic butter sauce tossed with al dente pasta and a splash of fresh lemon juice, ready in just 15 minutes.","prepTime":"PT10M","cookTime":"PT15M","totalTime":"PT25M","keywords":"garlic butter pasta, 15 minute dinner, easy pasta recipe, comfort food, weeknight meals","recipeYield":"4","recipeCategory":"Quick Dinners","recipeCuisine":"American","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":48,"bestRating":"5","worstRating":"1"},"nutrition":{"@type":"NutritionInformation","calories":"410 kcal","proteinContent":"24g","carbohydrateContent":"42g","fatContent":"14g","fiberContent":"4g"},"recipeIngredient":["8 oz (225g) spaghetti, fettuccine, or linguine","4 tablespoons unsalted butter (good quality butter makes a huge difference!)","5 cloves garlic, finely minced","1/2 cup grated Parmesan cheese (freshly grated melts best)","1/2 cup heavy cream (or whole milk for a lighter version)","1 tablespoon fresh lemon juice + 1/2 tsp lemon zest","1/2 teaspoon red pepper flakes (optional for a subtle kick)","Salt and freshly cracked black pepper to taste","Fresh chopped parsley for garnish"],"recipeInstructions":[{"@type":"HowToStep","name":"Step 1","text":"Boil the Pasta: Bring a large pot of heavily salted water to a rolling boil. Add pasta and cook until al dente according to package instructions. Crucial: Reserve 1/2 cup of starchy pasta water before draining!"},{"@type":"HowToStep","name":"Step 2","text":"Sauté the Garlic: While pasta cooks, melt the butter in a large skillet over medium-low heat. Add the minced garlic and red pepper flakes. Sauté for about 60 seconds until fragrant and golden—do not burn the garlic!"},{"@type":"HowToStep","name":"Step 3","text":"Build the Sauce: Pour in the heavy cream and let it gently simmer for 2 minutes. Stir in the freshly grated Parmesan cheese until melted and smooth."},{"@type":"HowToStep","name":"Step 4","text":"Toss and Emulsify: Add the drained pasta directly into the skillet. Drizzle in a few tablespoons of the reserved starchy pasta water and toss vigorously until the glossy sauce coats every single strand."},{"@type":"HowToStep","name":"Step 5","text":"Finish and Serve: Stir in the fresh lemon juice and zest. Season with black pepper and a pinch of salt. Garnish generously with fresh parsley and extra Parmesan. Serve immediately hot!"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Recipe","name":"15-Minute Creamy Garlic Butter Pasta with Lemon","image":["https://images.unsplash.com/photo-1608897013039-887f21d8c804?auto=format&fit=crop&w=1200&q=80"],"author":{"@type":"Person","name":"Mia","url":"https://viralmia.me/about"},"publisher":{"@type":"Organization","name":"Viral Mia Kitchen","logo":{"@type":"ImageObject","url":"https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=400&q=80"}},"datePublished":"2026-11-03","dateModified":"2026-11-03","description":"The ultimate quick weeknight comfort dinner! Velvety garlic butter sauce tossed with al dente pasta and a splash of fresh lemon juice, ready in just 15 minutes.","prepTime":"PT10M","cookTime":"PT15M","totalTime":"PT25M","keywords":"garlic butter pasta, 15 minute dinner, easy pasta recipe, comfort food, weeknight meals","recipeYield":"4","recipeCategory":"Quick Dinners","recipeCuisine":"American","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":46,"bestRating":"5","worstRating":"1"},"nutrition":{"@type":"NutritionInformation","calories":"410 kcal","proteinContent":"24g","carbohydrateContent":"42g","fatContent":"14g","fiberContent":"4g"},"recipeIngredient":["8 oz (225g) spaghetti, fettuccine, or linguine","4 tablespoons unsalted butter (good quality butter makes a huge difference!)","5 cloves garlic, finely minced","1/2 cup grated Parmesan cheese (freshly grated melts best)","1/2 cup heavy cream (or whole milk for a lighter version)","1 tablespoon fresh lemon juice + 1/2 tsp lemon zest","1/2 teaspoon red pepper flakes (optional for a subtle kick)","Salt and freshly cracked black pepper to taste","Fresh chopped parsley for garnish"],"recipeInstructions":[{"@type":"HowToStep","name":"Step 1","text":"Boil the Pasta: Bring a large pot of heavily salted water to a rolling boil. Add pasta and cook until al dente according to package instructions. Crucial: Reserve 1/2 cup of starchy pasta water before draining!"},{"@type":"HowToStep","name":"Step 2","text":"Sauté the Garlic: While pasta cooks, melt the butter in a large skillet over medium-low heat. Add the minced garlic and red pepper flakes. Sauté for about 60 seconds until fragrant and golden—do not burn the garlic!"},{"@type":"HowToStep","name":"Step 3","text":"Build the Sauce: Pour in the heavy cream and let it gently simmer for 2 minutes. Stir in the freshly grated Parmesan cheese until melted and smooth."},{"@type":"HowToStep","name":"Step 4","text":"Toss and Emulsify: Add the drained pasta directly into the skillet. Drizzle in a few tablespoons of the reserved starchy pasta water and toss vigorously until the glossy sauce coats every single strand."},{"@type":"HowToStep","name":"Step 5","text":"Finish and Serve: Stir in the fresh lemon juice and zest. Season with black pepper and a pinch of salt. Garnish generously with fresh parsley and extra Parmesan. Serve immediately hot!"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://viralmia.me"},{"@type":"ListItem","position":2,"name":"Quick Dinners","item":"https://viralmia.me/category/quick-dinners"},{"@type":"ListItem","position":3,"name":"15-Minute Creamy Garlic Butter Pasta with Lemon","item":"https://viralmia.me/recipes/15-minute-creamy-garlic-butter-pasta"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I make this pasta gluten-free?","acceptedAnswer":{"@type":"Answer","text":"Yes! Swap the standard pasta with any good gluten-free pasta (like brown rice or chickpea pasta). The sauce is naturally gluten-free as we don't use any flour roux."}},{"@type":"Question","name":"What protein can I add to make this a full meal?","acceptedAnswer":{"@type":"Answer","text":"Grilled chicken breast, pan-seared shrimp, or even crispy bacon bits pair heavenly with this garlic butter sauce."}}]}</script>
 </head>
@@ -1159,7 +1176,7 @@ img { max-width: 100%; height: auto; display: block; }
           <span>•</span>
           <span>Published on 2026-11-03</span>
           <span>•</span>
-          <span style="color: var(--gold); font-weight: 700;">★★★★★ 4.9 (48 Reviews)</span>
+          <span style="color: var(--gold); font-weight: 700;">★★★★★ 4.9 (46 Reviews)</span>
         </div>
 
         <!-- Jump to Recipe & Print Actions -->
@@ -1169,7 +1186,7 @@ img { max-width: 100%; height: auto; display: block; }
         </div>
       </header>
 
-      <img class="article-hero reveal-on-scroll" src="https://images.unsplash.com/photo-1608897013039-887f21d8c804?auto=format&fit=crop&w=1200&q=80" alt="15-Minute Creamy Garlic Butter Pasta with Lemon" width="1200" height="675">
+      <img class="article-hero reveal-on-scroll" src="https://images.unsplash.com/photo-1608897013039-887f21d8c804?auto=format&fit=crop&w=1200&q=80" alt="15-Minute Creamy Garlic Butter Pasta with Lemon" width="1200" height="675" fetchpriority="high" decoding="async">
 
       <!-- Personal Diary Intro -->
       <div class="diary-card reveal-on-scroll">
@@ -1219,47 +1236,47 @@ img { max-width: 100%; height: auto; display: block; }
           <ul class="ingredients-list">
             
     <li class="ing-item">
-      <input type="checkbox" id="ing-6m9jj7t0j">
+      <input type="checkbox" id="ing-k270hykdi">
       <label>8 oz (225g) spaghetti, fettuccine, or linguine</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-dmh1y8bnj">
+      <input type="checkbox" id="ing-wl1sf8hx5">
       <label>4 tablespoons unsalted butter (good quality butter makes a huge difference!)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-idarllnia">
+      <input type="checkbox" id="ing-p4r8voz7n">
       <label>5 cloves garlic, finely minced</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-bj3iwvupr">
+      <input type="checkbox" id="ing-ve955x3kl">
       <label>1/2 cup grated Parmesan cheese (freshly grated melts best)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-tp7fcqtj4">
+      <input type="checkbox" id="ing-2yu7vk9g4">
       <label>1/2 cup heavy cream (or whole milk for a lighter version)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-ecgfp4jqy">
+      <input type="checkbox" id="ing-i0iy86tjc">
       <label>1 tablespoon fresh lemon juice + 1/2 tsp lemon zest</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-pdm093bqw">
+      <input type="checkbox" id="ing-kfsvqvf8f">
       <label>1/2 teaspoon red pepper flakes (optional for a subtle kick)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-whszdn6np">
+      <input type="checkbox" id="ing-kug4gdzbp">
       <label>Salt and freshly cracked black pepper to taste</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-0qjn9q2nq">
+      <input type="checkbox" id="ing-qpwi6qnhv">
       <label>Fresh chopped parsley for garnish</label>
     </li>
   

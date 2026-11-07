@@ -47,7 +47,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://images.unsplash.com">
   <link rel="dns-prefetch" href="https://images.unsplash.com">
-  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&w=1200&q=80" fetchpriority="high">
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1516594798947-e65505dbb29d?auto=format&fit=crop&w=1200&q=80" fetchpriority="high">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
@@ -209,16 +209,33 @@ img { max-width: 100%; height: auto; display: block; }
 .hero-wrapper {
   position: relative;
   background-color: #121614;
-  background-image: 
-    linear-gradient(180deg, rgba(16, 20, 18, 0.72) 0%, rgba(16, 20, 18, 0.90) 100%),
-    url('https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&w=2000&q=85');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   border-bottom: 1px solid var(--border);
   padding: 85px 24px 75px;
   overflow: hidden;
   box-shadow: inset 0 -40px 60px rgba(0,0,0,0.3);
+}
+
+.hero-bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(16, 20, 18, 0.72) 0%, rgba(16, 20, 18, 0.90) 100%);
+  z-index: 1;
+  pointer-events: none;
 }
 
 /* Floating Culinary Emoji Particles */
@@ -229,7 +246,7 @@ img { max-width: 100%; height: auto; display: block; }
   filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5));
   pointer-events: none;
   animation: floatParticle 8s infinite ease-in-out alternate;
-  z-index: 1;
+  z-index: 2;
 }
 .fp-1 { top: 12%; left: 6%; animation-duration: 9s; }
 .fp-2 { top: 20%; right: 7%; animation-duration: 7s; font-size: 38px; }
@@ -1169,7 +1186,7 @@ img { max-width: 100%; height: auto; display: block; }
         </div>
       </header>
 
-      <img class="article-hero reveal-on-scroll" src="https://images.unsplash.com/photo-1516594798947-e65505dbb29d?auto=format&fit=crop&w=1200&q=80" alt="Stop Throwing Away Hard Loaves: How to Revive Stale Bread Perfectly" width="1200" height="675">
+      <img class="article-hero reveal-on-scroll" src="https://images.unsplash.com/photo-1516594798947-e65505dbb29d?auto=format&fit=crop&w=1200&q=80" alt="Stop Throwing Away Hard Loaves: How to Revive Stale Bread Perfectly" width="1200" height="675" fetchpriority="high" decoding="async">
 
       <!-- Personal Diary Intro -->
       <div class="diary-card reveal-on-scroll">
@@ -1219,27 +1236,27 @@ img { max-width: 100%; height: auto; display: block; }
           <ul class="ingredients-list">
             
     <li class="ing-item">
-      <input type="checkbox" id="ing-udsjw4pxc">
+      <input type="checkbox" id="ing-zr3ep56sn">
       <label>1 stale loaf of crusty bread (sourdough, baguette, or Italian batard)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-wi4w9phox">
+      <input type="checkbox" id="ing-yjqm65g86">
       <label>Cold tap water (just enough to wet the crust thoroughly)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-ams4m34b2">
+      <input type="checkbox" id="ing-g4nyvbxpw">
       <label>2 tablespoons Kerrygold unsalted butter (optional, for brushing)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-3gmrbhlpc">
+      <input type="checkbox" id="ing-xm4krb0ww">
       <label>1 pinch of flaky sea salt (like Maldon)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-ox3b2xi5a">
+      <input type="checkbox" id="ing-rch5pn4f9">
       <label>1 clove garlic, halved (optional, for rubbing post-bake)</label>
     </li>
   

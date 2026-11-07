@@ -47,7 +47,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://images.unsplash.com">
   <link rel="dns-prefetch" href="https://images.unsplash.com">
-  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&w=1200&q=80" fetchpriority="high">
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1603105037880-880cd4edfb0d?auto=format&fit=crop&w=1200&q=80" fetchpriority="high">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
@@ -209,16 +209,33 @@ img { max-width: 100%; height: auto; display: block; }
 .hero-wrapper {
   position: relative;
   background-color: #121614;
-  background-image: 
-    linear-gradient(180deg, rgba(16, 20, 18, 0.72) 0%, rgba(16, 20, 18, 0.90) 100%),
-    url('https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&w=2000&q=85');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   border-bottom: 1px solid var(--border);
   padding: 85px 24px 75px;
   overflow: hidden;
   box-shadow: inset 0 -40px 60px rgba(0,0,0,0.3);
+}
+
+.hero-bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(16, 20, 18, 0.72) 0%, rgba(16, 20, 18, 0.90) 100%);
+  z-index: 1;
+  pointer-events: none;
 }
 
 /* Floating Culinary Emoji Particles */
@@ -229,7 +246,7 @@ img { max-width: 100%; height: auto; display: block; }
   filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5));
   pointer-events: none;
   animation: floatParticle 8s infinite ease-in-out alternate;
-  z-index: 1;
+  z-index: 2;
 }
 .fp-1 { top: 12%; left: 6%; animation-duration: 9s; }
 .fp-2 { top: 20%; right: 7%; animation-duration: 7s; font-size: 38px; }
@@ -1169,7 +1186,7 @@ img { max-width: 100%; height: auto; display: block; }
         </div>
       </header>
 
-      <img class="article-hero reveal-on-scroll" src="https://images.unsplash.com/photo-1603105037880-880cd4edfb0d?auto=format&fit=crop&w=1200&q=80" alt="20-Minute Creamy Tomato Basil Soup That Saved My Sanity" width="1200" height="675">
+      <img class="article-hero reveal-on-scroll" src="https://images.unsplash.com/photo-1603105037880-880cd4edfb0d?auto=format&fit=crop&w=1200&q=80" alt="20-Minute Creamy Tomato Basil Soup That Saved My Sanity" width="1200" height="675" fetchpriority="high" decoding="async">
 
       <!-- Personal Diary Intro -->
       <div class="diary-card reveal-on-scroll">
@@ -1219,42 +1236,42 @@ img { max-width: 100%; height: auto; display: block; }
           <ul class="ingredients-list">
             
     <li class="ing-item">
-      <input type="checkbox" id="ing-wl7fgqqq1">
+      <input type="checkbox" id="ing-a7f40tvk0">
       <label>1 tablespoon Kerrygold unsalted butter (or olive oil)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-nrsvb0r9b">
+      <input type="checkbox" id="ing-3i77jmfr5">
       <label>3 cloves garlic, minced</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-x3w35fnnb">
+      <input type="checkbox" id="ing-6hgud5ier">
       <label>1 can (28 ounces) San Marzano crushed tomatoes</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-ddseo1b75">
+      <input type="checkbox" id="ing-csy99sgzv">
       <label>1.5 cups chicken broth or vegetable broth</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-fassoszz9">
+      <input type="checkbox" id="ing-qgjj45wep">
       <label>1/2 cup heavy cream (or full-fat canned coconut milk)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-bodmjz78j">
+      <input type="checkbox" id="ing-a1b3gjzo4">
       <label>1/4 cup fresh basil leaves, roughly chopped</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-1u6k6hicp">
+      <input type="checkbox" id="ing-lm2nt5ntm">
       <label>1 teaspoon kosher salt</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-ufwstux1i">
+      <input type="checkbox" id="ing-5pfagu79i">
       <label>1/4 teaspoon freshly cracked black pepper</label>
     </li>
   

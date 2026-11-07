@@ -47,7 +47,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://images.unsplash.com">
   <link rel="dns-prefetch" href="https://images.unsplash.com">
-  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&w=1200&q=80" fetchpriority="high">
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=1200&q=80" fetchpriority="high">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
@@ -209,16 +209,33 @@ img { max-width: 100%; height: auto; display: block; }
 .hero-wrapper {
   position: relative;
   background-color: #121614;
-  background-image: 
-    linear-gradient(180deg, rgba(16, 20, 18, 0.72) 0%, rgba(16, 20, 18, 0.90) 100%),
-    url('https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&w=2000&q=85');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   border-bottom: 1px solid var(--border);
   padding: 85px 24px 75px;
   overflow: hidden;
   box-shadow: inset 0 -40px 60px rgba(0,0,0,0.3);
+}
+
+.hero-bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(16, 20, 18, 0.72) 0%, rgba(16, 20, 18, 0.90) 100%);
+  z-index: 1;
+  pointer-events: none;
 }
 
 /* Floating Culinary Emoji Particles */
@@ -229,7 +246,7 @@ img { max-width: 100%; height: auto; display: block; }
   filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5));
   pointer-events: none;
   animation: floatParticle 8s infinite ease-in-out alternate;
-  z-index: 1;
+  z-index: 2;
 }
 .fp-1 { top: 12%; left: 6%; animation-duration: 9s; }
 .fp-2 { top: 20%; right: 7%; animation-duration: 7s; font-size: 38px; }
@@ -1169,7 +1186,7 @@ img { max-width: 100%; height: auto; display: block; }
         </div>
       </header>
 
-      <img class="article-hero reveal-on-scroll" src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=1200&q=80" alt="How I Turn Cheap Ramen Into a $4 Gourmet Dinner With Peanut Butter" width="1200" height="675">
+      <img class="article-hero reveal-on-scroll" src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=1200&q=80" alt="How I Turn Cheap Ramen Into a $4 Gourmet Dinner With Peanut Butter" width="1200" height="675" fetchpriority="high" decoding="async">
 
       <!-- Personal Diary Intro -->
       <div class="diary-card reveal-on-scroll">
@@ -1219,42 +1236,42 @@ img { max-width: 100%; height: auto; display: block; }
           <ul class="ingredients-list">
             
     <li class="ing-item">
-      <input type="checkbox" id="ing-dashujxog">
+      <input type="checkbox" id="ing-aem2yy9i1">
       <label>1 pack instant ramen noodles (any flavor, though chicken works best)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-c94nawuh5">
+      <input type="checkbox" id="ing-s5u7n1p11">
       <label>2 tablespoons creamy peanut butter (Trader Joe's or Jif)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-1avipx7te">
+      <input type="checkbox" id="ing-p2golhr8r">
       <label>1 tablespoon soy sauce</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-ks8na8uvo">
+      <input type="checkbox" id="ing-dtzjjhew1">
       <label>1 teaspoon sriracha or chili garlic sauce</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-w8awy4imt">
+      <input type="checkbox" id="ing-4gqzqgh3d">
       <label>1/2 teaspoon sesame oil</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-j4q7byn2d">
+      <input type="checkbox" id="ing-hvm4lb68k">
       <label>1 clove garlic, minced</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-j7lopppi6">
+      <input type="checkbox" id="ing-nsvka12ua">
       <label>1/4 cup hot starchy water reserved from cooking the noodles</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-077m554pe">
+      <input type="checkbox" id="ing-rmuieti5g">
       <label>1 green onion, thinly sliced for topping</label>
     </li>
   

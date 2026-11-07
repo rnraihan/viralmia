@@ -47,7 +47,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://images.unsplash.com">
   <link rel="dns-prefetch" href="https://images.unsplash.com">
-  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&w=1200&q=80" fetchpriority="high">
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=1200&q=80" fetchpriority="high">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
@@ -209,16 +209,33 @@ img { max-width: 100%; height: auto; display: block; }
 .hero-wrapper {
   position: relative;
   background-color: #121614;
-  background-image: 
-    linear-gradient(180deg, rgba(16, 20, 18, 0.72) 0%, rgba(16, 20, 18, 0.90) 100%),
-    url('https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&w=2000&q=85');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   border-bottom: 1px solid var(--border);
   padding: 85px 24px 75px;
   overflow: hidden;
   box-shadow: inset 0 -40px 60px rgba(0,0,0,0.3);
+}
+
+.hero-bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(16, 20, 18, 0.72) 0%, rgba(16, 20, 18, 0.90) 100%);
+  z-index: 1;
+  pointer-events: none;
 }
 
 /* Floating Culinary Emoji Particles */
@@ -229,7 +246,7 @@ img { max-width: 100%; height: auto; display: block; }
   filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5));
   pointer-events: none;
   animation: floatParticle 8s infinite ease-in-out alternate;
-  z-index: 1;
+  z-index: 2;
 }
 .fp-1 { top: 12%; left: 6%; animation-duration: 9s; }
 .fp-2 { top: 20%; right: 7%; animation-duration: 7s; font-size: 38px; }
@@ -1169,7 +1186,7 @@ img { max-width: 100%; height: auto; display: block; }
         </div>
       </header>
 
-      <img class="article-hero reveal-on-scroll" src="https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=1200&q=80" alt="The $4-Per-Serving Creamy Tuscan Chicken That Beats My Local Italian Spot" width="1200" height="675">
+      <img class="article-hero reveal-on-scroll" src="https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=1200&q=80" alt="The $4-Per-Serving Creamy Tuscan Chicken That Beats My Local Italian Spot" width="1200" height="675" fetchpriority="high" decoding="async">
 
       <!-- Personal Diary Intro -->
       <div class="diary-card reveal-on-scroll">
@@ -1219,47 +1236,47 @@ img { max-width: 100%; height: auto; display: block; }
           <ul class="ingredients-list">
             
     <li class="ing-item">
-      <input type="checkbox" id="ing-np3w1u7x1">
+      <input type="checkbox" id="ing-d8l0q8ktq">
       <label>1.5 lbs chicken breast, sliced into thin cutlets</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-fgjld2v47">
+      <input type="checkbox" id="ing-b2fey1469">
       <label>1 tablespoon avocado oil</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-00izbp5zp">
+      <input type="checkbox" id="ing-9l0gdppuj">
       <label>4 cloves garlic, minced</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-1kc0falul">
+      <input type="checkbox" id="ing-io5173cwg">
       <label>1/2 cup sun-dried tomatoes, chopped</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-rz14ytvh5">
+      <input type="checkbox" id="ing-r3xp5j1qv">
       <label>2 cups fresh baby spinach</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-m1f0mgpmk">
+      <input type="checkbox" id="ing-kue2twh8f">
       <label>1 cup heavy cream (or half-and-half for a lighter swap)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-l0ns6znln">
+      <input type="checkbox" id="ing-epgldidh1">
       <label>1/2 cup grated Parmesan cheese</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-nswah4zb1">
+      <input type="checkbox" id="ing-i5bfgy983">
       <label>1 teaspoon kosher salt</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-jb73bww9m">
+      <input type="checkbox" id="ing-246045cuv">
       <label>1/2 teaspoon red pepper flakes</label>
     </li>
   
