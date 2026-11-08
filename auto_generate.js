@@ -51,6 +51,26 @@ const CURATED_FOOD_IMAGES = {
     'https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=1200&q=80',
     'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1200&q=80'
   ],
+  potato: [
+    'https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=1200&q=80',
+    'https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=1200&q=80',
+    'https://images.unsplash.com/photo-1590165482129-1b8b27698780?auto=format&fit=crop&w=1200&q=80'
+  ],
+  steak: [
+    'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80',
+    'https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=1200&q=80',
+    'https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=1200&q=80'
+  ],
+  turkey: [
+    'https://images.unsplash.com/photo-1514944298352-78d12e69888d?auto=format&fit=crop&w=1200&q=80',
+    'https://images.unsplash.com/photo-1574672280600-4accfa5b6f98?auto=format&fit=crop&w=1200&q=80',
+    'https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=1200&q=80'
+  ],
+  baking: [
+    'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1200&q=80',
+    'https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=1200&q=80',
+    'https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=1200&q=80'
+  ],
   hack: [
     'https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=1200&q=80',
     'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1200&q=80',
@@ -69,9 +89,17 @@ function selectSmartImage(topic, category) {
   const text = `${topic} ${category}`.toLowerCase();
   let pool = CURATED_FOOD_IMAGES.general;
 
-  if (text.includes('egg') || text.includes('omelet') || text.includes('boiled')) {
+  if (text.includes('steak') || text.includes('beef')) {
+    pool = CURATED_FOOD_IMAGES.steak;
+  } else if (text.includes('turkey')) {
+    pool = CURATED_FOOD_IMAGES.turkey;
+  } else if (text.includes('potato') || text.includes('mashed')) {
+    pool = CURATED_FOOD_IMAGES.potato;
+  } else if (text.includes('donut') || text.includes('crisp') || text.includes('bread') || text.includes('brie') || text.includes('casserole') || text.includes('baking')) {
+    pool = CURATED_FOOD_IMAGES.baking;
+  } else if (text.includes('egg') || text.includes('omelet') || text.includes('boiled')) {
     pool = CURATED_FOOD_IMAGES.eggs;
-  } else if (text.includes('pasta') || text.includes('spaghetti') || text.includes('noodle') || text.includes('lasagna')) {
+  } else if (text.includes('pasta') || text.includes('spaghetti') || text.includes('noodle') || text.includes('gnocchi') || text.includes('lasagna')) {
     pool = CURATED_FOOD_IMAGES.pasta;
   } else if (text.includes('air fryer')) {
     pool = CURATED_FOOD_IMAGES.airFryer;
