@@ -1386,8 +1386,8 @@ function buildHomePage(posts, currentCategory = 'All') {
     return `<a href="${href}" class="cat-btn ${isAct ? 'active' : ''}">${label}</a>`;
   }).join('');
 
-  const postCards = posts.map(post => `
-    <article class="post-card reveal-on-scroll" data-category="${post.category}">
+  const postCards = posts.map((post, idx) => `
+    <article class="post-card ${idx < 6 ? '' : 'reveal-on-scroll'}" data-category="${post.category}">
       <div class="card-img-wrap">
         <a href="/recipes/${post.slug}">
           <img class="post-card-img" src="${post.heroImage}" alt="${post.title}" loading="lazy">
@@ -1423,7 +1423,7 @@ function buildHomePage(posts, currentCategory = 'All') {
     <section class="hero-wrapper">
       <img 
         class="hero-bg-img" 
-        src="https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&w=1200&q=75" 
+        src="/assets/hero-bg.jpg" 
         alt="Cozy skillet cooking background" 
         fetchpriority="high" 
         decoding="async" 
@@ -1517,7 +1517,7 @@ function buildHomePage(posts, currentCategory = 'All') {
   return layout('Quick 15-Minute Meals & Smart Kitchen Hacks', content, {
     canonical: currentCategory === 'All' ? SITE_URL : `${SITE_URL}/category/${currentCategory.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`,
     schemas: [websiteSchema, orgSchema],
-    preloadImage: 'https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&w=1200&q=75'
+    preloadImage: '/assets/hero-bg.jpg'
   });
 }
 
@@ -1627,7 +1627,7 @@ function buildRecipePage(post) {
       </nav>
 
       <!-- Article Header -->
-      <header class="article-header reveal-on-scroll">
+      <header class="article-header">
         <div class="hero-tag">${post.category}</div>
         <h1>${post.title}</h1>
         <div class="article-byline">
@@ -1645,7 +1645,7 @@ function buildRecipePage(post) {
         </div>
       </header>
 
-      <img class="article-hero reveal-on-scroll" src="${post.heroImage}" alt="${post.title}" width="1200" height="675" fetchpriority="high" decoding="async">
+      <img class="article-hero" src="${post.heroImage}" alt="${post.title}" width="1200" height="675" fetchpriority="high" decoding="async">
 
       <!-- Personal Diary Intro -->
       <div class="diary-card reveal-on-scroll">
@@ -1904,6 +1904,12 @@ Sitemap: ${SITE_URL}/sitemap.xml
 function main() {
   console.log('🚀 Running Cinematic Visual & Background Atmosphere Build for Viral Mia...');
   ensureDir(DIST_DIR);
+  const localAssets = path.join(__dirname, 'assets');
+  if (fs.existsSync(localAssets)) {
+    const distAssets = path.join(DIST_DIR, 'assets');
+    ensureDir(distAssets);
+    fs.cpSync(localAssets, distAssets, { recursive: true });
+  }
 
   const posts = getAllPosts();
   console.log(`Loaded ${posts.length} recipes.`);
