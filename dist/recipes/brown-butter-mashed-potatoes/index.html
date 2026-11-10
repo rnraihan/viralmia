@@ -1111,19 +1111,93 @@ img { max-width: 100%; height: auto; display: block; }
   }
 }
 
+/* Recipe Action Toolbar */
+.recipe-action-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.tool-btn {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s var(--ease-smooth);
+}
+.tool-btn:hover {
+  background: #fff;
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+.tool-btn.active {
+  background: #ecfdf5;
+  border-color: #10b981;
+  color: #065f46;
+}
+
+/* Related Recipes Section */
+.related-recipes-wrap {
+  margin-top: 56px;
+  padding-top: 40px;
+  border-top: 2px dashed var(--border);
+}
+.sec-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.sec-title-row h3 {
+  font-size: 26px;
+  font-weight: 800;
+}
+.view-all-link {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary);
+}
+.view-all-link:hover {
+  text-decoration: underline;
+}
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
-  .hero h1 { font-size: 38px; }
-  .article-header h1 { font-size: 32px; }
-  .recipe-card-box { padding: 26px 20px; }
-  .recipe-stats { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-  .nutrition-grid { grid-template-columns: repeat(3, 1fr); }
+  .hero-wrapper { padding: 40px 18px 30px; }
+  .hero-highlights { gap: 6px; }
+  .highlight-pill { font-size: 11px; padding: 4px 8px; }
+  .schedule-pill { display: none; }
+  .floating-particle { display: none; }
+  .hero h1 { font-size: 32px; }
+  .article-header h1 { font-size: 28px; }
+  .recipe-card-box { padding: 22px 16px; }
+  .recipe-stats { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .nutrition-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
   .author-card { flex-direction: column; text-align: center; }
   .footer-wrap { grid-template-columns: 1fr; gap: 32px; }
   .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
   .nav-links { display: none; }
-  .newsletter-banner { padding: 40px 20px; margin: 40px 16px; }
-  .newsletter-banner h2 { font-size: 28px; }
+  .newsletter-banner { padding: 32px 16px; margin: 32px 12px; }
+  .newsletter-banner h2 { font-size: 24px; }
+  .related-grid { grid-template-columns: 1fr; gap: 16px; }
+  .recipe-action-toolbar { justify-content: stretch; }
+  .tool-btn { flex: 1 1 auto; justify-content: center; }
 }
 </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Recipe","name":"Why Brown Butter Mashed Potatoes Beat $20 Steakhouse Sides","image":["https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80"],"author":{"@type":"Person","name":"Mia","url":"https://viralmia.me/about"},"publisher":{"@type":"Organization","name":"Viral Mia Kitchen","logo":{"@type":"ImageObject","url":"https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=400&q=80"}},"datePublished":"2026-11-10","dateModified":"2026-11-10","description":"Make ultra-silky brown butter mashed potatoes at home in just 20 minutes. Skip pricey steakhouse sides and save cash with this easy weeknight recipe.","prepTime":"PT10M","cookTime":"PT15M","totalTime":"PT25M","keywords":"brown butter mashed potatoes, easy potato recipe, homemade mashed potatoes, french butter potatoes, budget comfort food","recipeYield":"2","recipeCategory":"Comfort Food","recipeCuisine":"American","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.8","reviewCount":39,"bestRating":"5","worstRating":"1"},"nutrition":{"@type":"NutritionInformation","calories":"390 kcal","proteinContent":"6g","carbohydrateContent":"42g","fatContent":"22g","fiberContent":"4g"},"recipeIngredient":["1.5 lbs russet or Yukon Gold potatoes, peeled and cubed","4 tablespoons unsalted butter (Kerrygold works best for richness)","1/3 cup whole milk or heavy cream, warmed","2 cloves garlic, peeled and smashed","1 teaspoon kosher salt, plus more for the boiling water","1/4 teaspoon freshly cracked black pepper","2 tablespoons fresh chives, finely chopped for garnish"],"recipeInstructions":[{"@type":"HowToStep","name":"Step 1","text":"Step 1: Place your cubed potatoes in a medium pot, cover with cold salted water, and bring to a boil. Cook for about 12 minutes until fork-tender, then drain well."},{"@type":"HowToStep","name":"Step 2","text":"Step 2: While the potatoes boil, melt the butter in a small skillet over medium heat. Swirl the pan occasionally until the butter foams, turns golden brown, and smells nutty—about 3 to 4 minutes. (Watch it closely, the first time I tested this I burnt the garlic because I cranked the heat too high!)"},{"@type":"HowToStep","name":"Step 3","text":"Step 3: Toss the smashed garlic cloves into the warm brown butter for the last 30 seconds of melting to infuse that cozy, savory flavor, then discard the cloves."},{"@type":"HowToStep","name":"Step 4","text":"Step 4: Mash the drained potatoes with warm milk, pour in the hot brown butter, and whip vigorously with a hand masher or wooden spoon until smooth and silky."}]}</script>
@@ -1209,6 +1283,19 @@ img { max-width: 100%; height: auto; display: block; }
           <p class="recipe-card-desc">Make ultra-silky brown butter mashed potatoes at home in just 20 minutes. Skip pricey steakhouse sides and save cash with this easy weeknight recipe.</p>
         </div>
 
+        <!-- Interactive Toolbar: Cook Mode, Copy Ingredients, Print -->
+        <div class="recipe-action-toolbar">
+          <button id="cookModeBtn" class="tool-btn" onclick="toggleCookMode()">
+            <span>💡</span> <span id="cookModeText">Cook Mode (Keep Screen Awake)</span>
+          </button>
+          <button class="tool-btn" onclick="copyIngredients()">
+            <span>📋</span> <span>Copy Ingredients</span>
+          </button>
+          <button class="tool-btn" onclick="window.print()">
+            <span>🖨️</span> <span>Print Card</span>
+          </button>
+        </div>
+
         <!-- Stats Grid -->
         <div class="recipe-stats">
           <div class="stat-box">
@@ -1236,37 +1323,37 @@ img { max-width: 100%; height: auto; display: block; }
           <ul class="ingredients-list">
             
     <li class="ing-item">
-      <input type="checkbox" id="ing-iungdc6g8">
+      <input type="checkbox" id="ing-sfy9ebai3">
       <label>1.5 lbs russet or Yukon Gold potatoes, peeled and cubed</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-12exp1q79">
+      <input type="checkbox" id="ing-d5zd205c1">
       <label>4 tablespoons unsalted butter (Kerrygold works best for richness)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-p7by41krg">
+      <input type="checkbox" id="ing-8lmw4xla7">
       <label>1/3 cup whole milk or heavy cream, warmed</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-e2tnlnuiw">
+      <input type="checkbox" id="ing-pd3whdmx1">
       <label>2 cloves garlic, peeled and smashed</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-hae03kuwu">
+      <input type="checkbox" id="ing-1evcnu40a">
       <label>1 teaspoon kosher salt, plus more for the boiling water</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-2cs6jgonc">
+      <input type="checkbox" id="ing-uscfs1c6i">
       <label>1/4 teaspoon freshly cracked black pepper</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-5szr564es">
+      <input type="checkbox" id="ing-9pgfxelyg">
       <label>2 tablespoons fresh chives, finely chopped for garnish</label>
     </li>
   
@@ -1363,6 +1450,85 @@ img { max-width: 100%; height: auto; display: block; }
           <p>I create fast 15-minute recipes and time-saving kitchen hacks for busy home cooks who love comfort food but hate washing dishes. Have questions? Leave a comment below or tag <strong>#ViralMiaKitchen</strong> on social media!</p>
         </div>
       </div>
+
+      <!-- Related Recipes Section -->
+      
+          <section class="related-recipes-wrap reveal-on-scroll">
+            <div class="sec-title-row">
+              <h3>👩‍🍳 You May Also Love</h3>
+              <a href="/category/comfort-food" class="view-all-link">See all Comfort Food &rarr;</a>
+            </div>
+            <div class="related-grid">
+              
+                <article class="post-card">
+                  <div class="card-img-wrap">
+                    <a href="/recipes/15-minute-loaded-baked-potato-soup">
+                      <img class="post-card-img" src="https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=1200&q=80" alt="The 15-Minute Loaded Baked Potato Soup That Saved My Cold Weeknights" loading="lazy">
+                    </a>
+                    <span class="card-badge">Comfort Food</span>
+                  </div>
+                  <div class="post-card-body">
+                    <div class="card-meta-row">
+                      <div class="card-rating">★★★★★ <strong>5.0</strong></div>
+                      <span>⏱️ 10 mins</span>
+                    </div>
+                    <h4 class="post-card-title">
+                      <a href="/recipes/15-minute-loaded-baked-potato-soup">The 15-Minute Loaded Baked Potato Soup That Saved My Cold Weeknights</a>
+                    </h4>
+                    <p class="post-card-desc">Make a cozy loaded baked potato soup in just 15 minutes. Save money with this easy, comforting ...</p>
+                    <div class="card-footer" style="padding-top: 10px;">
+                      <a href="/recipes/15-minute-loaded-baked-potato-soup" class="view-btn-arrow">View Recipe &rarr;</a>
+                    </div>
+                  </div>
+                </article>
+              
+                <article class="post-card">
+                  <div class="card-img-wrap">
+                    <a href="/recipes/20-minute-creamy-tomato-basil-soup">
+                      <img class="post-card-img" src="https://images.unsplash.com/photo-1603105037880-880cd4edfb0d?auto=format&fit=crop&w=1200&q=80" alt="20-Minute Creamy Tomato Basil Soup That Saved My Sanity" loading="lazy">
+                    </a>
+                    <span class="card-badge">Comfort Food</span>
+                  </div>
+                  <div class="post-card-body">
+                    <div class="card-meta-row">
+                      <div class="card-rating">★★★★★ <strong>4.9</strong></div>
+                      <span>⏱️ 15 mins</span>
+                    </div>
+                    <h4 class="post-card-title">
+                      <a href="/recipes/20-minute-creamy-tomato-basil-soup">20-Minute Creamy Tomato Basil Soup That Saved My Sanity</a>
+                    </h4>
+                    <p class="post-card-desc">Need a fast dinner? This easy 20-minute creamy tomato basil soup uses pantry staples for the ul...</p>
+                    <div class="card-footer" style="padding-top: 10px;">
+                      <a href="/recipes/20-minute-creamy-tomato-basil-soup" class="view-btn-arrow">View Recipe &rarr;</a>
+                    </div>
+                  </div>
+                </article>
+              
+                <article class="post-card">
+                  <div class="card-img-wrap">
+                    <a href="/recipes/garlic-butter-steak-bites-crispy-potatoes">
+                      <img class="post-card-img" src="https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=1200&q=80" alt="15-Minute Garlic Butter Steak Bites with Crispy Golden Potatoes" loading="lazy">
+                    </a>
+                    <span class="card-badge">Quick Dinners</span>
+                  </div>
+                  <div class="post-card-body">
+                    <div class="card-meta-row">
+                      <div class="card-rating">★★★★★ <strong>4.9</strong></div>
+                      <span>⏱️ 10 mins</span>
+                    </div>
+                    <h4 class="post-card-title">
+                      <a href="/recipes/garlic-butter-steak-bites-crispy-potatoes">15-Minute Garlic Butter Steak Bites with Crispy Golden Potatoes</a>
+                    </h4>
+                    <p class="post-card-desc">Tender, melt-in-your-mouth garlic butter steak bites paired with crispy skillet potatoes, ready...</p>
+                    <div class="card-footer" style="padding-top: 10px;">
+                      <a href="/recipes/garlic-butter-steak-bites-crispy-potatoes" class="view-btn-arrow">View Recipe &rarr;</a>
+                    </div>
+                  </div>
+                </article>
+              
+            </div>
+          </section>
+        
     </article>
   
 
@@ -1513,6 +1679,59 @@ img { max-width: 100%; height: auto; display: block; }
         text.textContent = msg;
         toast.classList.add('show');
         setTimeout(() => toast.classList.remove('show'), 3200);
+      }
+    }
+
+    // Cook Mode (Keep Screen Awake via Wake Lock API)
+    let wakeLock = null;
+    async function toggleCookMode() {
+      const btn = document.getElementById('cookModeBtn');
+      const txt = document.getElementById('cookModeText');
+      if ('wakeLock' in navigator) {
+        try {
+          if (!wakeLock) {
+            wakeLock = await navigator.wakeLock.request('screen');
+            if (btn) btn.classList.add('active');
+            if (txt) txt.textContent = 'Cook Mode: ON (Screen Awake)';
+            showToast('🔥 Cook Mode ON: Screen will stay awake while cooking!');
+            wakeLock.addEventListener('release', () => {
+              wakeLock = null;
+              if (btn) btn.classList.remove('active');
+              if (txt) txt.textContent = 'Cook Mode (Keep Screen Awake)';
+            });
+          } else {
+            await wakeLock.release();
+            wakeLock = null;
+            if (btn) btn.classList.remove('active');
+            if (txt) txt.textContent = 'Cook Mode (Keep Screen Awake)';
+            showToast('💤 Cook Mode OFF');
+          }
+        } catch (err) {
+          showToast('Cook mode not supported on this device');
+        }
+      } else {
+        showToast('Wake Lock API not supported in this browser');
+      }
+    }
+
+    // Copy Ingredients to Clipboard
+    function copyIngredients() {
+      const items = Array.from(document.querySelectorAll('.ingredients-list label')).map(l => '• ' + l.textContent.trim()).join('
+');
+      const title = document.querySelector('h1') ? document.querySelector('h1').textContent.trim() : 'Recipe';
+      const text = title + ' - Ingredients:
+
+' + items + '
+
+Source: ' + window.location.href;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => {
+          showToast('📋 Ingredients copied to clipboard!');
+        }).catch(() => {
+          showToast('Could not copy to clipboard');
+        });
+      } else {
+        showToast('Clipboard not supported');
       }
     }
   </script>

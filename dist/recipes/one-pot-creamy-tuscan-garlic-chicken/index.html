@@ -1111,19 +1111,93 @@ img { max-width: 100%; height: auto; display: block; }
   }
 }
 
+/* Recipe Action Toolbar */
+.recipe-action-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.tool-btn {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s var(--ease-smooth);
+}
+.tool-btn:hover {
+  background: #fff;
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+.tool-btn.active {
+  background: #ecfdf5;
+  border-color: #10b981;
+  color: #065f46;
+}
+
+/* Related Recipes Section */
+.related-recipes-wrap {
+  margin-top: 56px;
+  padding-top: 40px;
+  border-top: 2px dashed var(--border);
+}
+.sec-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.sec-title-row h3 {
+  font-size: 26px;
+  font-weight: 800;
+}
+.view-all-link {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary);
+}
+.view-all-link:hover {
+  text-decoration: underline;
+}
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
-  .hero h1 { font-size: 38px; }
-  .article-header h1 { font-size: 32px; }
-  .recipe-card-box { padding: 26px 20px; }
-  .recipe-stats { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-  .nutrition-grid { grid-template-columns: repeat(3, 1fr); }
+  .hero-wrapper { padding: 40px 18px 30px; }
+  .hero-highlights { gap: 6px; }
+  .highlight-pill { font-size: 11px; padding: 4px 8px; }
+  .schedule-pill { display: none; }
+  .floating-particle { display: none; }
+  .hero h1 { font-size: 32px; }
+  .article-header h1 { font-size: 28px; }
+  .recipe-card-box { padding: 22px 16px; }
+  .recipe-stats { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .nutrition-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
   .author-card { flex-direction: column; text-align: center; }
   .footer-wrap { grid-template-columns: 1fr; gap: 32px; }
   .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
   .nav-links { display: none; }
-  .newsletter-banner { padding: 40px 20px; margin: 40px 16px; }
-  .newsletter-banner h2 { font-size: 28px; }
+  .newsletter-banner { padding: 32px 16px; margin: 32px 12px; }
+  .newsletter-banner h2 { font-size: 24px; }
+  .related-grid { grid-template-columns: 1fr; gap: 16px; }
+  .recipe-action-toolbar { justify-content: stretch; }
+  .tool-btn { flex: 1 1 auto; justify-content: center; }
 }
 </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Recipe","name":"The $4-Per-Serving Creamy Tuscan Chicken That Beats My Local Italian Spot","image":["https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=1200&q=80"],"author":{"@type":"Person","name":"Mia","url":"https://viralmia.me/about"},"publisher":{"@type":"Organization","name":"Viral Mia Kitchen","logo":{"@type":"ImageObject","url":"https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=400&q=80"}},"datePublished":"2026-11-05","dateModified":"2026-11-05","description":"Skip the $25 takeout. This creamy tuscan chicken uses Aldi staples and one pan for a 20-minute dinner that is way cheaper and better than a restaurant.","prepTime":"PT10M","cookTime":"PT15M","totalTime":"PT25M","keywords":"creamy tuscan chicken, one pot chicken dinner, budget meal prep, 20 minute dinner, easy chicken recipes","recipeYield":"4","recipeCategory":"Quick Dinners","recipeCuisine":"American","aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","reviewCount":57,"bestRating":"5","worstRating":"1"},"nutrition":{"@type":"NutritionInformation","calories":"410 kcal","proteinContent":"32g","carbohydrateContent":"8g","fatContent":"28g","fiberContent":"2g"},"recipeIngredient":["1.5 lbs chicken breast, sliced into thin cutlets","1 tablespoon avocado oil","4 cloves garlic, minced","1/2 cup sun-dried tomatoes, chopped","2 cups fresh baby spinach","1 cup heavy cream (or half-and-half for a lighter swap)","1/2 cup grated Parmesan cheese","1 teaspoon kosher salt","1/2 teaspoon red pepper flakes"],"recipeInstructions":[{"@type":"HowToStep","name":"Step 1","text":"Step 1: Heat the avocado oil in a large skillet over medium heat. Season the chicken with salt and sear until golden brown on both sides, about 5-7 minutes. Remove chicken and set aside on a plate."},{"@type":"HowToStep","name":"Step 2","text":"Step 2: In the same pan, drop the heat to medium-low. Add the minced garlic and sun-dried tomatoes. Sauté for about 1 minute until the kitchen smells incredible, but watch that garlic so it doesn't get too dark."},{"@type":"HowToStep","name":"Step 3","text":"Step 3: Pour in the heavy cream and bring to a gentle simmer. Stir in the Parmesan cheese and red pepper flakes until the sauce starts to thicken up and look velvety."},{"@type":"HowToStep","name":"Step 4","text":"Step 4: Toss in the spinach until it wilts, then slide the chicken back into the pan. Let it bubble for 2 more minutes so the chicken soaks up the cream and everything is heated through."}]}</script>
@@ -1209,6 +1283,19 @@ img { max-width: 100%; height: auto; display: block; }
           <p class="recipe-card-desc">Skip the $25 takeout. This creamy tuscan chicken uses Aldi staples and one pan for a 20-minute dinner that is way cheaper and better than a restaurant.</p>
         </div>
 
+        <!-- Interactive Toolbar: Cook Mode, Copy Ingredients, Print -->
+        <div class="recipe-action-toolbar">
+          <button id="cookModeBtn" class="tool-btn" onclick="toggleCookMode()">
+            <span>💡</span> <span id="cookModeText">Cook Mode (Keep Screen Awake)</span>
+          </button>
+          <button class="tool-btn" onclick="copyIngredients()">
+            <span>📋</span> <span>Copy Ingredients</span>
+          </button>
+          <button class="tool-btn" onclick="window.print()">
+            <span>🖨️</span> <span>Print Card</span>
+          </button>
+        </div>
+
         <!-- Stats Grid -->
         <div class="recipe-stats">
           <div class="stat-box">
@@ -1236,47 +1323,47 @@ img { max-width: 100%; height: auto; display: block; }
           <ul class="ingredients-list">
             
     <li class="ing-item">
-      <input type="checkbox" id="ing-7wn8324cw">
+      <input type="checkbox" id="ing-vxila7hrv">
       <label>1.5 lbs chicken breast, sliced into thin cutlets</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-5drxvci28">
+      <input type="checkbox" id="ing-vszdxhav2">
       <label>1 tablespoon avocado oil</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-oc02tffb1">
+      <input type="checkbox" id="ing-2jdse48t7">
       <label>4 cloves garlic, minced</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-bmttzfcnm">
+      <input type="checkbox" id="ing-rbbt7495p">
       <label>1/2 cup sun-dried tomatoes, chopped</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-hlkxtqwfc">
+      <input type="checkbox" id="ing-nyaty149y">
       <label>2 cups fresh baby spinach</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-ln7042va0">
+      <input type="checkbox" id="ing-1pufogt96">
       <label>1 cup heavy cream (or half-and-half for a lighter swap)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-fu72sdwv1">
+      <input type="checkbox" id="ing-u3oeqb3gs">
       <label>1/2 cup grated Parmesan cheese</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-zn6m2y3jh">
+      <input type="checkbox" id="ing-llyxfmg75">
       <label>1 teaspoon kosher salt</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-ka79s3cc9">
+      <input type="checkbox" id="ing-lr9xawg9m">
       <label>1/2 teaspoon red pepper flakes</label>
     </li>
   
@@ -1373,6 +1460,85 @@ img { max-width: 100%; height: auto; display: block; }
           <p>I create fast 15-minute recipes and time-saving kitchen hacks for busy home cooks who love comfort food but hate washing dishes. Have questions? Leave a comment below or tag <strong>#ViralMiaKitchen</strong> on social media!</p>
         </div>
       </div>
+
+      <!-- Related Recipes Section -->
+      
+          <section class="related-recipes-wrap reveal-on-scroll">
+            <div class="sec-title-row">
+              <h3>👩‍🍳 You May Also Love</h3>
+              <a href="/category/quick-dinners" class="view-all-link">See all Quick Dinners &rarr;</a>
+            </div>
+            <div class="related-grid">
+              
+                <article class="post-card">
+                  <div class="card-img-wrap">
+                    <a href="/recipes/garlic-butter-steak-bites-crispy-potatoes">
+                      <img class="post-card-img" src="https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=1200&q=80" alt="15-Minute Garlic Butter Steak Bites with Crispy Golden Potatoes" loading="lazy">
+                    </a>
+                    <span class="card-badge">Quick Dinners</span>
+                  </div>
+                  <div class="post-card-body">
+                    <div class="card-meta-row">
+                      <div class="card-rating">★★★★★ <strong>4.9</strong></div>
+                      <span>⏱️ 10 mins</span>
+                    </div>
+                    <h4 class="post-card-title">
+                      <a href="/recipes/garlic-butter-steak-bites-crispy-potatoes">15-Minute Garlic Butter Steak Bites with Crispy Golden Potatoes</a>
+                    </h4>
+                    <p class="post-card-desc">Tender, melt-in-your-mouth garlic butter steak bites paired with crispy skillet potatoes, ready...</p>
+                    <div class="card-footer" style="padding-top: 10px;">
+                      <a href="/recipes/garlic-butter-steak-bites-crispy-potatoes" class="view-btn-arrow">View Recipe &rarr;</a>
+                    </div>
+                  </div>
+                </article>
+              
+                <article class="post-card">
+                  <div class="card-img-wrap">
+                    <a href="/recipes/15-minute-honey-soy-glazed-salmon">
+                      <img class="post-card-img" src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=1200&q=80" alt="15-Minute Honey Soy Glazed Salmon (My Lazy Tuesday Skillet Savior)" loading="lazy">
+                    </a>
+                    <span class="card-badge">Quick Dinners</span>
+                  </div>
+                  <div class="post-card-body">
+                    <div class="card-meta-row">
+                      <div class="card-rating">★★★★★ <strong>4.9</strong></div>
+                      <span>⏱️ 10 mins</span>
+                    </div>
+                    <h4 class="post-card-title">
+                      <a href="/recipes/15-minute-honey-soy-glazed-salmon">15-Minute Honey Soy Glazed Salmon (My Lazy Tuesday Skillet Savior)</a>
+                    </h4>
+                    <p class="post-card-desc">Crispy, sticky honey soy glazed salmon made in one skillet in 15 minutes. Perfect for crazy wee...</p>
+                    <div class="card-footer" style="padding-top: 10px;">
+                      <a href="/recipes/15-minute-honey-soy-glazed-salmon" class="view-btn-arrow">View Recipe &rarr;</a>
+                    </div>
+                  </div>
+                </article>
+              
+                <article class="post-card">
+                  <div class="card-img-wrap">
+                    <a href="/recipes/10-minute-spicy-peanut-butter-ramen-upgrade">
+                      <img class="post-card-img" src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=1200&q=80" alt="How I Turn Cheap Ramen Into a $4 Gourmet Dinner With Peanut Butter" loading="lazy">
+                    </a>
+                    <span class="card-badge">Quick Dinners</span>
+                  </div>
+                  <div class="post-card-body">
+                    <div class="card-meta-row">
+                      <div class="card-rating">★★★★★ <strong>4.9</strong></div>
+                      <span>⏱️ 7 mins</span>
+                    </div>
+                    <h4 class="post-card-title">
+                      <a href="/recipes/10-minute-spicy-peanut-butter-ramen-upgrade">How I Turn Cheap Ramen Into a $4 Gourmet Dinner With Peanut Butter</a>
+                    </h4>
+                    <p class="post-card-desc">Skip the $25 takeout. This 10-minute spicy peanut butter ramen upgrade uses basic pantry staple...</p>
+                    <div class="card-footer" style="padding-top: 10px;">
+                      <a href="/recipes/10-minute-spicy-peanut-butter-ramen-upgrade" class="view-btn-arrow">View Recipe &rarr;</a>
+                    </div>
+                  </div>
+                </article>
+              
+            </div>
+          </section>
+        
     </article>
   
 
@@ -1523,6 +1689,59 @@ img { max-width: 100%; height: auto; display: block; }
         text.textContent = msg;
         toast.classList.add('show');
         setTimeout(() => toast.classList.remove('show'), 3200);
+      }
+    }
+
+    // Cook Mode (Keep Screen Awake via Wake Lock API)
+    let wakeLock = null;
+    async function toggleCookMode() {
+      const btn = document.getElementById('cookModeBtn');
+      const txt = document.getElementById('cookModeText');
+      if ('wakeLock' in navigator) {
+        try {
+          if (!wakeLock) {
+            wakeLock = await navigator.wakeLock.request('screen');
+            if (btn) btn.classList.add('active');
+            if (txt) txt.textContent = 'Cook Mode: ON (Screen Awake)';
+            showToast('🔥 Cook Mode ON: Screen will stay awake while cooking!');
+            wakeLock.addEventListener('release', () => {
+              wakeLock = null;
+              if (btn) btn.classList.remove('active');
+              if (txt) txt.textContent = 'Cook Mode (Keep Screen Awake)';
+            });
+          } else {
+            await wakeLock.release();
+            wakeLock = null;
+            if (btn) btn.classList.remove('active');
+            if (txt) txt.textContent = 'Cook Mode (Keep Screen Awake)';
+            showToast('💤 Cook Mode OFF');
+          }
+        } catch (err) {
+          showToast('Cook mode not supported on this device');
+        }
+      } else {
+        showToast('Wake Lock API not supported in this browser');
+      }
+    }
+
+    // Copy Ingredients to Clipboard
+    function copyIngredients() {
+      const items = Array.from(document.querySelectorAll('.ingredients-list label')).map(l => '• ' + l.textContent.trim()).join('
+');
+      const title = document.querySelector('h1') ? document.querySelector('h1').textContent.trim() : 'Recipe';
+      const text = title + ' - Ingredients:
+
+' + items + '
+
+Source: ' + window.location.href;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => {
+          showToast('📋 Ingredients copied to clipboard!');
+        }).catch(() => {
+          showToast('Could not copy to clipboard');
+        });
+      } else {
+        showToast('Clipboard not supported');
       }
     }
   </script>

@@ -1100,19 +1100,93 @@ img { max-width: 100%; height: auto; display: block; }
   }
 }
 
+/* Recipe Action Toolbar */
+.recipe-action-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.tool-btn {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s var(--ease-smooth);
+}
+.tool-btn:hover {
+  background: #fff;
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+.tool-btn.active {
+  background: #ecfdf5;
+  border-color: #10b981;
+  color: #065f46;
+}
+
+/* Related Recipes Section */
+.related-recipes-wrap {
+  margin-top: 56px;
+  padding-top: 40px;
+  border-top: 2px dashed var(--border);
+}
+.sec-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.sec-title-row h3 {
+  font-size: 26px;
+  font-weight: 800;
+}
+.view-all-link {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary);
+}
+.view-all-link:hover {
+  text-decoration: underline;
+}
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
-  .hero h1 { font-size: 38px; }
-  .article-header h1 { font-size: 32px; }
-  .recipe-card-box { padding: 26px 20px; }
-  .recipe-stats { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-  .nutrition-grid { grid-template-columns: repeat(3, 1fr); }
+  .hero-wrapper { padding: 40px 18px 30px; }
+  .hero-highlights { gap: 6px; }
+  .highlight-pill { font-size: 11px; padding: 4px 8px; }
+  .schedule-pill { display: none; }
+  .floating-particle { display: none; }
+  .hero h1 { font-size: 32px; }
+  .article-header h1 { font-size: 28px; }
+  .recipe-card-box { padding: 22px 16px; }
+  .recipe-stats { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .nutrition-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
   .author-card { flex-direction: column; text-align: center; }
   .footer-wrap { grid-template-columns: 1fr; gap: 32px; }
   .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
   .nav-links { display: none; }
-  .newsletter-banner { padding: 40px 20px; margin: 40px 16px; }
-  .newsletter-banner h2 { font-size: 28px; }
+  .newsletter-banner { padding: 32px 16px; margin: 32px 12px; }
+  .newsletter-banner h2 { font-size: 24px; }
+  .related-grid { grid-template-columns: 1fr; gap: 16px; }
+  .recipe-action-toolbar { justify-content: stretch; }
+  .tool-btn { flex: 1 1 auto; justify-content: center; }
 }
 `;
 
@@ -1359,6 +1433,54 @@ function layout(title, content, meta = {}) {
         setTimeout(() => toast.classList.remove('show'), 3200);
       }
     }
+
+    // Cook Mode (Keep Screen Awake via Wake Lock API)
+    let wakeLock = null;
+    async function toggleCookMode() {
+      const btn = document.getElementById('cookModeBtn');
+      const txt = document.getElementById('cookModeText');
+      if ('wakeLock' in navigator) {
+        try {
+          if (!wakeLock) {
+            wakeLock = await navigator.wakeLock.request('screen');
+            if (btn) btn.classList.add('active');
+            if (txt) txt.textContent = 'Cook Mode: ON (Screen Awake)';
+            showToast('🔥 Cook Mode ON: Screen will stay awake while cooking!');
+            wakeLock.addEventListener('release', () => {
+              wakeLock = null;
+              if (btn) btn.classList.remove('active');
+              if (txt) txt.textContent = 'Cook Mode (Keep Screen Awake)';
+            });
+          } else {
+            await wakeLock.release();
+            wakeLock = null;
+            if (btn) btn.classList.remove('active');
+            if (txt) txt.textContent = 'Cook Mode (Keep Screen Awake)';
+            showToast('💤 Cook Mode OFF');
+          }
+        } catch (err) {
+          showToast('Cook mode not supported on this device');
+        }
+      } else {
+        showToast('Wake Lock API not supported in this browser');
+      }
+    }
+
+    // Copy Ingredients to Clipboard
+    function copyIngredients() {
+      const items = Array.from(document.querySelectorAll('.ingredients-list label')).map(l => '• ' + l.textContent.trim()).join('\n');
+      const title = document.querySelector('h1') ? document.querySelector('h1').textContent.trim() : 'Recipe';
+      const text = title + ' - Ingredients:\n\n' + items + '\n\nSource: ' + window.location.href;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => {
+          showToast('📋 Ingredients copied to clipboard!');
+        }).catch(() => {
+          showToast('Could not copy to clipboard');
+        });
+      } else {
+        showToast('Clipboard not supported');
+      }
+    }
   </script>
 
 </body>
@@ -1522,7 +1644,7 @@ function buildHomePage(posts, currentCategory = 'All') {
 }
 
 // Generate Single Recipe Page
-function buildRecipePage(post) {
+function buildRecipePage(post, allPosts = []) {
   const ingredientsHtml = post.ingredients.map(ing => `
     <li class="ing-item">
       <input type="checkbox" id="ing-${Math.random().toString(36).substr(2, 9)}">
@@ -1668,6 +1790,19 @@ function buildRecipePage(post) {
           <p class="recipe-card-desc">${post.description}</p>
         </div>
 
+        <!-- Interactive Toolbar: Cook Mode, Copy Ingredients, Print -->
+        <div class="recipe-action-toolbar">
+          <button id="cookModeBtn" class="tool-btn" onclick="toggleCookMode()">
+            <span>💡</span> <span id="cookModeText">Cook Mode (Keep Screen Awake)</span>
+          </button>
+          <button class="tool-btn" onclick="copyIngredients()">
+            <span>📋</span> <span>Copy Ingredients</span>
+          </button>
+          <button class="tool-btn" onclick="window.print()">
+            <span>🖨️</span> <span>Print Card</span>
+          </button>
+        </div>
+
         <!-- Stats Grid -->
         <div class="recipe-stats">
           <div class="stat-box">
@@ -1759,6 +1894,47 @@ function buildRecipePage(post) {
           <p>I create fast 15-minute recipes and time-saving kitchen hacks for busy home cooks who love comfort food but hate washing dishes. Have questions? Leave a comment below or tag <strong>#ViralMiaKitchen</strong> on social media!</p>
         </div>
       </div>
+
+      <!-- Related Recipes Section -->
+      ${(() => {
+        const sameCat = allPosts.filter(p => p.slug !== post.slug && p.category === post.category);
+        const otherPosts = allPosts.filter(p => p.slug !== post.slug && p.category !== post.category);
+        const related = [...sameCat, ...otherPosts].slice(0, 3);
+        if (related.length === 0) return '';
+        return `
+          <section class="related-recipes-wrap reveal-on-scroll">
+            <div class="sec-title-row">
+              <h3>👩‍🍳 You May Also Love</h3>
+              <a href="/category/${post.category.toLowerCase().replace(/[^a-z0-9]+/g, '-')}" class="view-all-link">See all ${post.category} &rarr;</a>
+            </div>
+            <div class="related-grid">
+              ${related.map(r => `
+                <article class="post-card">
+                  <div class="card-img-wrap">
+                    <a href="/recipes/${r.slug}">
+                      <img class="post-card-img" src="${r.heroImage}" alt="${r.title}" loading="lazy">
+                    </a>
+                    <span class="card-badge">${r.category}</span>
+                  </div>
+                  <div class="post-card-body">
+                    <div class="card-meta-row">
+                      <div class="card-rating">★★★★★ <strong>${r.rating}</strong></div>
+                      <span>⏱️ ${r.cookTime || '15 mins'}</span>
+                    </div>
+                    <h4 class="post-card-title">
+                      <a href="/recipes/${r.slug}">${r.title}</a>
+                    </h4>
+                    <p class="post-card-desc">${r.description.slice(0, 95)}...</p>
+                    <div class="card-footer" style="padding-top: 10px;">
+                      <a href="/recipes/${r.slug}" class="view-btn-arrow">View Recipe &rarr;</a>
+                    </div>
+                  </div>
+                </article>
+              `).join('')}
+            </div>
+          </section>
+        `;
+      })()}
     </article>
   `;
 
@@ -1794,7 +1970,24 @@ function buildStaticPages() {
     </article>
   `;
   ensureDir(path.join(DIST_DIR, 'about'));
-  fs.writeFileSync(path.join(DIST_DIR, 'about', 'index.html'), layout('About Mia', aboutContent, { canonical: `${SITE_URL}/about` }));
+  const aboutSchema = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": `About Mia - ${SITE_NAME}`,
+    "url": `${SITE_URL}/about`,
+    "description": "Meet Mia: Quick 15-minute meals and kitchen hacks tested in an apartment kitchen for busy home cooks.",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Mia",
+      "jobTitle": "Food Blogger & Recipe Creator",
+      "url": `${SITE_URL}/about`
+    }
+  };
+  fs.writeFileSync(path.join(DIST_DIR, 'about', 'index.html'), layout('About Mia', aboutContent, { 
+    canonical: `${SITE_URL}/about`,
+    description: "Meet Mia: Quick 15-minute meals, budget comfort food, and smart kitchen hacks tested for busy home cooks.",
+    schemas: [aboutSchema]
+  }));
 
   const contactContent = `
     <article class="article-wrap">
@@ -1811,7 +2004,18 @@ function buildStaticPages() {
     </article>
   `;
   ensureDir(path.join(DIST_DIR, 'contact'));
-  fs.writeFileSync(path.join(DIST_DIR, 'contact', 'index.html'), layout('Contact Us', contactContent, { canonical: `${SITE_URL}/contact` }));
+  const contactSchema = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": `Contact - ${SITE_NAME}`,
+    "url": `${SITE_URL}/contact`,
+    "description": "Get in touch with Mia for questions, partnerships, and recipe collaborations."
+  };
+  fs.writeFileSync(path.join(DIST_DIR, 'contact', 'index.html'), layout('Contact Us', contactContent, { 
+    canonical: `${SITE_URL}/contact`,
+    description: "Get in touch with Mia at ViralMia Kitchen for recipe questions, press, and brand sponsorships.",
+    schemas: [contactSchema]
+  }));
 
   const privacyContent = `
     <article class="article-wrap">
@@ -1829,7 +2033,17 @@ function buildStaticPages() {
     </article>
   `;
   ensureDir(path.join(DIST_DIR, 'privacy-policy'));
-  fs.writeFileSync(path.join(DIST_DIR, 'privacy-policy', 'index.html'), layout('Privacy Policy', privacyContent, { canonical: `${SITE_URL}/privacy-policy` }));
+  const privacySchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": `Privacy Policy - ${SITE_NAME}`,
+    "url": `${SITE_URL}/privacy-policy`
+  };
+  fs.writeFileSync(path.join(DIST_DIR, 'privacy-policy', 'index.html'), layout('Privacy Policy', privacyContent, { 
+    canonical: `${SITE_URL}/privacy-policy`,
+    description: "Privacy policy for ViralMia.me explaining analytics, cookies, and data protection practices.",
+    schemas: [privacySchema]
+  }));
 
   const termsContent = `
     <article class="article-wrap">
@@ -1845,7 +2059,17 @@ function buildStaticPages() {
     </article>
   `;
   ensureDir(path.join(DIST_DIR, 'terms'));
-  fs.writeFileSync(path.join(DIST_DIR, 'terms', 'index.html'), layout('Terms of Service', termsContent, { canonical: `${SITE_URL}/terms` }));
+  const termsSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": `Terms of Service - ${SITE_NAME}`,
+    "url": `${SITE_URL}/terms`
+  };
+  fs.writeFileSync(path.join(DIST_DIR, 'terms', 'index.html'), layout('Terms of Service', termsContent, { 
+    canonical: `${SITE_URL}/terms`,
+    description: "Terms of service and culinary disclaimer for ViralMia Kitchen.",
+    schemas: [termsSchema]
+  }));
 }
 
 // Generate Sitemap & Robots.txt
@@ -1921,7 +2145,7 @@ function main() {
   posts.forEach(post => {
     const postDir = path.join(DIST_DIR, 'recipes', post.slug);
     ensureDir(postDir);
-    fs.writeFileSync(path.join(postDir, 'index.html'), buildRecipePage(post));
+    fs.writeFileSync(path.join(postDir, 'index.html'), buildRecipePage(post, posts));
   });
 
   // 3. Category Pages
