@@ -1056,13 +1056,19 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* Animations */
 .reveal-on-scroll {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s var(--ease-smooth), transform 0.8s var(--ease-smooth);
-}
-.reveal-on-scroll.revealed {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .js-ready .reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s var(--ease-smooth), transform 0.6s var(--ease-smooth);
+  }
+  .js-ready .reveal-on-scroll.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Footer */
@@ -1289,7 +1295,7 @@ img { max-width: 100%; height: auto; display: block; }
     <!-- Main Recipe Grid -->
     <main class="posts-grid" id="recipes">
       
-    <article class="post-card " data-category="Kitchen Hacks">
+    <article class="post-card" data-category="Kitchen Hacks">
       <div class="card-img-wrap">
         <a href="/recipes/how-to-freeze-avocados">
           <img class="post-card-img" src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1200&q=80" alt="Stop Throwing Out Brown Avocados: How to Freeze Them the Right Way" loading="lazy">
@@ -1319,7 +1325,7 @@ img { max-width: 100%; height: auto; display: block; }
       </div>
     </article>
   
-    <article class="post-card " data-category="Kitchen Hacks">
+    <article class="post-card" data-category="Kitchen Hacks">
       <div class="card-img-wrap">
         <a href="/recipes/how-to-revive-stale-bread">
           <img class="post-card-img" src="https://images.unsplash.com/photo-1516594798947-e65505dbb29d?auto=format&fit=crop&w=1200&q=80" alt="Stop Throwing Away Hard Loaves: How to Revive Stale Bread Perfectly" loading="lazy">
@@ -1349,7 +1355,7 @@ img { max-width: 100%; height: auto; display: block; }
       </div>
     </article>
   
-    <article class="post-card " data-category="Kitchen Hacks">
+    <article class="post-card" data-category="Kitchen Hacks">
       <div class="card-img-wrap">
         <a href="/recipes/how-to-peel-hard-boiled-eggs-water-hack">
           <img class="post-card-img" src="https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&fit=crop&w=1200&q=80" alt="Why Everyone Is Wrong About How to Peel Hard Boiled Eggs" loading="lazy">
@@ -1379,7 +1385,7 @@ img { max-width: 100%; height: auto; display: block; }
       </div>
     </article>
   
-    <article class="post-card " data-category="Kitchen Hacks">
+    <article class="post-card" data-category="Kitchen Hacks">
       <div class="card-img-wrap">
         <a href="/recipes/how-to-keep-strawberries-fresh-for-3-weeks">
           <img class="post-card-img" src="https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=1200&q=80" alt="How to Keep Strawberries Fresh for Up to 3 Weeks (The Science Hack)" loading="lazy">
@@ -1390,7 +1396,7 @@ img { max-width: 100%; height: auto; display: block; }
       <div class="post-card-body">
         <div class="card-meta-row">
           <div class="card-rating">
-            ★★★★★ <strong>4.9</strong> <span>(40)</span>
+            ★★★★★ <strong>4.9</strong> <span>(60)</span>
           </div>
           <span>⏱️ 0 mins</span>
         </div>
@@ -1487,6 +1493,7 @@ img { max-width: 100%; height: auto; display: block; }
       // 2. Intersection Observer Scroll Reveal Animation
       const revealElements = document.querySelectorAll('.reveal-on-scroll');
       if ('IntersectionObserver' in window) {
+        document.documentElement.classList.add('js-ready');
         const observer = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -1494,11 +1501,9 @@ img { max-width: 100%; height: auto; display: block; }
               observer.unobserve(entry.target);
             }
           });
-        }, { threshold: 0.1 });
+        }, { threshold: 0.05, rootMargin: '0px 0px 50px 0px' });
 
         revealElements.forEach(el => observer.observe(el));
-      } else {
-        revealElements.forEach(el => el.classList.add('revealed'));
       }
 
       // 3. Live Search Filter

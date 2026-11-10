@@ -1056,13 +1056,19 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* Animations */
 .reveal-on-scroll {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s var(--ease-smooth), transform 0.8s var(--ease-smooth);
-}
-.reveal-on-scroll.revealed {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .js-ready .reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s var(--ease-smooth), transform 0.6s var(--ease-smooth);
+  }
+  .js-ready .reveal-on-scroll.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Footer */
@@ -1289,7 +1295,7 @@ img { max-width: 100%; height: auto; display: block; }
     <!-- Main Recipe Grid -->
     <main class="posts-grid" id="recipes">
       
-    <article class="post-card " data-category="Breakfast & Brunch">
+    <article class="post-card" data-category="Breakfast & Brunch">
       <div class="card-img-wrap">
         <a href="/recipes/3-ingredient-banana-pancakes-no-sugar">
           <img class="post-card-img" src="https://images.unsplash.com/photo-1506084868230-bb9d95c24759?auto=format&fit=crop&w=1200&q=80" alt="The Only 3-Ingredient Banana Pancakes That Don't Turn Into Mush" loading="lazy">
@@ -1397,6 +1403,7 @@ img { max-width: 100%; height: auto; display: block; }
       // 2. Intersection Observer Scroll Reveal Animation
       const revealElements = document.querySelectorAll('.reveal-on-scroll');
       if ('IntersectionObserver' in window) {
+        document.documentElement.classList.add('js-ready');
         const observer = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -1404,11 +1411,9 @@ img { max-width: 100%; height: auto; display: block; }
               observer.unobserve(entry.target);
             }
           });
-        }, { threshold: 0.1 });
+        }, { threshold: 0.05, rootMargin: '0px 0px 50px 0px' });
 
         revealElements.forEach(el => observer.observe(el));
-      } else {
-        revealElements.forEach(el => el.classList.add('revealed'));
       }
 
       // 3. Live Search Filter

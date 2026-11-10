@@ -1056,13 +1056,19 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* Animations */
 .reveal-on-scroll {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s var(--ease-smooth), transform 0.8s var(--ease-smooth);
-}
-.reveal-on-scroll.revealed {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .js-ready .reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s var(--ease-smooth), transform 0.6s var(--ease-smooth);
+  }
+  .js-ready .reveal-on-scroll.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Footer */
@@ -1200,7 +1206,7 @@ img { max-width: 100%; height: auto; display: block; }
   .tool-btn { flex: 1 1 auto; justify-content: center; }
 }
 </style>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Recipe","name":"Crispy Air Fryer Chicken Bites That Taste Like Takeout","image":["https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=1200&q=80"],"author":{"@type":"Person","name":"Mia","url":"https://viralmia.me/about"},"publisher":{"@type":"Organization","name":"Viral Mia Kitchen","logo":{"@type":"ImageObject","url":"https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=400&q=80"}},"datePublished":"2026-11-03","dateModified":"2026-11-03","description":"Crispy on the outside, juicy on the inside! These 12-minute air fryer chicken bites are seasoned to perfection with zero deep-frying oil.","prepTime":"PT10M","cookTime":"PT15M","totalTime":"PT25M","keywords":"air fryer chicken, crispy chicken bites, healthy takeout, easy air fryer dinner, high protein snack","recipeYield":"3","recipeCategory":"Air Fryer Meals","recipeCuisine":"American","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":56,"bestRating":"5","worstRating":"1"},"nutrition":{"@type":"NutritionInformation","calories":"320 kcal","proteinContent":"24g","carbohydrateContent":"42g","fatContent":"14g","fiberContent":"4g"},"recipeIngredient":["1.5 lbs boneless skinless chicken breasts or thighs, cut into 1-inch bite-sized cubes","1 tablespoon olive oil or avocado oil","1/2 cup Panko breadcrumbs (for maximum crunch)","1/4 cup grated Parmesan cheese","1 teaspoon smoked paprika","1 teaspoon garlic powder","1/2 teaspoon onion powder","1/2 teaspoon dried oregano","1/2 teaspoon kosher salt and cracked black pepper"],"recipeInstructions":[{"@type":"HowToStep","name":"Step 1","text":"Prep the Chicken: Pat the cubed chicken completely dry with paper towels. Toss with olive oil so the seasoning adheres evenly."},{"@type":"HowToStep","name":"Step 2","text":"Make the Crunchy Coating: In a shallow bowl, whisk together the Panko breadcrumbs, Parmesan, smoked paprika, garlic powder, onion powder, oregano, salt, and pepper."},{"@type":"HowToStep","name":"Step 3","text":"Coat the Bites: Dredge each piece of chicken through the breadcrumb mixture, pressing firmly so every side gets coated in golden crumbs."},{"@type":"HowToStep","name":"Step 4","text":"Preheat & Arrange: Preheat your air fryer to 400°F (200°C) for 3 minutes. Lightly spray the basket with avocado oil spray. Place chicken in a single layer with space between pieces so hot air circulates."},{"@type":"HowToStep","name":"Step 5","text":"Air Fry: Cook at 400°F for 10-12 minutes, shaking the basket halfway at the 6-minute mark. Chicken is ready when golden brown and internal temperature reads 165°F (74°C). Serve with honey mustard or BBQ sauce!"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Recipe","name":"Crispy Air Fryer Chicken Bites That Taste Like Takeout","image":["https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=1200&q=80"],"author":{"@type":"Person","name":"Mia","url":"https://viralmia.me/about"},"publisher":{"@type":"Organization","name":"Viral Mia Kitchen","logo":{"@type":"ImageObject","url":"https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=400&q=80"}},"datePublished":"2026-11-03","dateModified":"2026-11-03","description":"Crispy on the outside, juicy on the inside! These 12-minute air fryer chicken bites are seasoned to perfection with zero deep-frying oil.","prepTime":"PT10M","cookTime":"PT15M","totalTime":"PT25M","keywords":"air fryer chicken, crispy chicken bites, healthy takeout, easy air fryer dinner, high protein snack","recipeYield":"3","recipeCategory":"Air Fryer Meals","recipeCuisine":"American","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":44,"bestRating":"5","worstRating":"1"},"nutrition":{"@type":"NutritionInformation","calories":"320 kcal","proteinContent":"24g","carbohydrateContent":"42g","fatContent":"14g","fiberContent":"4g"},"recipeIngredient":["1.5 lbs boneless skinless chicken breasts or thighs, cut into 1-inch bite-sized cubes","1 tablespoon olive oil or avocado oil","1/2 cup Panko breadcrumbs (for maximum crunch)","1/4 cup grated Parmesan cheese","1 teaspoon smoked paprika","1 teaspoon garlic powder","1/2 teaspoon onion powder","1/2 teaspoon dried oregano","1/2 teaspoon kosher salt and cracked black pepper"],"recipeInstructions":[{"@type":"HowToStep","name":"Step 1","text":"Prep the Chicken: Pat the cubed chicken completely dry with paper towels. Toss with olive oil so the seasoning adheres evenly."},{"@type":"HowToStep","name":"Step 2","text":"Make the Crunchy Coating: In a shallow bowl, whisk together the Panko breadcrumbs, Parmesan, smoked paprika, garlic powder, onion powder, oregano, salt, and pepper."},{"@type":"HowToStep","name":"Step 3","text":"Coat the Bites: Dredge each piece of chicken through the breadcrumb mixture, pressing firmly so every side gets coated in golden crumbs."},{"@type":"HowToStep","name":"Step 4","text":"Preheat & Arrange: Preheat your air fryer to 400°F (200°C) for 3 minutes. Lightly spray the basket with avocado oil spray. Place chicken in a single layer with space between pieces so hot air circulates."},{"@type":"HowToStep","name":"Step 5","text":"Air Fry: Cook at 400°F for 10-12 minutes, shaking the basket halfway at the 6-minute mark. Chicken is ready when golden brown and internal temperature reads 165°F (74°C). Serve with honey mustard or BBQ sauce!"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://viralmia.me"},{"@type":"ListItem","position":2,"name":"Air Fryer Meals","item":"https://viralmia.me/category/air-fryer-meals"},{"@type":"ListItem","position":3,"name":"Crispy Air Fryer Chicken Bites That Taste Like Takeout","item":"https://viralmia.me/recipes/crispy-air-fryer-chicken-bites"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I use chicken thighs instead of breasts?","acceptedAnswer":{"@type":"Answer","text":"Absolutely! Chicken thighs have slightly more fat, making the bites extra juicy and forgiving if cooked an extra minute or two."}},{"@type":"Question","name":"Can I freeze these ahead of time?","acceptedAnswer":{"@type":"Answer","text":"Yes! Bread the chicken, freeze them uncooked on a baking sheet for 2 hours, then transfer to a freezer bag. Air fry straight from frozen at 380°F for 14-16 minutes!"}}]}</script>
 </head>
@@ -1250,7 +1256,7 @@ img { max-width: 100%; height: auto; display: block; }
           <span>•</span>
           <span>Published on 2026-11-03</span>
           <span>•</span>
-          <span style="color: var(--gold); font-weight: 700;">★★★★★ 4.9 (56 Reviews)</span>
+          <span style="color: var(--gold); font-weight: 700;">★★★★★ 4.9 (44 Reviews)</span>
         </div>
 
         <!-- Jump to Recipe & Print Actions -->
@@ -1323,47 +1329,47 @@ img { max-width: 100%; height: auto; display: block; }
           <ul class="ingredients-list">
             
     <li class="ing-item">
-      <input type="checkbox" id="ing-7wsqz3myc">
+      <input type="checkbox" id="ing-byb3iuyro">
       <label>1.5 lbs boneless skinless chicken breasts or thighs, cut into 1-inch bite-sized cubes</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-pclz6rwcy">
+      <input type="checkbox" id="ing-2gmov9onl">
       <label>1 tablespoon olive oil or avocado oil</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-y43q93lm2">
+      <input type="checkbox" id="ing-0awfl8jem">
       <label>1/2 cup Panko breadcrumbs (for maximum crunch)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-e37omvorr">
+      <input type="checkbox" id="ing-p5evslwbs">
       <label>1/4 cup grated Parmesan cheese</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-aukz3hzr7">
+      <input type="checkbox" id="ing-m2jz9ad1k">
       <label>1 teaspoon smoked paprika</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-yxva85foj">
+      <input type="checkbox" id="ing-yzd87yi6g">
       <label>1 teaspoon garlic powder</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-ebsn46itr">
+      <input type="checkbox" id="ing-v2cc22ng8">
       <label>1/2 teaspoon onion powder</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-73lprcts7">
+      <input type="checkbox" id="ing-t4ds8gc8x">
       <label>1/2 teaspoon dried oregano</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-7alkq6gxw">
+      <input type="checkbox" id="ing-bvziutouc">
       <label>1/2 teaspoon kosher salt and cracked black pepper</label>
     </li>
   
@@ -1609,6 +1615,7 @@ img { max-width: 100%; height: auto; display: block; }
       // 2. Intersection Observer Scroll Reveal Animation
       const revealElements = document.querySelectorAll('.reveal-on-scroll');
       if ('IntersectionObserver' in window) {
+        document.documentElement.classList.add('js-ready');
         const observer = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -1616,11 +1623,9 @@ img { max-width: 100%; height: auto; display: block; }
               observer.unobserve(entry.target);
             }
           });
-        }, { threshold: 0.1 });
+        }, { threshold: 0.05, rootMargin: '0px 0px 50px 0px' });
 
         revealElements.forEach(el => observer.observe(el));
-      } else {
-        revealElements.forEach(el => el.classList.add('revealed'));
       }
 
       // 3. Live Search Filter

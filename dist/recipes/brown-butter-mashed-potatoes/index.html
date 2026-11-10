@@ -1056,13 +1056,19 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* Animations */
 .reveal-on-scroll {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s var(--ease-smooth), transform 0.8s var(--ease-smooth);
-}
-.reveal-on-scroll.revealed {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .js-ready .reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s var(--ease-smooth), transform 0.6s var(--ease-smooth);
+  }
+  .js-ready .reveal-on-scroll.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Footer */
@@ -1323,37 +1329,37 @@ img { max-width: 100%; height: auto; display: block; }
           <ul class="ingredients-list">
             
     <li class="ing-item">
-      <input type="checkbox" id="ing-4k0s5cvp2">
+      <input type="checkbox" id="ing-g0q66s2e6">
       <label>1.5 lbs russet or Yukon Gold potatoes, peeled and cubed</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-51i2x9xua">
+      <input type="checkbox" id="ing-q469wkchv">
       <label>4 tablespoons unsalted butter (Kerrygold works best for richness)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-vkq9kfewn">
+      <input type="checkbox" id="ing-hrwfax6v0">
       <label>1/3 cup whole milk or heavy cream, warmed</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-xg46q6n5e">
+      <input type="checkbox" id="ing-0vxe7y5p8">
       <label>2 cloves garlic, peeled and smashed</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-fddyz7q84">
+      <input type="checkbox" id="ing-j8x7upla3">
       <label>1 teaspoon kosher salt, plus more for the boiling water</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-gotimlrs9">
+      <input type="checkbox" id="ing-hz2qu6c9s">
       <label>1/4 teaspoon freshly cracked black pepper</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-2w7bbu5x9">
+      <input type="checkbox" id="ing-5dbbxqfpo">
       <label>2 tablespoons fresh chives, finely chopped for garnish</label>
     </li>
   
@@ -1597,6 +1603,7 @@ img { max-width: 100%; height: auto; display: block; }
       // 2. Intersection Observer Scroll Reveal Animation
       const revealElements = document.querySelectorAll('.reveal-on-scroll');
       if ('IntersectionObserver' in window) {
+        document.documentElement.classList.add('js-ready');
         const observer = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -1604,11 +1611,9 @@ img { max-width: 100%; height: auto; display: block; }
               observer.unobserve(entry.target);
             }
           });
-        }, { threshold: 0.1 });
+        }, { threshold: 0.05, rootMargin: '0px 0px 50px 0px' });
 
         revealElements.forEach(el => observer.observe(el));
-      } else {
-        revealElements.forEach(el => el.classList.add('revealed'));
       }
 
       // 3. Live Search Filter

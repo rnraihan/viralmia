@@ -1056,13 +1056,19 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* Animations */
 .reveal-on-scroll {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s var(--ease-smooth), transform 0.8s var(--ease-smooth);
-}
-.reveal-on-scroll.revealed {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .js-ready .reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s var(--ease-smooth), transform 0.6s var(--ease-smooth);
+  }
+  .js-ready .reveal-on-scroll.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Footer */
@@ -1289,7 +1295,7 @@ img { max-width: 100%; height: auto; display: block; }
     <!-- Main Recipe Grid -->
     <main class="posts-grid" id="recipes">
       
-    <article class="post-card " data-category="Quick Dinners">
+    <article class="post-card" data-category="Quick Dinners">
       <div class="card-img-wrap">
         <a href="/recipes/garlic-butter-steak-bites-crispy-potatoes">
           <img class="post-card-img" src="https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=1200&q=80" alt="15-Minute Garlic Butter Steak Bites with Crispy Golden Potatoes" loading="lazy">
@@ -1319,7 +1325,7 @@ img { max-width: 100%; height: auto; display: block; }
       </div>
     </article>
   
-    <article class="post-card " data-category="Quick Dinners">
+    <article class="post-card" data-category="Quick Dinners">
       <div class="card-img-wrap">
         <a href="/recipes/15-minute-honey-soy-glazed-salmon">
           <img class="post-card-img" src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=1200&q=80" alt="15-Minute Honey Soy Glazed Salmon (My Lazy Tuesday Skillet Savior)" loading="lazy">
@@ -1349,7 +1355,7 @@ img { max-width: 100%; height: auto; display: block; }
       </div>
     </article>
   
-    <article class="post-card " data-category="Quick Dinners">
+    <article class="post-card" data-category="Quick Dinners">
       <div class="card-img-wrap">
         <a href="/recipes/10-minute-spicy-peanut-butter-ramen-upgrade">
           <img class="post-card-img" src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=1200&q=80" alt="How I Turn Cheap Ramen Into a $4 Gourmet Dinner With Peanut Butter" loading="lazy">
@@ -1379,7 +1385,7 @@ img { max-width: 100%; height: auto; display: block; }
       </div>
     </article>
   
-    <article class="post-card " data-category="Quick Dinners">
+    <article class="post-card" data-category="Quick Dinners">
       <div class="card-img-wrap">
         <a href="/recipes/one-pot-creamy-tuscan-garlic-chicken">
           <img class="post-card-img" src="https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=1200&q=80" alt="The $4-Per-Serving Creamy Tuscan Chicken That Beats My Local Italian Spot" loading="lazy">
@@ -1409,7 +1415,7 @@ img { max-width: 100%; height: auto; display: block; }
       </div>
     </article>
   
-    <article class="post-card " data-category="Quick Dinners">
+    <article class="post-card" data-category="Quick Dinners">
       <div class="card-img-wrap">
         <a href="/recipes/sheet-pan-sausage-and-veggies">
           <img class="post-card-img" src="https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=1200&q=80" alt="Crispy Sheet Pan Sausage and Veggies (The High-Heat Trick)" loading="lazy">
@@ -1439,7 +1445,7 @@ img { max-width: 100%; height: auto; display: block; }
       </div>
     </article>
   
-    <article class="post-card " data-category="Quick Dinners">
+    <article class="post-card" data-category="Quick Dinners">
       <div class="card-img-wrap">
         <a href="/recipes/15-minute-creamy-garlic-butter-pasta">
           <img class="post-card-img" src="https://images.unsplash.com/photo-1608897013039-887f21d8c804?auto=format&fit=crop&w=1200&q=80" alt="15-Minute Creamy Garlic Butter Pasta with Lemon" loading="lazy">
@@ -1450,7 +1456,7 @@ img { max-width: 100%; height: auto; display: block; }
       <div class="post-card-body">
         <div class="card-meta-row">
           <div class="card-rating">
-            ★★★★★ <strong>4.9</strong> <span>(51)</span>
+            ★★★★★ <strong>4.9</strong> <span>(45)</span>
           </div>
           <span>⏱️ 10 mins</span>
         </div>
@@ -1547,6 +1553,7 @@ img { max-width: 100%; height: auto; display: block; }
       // 2. Intersection Observer Scroll Reveal Animation
       const revealElements = document.querySelectorAll('.reveal-on-scroll');
       if ('IntersectionObserver' in window) {
+        document.documentElement.classList.add('js-ready');
         const observer = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -1554,11 +1561,9 @@ img { max-width: 100%; height: auto; display: block; }
               observer.unobserve(entry.target);
             }
           });
-        }, { threshold: 0.1 });
+        }, { threshold: 0.05, rootMargin: '0px 0px 50px 0px' });
 
         revealElements.forEach(el => observer.observe(el));
-      } else {
-        revealElements.forEach(el => el.classList.add('revealed'));
       }
 
       // 3. Live Search Filter

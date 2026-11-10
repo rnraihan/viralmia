@@ -1056,13 +1056,19 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* Animations */
 .reveal-on-scroll {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s var(--ease-smooth), transform 0.8s var(--ease-smooth);
-}
-.reveal-on-scroll.revealed {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .js-ready .reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s var(--ease-smooth), transform 0.6s var(--ease-smooth);
+  }
+  .js-ready .reveal-on-scroll.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Footer */
@@ -1323,27 +1329,27 @@ img { max-width: 100%; height: auto; display: block; }
           <ul class="ingredients-list">
             
     <li class="ing-item">
-      <input type="checkbox" id="ing-py80t2mx2">
+      <input type="checkbox" id="ing-1j6z5fwwg">
       <label>1 stale loaf of crusty bread (sourdough, baguette, or Italian batard)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-5yxeqb5xy">
+      <input type="checkbox" id="ing-dgqrn94si">
       <label>Cold tap water (just enough to wet the crust thoroughly)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-h2k3au7p9">
+      <input type="checkbox" id="ing-eaxpc1xqj">
       <label>2 tablespoons Kerrygold unsalted butter (optional, for brushing)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-rm95uji3c">
+      <input type="checkbox" id="ing-9h9txyef3">
       <label>1 pinch of flaky sea salt (like Maldon)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-j5pv80p2g">
+      <input type="checkbox" id="ing-u0xf7p5yt">
       <label>1 clove garlic, halved (optional, for rubbing post-bake)</label>
     </li>
   
@@ -1587,6 +1593,7 @@ img { max-width: 100%; height: auto; display: block; }
       // 2. Intersection Observer Scroll Reveal Animation
       const revealElements = document.querySelectorAll('.reveal-on-scroll');
       if ('IntersectionObserver' in window) {
+        document.documentElement.classList.add('js-ready');
         const observer = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -1594,11 +1601,9 @@ img { max-width: 100%; height: auto; display: block; }
               observer.unobserve(entry.target);
             }
           });
-        }, { threshold: 0.1 });
+        }, { threshold: 0.05, rootMargin: '0px 0px 50px 0px' });
 
         revealElements.forEach(el => observer.observe(el));
-      } else {
-        revealElements.forEach(el => el.classList.add('revealed'));
       }
 
       // 3. Live Search Filter

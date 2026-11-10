@@ -1056,13 +1056,19 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* Animations */
 .reveal-on-scroll {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s var(--ease-smooth), transform 0.8s var(--ease-smooth);
-}
-.reveal-on-scroll.revealed {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .js-ready .reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s var(--ease-smooth), transform 0.6s var(--ease-smooth);
+  }
+  .js-ready .reveal-on-scroll.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Footer */
@@ -1323,47 +1329,47 @@ img { max-width: 100%; height: auto; display: block; }
           <ul class="ingredients-list">
             
     <li class="ing-item">
-      <input type="checkbox" id="ing-1s0y6rph7">
+      <input type="checkbox" id="ing-c40sobj6t">
       <label>14 oz smoked Polish kielbasa or turkey sausage, sliced into 1/2-inch rounds</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-lj6sp6o0w">
+      <input type="checkbox" id="ing-atvbsiwab">
       <label>1 lb baby Yukon Gold potatoes, halved (or quartered if larger than a golf ball)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-t9selvnsi">
+      <input type="checkbox" id="ing-1kbqcfynx">
       <label>2 large bell peppers (one red, one yellow), cut into 1-inch squares</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-xdqzk5rel">
+      <input type="checkbox" id="ing-yk0pcxbbi">
       <label>1 medium red onion, cut into 1/2-inch thick wedges</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-swkftcz3a">
+      <input type="checkbox" id="ing-2lybbgqac">
       <label>2 tbsp avocado oil (ideal high-smoke-point oil)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-j5529nq8q">
+      <input type="checkbox" id="ing-5zw1bzlgh">
       <label>1 tbsp Italian seasoning blend (oregano, basil, thyme)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-93k5lvfct">
+      <input type="checkbox" id="ing-oyekbwpgj">
       <label>1 tsp garlic powder</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-r9rvp0q4a">
+      <input type="checkbox" id="ing-qowntcibi">
       <label>1 tsp Morton kosher salt</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-qej0nrbax">
+      <input type="checkbox" id="ing-29iwznmdb">
       <label>1/2 tsp freshly cracked black pepper</label>
     </li>
   
@@ -1609,6 +1615,7 @@ img { max-width: 100%; height: auto; display: block; }
       // 2. Intersection Observer Scroll Reveal Animation
       const revealElements = document.querySelectorAll('.reveal-on-scroll');
       if ('IntersectionObserver' in window) {
+        document.documentElement.classList.add('js-ready');
         const observer = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -1616,11 +1623,9 @@ img { max-width: 100%; height: auto; display: block; }
               observer.unobserve(entry.target);
             }
           });
-        }, { threshold: 0.1 });
+        }, { threshold: 0.05, rootMargin: '0px 0px 50px 0px' });
 
         revealElements.forEach(el => observer.observe(el));
-      } else {
-        revealElements.forEach(el => el.classList.add('revealed'));
       }
 
       // 3. Live Search Filter

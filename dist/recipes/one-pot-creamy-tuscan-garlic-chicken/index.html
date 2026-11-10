@@ -1056,13 +1056,19 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* Animations */
 .reveal-on-scroll {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s var(--ease-smooth), transform 0.8s var(--ease-smooth);
-}
-.reveal-on-scroll.revealed {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .js-ready .reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s var(--ease-smooth), transform 0.6s var(--ease-smooth);
+  }
+  .js-ready .reveal-on-scroll.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Footer */
@@ -1323,47 +1329,47 @@ img { max-width: 100%; height: auto; display: block; }
           <ul class="ingredients-list">
             
     <li class="ing-item">
-      <input type="checkbox" id="ing-3o0l7kj0w">
+      <input type="checkbox" id="ing-1xxovidwv">
       <label>1.5 lbs chicken breast, sliced into thin cutlets</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-lxr0wedqg">
+      <input type="checkbox" id="ing-5jzlvmlqt">
       <label>1 tablespoon avocado oil</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-7b0hsolbn">
+      <input type="checkbox" id="ing-ebd2ds6j5">
       <label>4 cloves garlic, minced</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-jlkp6r6sm">
+      <input type="checkbox" id="ing-45998x4c4">
       <label>1/2 cup sun-dried tomatoes, chopped</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-yis12czti">
+      <input type="checkbox" id="ing-gntqslslz">
       <label>2 cups fresh baby spinach</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-xsnqc485j">
+      <input type="checkbox" id="ing-hhnce5p17">
       <label>1 cup heavy cream (or half-and-half for a lighter swap)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-wzikm2gu0">
+      <input type="checkbox" id="ing-3a7dt1d2a">
       <label>1/2 cup grated Parmesan cheese</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-3hmzg8ecv">
+      <input type="checkbox" id="ing-6awdpz6bd">
       <label>1 teaspoon kosher salt</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-s2yt78uuy">
+      <input type="checkbox" id="ing-ildhldhp1">
       <label>1/2 teaspoon red pepper flakes</label>
     </li>
   
@@ -1607,6 +1613,7 @@ img { max-width: 100%; height: auto; display: block; }
       // 2. Intersection Observer Scroll Reveal Animation
       const revealElements = document.querySelectorAll('.reveal-on-scroll');
       if ('IntersectionObserver' in window) {
+        document.documentElement.classList.add('js-ready');
         const observer = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -1614,11 +1621,9 @@ img { max-width: 100%; height: auto; display: block; }
               observer.unobserve(entry.target);
             }
           });
-        }, { threshold: 0.1 });
+        }, { threshold: 0.05, rootMargin: '0px 0px 50px 0px' });
 
         revealElements.forEach(el => observer.observe(el));
-      } else {
-        revealElements.forEach(el => el.classList.add('revealed'));
       }
 
       // 3. Live Search Filter

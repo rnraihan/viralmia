@@ -1056,13 +1056,19 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* Animations */
 .reveal-on-scroll {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s var(--ease-smooth), transform 0.8s var(--ease-smooth);
-}
-.reveal-on-scroll.revealed {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .js-ready .reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s var(--ease-smooth), transform 0.6s var(--ease-smooth);
+  }
+  .js-ready .reveal-on-scroll.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Footer */
@@ -1323,47 +1329,47 @@ img { max-width: 100%; height: auto; display: block; }
           <ul class="ingredients-list">
             
     <li class="ing-item">
-      <input type="checkbox" id="ing-sln1l43jb">
+      <input type="checkbox" id="ing-yn7detsfp">
       <label>1 lb top sirloin steak (or ribeye), cut into 1-inch cubes</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-bshbl31p8">
+      <input type="checkbox" id="ing-335g86tx4">
       <label>1/2 lb baby Yukon Gold potatoes, quartered into bite-sized chunks</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-13wgnee63">
+      <input type="checkbox" id="ing-l5z8p4bst">
       <label>1 tablespoon avocado oil (or any high-smoke-point oil)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-i3x4ao2jr">
+      <input type="checkbox" id="ing-l3rb6dzwj">
       <label>3 tablespoons Kerrygold unsalted butter, divided</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-alesvnirp">
+      <input type="checkbox" id="ing-0v6es1qnn">
       <label>4 cloves fresh garlic, finely minced</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-dbo5ny9e5">
+      <input type="checkbox" id="ing-1i1o4e03r">
       <label>1 teaspoon kosher salt, plus extra to taste</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-hrnsp0hyd">
+      <input type="checkbox" id="ing-bsrwzb8a6">
       <label>1/2 teaspoon freshly cracked black pepper</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-s86hym2e4">
+      <input type="checkbox" id="ing-3szmoyva3">
       <label>1 sprig fresh rosemary or thyme (leaves stripped and chopped)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-l0uhqd7dc">
+      <input type="checkbox" id="ing-8xkjqq6fj">
       <label>1 tablespoon fresh Italian parsley, chopped for finishing</label>
     </li>
   
@@ -1609,6 +1615,7 @@ img { max-width: 100%; height: auto; display: block; }
       // 2. Intersection Observer Scroll Reveal Animation
       const revealElements = document.querySelectorAll('.reveal-on-scroll');
       if ('IntersectionObserver' in window) {
+        document.documentElement.classList.add('js-ready');
         const observer = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -1616,11 +1623,9 @@ img { max-width: 100%; height: auto; display: block; }
               observer.unobserve(entry.target);
             }
           });
-        }, { threshold: 0.1 });
+        }, { threshold: 0.05, rootMargin: '0px 0px 50px 0px' });
 
         revealElements.forEach(el => observer.observe(el));
-      } else {
-        revealElements.forEach(el => el.classList.add('revealed'));
       }
 
       // 3. Live Search Filter

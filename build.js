@@ -1045,13 +1045,19 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* Animations */
 .reveal-on-scroll {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s var(--ease-smooth), transform 0.8s var(--ease-smooth);
-}
-.reveal-on-scroll.revealed {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .js-ready .reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s var(--ease-smooth), transform 0.6s var(--ease-smooth);
+  }
+  .js-ready .reveal-on-scroll.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Footer */
@@ -1349,6 +1355,7 @@ function layout(title, content, meta = {}) {
       // 2. Intersection Observer Scroll Reveal Animation
       const revealElements = document.querySelectorAll('.reveal-on-scroll');
       if ('IntersectionObserver' in window) {
+        document.documentElement.classList.add('js-ready');
         const observer = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -1356,11 +1363,9 @@ function layout(title, content, meta = {}) {
               observer.unobserve(entry.target);
             }
           });
-        }, { threshold: 0.1 });
+        }, { threshold: 0.05, rootMargin: '0px 0px 50px 0px' });
 
         revealElements.forEach(el => observer.observe(el));
-      } else {
-        revealElements.forEach(el => el.classList.add('revealed'));
       }
 
       // 3. Live Search Filter
@@ -1509,7 +1514,7 @@ function buildHomePage(posts, currentCategory = 'All') {
   }).join('');
 
   const postCards = posts.map((post, idx) => `
-    <article class="post-card ${idx < 6 ? '' : 'reveal-on-scroll'}" data-category="${post.category}">
+    <article class="post-card" data-category="${post.category}">
       <div class="card-img-wrap">
         <a href="/recipes/${post.slug}">
           <img class="post-card-img" src="${post.heroImage}" alt="${post.title}" loading="lazy">

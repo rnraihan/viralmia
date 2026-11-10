@@ -1056,13 +1056,19 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* Animations */
 .reveal-on-scroll {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s var(--ease-smooth), transform 0.8s var(--ease-smooth);
-}
-.reveal-on-scroll.revealed {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .js-ready .reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s var(--ease-smooth), transform 0.6s var(--ease-smooth);
+  }
+  .js-ready .reveal-on-scroll.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Footer */
@@ -1289,7 +1295,7 @@ img { max-width: 100%; height: auto; display: block; }
     <!-- Main Recipe Grid -->
     <main class="posts-grid" id="recipes">
       
-    <article class="post-card " data-category="Comfort Food">
+    <article class="post-card" data-category="Comfort Food">
       <div class="card-img-wrap">
         <a href="/recipes/brown-butter-mashed-potatoes">
           <img class="post-card-img" src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80" alt="Why Brown Butter Mashed Potatoes Beat $20 Steakhouse Sides" loading="lazy">
@@ -1319,7 +1325,7 @@ img { max-width: 100%; height: auto; display: block; }
       </div>
     </article>
   
-    <article class="post-card " data-category="Quick Dinners">
+    <article class="post-card" data-category="Quick Dinners">
       <div class="card-img-wrap">
         <a href="/recipes/garlic-butter-steak-bites-crispy-potatoes">
           <img class="post-card-img" src="https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=1200&q=80" alt="15-Minute Garlic Butter Steak Bites with Crispy Golden Potatoes" loading="lazy">
@@ -1349,7 +1355,7 @@ img { max-width: 100%; height: auto; display: block; }
       </div>
     </article>
   
-    <article class="post-card " data-category="Air Fryer Meals">
+    <article class="post-card" data-category="Air Fryer Meals">
       <div class="card-img-wrap">
         <a href="/recipes/juicy-air-fryer-turkey-breast-hack">
           <img class="post-card-img" src="https://images.unsplash.com/photo-1574484284002-952d92456975?auto=format&fit=crop&w=1200&q=80" alt="The Juicy Air Fryer Turkey Breast Hack That Cut My Deli Bill in Half" loading="lazy">
@@ -1379,7 +1385,7 @@ img { max-width: 100%; height: auto; display: block; }
       </div>
     </article>
   
-    <article class="post-card " data-category="Quick Dinners">
+    <article class="post-card" data-category="Quick Dinners">
       <div class="card-img-wrap">
         <a href="/recipes/15-minute-honey-soy-glazed-salmon">
           <img class="post-card-img" src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=1200&q=80" alt="15-Minute Honey Soy Glazed Salmon (My Lazy Tuesday Skillet Savior)" loading="lazy">
@@ -1409,7 +1415,7 @@ img { max-width: 100%; height: auto; display: block; }
       </div>
     </article>
   
-    <article class="post-card " data-category="Comfort Food">
+    <article class="post-card" data-category="Comfort Food">
       <div class="card-img-wrap">
         <a href="/recipes/15-minute-loaded-baked-potato-soup">
           <img class="post-card-img" src="https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=1200&q=80" alt="The 15-Minute Loaded Baked Potato Soup That Saved My Cold Weeknights" loading="lazy">
@@ -1439,7 +1445,7 @@ img { max-width: 100%; height: auto; display: block; }
       </div>
     </article>
   
-    <article class="post-card " data-category="Snacks & Sides">
+    <article class="post-card" data-category="Snacks & Sides">
       <div class="card-img-wrap">
         <a href="/recipes/crispy-parmesan-zucchini-fries">
           <img class="post-card-img" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=1200&q=80" alt="Crispy Parmesan Zucchini Fries That Actually Stay Crunchy" loading="lazy">
@@ -1469,7 +1475,7 @@ img { max-width: 100%; height: auto; display: block; }
       </div>
     </article>
   
-    <article class="post-card reveal-on-scroll" data-category="Kitchen Hacks">
+    <article class="post-card" data-category="Kitchen Hacks">
       <div class="card-img-wrap">
         <a href="/recipes/how-to-freeze-avocados">
           <img class="post-card-img" src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1200&q=80" alt="Stop Throwing Out Brown Avocados: How to Freeze Them the Right Way" loading="lazy">
@@ -1499,7 +1505,7 @@ img { max-width: 100%; height: auto; display: block; }
       </div>
     </article>
   
-    <article class="post-card reveal-on-scroll" data-category="Quick Dinners">
+    <article class="post-card" data-category="Quick Dinners">
       <div class="card-img-wrap">
         <a href="/recipes/10-minute-spicy-peanut-butter-ramen-upgrade">
           <img class="post-card-img" src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=1200&q=80" alt="How I Turn Cheap Ramen Into a $4 Gourmet Dinner With Peanut Butter" loading="lazy">
@@ -1529,7 +1535,7 @@ img { max-width: 100%; height: auto; display: block; }
       </div>
     </article>
   
-    <article class="post-card reveal-on-scroll" data-category="Kitchen Hacks">
+    <article class="post-card" data-category="Kitchen Hacks">
       <div class="card-img-wrap">
         <a href="/recipes/how-to-revive-stale-bread">
           <img class="post-card-img" src="https://images.unsplash.com/photo-1516594798947-e65505dbb29d?auto=format&fit=crop&w=1200&q=80" alt="Stop Throwing Away Hard Loaves: How to Revive Stale Bread Perfectly" loading="lazy">
@@ -1559,7 +1565,7 @@ img { max-width: 100%; height: auto; display: block; }
       </div>
     </article>
   
-    <article class="post-card reveal-on-scroll" data-category="Breakfast & Brunch">
+    <article class="post-card" data-category="Breakfast & Brunch">
       <div class="card-img-wrap">
         <a href="/recipes/3-ingredient-banana-pancakes-no-sugar">
           <img class="post-card-img" src="https://images.unsplash.com/photo-1506084868230-bb9d95c24759?auto=format&fit=crop&w=1200&q=80" alt="The Only 3-Ingredient Banana Pancakes That Don't Turn Into Mush" loading="lazy">
@@ -1589,7 +1595,7 @@ img { max-width: 100%; height: auto; display: block; }
       </div>
     </article>
   
-    <article class="post-card reveal-on-scroll" data-category="Quick Dinners">
+    <article class="post-card" data-category="Quick Dinners">
       <div class="card-img-wrap">
         <a href="/recipes/one-pot-creamy-tuscan-garlic-chicken">
           <img class="post-card-img" src="https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=1200&q=80" alt="The $4-Per-Serving Creamy Tuscan Chicken That Beats My Local Italian Spot" loading="lazy">
@@ -1619,7 +1625,7 @@ img { max-width: 100%; height: auto; display: block; }
       </div>
     </article>
   
-    <article class="post-card reveal-on-scroll" data-category="Comfort Food">
+    <article class="post-card" data-category="Comfort Food">
       <div class="card-img-wrap">
         <a href="/recipes/20-minute-creamy-tomato-basil-soup">
           <img class="post-card-img" src="https://images.unsplash.com/photo-1603105037880-880cd4edfb0d?auto=format&fit=crop&w=1200&q=80" alt="20-Minute Creamy Tomato Basil Soup That Saved My Sanity" loading="lazy">
@@ -1649,7 +1655,7 @@ img { max-width: 100%; height: auto; display: block; }
       </div>
     </article>
   
-    <article class="post-card reveal-on-scroll" data-category="Kitchen Hacks">
+    <article class="post-card" data-category="Kitchen Hacks">
       <div class="card-img-wrap">
         <a href="/recipes/how-to-peel-hard-boiled-eggs-water-hack">
           <img class="post-card-img" src="https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&fit=crop&w=1200&q=80" alt="Why Everyone Is Wrong About How to Peel Hard Boiled Eggs" loading="lazy">
@@ -1679,7 +1685,7 @@ img { max-width: 100%; height: auto; display: block; }
       </div>
     </article>
   
-    <article class="post-card reveal-on-scroll" data-category="Quick Dinners">
+    <article class="post-card" data-category="Quick Dinners">
       <div class="card-img-wrap">
         <a href="/recipes/sheet-pan-sausage-and-veggies">
           <img class="post-card-img" src="https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=1200&q=80" alt="Crispy Sheet Pan Sausage and Veggies (The High-Heat Trick)" loading="lazy">
@@ -1709,7 +1715,7 @@ img { max-width: 100%; height: auto; display: block; }
       </div>
     </article>
   
-    <article class="post-card reveal-on-scroll" data-category="Quick Dinners">
+    <article class="post-card" data-category="Quick Dinners">
       <div class="card-img-wrap">
         <a href="/recipes/15-minute-creamy-garlic-butter-pasta">
           <img class="post-card-img" src="https://images.unsplash.com/photo-1608897013039-887f21d8c804?auto=format&fit=crop&w=1200&q=80" alt="15-Minute Creamy Garlic Butter Pasta with Lemon" loading="lazy">
@@ -1720,7 +1726,7 @@ img { max-width: 100%; height: auto; display: block; }
       <div class="post-card-body">
         <div class="card-meta-row">
           <div class="card-rating">
-            ★★★★★ <strong>4.9</strong> <span>(51)</span>
+            ★★★★★ <strong>4.9</strong> <span>(45)</span>
           </div>
           <span>⏱️ 10 mins</span>
         </div>
@@ -1739,7 +1745,7 @@ img { max-width: 100%; height: auto; display: block; }
       </div>
     </article>
   
-    <article class="post-card reveal-on-scroll" data-category="Air Fryer Meals">
+    <article class="post-card" data-category="Air Fryer Meals">
       <div class="card-img-wrap">
         <a href="/recipes/crispy-air-fryer-chicken-bites">
           <img class="post-card-img" src="https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=1200&q=80" alt="Crispy Air Fryer Chicken Bites That Taste Like Takeout" loading="lazy">
@@ -1750,7 +1756,7 @@ img { max-width: 100%; height: auto; display: block; }
       <div class="post-card-body">
         <div class="card-meta-row">
           <div class="card-rating">
-            ★★★★★ <strong>4.9</strong> <span>(56)</span>
+            ★★★★★ <strong>4.9</strong> <span>(44)</span>
           </div>
           <span>⏱️ 12 mins</span>
         </div>
@@ -1769,7 +1775,7 @@ img { max-width: 100%; height: auto; display: block; }
       </div>
     </article>
   
-    <article class="post-card reveal-on-scroll" data-category="Kitchen Hacks">
+    <article class="post-card" data-category="Kitchen Hacks">
       <div class="card-img-wrap">
         <a href="/recipes/how-to-keep-strawberries-fresh-for-3-weeks">
           <img class="post-card-img" src="https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=1200&q=80" alt="How to Keep Strawberries Fresh for Up to 3 Weeks (The Science Hack)" loading="lazy">
@@ -1780,7 +1786,7 @@ img { max-width: 100%; height: auto; display: block; }
       <div class="post-card-body">
         <div class="card-meta-row">
           <div class="card-rating">
-            ★★★★★ <strong>4.9</strong> <span>(40)</span>
+            ★★★★★ <strong>4.9</strong> <span>(60)</span>
           </div>
           <span>⏱️ 0 mins</span>
         </div>
@@ -1877,6 +1883,7 @@ img { max-width: 100%; height: auto; display: block; }
       // 2. Intersection Observer Scroll Reveal Animation
       const revealElements = document.querySelectorAll('.reveal-on-scroll');
       if ('IntersectionObserver' in window) {
+        document.documentElement.classList.add('js-ready');
         const observer = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -1884,11 +1891,9 @@ img { max-width: 100%; height: auto; display: block; }
               observer.unobserve(entry.target);
             }
           });
-        }, { threshold: 0.1 });
+        }, { threshold: 0.05, rootMargin: '0px 0px 50px 0px' });
 
         revealElements.forEach(el => observer.observe(el));
-      } else {
-        revealElements.forEach(el => el.classList.add('revealed'));
       }
 
       // 3. Live Search Filter

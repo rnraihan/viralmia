@@ -1056,13 +1056,19 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* Animations */
 .reveal-on-scroll {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s var(--ease-smooth), transform 0.8s var(--ease-smooth);
-}
-.reveal-on-scroll.revealed {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .js-ready .reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s var(--ease-smooth), transform 0.6s var(--ease-smooth);
+  }
+  .js-ready .reveal-on-scroll.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Footer */
@@ -1323,47 +1329,47 @@ img { max-width: 100%; height: auto; display: block; }
           <ul class="ingredients-list">
             
     <li class="ing-item">
-      <input type="checkbox" id="ing-k0zriqvfl">
+      <input type="checkbox" id="ing-iny2bdsxo">
       <label>3 medium russet potatoes, peeled and diced small so they cook fast</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-l1t6n7c4g">
+      <input type="checkbox" id="ing-e3jbynldu">
       <label>2 tablespoons Kerrygold salted butter</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-y1gmvii9v">
+      <input type="checkbox" id="ing-fi7mv6a5y">
       <label>2 cups chicken broth (plus a splash more if it gets too thick)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-4z513v5hr">
+      <input type="checkbox" id="ing-9ftaklxci">
       <label>1 cup whole milk or half-and-half</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-i4mgf7iki">
+      <input type="checkbox" id="ing-a4kfz81fv">
       <label>2 tablespoons all-purpose flour for thickening</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-ydgn3opub">
+      <input type="checkbox" id="ing-9v70giefj">
       <label>1 cup sharp cheddar cheese, freshly shredded (Trader Joe's cheddar is my go-to)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-xb7pn7cm7">
+      <input type="checkbox" id="ing-7hxvts2ho">
       <label>4 slices of bacon, crisped up and crumbled</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-ez0ol7jnq">
+      <input type="checkbox" id="ing-ob2w3reet">
       <label>3 green onions, thinly sliced for topping</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-g95fq1epw">
+      <input type="checkbox" id="ing-oqv98zxnc">
       <label>Kosher salt and black pepper to taste</label>
     </li>
   
@@ -1607,6 +1613,7 @@ img { max-width: 100%; height: auto; display: block; }
       // 2. Intersection Observer Scroll Reveal Animation
       const revealElements = document.querySelectorAll('.reveal-on-scroll');
       if ('IntersectionObserver' in window) {
+        document.documentElement.classList.add('js-ready');
         const observer = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -1614,11 +1621,9 @@ img { max-width: 100%; height: auto; display: block; }
               observer.unobserve(entry.target);
             }
           });
-        }, { threshold: 0.1 });
+        }, { threshold: 0.05, rootMargin: '0px 0px 50px 0px' });
 
         revealElements.forEach(el => observer.observe(el));
-      } else {
-        revealElements.forEach(el => el.classList.add('revealed'));
       }
 
       // 3. Live Search Filter

@@ -1056,13 +1056,19 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* Animations */
 .reveal-on-scroll {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s var(--ease-smooth), transform 0.8s var(--ease-smooth);
-}
-.reveal-on-scroll.revealed {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .js-ready .reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s var(--ease-smooth), transform 0.6s var(--ease-smooth);
+  }
+  .js-ready .reveal-on-scroll.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Footer */
@@ -1323,32 +1329,32 @@ img { max-width: 100%; height: auto; display: block; }
           <ul class="ingredients-list">
             
     <li class="ing-item">
-      <input type="checkbox" id="ing-5h0va1raz">
+      <input type="checkbox" id="ing-m7ql0bpe6">
       <label>2 medium very ripe bananas (the more spots, the better)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-nxbg7t66g">
+      <input type="checkbox" id="ing-7a5e36k3s">
       <label>2 large organic eggs</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-e88ibzsuw">
+      <input type="checkbox" id="ing-kptxg8ahm">
       <label>1/2 cup Quaker quick oats (blitzed or left whole for texture)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-eyrnv1j1y">
+      <input type="checkbox" id="ing-013fq5xpk">
       <label>1/2 teaspoon ground cinnamon</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-tkj30yfjt">
+      <input type="checkbox" id="ing-n4jdsdcvv">
       <label>1 teaspoon avocado oil or Kerrygold butter for the pan</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-yz8kiirax">
+      <input type="checkbox" id="ing-ku0mcxo6r">
       <label>A pinch of kosher salt to balance the sweetness</label>
     </li>
   
@@ -1592,6 +1598,7 @@ img { max-width: 100%; height: auto; display: block; }
       // 2. Intersection Observer Scroll Reveal Animation
       const revealElements = document.querySelectorAll('.reveal-on-scroll');
       if ('IntersectionObserver' in window) {
+        document.documentElement.classList.add('js-ready');
         const observer = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -1599,11 +1606,9 @@ img { max-width: 100%; height: auto; display: block; }
               observer.unobserve(entry.target);
             }
           });
-        }, { threshold: 0.1 });
+        }, { threshold: 0.05, rootMargin: '0px 0px 50px 0px' });
 
         revealElements.forEach(el => observer.observe(el));
-      } else {
-        revealElements.forEach(el => el.classList.add('revealed'));
       }
 
       // 3. Live Search Filter

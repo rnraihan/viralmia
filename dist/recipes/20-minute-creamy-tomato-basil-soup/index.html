@@ -1056,13 +1056,19 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* Animations */
 .reveal-on-scroll {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s var(--ease-smooth), transform 0.8s var(--ease-smooth);
-}
-.reveal-on-scroll.revealed {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .js-ready .reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s var(--ease-smooth), transform 0.6s var(--ease-smooth);
+  }
+  .js-ready .reveal-on-scroll.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Footer */
@@ -1323,42 +1329,42 @@ img { max-width: 100%; height: auto; display: block; }
           <ul class="ingredients-list">
             
     <li class="ing-item">
-      <input type="checkbox" id="ing-ze9n9g3n4">
+      <input type="checkbox" id="ing-o86bvyliw">
       <label>1 tablespoon Kerrygold unsalted butter (or olive oil)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-od6ppzlsu">
+      <input type="checkbox" id="ing-9tgk5c09v">
       <label>3 cloves garlic, minced</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-qzrln2rh9">
+      <input type="checkbox" id="ing-q0kagq5dl">
       <label>1 can (28 ounces) San Marzano crushed tomatoes</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-hohduo1q7">
+      <input type="checkbox" id="ing-3q3glbohs">
       <label>1.5 cups chicken broth or vegetable broth</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-mbtvuqa98">
+      <input type="checkbox" id="ing-ohegs3lt7">
       <label>1/2 cup heavy cream (or full-fat canned coconut milk)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-yklkom8tf">
+      <input type="checkbox" id="ing-fmcs6jniz">
       <label>1/4 cup fresh basil leaves, roughly chopped</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-4ezt3j1fb">
+      <input type="checkbox" id="ing-umr4jn0ju">
       <label>1 teaspoon kosher salt</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-0fm37e51t">
+      <input type="checkbox" id="ing-t4hopd9lj">
       <label>1/4 teaspoon freshly cracked black pepper</label>
     </li>
   
@@ -1602,6 +1608,7 @@ img { max-width: 100%; height: auto; display: block; }
       // 2. Intersection Observer Scroll Reveal Animation
       const revealElements = document.querySelectorAll('.reveal-on-scroll');
       if ('IntersectionObserver' in window) {
+        document.documentElement.classList.add('js-ready');
         const observer = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -1609,11 +1616,9 @@ img { max-width: 100%; height: auto; display: block; }
               observer.unobserve(entry.target);
             }
           });
-        }, { threshold: 0.1 });
+        }, { threshold: 0.05, rootMargin: '0px 0px 50px 0px' });
 
         revealElements.forEach(el => observer.observe(el));
-      } else {
-        revealElements.forEach(el => el.classList.add('revealed'));
       }
 
       // 3. Live Search Filter
