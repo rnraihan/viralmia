@@ -247,6 +247,8 @@ img { max-width: 100%; height: auto; display: block; }
   pointer-events: none;
   animation: floatParticle 8s infinite ease-in-out alternate;
   z-index: 2;
+  will-change: transform;
+  transform: translateZ(0);
 }
 .fp-1 { top: 12%; left: 6%; animation-duration: 9s; }
 .fp-2 { top: 20%; right: 7%; animation-duration: 7s; font-size: 38px; }
@@ -256,9 +258,9 @@ img { max-width: 100%; height: auto; display: block; }
 .fp-6 { top: 52%; right: 5%; animation-duration: 12s; font-size: 30px; }
 
 @keyframes floatParticle {
-  0% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-18px) rotate(8deg); }
-  100% { transform: translateY(14px) rotate(-6deg); }
+  0% { transform: translateY(0) rotate(0deg) translateZ(0); }
+  50% { transform: translateY(-18px) rotate(8deg) translateZ(0); }
+  100% { transform: translateY(14px) rotate(-6deg) translateZ(0); }
 }
 
 .hero {
@@ -1329,42 +1331,42 @@ img { max-width: 100%; height: auto; display: block; }
           <ul class="ingredients-list">
             
     <li class="ing-item">
-      <input type="checkbox" id="ing-a8mx77dbe">
+      <input type="checkbox" id="ing-p429vqck2">
       <label>1 boneless turkey breast (about 2 to 2.5 lbs), skin-on</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-yikmmgkiz">
+      <input type="checkbox" id="ing-d501s43ml">
       <label>2 tablespoons Kerrygold butter, softened to room temperature</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-ql8ofdelj">
+      <input type="checkbox" id="ing-qovr7nwt0">
       <label>1 tablespoon olive oil or avocado oil</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-5r1fpm3qc">
+      <input type="checkbox" id="ing-4dw6sq7uj">
       <label>1 teaspoon Diamond Crystal kosher salt (or 3/4 tsp fine table salt)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-6yfje3gr2">
+      <input type="checkbox" id="ing-uwi6oawrg">
       <label>1/2 teaspoon freshly cracked black pepper</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-k2mgsqipo">
+      <input type="checkbox" id="ing-v9lmccpjm">
       <label>1 teaspoon garlic powder</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-k1amkr4sh">
+      <input type="checkbox" id="ing-li0d45say">
       <label>1/2 teaspoon smoked paprika (gives that golden roasted color)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-uwo9zyjke">
+      <input type="checkbox" id="ing-brj2auybz">
       <label>1/2 teaspoon dried thyme leaves</label>
     </li>
   
@@ -1586,24 +1588,32 @@ img { max-width: 100%; height: auto; display: block; }
   <!-- PRO JAVASCRIPT: Scroll Animations, Live Search, Checklists, Back to Top -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // 1. Scroll Progress Bar
+      // 1. Scroll Progress Bar (Throttled with requestAnimationFrame for smooth 60fps & 0ms INP)
       const progressBar = document.getElementById('progressBar');
       const backToTop = document.getElementById('backToTop');
 
+      let ticking = false;
       window.addEventListener('scroll', () => {
-        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrolled = (winScroll / height) * 100;
-        if (progressBar) progressBar.style.width = scrolled + '%';
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            const winScroll = window.scrollY || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            if (height > 0 && progressBar) {
+              progressBar.style.width = ((winScroll / height) * 100) + '%';
+            }
 
-        if (backToTop) {
-          if (winScroll > 400) {
-            backToTop.classList.add('show');
-          } else {
-            backToTop.classList.remove('show');
-          }
+            if (backToTop) {
+              if (winScroll > 400) {
+                backToTop.classList.add('show');
+              } else {
+                backToTop.classList.remove('show');
+              }
+            }
+            ticking = false;
+          });
+          ticking = true;
         }
-      });
+      }, { passive: true });
 
       // 2. Intersection Observer Scroll Reveal Animation
       const revealElements = document.querySelectorAll('.reveal-on-scroll');

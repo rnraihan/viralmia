@@ -247,6 +247,8 @@ img { max-width: 100%; height: auto; display: block; }
   pointer-events: none;
   animation: floatParticle 8s infinite ease-in-out alternate;
   z-index: 2;
+  will-change: transform;
+  transform: translateZ(0);
 }
 .fp-1 { top: 12%; left: 6%; animation-duration: 9s; }
 .fp-2 { top: 20%; right: 7%; animation-duration: 7s; font-size: 38px; }
@@ -256,9 +258,9 @@ img { max-width: 100%; height: auto; display: block; }
 .fp-6 { top: 52%; right: 5%; animation-duration: 12s; font-size: 30px; }
 
 @keyframes floatParticle {
-  0% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-18px) rotate(8deg); }
-  100% { transform: translateY(14px) rotate(-6deg); }
+  0% { transform: translateY(0) rotate(0deg) translateZ(0); }
+  50% { transform: translateY(-18px) rotate(8deg) translateZ(0); }
+  100% { transform: translateY(14px) rotate(-6deg) translateZ(0); }
 }
 
 .hero {
@@ -1206,7 +1208,7 @@ img { max-width: 100%; height: auto; display: block; }
   .tool-btn { flex: 1 1 auto; justify-content: center; }
 }
 </style>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Recipe","name":"15-Minute Creamy Garlic Butter Pasta with Lemon","image":["https://images.unsplash.com/photo-1608897013039-887f21d8c804?auto=format&fit=crop&w=1200&q=80"],"author":{"@type":"Person","name":"Mia","url":"https://viralmia.me/about"},"publisher":{"@type":"Organization","name":"Viral Mia Kitchen","logo":{"@type":"ImageObject","url":"https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=400&q=80"}},"datePublished":"2026-11-03","dateModified":"2026-11-03","description":"The ultimate quick weeknight comfort dinner! Velvety garlic butter sauce tossed with al dente pasta and a splash of fresh lemon juice, ready in just 15 minutes.","prepTime":"PT10M","cookTime":"PT15M","totalTime":"PT25M","keywords":"garlic butter pasta, 15 minute dinner, easy pasta recipe, comfort food, weeknight meals","recipeYield":"4","recipeCategory":"Quick Dinners","recipeCuisine":"American","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":38,"bestRating":"5","worstRating":"1"},"nutrition":{"@type":"NutritionInformation","calories":"410 kcal","proteinContent":"24g","carbohydrateContent":"42g","fatContent":"14g","fiberContent":"4g"},"recipeIngredient":["8 oz (225g) spaghetti, fettuccine, or linguine","4 tablespoons unsalted butter (good quality butter makes a huge difference!)","5 cloves garlic, finely minced","1/2 cup grated Parmesan cheese (freshly grated melts best)","1/2 cup heavy cream (or whole milk for a lighter version)","1 tablespoon fresh lemon juice + 1/2 tsp lemon zest","1/2 teaspoon red pepper flakes (optional for a subtle kick)","Salt and freshly cracked black pepper to taste","Fresh chopped parsley for garnish"],"recipeInstructions":[{"@type":"HowToStep","name":"Step 1","text":"Boil the Pasta: Bring a large pot of heavily salted water to a rolling boil. Add pasta and cook until al dente according to package instructions. Crucial: Reserve 1/2 cup of starchy pasta water before draining!"},{"@type":"HowToStep","name":"Step 2","text":"Sauté the Garlic: While pasta cooks, melt the butter in a large skillet over medium-low heat. Add the minced garlic and red pepper flakes. Sauté for about 60 seconds until fragrant and golden—do not burn the garlic!"},{"@type":"HowToStep","name":"Step 3","text":"Build the Sauce: Pour in the heavy cream and let it gently simmer for 2 minutes. Stir in the freshly grated Parmesan cheese until melted and smooth."},{"@type":"HowToStep","name":"Step 4","text":"Toss and Emulsify: Add the drained pasta directly into the skillet. Drizzle in a few tablespoons of the reserved starchy pasta water and toss vigorously until the glossy sauce coats every single strand."},{"@type":"HowToStep","name":"Step 5","text":"Finish and Serve: Stir in the fresh lemon juice and zest. Season with black pepper and a pinch of salt. Garnish generously with fresh parsley and extra Parmesan. Serve immediately hot!"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Recipe","name":"15-Minute Creamy Garlic Butter Pasta with Lemon","image":["https://images.unsplash.com/photo-1608897013039-887f21d8c804?auto=format&fit=crop&w=1200&q=80"],"author":{"@type":"Person","name":"Mia","url":"https://viralmia.me/about"},"publisher":{"@type":"Organization","name":"Viral Mia Kitchen","logo":{"@type":"ImageObject","url":"https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=400&q=80"}},"datePublished":"2026-11-03","dateModified":"2026-11-03","description":"The ultimate quick weeknight comfort dinner! Velvety garlic butter sauce tossed with al dente pasta and a splash of fresh lemon juice, ready in just 15 minutes.","prepTime":"PT10M","cookTime":"PT15M","totalTime":"PT25M","keywords":"garlic butter pasta, 15 minute dinner, easy pasta recipe, comfort food, weeknight meals","recipeYield":"4","recipeCategory":"Quick Dinners","recipeCuisine":"American","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":48,"bestRating":"5","worstRating":"1"},"nutrition":{"@type":"NutritionInformation","calories":"410 kcal","proteinContent":"24g","carbohydrateContent":"42g","fatContent":"14g","fiberContent":"4g"},"recipeIngredient":["8 oz (225g) spaghetti, fettuccine, or linguine","4 tablespoons unsalted butter (good quality butter makes a huge difference!)","5 cloves garlic, finely minced","1/2 cup grated Parmesan cheese (freshly grated melts best)","1/2 cup heavy cream (or whole milk for a lighter version)","1 tablespoon fresh lemon juice + 1/2 tsp lemon zest","1/2 teaspoon red pepper flakes (optional for a subtle kick)","Salt and freshly cracked black pepper to taste","Fresh chopped parsley for garnish"],"recipeInstructions":[{"@type":"HowToStep","name":"Step 1","text":"Boil the Pasta: Bring a large pot of heavily salted water to a rolling boil. Add pasta and cook until al dente according to package instructions. Crucial: Reserve 1/2 cup of starchy pasta water before draining!"},{"@type":"HowToStep","name":"Step 2","text":"Sauté the Garlic: While pasta cooks, melt the butter in a large skillet over medium-low heat. Add the minced garlic and red pepper flakes. Sauté for about 60 seconds until fragrant and golden—do not burn the garlic!"},{"@type":"HowToStep","name":"Step 3","text":"Build the Sauce: Pour in the heavy cream and let it gently simmer for 2 minutes. Stir in the freshly grated Parmesan cheese until melted and smooth."},{"@type":"HowToStep","name":"Step 4","text":"Toss and Emulsify: Add the drained pasta directly into the skillet. Drizzle in a few tablespoons of the reserved starchy pasta water and toss vigorously until the glossy sauce coats every single strand."},{"@type":"HowToStep","name":"Step 5","text":"Finish and Serve: Stir in the fresh lemon juice and zest. Season with black pepper and a pinch of salt. Garnish generously with fresh parsley and extra Parmesan. Serve immediately hot!"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://viralmia.me"},{"@type":"ListItem","position":2,"name":"Quick Dinners","item":"https://viralmia.me/category/quick-dinners"},{"@type":"ListItem","position":3,"name":"15-Minute Creamy Garlic Butter Pasta with Lemon","item":"https://viralmia.me/recipes/15-minute-creamy-garlic-butter-pasta"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I make this pasta gluten-free?","acceptedAnswer":{"@type":"Answer","text":"Yes! Swap the standard pasta with any good gluten-free pasta (like brown rice or chickpea pasta). The sauce is naturally gluten-free as we don't use any flour roux."}},{"@type":"Question","name":"What protein can I add to make this a full meal?","acceptedAnswer":{"@type":"Answer","text":"Grilled chicken breast, pan-seared shrimp, or even crispy bacon bits pair heavenly with this garlic butter sauce."}}]}</script>
 </head>
@@ -1256,7 +1258,7 @@ img { max-width: 100%; height: auto; display: block; }
           <span>•</span>
           <span>Published on 2026-11-03</span>
           <span>•</span>
-          <span style="color: var(--gold); font-weight: 700;">★★★★★ 4.9 (38 Reviews)</span>
+          <span style="color: var(--gold); font-weight: 700;">★★★★★ 4.9 (48 Reviews)</span>
         </div>
 
         <!-- Jump to Recipe & Print Actions -->
@@ -1329,47 +1331,47 @@ img { max-width: 100%; height: auto; display: block; }
           <ul class="ingredients-list">
             
     <li class="ing-item">
-      <input type="checkbox" id="ing-d439kmaq0">
+      <input type="checkbox" id="ing-2wostdldm">
       <label>8 oz (225g) spaghetti, fettuccine, or linguine</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-b2mxj18ih">
+      <input type="checkbox" id="ing-7j15cx3q9">
       <label>4 tablespoons unsalted butter (good quality butter makes a huge difference!)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-8fdtp2h4f">
+      <input type="checkbox" id="ing-obasymhk6">
       <label>5 cloves garlic, finely minced</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-2mn2f4ms9">
+      <input type="checkbox" id="ing-7srur186k">
       <label>1/2 cup grated Parmesan cheese (freshly grated melts best)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-cv1bx8udq">
+      <input type="checkbox" id="ing-gw9sb0qlv">
       <label>1/2 cup heavy cream (or whole milk for a lighter version)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-98ptjrcqu">
+      <input type="checkbox" id="ing-qasm5bkw0">
       <label>1 tablespoon fresh lemon juice + 1/2 tsp lemon zest</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-o6yg8tybu">
+      <input type="checkbox" id="ing-l2omuwfh9">
       <label>1/2 teaspoon red pepper flakes (optional for a subtle kick)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-ooc6rfdqd">
+      <input type="checkbox" id="ing-hknwnas8j">
       <label>Salt and freshly cracked black pepper to taste</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-6eoyuixy8">
+      <input type="checkbox" id="ing-1ft73zzy6">
       <label>Fresh chopped parsley for garnish</label>
     </li>
   
@@ -1593,24 +1595,32 @@ img { max-width: 100%; height: auto; display: block; }
   <!-- PRO JAVASCRIPT: Scroll Animations, Live Search, Checklists, Back to Top -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // 1. Scroll Progress Bar
+      // 1. Scroll Progress Bar (Throttled with requestAnimationFrame for smooth 60fps & 0ms INP)
       const progressBar = document.getElementById('progressBar');
       const backToTop = document.getElementById('backToTop');
 
+      let ticking = false;
       window.addEventListener('scroll', () => {
-        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrolled = (winScroll / height) * 100;
-        if (progressBar) progressBar.style.width = scrolled + '%';
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            const winScroll = window.scrollY || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            if (height > 0 && progressBar) {
+              progressBar.style.width = ((winScroll / height) * 100) + '%';
+            }
 
-        if (backToTop) {
-          if (winScroll > 400) {
-            backToTop.classList.add('show');
-          } else {
-            backToTop.classList.remove('show');
-          }
+            if (backToTop) {
+              if (winScroll > 400) {
+                backToTop.classList.add('show');
+              } else {
+                backToTop.classList.remove('show');
+              }
+            }
+            ticking = false;
+          });
+          ticking = true;
         }
-      });
+      }, { passive: true });
 
       // 2. Intersection Observer Scroll Reveal Animation
       const revealElements = document.querySelectorAll('.reveal-on-scroll');

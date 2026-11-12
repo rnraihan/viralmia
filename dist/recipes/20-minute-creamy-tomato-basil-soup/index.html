@@ -247,6 +247,8 @@ img { max-width: 100%; height: auto; display: block; }
   pointer-events: none;
   animation: floatParticle 8s infinite ease-in-out alternate;
   z-index: 2;
+  will-change: transform;
+  transform: translateZ(0);
 }
 .fp-1 { top: 12%; left: 6%; animation-duration: 9s; }
 .fp-2 { top: 20%; right: 7%; animation-duration: 7s; font-size: 38px; }
@@ -256,9 +258,9 @@ img { max-width: 100%; height: auto; display: block; }
 .fp-6 { top: 52%; right: 5%; animation-duration: 12s; font-size: 30px; }
 
 @keyframes floatParticle {
-  0% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-18px) rotate(8deg); }
-  100% { transform: translateY(14px) rotate(-6deg); }
+  0% { transform: translateY(0) rotate(0deg) translateZ(0); }
+  50% { transform: translateY(-18px) rotate(8deg) translateZ(0); }
+  100% { transform: translateY(14px) rotate(-6deg) translateZ(0); }
 }
 
 .hero {
@@ -1329,42 +1331,42 @@ img { max-width: 100%; height: auto; display: block; }
           <ul class="ingredients-list">
             
     <li class="ing-item">
-      <input type="checkbox" id="ing-a68mhxmq4">
+      <input type="checkbox" id="ing-sj10hrzl3">
       <label>1 tablespoon Kerrygold unsalted butter (or olive oil)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-y11itj5k2">
+      <input type="checkbox" id="ing-cc5f175ae">
       <label>3 cloves garlic, minced</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-l8cipeqoo">
+      <input type="checkbox" id="ing-z4922kd1f">
       <label>1 can (28 ounces) San Marzano crushed tomatoes</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-55m0rlpti">
+      <input type="checkbox" id="ing-pvjna8586">
       <label>1.5 cups chicken broth or vegetable broth</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-p9eep45ql">
+      <input type="checkbox" id="ing-4xapu6d4y">
       <label>1/2 cup heavy cream (or full-fat canned coconut milk)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-4oonppfdb">
+      <input type="checkbox" id="ing-sgg04fpkj">
       <label>1/4 cup fresh basil leaves, roughly chopped</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-318ve75hn">
+      <input type="checkbox" id="ing-0hwsriwmg">
       <label>1 teaspoon kosher salt</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-sb79sltms">
+      <input type="checkbox" id="ing-b4km8f6w2">
       <label>1/4 teaspoon freshly cracked black pepper</label>
     </li>
   
@@ -1586,24 +1588,32 @@ img { max-width: 100%; height: auto; display: block; }
   <!-- PRO JAVASCRIPT: Scroll Animations, Live Search, Checklists, Back to Top -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // 1. Scroll Progress Bar
+      // 1. Scroll Progress Bar (Throttled with requestAnimationFrame for smooth 60fps & 0ms INP)
       const progressBar = document.getElementById('progressBar');
       const backToTop = document.getElementById('backToTop');
 
+      let ticking = false;
       window.addEventListener('scroll', () => {
-        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrolled = (winScroll / height) * 100;
-        if (progressBar) progressBar.style.width = scrolled + '%';
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            const winScroll = window.scrollY || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            if (height > 0 && progressBar) {
+              progressBar.style.width = ((winScroll / height) * 100) + '%';
+            }
 
-        if (backToTop) {
-          if (winScroll > 400) {
-            backToTop.classList.add('show');
-          } else {
-            backToTop.classList.remove('show');
-          }
+            if (backToTop) {
+              if (winScroll > 400) {
+                backToTop.classList.add('show');
+              } else {
+                backToTop.classList.remove('show');
+              }
+            }
+            ticking = false;
+          });
+          ticking = true;
         }
-      });
+      }, { passive: true });
 
       // 2. Intersection Observer Scroll Reveal Animation
       const revealElements = document.querySelectorAll('.reveal-on-scroll');

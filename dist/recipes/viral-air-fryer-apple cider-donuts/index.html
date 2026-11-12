@@ -247,6 +247,8 @@ img { max-width: 100%; height: auto; display: block; }
   pointer-events: none;
   animation: floatParticle 8s infinite ease-in-out alternate;
   z-index: 2;
+  will-change: transform;
+  transform: translateZ(0);
 }
 .fp-1 { top: 12%; left: 6%; animation-duration: 9s; }
 .fp-2 { top: 20%; right: 7%; animation-duration: 7s; font-size: 38px; }
@@ -256,9 +258,9 @@ img { max-width: 100%; height: auto; display: block; }
 .fp-6 { top: 52%; right: 5%; animation-duration: 12s; font-size: 30px; }
 
 @keyframes floatParticle {
-  0% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-18px) rotate(8deg); }
-  100% { transform: translateY(14px) rotate(-6deg); }
+  0% { transform: translateY(0) rotate(0deg) translateZ(0); }
+  50% { transform: translateY(-18px) rotate(8deg) translateZ(0); }
+  100% { transform: translateY(14px) rotate(-6deg) translateZ(0); }
 }
 
 .hero {
@@ -1329,32 +1331,32 @@ img { max-width: 100%; height: auto; display: block; }
           <ul class="ingredients-list">
             
     <li class="ing-item">
-      <input type="checkbox" id="ing-c6kc75jaa">
+      <input type="checkbox" id="ing-bxga6dcpe">
       <label>1 can refrigerated buttermilk biscuits (Pillsbury Grands work best)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-r18vss2u3">
+      <input type="checkbox" id="ing-esflqro1d">
       <label>1 cup apple cider (reduced down to 3 tablespoons on the stove)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-pgw2o8kpx">
+      <input type="checkbox" id="ing-go2l78ma4">
       <label>4 tablespoons Kerrygold unsalted butter, melted</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-n7dk98fhg">
+      <input type="checkbox" id="ing-ijq0r1vtq">
       <label>1/2 cup granulated sugar</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-owjff8lre">
+      <input type="checkbox" id="ing-8pxl8ryqo">
       <label>1 tablespoon ground cinnamon</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-4dncujnkk">
+      <input type="checkbox" id="ing-339ekcb3f">
       <label>Cooking spray or avocado oil for the air fryer basket</label>
     </li>
   
@@ -1576,24 +1578,32 @@ img { max-width: 100%; height: auto; display: block; }
   <!-- PRO JAVASCRIPT: Scroll Animations, Live Search, Checklists, Back to Top -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // 1. Scroll Progress Bar
+      // 1. Scroll Progress Bar (Throttled with requestAnimationFrame for smooth 60fps & 0ms INP)
       const progressBar = document.getElementById('progressBar');
       const backToTop = document.getElementById('backToTop');
 
+      let ticking = false;
       window.addEventListener('scroll', () => {
-        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrolled = (winScroll / height) * 100;
-        if (progressBar) progressBar.style.width = scrolled + '%';
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            const winScroll = window.scrollY || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            if (height > 0 && progressBar) {
+              progressBar.style.width = ((winScroll / height) * 100) + '%';
+            }
 
-        if (backToTop) {
-          if (winScroll > 400) {
-            backToTop.classList.add('show');
-          } else {
-            backToTop.classList.remove('show');
-          }
+            if (backToTop) {
+              if (winScroll > 400) {
+                backToTop.classList.add('show');
+              } else {
+                backToTop.classList.remove('show');
+              }
+            }
+            ticking = false;
+          });
+          ticking = true;
         }
-      });
+      }, { passive: true });
 
       // 2. Intersection Observer Scroll Reveal Animation
       const revealElements = document.querySelectorAll('.reveal-on-scroll');
