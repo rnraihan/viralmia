@@ -17,7 +17,7 @@
 
   <!-- Bing Webmaster Verification -->
   <meta name="msvalidate.01" content="10C2D4086B957B65F94D90B4447965A6">
-  <meta name="description" content="Crispy, sticky honey soy glazed salmon made in one skillet in 15 minutes. Perfect for crazy weeknights when you're too exhausted for takeout dishes.">
+  <meta name="description" content="Crispy, sticky honey soy glazed salmon made in one skillet in 15 minutes. Perfect for crazy weeknights when you&#39;re too exhausted for takeout dishes.">
   <link rel="canonical" href="https://viralmia.me/recipes/15-minute-honey-soy-glazed-salmon">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="author" content="Mia">
@@ -31,23 +31,23 @@
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Viral Mia Kitchen">
   <meta property="og:title" content="15-Minute Honey Soy Glazed Salmon (My Lazy Tuesday Skillet Savior) | Viral Mia Kitchen">
-  <meta property="og:description" content="Crispy, sticky honey soy glazed salmon made in one skillet in 15 minutes. Perfect for crazy weeknights when you're too exhausted for takeout dishes.">
+  <meta property="og:description" content="Crispy, sticky honey soy glazed salmon made in one skillet in 15 minutes. Perfect for crazy weeknights when you&#39;re too exhausted for takeout dishes.">
   <meta property="og:url" content="https://viralmia.me/recipes/15-minute-honey-soy-glazed-salmon">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=1200&q=80">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&amp;fit=crop&amp;w=1200&amp;q=80">
   <meta property="og:locale" content="en_US">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="15-Minute Honey Soy Glazed Salmon (My Lazy Tuesday Skillet Savior) | Viral Mia Kitchen">
-  <meta name="twitter:description" content="Crispy, sticky honey soy glazed salmon made in one skillet in 15 minutes. Perfect for crazy weeknights when you're too exhausted for takeout dishes.">
-  <meta name="twitter:image" content="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=1200&q=80">
+  <meta name="twitter:description" content="Crispy, sticky honey soy glazed salmon made in one skillet in 15 minutes. Perfect for crazy weeknights when you&#39;re too exhausted for takeout dishes.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&amp;fit=crop&amp;w=1200&amp;q=80">
 
   <!-- Performance Preconnect & Preload for Ultra-Fast LCP -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://images.unsplash.com">
   <link rel="dns-prefetch" href="https://images.unsplash.com">
-  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=1200&q=80" fetchpriority="high">
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" fetchpriority="high">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
@@ -203,6 +203,24 @@ img { max-width: 100%; height: auto; display: block; }
   background: var(--primary-dark);
   transform: translateY(-2px) scale(1.03);
   box-shadow: 0 8px 24px rgba(217,72,48,0.4);
+}
+.mobile-menu-btn {
+  display: none;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  font-size: 22px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.mobile-menu-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
 }
 
 /* CINEMATIC HERO SECTION WITH RICH KITCHEN COOKING BACKGROUND & PARTICLES */
@@ -647,6 +665,27 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .breadcrumbs a:hover { color: var(--primary); }
 .article-header { text-align: center; margin-bottom: 34px; }
+.article-header .hero-tag {
+  background: var(--primary-light);
+  color: var(--primary);
+  border: 1px solid rgba(217, 72, 48, 0.22);
+  box-shadow: none;
+  animation: none;
+}
+.search-empty-state {
+  max-width: 600px;
+  margin: 0 auto 80px;
+  padding: 40px 24px;
+  text-align: center;
+  background: var(--card);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-md);
+  color: var(--text-muted);
+}
+.search-empty-state h3 {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
 .article-header h1 {
   font-size: 48px;
   font-weight: 800;
@@ -793,6 +832,11 @@ img { max-width: 100%; height: auto; display: block; }
   accent-color: var(--primary);
   margin-top: 3px;
   cursor: pointer;
+  flex-shrink: 0;
+}
+.ing-item label {
+  cursor: pointer;
+  flex: 1;
 }
 .ing-item.checked {
   text-decoration: line-through;
@@ -941,7 +985,7 @@ img { max-width: 100%; height: auto; display: block; }
   line-height: 1.75;
 }
 .faq-card.open .faq-body {
-  max-height: 250px;
+  max-height: 1200px;
   padding: 0 24px 20px;
 }
 
@@ -1200,7 +1244,26 @@ img { max-width: 100%; height: auto; display: block; }
   .author-card { flex-direction: column; text-align: center; }
   .footer-wrap { grid-template-columns: 1fr; gap: 32px; }
   .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
-  .nav-links { display: none; }
+  .mobile-menu-btn { display: inline-flex; }
+  .nav-container { position: relative; }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+    padding: 16px 24px 22px;
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow-md);
+    z-index: 400;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a { padding: 10px 4px; border-bottom: 1px solid var(--border-light); }
+  .nav-links a.nav-cta { text-align: center; margin-top: 8px; border-bottom: none; padding: 12px 20px; }
   .newsletter-banner { padding: 32px 16px; margin: 32px 12px; }
   .newsletter-banner h2 { font-size: 24px; }
   .related-grid { grid-template-columns: 1fr; gap: 16px; }
@@ -1208,7 +1271,7 @@ img { max-width: 100%; height: auto; display: block; }
   .tool-btn { flex: 1 1 auto; justify-content: center; }
 }
 </style>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Recipe","name":"15-Minute Honey Soy Glazed Salmon (My Lazy Tuesday Skillet Savior)","image":["https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=1200&q=80"],"author":{"@type":"Person","name":"Mia","url":"https://viralmia.me/about"},"publisher":{"@type":"Organization","name":"Viral Mia Kitchen","logo":{"@type":"ImageObject","url":"https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=400&q=80"}},"datePublished":"2026-11-08","dateModified":"2026-11-08","description":"Crispy, sticky honey soy glazed salmon made in one skillet in 15 minutes. Perfect for crazy weeknights when you're too exhausted for takeout dishes.","prepTime":"PT10M","cookTime":"PT15M","totalTime":"PT25M","keywords":"honey soy glazed salmon, easy skillet salmon, 15 minute salmon dinner, quick weeknight salmon recipe, crispy skin salmon glaze","recipeYield":"2","recipeCategory":"Quick Dinners","recipeCuisine":"American","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":32,"bestRating":"5","worstRating":"1"},"nutrition":{"@type":"NutritionInformation","calories":"410 kcal","proteinContent":"34g","carbohydrateContent":"19g","fatContent":"22g","fiberContent":"1g"},"recipeIngredient":["2 center-cut salmon fillets (6 oz each, skin-on)","1 tbsp avocado oil (or any high-heat cooking oil)","1 tbsp Kerrygold salted butter","2 tbsp low-sodium soy sauce (or tamari)","2 tbsp clover honey","1 tsp sriracha or chili crisp (optional, for gentle heat)","2 cloves garlic, finely grated on a microplane","1/2 tsp fresh ginger, grated","1/4 tsp kosher salt and fresh cracked black pepper"],"recipeInstructions":[{"@type":"HowToStep","name":"Step 1","text":"Step 1: Pat the salmon completely dry with paper towels—moisture is the enemy of a crisp crust. Season both sides with kosher salt and cracked black pepper."},{"@type":"HowToStep","name":"Step 2","text":"Step 2: Heat the avocado oil in a 10-inch stainless steel or cast-iron skillet over medium-high heat until shimmering. Place the fillets flesh-side down and sear undisturbed for 4 minutes until a deep golden crust forms."},{"@type":"HowToStep","name":"Step 3","text":"Step 3: Carefully flip the fillets skin-side down. Immediately turn the heat down to medium-low. Drop in the Kerrygold butter, grated garlic, and ginger, letting them sizzle gently for 30 seconds until fragrant without scorching."},{"@type":"HowToStep","name":"Step 4","text":"Step 4: Whisk the soy sauce, honey, and sriracha in a small ramekin, then pour it right around the salmon. Simmer for 2 to 3 minutes, tilting the skillet and spooning the bubbling glaze over the top until the sauce turns glossy and the salmon flakes easily with a fork."}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Recipe","name":"15-Minute Honey Soy Glazed Salmon (My Lazy Tuesday Skillet Savior)","image":["https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=1200&q=80"],"author":{"@type":"Person","name":"Mia","url":"https://viralmia.me/about"},"publisher":{"@type":"Organization","name":"Viral Mia Kitchen","logo":{"@type":"ImageObject","url":"https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=400&q=80"}},"datePublished":"2026-11-08","dateModified":"2026-11-08","description":"Crispy, sticky honey soy glazed salmon made in one skillet in 15 minutes. Perfect for crazy weeknights when you're too exhausted for takeout dishes.","prepTime":"PT5M","cookTime":"PT10M","totalTime":"PT15M","keywords":"honey soy glazed salmon, easy skillet salmon, 15 minute salmon dinner, quick weeknight salmon recipe, crispy skin salmon glaze","recipeYield":"2","recipeCategory":"Quick Dinners","recipeCuisine":"American","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":32,"bestRating":"5","worstRating":"1"},"nutrition":{"@type":"NutritionInformation","calories":"410 kcal","proteinContent":"34g","carbohydrateContent":"19g","fatContent":"22g","fiberContent":"1g"},"recipeIngredient":["2 center-cut salmon fillets (6 oz each, skin-on)","1 tbsp avocado oil (or any high-heat cooking oil)","1 tbsp Kerrygold salted butter","2 tbsp low-sodium soy sauce (or tamari)","2 tbsp clover honey","1 tsp sriracha or chili crisp (optional, for gentle heat)","2 cloves garlic, finely grated on a microplane","1/2 tsp fresh ginger, grated","1/4 tsp kosher salt and fresh cracked black pepper"],"recipeInstructions":[{"@type":"HowToStep","name":"Step 1","text":"Pat the salmon completely dry with paper towels—moisture is the enemy of a crisp crust. Season both sides with kosher salt and cracked black pepper."},{"@type":"HowToStep","name":"Step 2","text":"Heat the avocado oil in a 10-inch stainless steel or cast-iron skillet over medium-high heat until shimmering. Place the fillets flesh-side down and sear undisturbed for 4 minutes until a deep golden crust forms."},{"@type":"HowToStep","name":"Step 3","text":"Carefully flip the fillets skin-side down. Immediately turn the heat down to medium-low. Drop in the Kerrygold butter, grated garlic, and ginger, letting them sizzle gently for 30 seconds until fragrant without scorching."},{"@type":"HowToStep","name":"Step 4","text":"Whisk the soy sauce, honey, and sriracha in a small ramekin, then pour it right around the salmon. Simmer for 2 to 3 minutes, tilting the skillet and spooning the bubbling glaze over the top until the sauce turns glossy and the salmon flakes easily with a fork."}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://viralmia.me"},{"@type":"ListItem","position":2,"name":"Quick Dinners","item":"https://viralmia.me/category/quick-dinners"},{"@type":"ListItem","position":3,"name":"15-Minute Honey Soy Glazed Salmon (My Lazy Tuesday Skillet Savior)","item":"https://viralmia.me/recipes/15-minute-honey-soy-glazed-salmon"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I substitute the honey if I run out?","acceptedAnswer":{"@type":"Answer","text":"Yes! Pure maple syrup works beautifully and adds a cozy woodsy note, or you can dissolve 1.5 tablespoons of dark brown sugar right into the soy sauce."}},{"@type":"Question","name":"How do I prevent the honey glaze from burning in the skillet?","acceptedAnswer":{"@type":"Answer","text":"The secret is killing the searing heat before the glaze touches the metal. Honey scorches fast, so turn the burner down to medium-low right after flipping your salmon, and keep spooning the sauce over the fish so it coats rather than sticks to dry spots."}}]}</script>
 </head>
@@ -1219,7 +1282,7 @@ img { max-width: 100%; height: auto; display: block; }
 
   <!-- Announcement Bar -->
   <aside class="top-bar">
-    <span>✨ New Recipe Alert!</span> Easy 15-Minute Meals & Kitchen Hacks Updated Daily • <a href="/#recipes" style="text-decoration: underline; color: #fff;">Explore Today's Picks &rarr;</a>
+    <span>✨ New Recipe Alert!</span> Easy 15-Minute Meals &amp; Kitchen Hacks Updated Daily • <a href="/#recipes" style="text-decoration: underline; color: #fff;">Explore Today's Picks &rarr;</a>
   </aside>
 
   <!-- Navigation -->
@@ -1229,7 +1292,8 @@ img { max-width: 100%; height: auto; display: block; }
         <a href="/" class="logo">ViralMia <span>Kitchen</span></a>
         <span class="logo-tagline">Fast • Cozy • Simple</span>
       </div>
-      <nav class="nav-links">
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+      <nav class="nav-links" id="navLinks">
         <a href="/">Home</a>
         <a href="/category/quick-dinners">Quick Dinners</a>
         <a href="/category/air-fryer-meals">Air Fryer</a>
@@ -1268,7 +1332,7 @@ img { max-width: 100%; height: auto; display: block; }
         </div>
       </header>
 
-      <img class="article-hero" src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=1200&q=80" alt="15-Minute Honey Soy Glazed Salmon (My Lazy Tuesday Skillet Savior)" width="1200" height="675" fetchpriority="high" decoding="async">
+      <img class="article-hero" src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="15-Minute Honey Soy Glazed Salmon (My Lazy Tuesday Skillet Savior)" width="1200" height="675" fetchpriority="high" decoding="async">
 
       <!-- Personal Diary Intro -->
       <div class="diary-card reveal-on-scroll">
@@ -1331,48 +1395,48 @@ img { max-width: 100%; height: auto; display: block; }
           <ul class="ingredients-list">
             
     <li class="ing-item">
-      <input type="checkbox" id="ing-rffwea9v9">
-      <label>2 center-cut salmon fillets (6 oz each, skin-on)</label>
+      <input type="checkbox" id="ing-0">
+      <label for="ing-0">2 center-cut salmon fillets (6 oz each, skin-on)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-bo35i3qoa">
-      <label>1 tbsp avocado oil (or any high-heat cooking oil)</label>
+      <input type="checkbox" id="ing-1">
+      <label for="ing-1">1 tbsp avocado oil (or any high-heat cooking oil)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-u8on7sqf7">
-      <label>1 tbsp Kerrygold salted butter</label>
+      <input type="checkbox" id="ing-2">
+      <label for="ing-2">1 tbsp Kerrygold salted butter</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-tfk1nf20l">
-      <label>2 tbsp low-sodium soy sauce (or tamari)</label>
+      <input type="checkbox" id="ing-3">
+      <label for="ing-3">2 tbsp low-sodium soy sauce (or tamari)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-kuwoc4znp">
-      <label>2 tbsp clover honey</label>
+      <input type="checkbox" id="ing-4">
+      <label for="ing-4">2 tbsp clover honey</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-64b7x77wy">
-      <label>1 tsp sriracha or chili crisp (optional, for gentle heat)</label>
+      <input type="checkbox" id="ing-5">
+      <label for="ing-5">1 tsp sriracha or chili crisp (optional, for gentle heat)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-e6w4r9nbn">
-      <label>2 cloves garlic, finely grated on a microplane</label>
+      <input type="checkbox" id="ing-6">
+      <label for="ing-6">2 cloves garlic, finely grated on a microplane</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-law95uh42">
-      <label>1/2 tsp fresh ginger, grated</label>
+      <input type="checkbox" id="ing-7">
+      <label for="ing-7">1/2 tsp fresh ginger, grated</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-fqy4uh0jk">
-      <label>1/4 tsp kosher salt and fresh cracked black pepper</label>
+      <input type="checkbox" id="ing-8">
+      <label for="ing-8">1/4 tsp kosher salt and fresh cracked black pepper</label>
     </li>
   
           </ul>
@@ -1383,13 +1447,13 @@ img { max-width: 100%; height: auto; display: block; }
           <h3>👩‍🍳 Step-by-Step Cooking Instructions</h3>
           <ol class="steps-list">
             
-    <li class="step-row">Step 1: Pat the salmon completely dry with paper towels—moisture is the enemy of a crisp crust. Season both sides with kosher salt and cracked black pepper.</li>
+    <li class="step-row">Pat the salmon completely dry with paper towels—moisture is the enemy of a crisp crust. Season both sides with kosher salt and cracked black pepper.</li>
   
-    <li class="step-row">Step 2: Heat the avocado oil in a 10-inch stainless steel or cast-iron skillet over medium-high heat until shimmering. Place the fillets flesh-side down and sear undisturbed for 4 minutes until a deep golden crust forms.</li>
+    <li class="step-row">Heat the avocado oil in a 10-inch stainless steel or cast-iron skillet over medium-high heat until shimmering. Place the fillets flesh-side down and sear undisturbed for 4 minutes until a deep golden crust forms.</li>
   
-    <li class="step-row">Step 3: Carefully flip the fillets skin-side down. Immediately turn the heat down to medium-low. Drop in the Kerrygold butter, grated garlic, and ginger, letting them sizzle gently for 30 seconds until fragrant without scorching.</li>
+    <li class="step-row">Carefully flip the fillets skin-side down. Immediately turn the heat down to medium-low. Drop in the Kerrygold butter, grated garlic, and ginger, letting them sizzle gently for 30 seconds until fragrant without scorching.</li>
   
-    <li class="step-row">Step 4: Whisk the soy sauce, honey, and sriracha in a small ramekin, then pour it right around the salmon. Simmer for 2 to 3 minutes, tilting the skillet and spooning the bubbling glaze over the top until the sauce turns glossy and the salmon flakes easily with a fork.</li>
+    <li class="step-row">Whisk the soy sauce, honey, and sriracha in a small ramekin, then pour it right around the salmon. Simmer for 2 to 3 minutes, tilting the skillet and spooning the bubbling glaze over the top until the sauce turns glossy and the salmon flakes easily with a fork.</li>
   
           </ol>
         </section>
@@ -1481,7 +1545,7 @@ img { max-width: 100%; height: auto; display: block; }
                 <article class="post-card">
                   <div class="card-img-wrap">
                     <a href="/recipes/15-minute-lemon-herb-butter-shrimp-skillet">
-                      <img class="post-card-img" src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1200&q=80" alt="15-Minute Lemon Herb Butter Shrimp Skillet (One Pan!)" loading="lazy">
+                      <img class="post-card-img" src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="15-Minute Lemon Herb Butter Shrimp Skillet (One Pan!)" loading="lazy">
                     </a>
                     <span class="card-badge">Quick Dinners</span>
                   </div>
@@ -1503,7 +1567,7 @@ img { max-width: 100%; height: auto; display: block; }
                 <article class="post-card">
                   <div class="card-img-wrap">
                     <a href="/recipes/loaded-15-minute-black-bean-taco-bowls">
-                      <img class="post-card-img" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=1200&q=80" alt="15-Minute Loaded Black Bean Taco Bowls (When You Refuse to Do Dishes)" loading="lazy">
+                      <img class="post-card-img" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="15-Minute Loaded Black Bean Taco Bowls (When You Refuse to Do Dishes)" loading="lazy">
                     </a>
                     <span class="card-badge">Quick Dinners</span>
                   </div>
@@ -1525,7 +1589,7 @@ img { max-width: 100%; height: auto; display: block; }
                 <article class="post-card">
                   <div class="card-img-wrap">
                     <a href="/recipes/creamy-tuscan-gnocchi-skillet">
-                      <img class="post-card-img" src="https://images.unsplash.com/photo-1546549032-9571cd6b27df?auto=format&fit=crop&w=1200&q=80" alt="One-Pan Creamy Tuscan Gnocchi: Ready in 15 Minutes" loading="lazy">
+                      <img class="post-card-img" src="https://images.unsplash.com/photo-1546549032-9571cd6b27df?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="One-Pan Creamy Tuscan Gnocchi: Ready in 15 Minutes" loading="lazy">
                     </a>
                     <span class="card-badge">Quick Dinners</span>
                   </div>
@@ -1636,23 +1700,48 @@ img { max-width: 100%; height: auto; display: block; }
         revealElements.forEach(el => observer.observe(el));
       }
 
-      // 3. Live Search Filter
+      // 0. Mobile Navigation Toggle
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      const navLinks = document.getElementById('navLinks');
+      if (mobileMenuBtn && navLinks) {
+        mobileMenuBtn.addEventListener('click', () => {
+          const isOpen = navLinks.classList.toggle('open');
+          mobileMenuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+          mobileMenuBtn.textContent = isOpen ? '✕' : '☰';
+        });
+      }
+
+      // 3. Live Search Filter (with ?q= URL param support & empty state)
       const searchInput = document.getElementById('recipe-search');
+      const searchEmpty = document.getElementById('search-empty');
       if (searchInput) {
-        searchInput.addEventListener('input', (e) => {
-          const query = e.target.value.toLowerCase().trim();
-          const cards = document.querySelectorAll('.post-card');
+        const applySearchFilter = (rawQuery) => {
+          const query = rawQuery.toLowerCase().trim();
+          const cards = document.querySelectorAll('#recipes .post-card');
+          let visibleCount = 0;
           cards.forEach(card => {
             const title = card.querySelector('.post-card-title').textContent.toLowerCase();
             const desc = card.querySelector('.post-card-desc').textContent.toLowerCase();
             const cat = card.querySelector('.card-badge').textContent.toLowerCase();
-            if (title.includes(query) || desc.includes(query) || cat.includes(query)) {
+            if (!query || title.includes(query) || desc.includes(query) || cat.includes(query)) {
               card.style.display = 'flex';
+              visibleCount++;
             } else {
               card.style.display = 'none';
             }
           });
-        });
+          if (searchEmpty) {
+            searchEmpty.style.display = visibleCount === 0 ? 'block' : 'none';
+          }
+        };
+
+        searchInput.addEventListener('input', (e) => applySearchFilter(e.target.value));
+
+        const initialQuery = new URLSearchParams(window.location.search).get('q');
+        if (initialQuery) {
+          searchInput.value = initialQuery;
+          applySearchFilter(initialQuery);
+        }
       }
 
       // 4. Interactive Ingredient Checkbox with Strikethrough
@@ -1741,14 +1830,9 @@ img { max-width: 100%; height: auto; display: block; }
 
     // Copy Ingredients to Clipboard
     function copyIngredients() {
-      const items = Array.from(document.querySelectorAll('.ingredients-list label')).map(l => '• ' + l.textContent.trim()).join('
-');
+      const items = Array.from(document.querySelectorAll('.ingredients-list label')).map(l => '• ' + l.textContent.trim()).join('\n');
       const title = document.querySelector('h1') ? document.querySelector('h1').textContent.trim() : 'Recipe';
-      const text = title + ' - Ingredients:
-
-' + items + '
-
-Source: ' + window.location.href;
+      const text = title + ' - Ingredients:\n\n' + items + '\n\nSource: ' + window.location.href;
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(text).then(() => {
           showToast('📋 Ingredients copied to clipboard!');

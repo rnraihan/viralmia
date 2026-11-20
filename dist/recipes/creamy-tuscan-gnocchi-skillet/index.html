@@ -33,21 +33,21 @@
   <meta property="og:title" content="One-Pan Creamy Tuscan Gnocchi: Ready in 15 Minutes | Viral Mia Kitchen">
   <meta property="og:description" content="Skip the sink full of dishes with this 15-minute creamy tuscan gnocchi. Crispy potato pillows swimming in a garlicky parmesan sauce. Totally foolproof.">
   <meta property="og:url" content="https://viralmia.me/recipes/creamy-tuscan-gnocchi-skillet">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1546549032-9571cd6b27df?auto=format&fit=crop&w=1200&q=80">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1546549032-9571cd6b27df?auto=format&amp;fit=crop&amp;w=1200&amp;q=80">
   <meta property="og:locale" content="en_US">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="One-Pan Creamy Tuscan Gnocchi: Ready in 15 Minutes | Viral Mia Kitchen">
   <meta name="twitter:description" content="Skip the sink full of dishes with this 15-minute creamy tuscan gnocchi. Crispy potato pillows swimming in a garlicky parmesan sauce. Totally foolproof.">
-  <meta name="twitter:image" content="https://images.unsplash.com/photo-1546549032-9571cd6b27df?auto=format&fit=crop&w=1200&q=80">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1546549032-9571cd6b27df?auto=format&amp;fit=crop&amp;w=1200&amp;q=80">
 
   <!-- Performance Preconnect & Preload for Ultra-Fast LCP -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://images.unsplash.com">
   <link rel="dns-prefetch" href="https://images.unsplash.com">
-  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1546549032-9571cd6b27df?auto=format&fit=crop&w=1200&q=80" fetchpriority="high">
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1546549032-9571cd6b27df?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" fetchpriority="high">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
@@ -203,6 +203,24 @@ img { max-width: 100%; height: auto; display: block; }
   background: var(--primary-dark);
   transform: translateY(-2px) scale(1.03);
   box-shadow: 0 8px 24px rgba(217,72,48,0.4);
+}
+.mobile-menu-btn {
+  display: none;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  font-size: 22px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.mobile-menu-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
 }
 
 /* CINEMATIC HERO SECTION WITH RICH KITCHEN COOKING BACKGROUND & PARTICLES */
@@ -647,6 +665,27 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .breadcrumbs a:hover { color: var(--primary); }
 .article-header { text-align: center; margin-bottom: 34px; }
+.article-header .hero-tag {
+  background: var(--primary-light);
+  color: var(--primary);
+  border: 1px solid rgba(217, 72, 48, 0.22);
+  box-shadow: none;
+  animation: none;
+}
+.search-empty-state {
+  max-width: 600px;
+  margin: 0 auto 80px;
+  padding: 40px 24px;
+  text-align: center;
+  background: var(--card);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-md);
+  color: var(--text-muted);
+}
+.search-empty-state h3 {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
 .article-header h1 {
   font-size: 48px;
   font-weight: 800;
@@ -793,6 +832,11 @@ img { max-width: 100%; height: auto; display: block; }
   accent-color: var(--primary);
   margin-top: 3px;
   cursor: pointer;
+  flex-shrink: 0;
+}
+.ing-item label {
+  cursor: pointer;
+  flex: 1;
 }
 .ing-item.checked {
   text-decoration: line-through;
@@ -941,7 +985,7 @@ img { max-width: 100%; height: auto; display: block; }
   line-height: 1.75;
 }
 .faq-card.open .faq-body {
-  max-height: 250px;
+  max-height: 1200px;
   padding: 0 24px 20px;
 }
 
@@ -1200,7 +1244,26 @@ img { max-width: 100%; height: auto; display: block; }
   .author-card { flex-direction: column; text-align: center; }
   .footer-wrap { grid-template-columns: 1fr; gap: 32px; }
   .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
-  .nav-links { display: none; }
+  .mobile-menu-btn { display: inline-flex; }
+  .nav-container { position: relative; }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+    padding: 16px 24px 22px;
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow-md);
+    z-index: 400;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a { padding: 10px 4px; border-bottom: 1px solid var(--border-light); }
+  .nav-links a.nav-cta { text-align: center; margin-top: 8px; border-bottom: none; padding: 12px 20px; }
   .newsletter-banner { padding: 32px 16px; margin: 32px 12px; }
   .newsletter-banner h2 { font-size: 24px; }
   .related-grid { grid-template-columns: 1fr; gap: 16px; }
@@ -1208,7 +1271,7 @@ img { max-width: 100%; height: auto; display: block; }
   .tool-btn { flex: 1 1 auto; justify-content: center; }
 }
 </style>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Recipe","name":"One-Pan Creamy Tuscan Gnocchi: Ready in 15 Minutes","image":["https://images.unsplash.com/photo-1546549032-9571cd6b27df?auto=format&fit=crop&w=1200&q=80"],"author":{"@type":"Person","name":"Mia","url":"https://viralmia.me/about"},"publisher":{"@type":"Organization","name":"Viral Mia Kitchen","logo":{"@type":"ImageObject","url":"https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=400&q=80"}},"datePublished":"2026-11-14","dateModified":"2026-11-14","description":"Skip the sink full of dishes with this 15-minute creamy tuscan gnocchi. Crispy potato pillows swimming in a garlicky parmesan sauce. Totally foolproof.","prepTime":"PT10M","cookTime":"PT15M","totalTime":"PT25M","keywords":"creamy tuscan gnocchi, one pan gnocchi recipe, quick skillet gnocchi, garlic parmesan gnocchi, 15 minute dinner ideas","recipeYield":"4","recipeCategory":"Quick Dinners","recipeCuisine":"American","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":41,"bestRating":"5","worstRating":"1"},"nutrition":{"@type":"NutritionInformation","calories":"410 kcal","proteinContent":"12g","carbohydrateContent":"52g","fatContent":"18g","fiberContent":"3g"},"recipeIngredient":["1 package (16 oz) shelf-stable potato gnocchi (Trader Joe's brand works great)","2 tablespoons unsalted butter (Kerrygold if you're feeling fancy)","3 cloves garlic, minced","1 cup heavy cream","1/2 cup grated parmesan cheese","1 cup baby spinach, roughly chopped","1/2 cup sundried tomatoes, drained and sliced","Kosher salt and freshly cracked black pepper to taste"],"recipeInstructions":[{"@type":"HowToStep","name":"Step 1","text":"Step 1: Melt the butter with a splash of avocado oil in a large skillet over medium heat. Toss in the dry gnocchi straight from the package—no boiling required! Let them cook undisturbed for about 5 minutes until golden brown on one side."},{"@type":"HowToStep","name":"Step 2","text":"Step 2: Turn the heat down to medium-low. Add the minced garlic and sundried tomatoes, stirring constantly for about 60 seconds until that amazing garlic aroma hits you. (The first time I tested this, I cranked the burner too high and burnt the garlic, so keep it gentle here!)"},{"@type":"HowToStep","name":"Step 3","text":"Step 3: Pour in the heavy cream and let it gently simmer for 3 minutes until it starts to thicken up and coat the back of a spoon."},{"@type":"HowToStep","name":"Step 4","text":"Step 4: Stir in the parmesan cheese until melted and smooth, then fold in the baby spinach until it wilts right into the sauce. Season with salt and pepper, and serve immediately."}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Recipe","name":"One-Pan Creamy Tuscan Gnocchi: Ready in 15 Minutes","image":["https://images.unsplash.com/photo-1546549032-9571cd6b27df?auto=format&fit=crop&w=1200&q=80"],"author":{"@type":"Person","name":"Mia","url":"https://viralmia.me/about"},"publisher":{"@type":"Organization","name":"Viral Mia Kitchen","logo":{"@type":"ImageObject","url":"https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=400&q=80"}},"datePublished":"2026-11-14","dateModified":"2026-11-14","description":"Skip the sink full of dishes with this 15-minute creamy tuscan gnocchi. Crispy potato pillows swimming in a garlicky parmesan sauce. Totally foolproof.","prepTime":"PT3M","cookTime":"PT12M","totalTime":"PT15M","keywords":"creamy tuscan gnocchi, one pan gnocchi recipe, quick skillet gnocchi, garlic parmesan gnocchi, 15 minute dinner ideas","recipeYield":"4","recipeCategory":"Quick Dinners","recipeCuisine":"American","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":41,"bestRating":"5","worstRating":"1"},"nutrition":{"@type":"NutritionInformation","calories":"410 kcal","proteinContent":"12g","carbohydrateContent":"52g","fatContent":"18g","fiberContent":"3g"},"recipeIngredient":["1 package (16 oz) shelf-stable potato gnocchi (Trader Joe's brand works great)","2 tablespoons unsalted butter (Kerrygold if you're feeling fancy)","3 cloves garlic, minced","1 cup heavy cream","1/2 cup grated parmesan cheese","1 cup baby spinach, roughly chopped","1/2 cup sundried tomatoes, drained and sliced","Kosher salt and freshly cracked black pepper to taste"],"recipeInstructions":[{"@type":"HowToStep","name":"Step 1","text":"Melt the butter with a splash of avocado oil in a large skillet over medium heat. Toss in the dry gnocchi straight from the package—no boiling required! Let them cook undisturbed for about 5 minutes until golden brown on one side."},{"@type":"HowToStep","name":"Step 2","text":"Turn the heat down to medium-low. Add the minced garlic and sundried tomatoes, stirring constantly for about 60 seconds until that amazing garlic aroma hits you. (The first time I tested this, I cranked the burner too high and burnt the garlic, so keep it gentle here!)"},{"@type":"HowToStep","name":"Step 3","text":"Pour in the heavy cream and let it gently simmer for 3 minutes until it starts to thicken up and coat the back of a spoon."},{"@type":"HowToStep","name":"Step 4","text":"Stir in the parmesan cheese until melted and smooth, then fold in the baby spinach until it wilts right into the sauce. Season with salt and pepper, and serve immediately."}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://viralmia.me"},{"@type":"ListItem","position":2,"name":"Quick Dinners","item":"https://viralmia.me/category/quick-dinners"},{"@type":"ListItem","position":3,"name":"One-Pan Creamy Tuscan Gnocchi: Ready in 15 Minutes","item":"https://viralmia.me/recipes/creamy-tuscan-gnocchi-skillet"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I use frozen gnocchi instead of shelf-stable?","acceptedAnswer":{"@type":"Answer","text":"You definitely can, but give them a quick 2-minute boil first or thaw them completely. Otherwise, the inside stays cold while the outside burns in the skillet."}},{"@type":"Question","name":"How do I prevent the cream sauce from curdling?","acceptedAnswer":{"@type":"Answer","text":"Turn the heat down to low right before pouring in the heavy cream and parmesan. High heat will cause the dairy to break and get grainy."}}]}</script>
 </head>
@@ -1219,7 +1282,7 @@ img { max-width: 100%; height: auto; display: block; }
 
   <!-- Announcement Bar -->
   <aside class="top-bar">
-    <span>✨ New Recipe Alert!</span> Easy 15-Minute Meals & Kitchen Hacks Updated Daily • <a href="/#recipes" style="text-decoration: underline; color: #fff;">Explore Today's Picks &rarr;</a>
+    <span>✨ New Recipe Alert!</span> Easy 15-Minute Meals &amp; Kitchen Hacks Updated Daily • <a href="/#recipes" style="text-decoration: underline; color: #fff;">Explore Today's Picks &rarr;</a>
   </aside>
 
   <!-- Navigation -->
@@ -1229,7 +1292,8 @@ img { max-width: 100%; height: auto; display: block; }
         <a href="/" class="logo">ViralMia <span>Kitchen</span></a>
         <span class="logo-tagline">Fast • Cozy • Simple</span>
       </div>
-      <nav class="nav-links">
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+      <nav class="nav-links" id="navLinks">
         <a href="/">Home</a>
         <a href="/category/quick-dinners">Quick Dinners</a>
         <a href="/category/air-fryer-meals">Air Fryer</a>
@@ -1268,7 +1332,7 @@ img { max-width: 100%; height: auto; display: block; }
         </div>
       </header>
 
-      <img class="article-hero" src="https://images.unsplash.com/photo-1546549032-9571cd6b27df?auto=format&fit=crop&w=1200&q=80" alt="One-Pan Creamy Tuscan Gnocchi: Ready in 15 Minutes" width="1200" height="675" fetchpriority="high" decoding="async">
+      <img class="article-hero" src="https://images.unsplash.com/photo-1546549032-9571cd6b27df?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="One-Pan Creamy Tuscan Gnocchi: Ready in 15 Minutes" width="1200" height="675" fetchpriority="high" decoding="async">
 
       <!-- Personal Diary Intro -->
       <div class="diary-card reveal-on-scroll">
@@ -1331,43 +1395,43 @@ img { max-width: 100%; height: auto; display: block; }
           <ul class="ingredients-list">
             
     <li class="ing-item">
-      <input type="checkbox" id="ing-z51ehmz0p">
-      <label>1 package (16 oz) shelf-stable potato gnocchi (Trader Joe's brand works great)</label>
+      <input type="checkbox" id="ing-0">
+      <label for="ing-0">1 package (16 oz) shelf-stable potato gnocchi (Trader Joe's brand works great)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-y0zn16uq8">
-      <label>2 tablespoons unsalted butter (Kerrygold if you're feeling fancy)</label>
+      <input type="checkbox" id="ing-1">
+      <label for="ing-1">2 tablespoons unsalted butter (Kerrygold if you're feeling fancy)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-aelx87jvv">
-      <label>3 cloves garlic, minced</label>
+      <input type="checkbox" id="ing-2">
+      <label for="ing-2">3 cloves garlic, minced</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-z5f7csgkl">
-      <label>1 cup heavy cream</label>
+      <input type="checkbox" id="ing-3">
+      <label for="ing-3">1 cup heavy cream</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-6nev2wzfx">
-      <label>1/2 cup grated parmesan cheese</label>
+      <input type="checkbox" id="ing-4">
+      <label for="ing-4">1/2 cup grated parmesan cheese</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-li33rjhvj">
-      <label>1 cup baby spinach, roughly chopped</label>
+      <input type="checkbox" id="ing-5">
+      <label for="ing-5">1 cup baby spinach, roughly chopped</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-v0ec5kkrh">
-      <label>1/2 cup sundried tomatoes, drained and sliced</label>
+      <input type="checkbox" id="ing-6">
+      <label for="ing-6">1/2 cup sundried tomatoes, drained and sliced</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-6ftaqbwqu">
-      <label>Kosher salt and freshly cracked black pepper to taste</label>
+      <input type="checkbox" id="ing-7">
+      <label for="ing-7">Kosher salt and freshly cracked black pepper to taste</label>
     </li>
   
           </ul>
@@ -1378,13 +1442,13 @@ img { max-width: 100%; height: auto; display: block; }
           <h3>👩‍🍳 Step-by-Step Cooking Instructions</h3>
           <ol class="steps-list">
             
-    <li class="step-row">Step 1: Melt the butter with a splash of avocado oil in a large skillet over medium heat. Toss in the dry gnocchi straight from the package—no boiling required! Let them cook undisturbed for about 5 minutes until golden brown on one side.</li>
+    <li class="step-row">Melt the butter with a splash of avocado oil in a large skillet over medium heat. Toss in the dry gnocchi straight from the package—no boiling required! Let them cook undisturbed for about 5 minutes until golden brown on one side.</li>
   
-    <li class="step-row">Step 2: Turn the heat down to medium-low. Add the minced garlic and sundried tomatoes, stirring constantly for about 60 seconds until that amazing garlic aroma hits you. (The first time I tested this, I cranked the burner too high and burnt the garlic, so keep it gentle here!)</li>
+    <li class="step-row">Turn the heat down to medium-low. Add the minced garlic and sundried tomatoes, stirring constantly for about 60 seconds until that amazing garlic aroma hits you. (The first time I tested this, I cranked the burner too high and burnt the garlic, so keep it gentle here!)</li>
   
-    <li class="step-row">Step 3: Pour in the heavy cream and let it gently simmer for 3 minutes until it starts to thicken up and coat the back of a spoon.</li>
+    <li class="step-row">Pour in the heavy cream and let it gently simmer for 3 minutes until it starts to thicken up and coat the back of a spoon.</li>
   
-    <li class="step-row">Step 4: Stir in the parmesan cheese until melted and smooth, then fold in the baby spinach until it wilts right into the sauce. Season with salt and pepper, and serve immediately.</li>
+    <li class="step-row">Stir in the parmesan cheese until melted and smooth, then fold in the baby spinach until it wilts right into the sauce. Season with salt and pepper, and serve immediately.</li>
   
           </ol>
         </section>
@@ -1476,7 +1540,7 @@ img { max-width: 100%; height: auto; display: block; }
                 <article class="post-card">
                   <div class="card-img-wrap">
                     <a href="/recipes/15-minute-lemon-herb-butter-shrimp-skillet">
-                      <img class="post-card-img" src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1200&q=80" alt="15-Minute Lemon Herb Butter Shrimp Skillet (One Pan!)" loading="lazy">
+                      <img class="post-card-img" src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="15-Minute Lemon Herb Butter Shrimp Skillet (One Pan!)" loading="lazy">
                     </a>
                     <span class="card-badge">Quick Dinners</span>
                   </div>
@@ -1498,7 +1562,7 @@ img { max-width: 100%; height: auto; display: block; }
                 <article class="post-card">
                   <div class="card-img-wrap">
                     <a href="/recipes/loaded-15-minute-black-bean-taco-bowls">
-                      <img class="post-card-img" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=1200&q=80" alt="15-Minute Loaded Black Bean Taco Bowls (When You Refuse to Do Dishes)" loading="lazy">
+                      <img class="post-card-img" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="15-Minute Loaded Black Bean Taco Bowls (When You Refuse to Do Dishes)" loading="lazy">
                     </a>
                     <span class="card-badge">Quick Dinners</span>
                   </div>
@@ -1520,7 +1584,7 @@ img { max-width: 100%; height: auto; display: block; }
                 <article class="post-card">
                   <div class="card-img-wrap">
                     <a href="/recipes/sheet-pan-fall-sausage">
-                      <img class="post-card-img" src="https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&fit=crop&w=1200&q=80" alt="Sheet Pan Maple Dijon Sausage and Veggies for Busy Weeknights" loading="lazy">
+                      <img class="post-card-img" src="https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Sheet Pan Maple Dijon Sausage and Veggies for Busy Weeknights" loading="lazy">
                     </a>
                     <span class="card-badge">Quick Dinners</span>
                   </div>
@@ -1631,23 +1695,48 @@ img { max-width: 100%; height: auto; display: block; }
         revealElements.forEach(el => observer.observe(el));
       }
 
-      // 3. Live Search Filter
+      // 0. Mobile Navigation Toggle
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      const navLinks = document.getElementById('navLinks');
+      if (mobileMenuBtn && navLinks) {
+        mobileMenuBtn.addEventListener('click', () => {
+          const isOpen = navLinks.classList.toggle('open');
+          mobileMenuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+          mobileMenuBtn.textContent = isOpen ? '✕' : '☰';
+        });
+      }
+
+      // 3. Live Search Filter (with ?q= URL param support & empty state)
       const searchInput = document.getElementById('recipe-search');
+      const searchEmpty = document.getElementById('search-empty');
       if (searchInput) {
-        searchInput.addEventListener('input', (e) => {
-          const query = e.target.value.toLowerCase().trim();
-          const cards = document.querySelectorAll('.post-card');
+        const applySearchFilter = (rawQuery) => {
+          const query = rawQuery.toLowerCase().trim();
+          const cards = document.querySelectorAll('#recipes .post-card');
+          let visibleCount = 0;
           cards.forEach(card => {
             const title = card.querySelector('.post-card-title').textContent.toLowerCase();
             const desc = card.querySelector('.post-card-desc').textContent.toLowerCase();
             const cat = card.querySelector('.card-badge').textContent.toLowerCase();
-            if (title.includes(query) || desc.includes(query) || cat.includes(query)) {
+            if (!query || title.includes(query) || desc.includes(query) || cat.includes(query)) {
               card.style.display = 'flex';
+              visibleCount++;
             } else {
               card.style.display = 'none';
             }
           });
-        });
+          if (searchEmpty) {
+            searchEmpty.style.display = visibleCount === 0 ? 'block' : 'none';
+          }
+        };
+
+        searchInput.addEventListener('input', (e) => applySearchFilter(e.target.value));
+
+        const initialQuery = new URLSearchParams(window.location.search).get('q');
+        if (initialQuery) {
+          searchInput.value = initialQuery;
+          applySearchFilter(initialQuery);
+        }
       }
 
       // 4. Interactive Ingredient Checkbox with Strikethrough
@@ -1736,14 +1825,9 @@ img { max-width: 100%; height: auto; display: block; }
 
     // Copy Ingredients to Clipboard
     function copyIngredients() {
-      const items = Array.from(document.querySelectorAll('.ingredients-list label')).map(l => '• ' + l.textContent.trim()).join('
-');
+      const items = Array.from(document.querySelectorAll('.ingredients-list label')).map(l => '• ' + l.textContent.trim()).join('\n');
       const title = document.querySelector('h1') ? document.querySelector('h1').textContent.trim() : 'Recipe';
-      const text = title + ' - Ingredients:
-
-' + items + '
-
-Source: ' + window.location.href;
+      const text = title + ' - Ingredients:\n\n' + items + '\n\nSource: ' + window.location.href;
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(text).then(() => {
           showToast('📋 Ingredients copied to clipboard!');

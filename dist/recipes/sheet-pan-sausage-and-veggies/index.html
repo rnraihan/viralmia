@@ -33,21 +33,21 @@
   <meta property="og:title" content="Crispy Sheet Pan Sausage and Veggies (The High-Heat Trick) | Viral Mia Kitchen">
   <meta property="og:description" content="Crisp roasted potatoes, caramelized peppers, and juicy smoked sausage cooked on one rimmed tray in 25 minutes. Quick dinner with zero cleanup stress.">
   <meta property="og:url" content="https://viralmia.me/recipes/sheet-pan-sausage-and-veggies">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=1200&q=80">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80">
   <meta property="og:locale" content="en_US">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Crispy Sheet Pan Sausage and Veggies (The High-Heat Trick) | Viral Mia Kitchen">
   <meta name="twitter:description" content="Crisp roasted potatoes, caramelized peppers, and juicy smoked sausage cooked on one rimmed tray in 25 minutes. Quick dinner with zero cleanup stress.">
-  <meta name="twitter:image" content="https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=1200&q=80">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80">
 
   <!-- Performance Preconnect & Preload for Ultra-Fast LCP -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://images.unsplash.com">
   <link rel="dns-prefetch" href="https://images.unsplash.com">
-  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=1200&q=80" fetchpriority="high">
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" fetchpriority="high">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
@@ -203,6 +203,24 @@ img { max-width: 100%; height: auto; display: block; }
   background: var(--primary-dark);
   transform: translateY(-2px) scale(1.03);
   box-shadow: 0 8px 24px rgba(217,72,48,0.4);
+}
+.mobile-menu-btn {
+  display: none;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  font-size: 22px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.mobile-menu-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
 }
 
 /* CINEMATIC HERO SECTION WITH RICH KITCHEN COOKING BACKGROUND & PARTICLES */
@@ -647,6 +665,27 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .breadcrumbs a:hover { color: var(--primary); }
 .article-header { text-align: center; margin-bottom: 34px; }
+.article-header .hero-tag {
+  background: var(--primary-light);
+  color: var(--primary);
+  border: 1px solid rgba(217, 72, 48, 0.22);
+  box-shadow: none;
+  animation: none;
+}
+.search-empty-state {
+  max-width: 600px;
+  margin: 0 auto 80px;
+  padding: 40px 24px;
+  text-align: center;
+  background: var(--card);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-md);
+  color: var(--text-muted);
+}
+.search-empty-state h3 {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
 .article-header h1 {
   font-size: 48px;
   font-weight: 800;
@@ -793,6 +832,11 @@ img { max-width: 100%; height: auto; display: block; }
   accent-color: var(--primary);
   margin-top: 3px;
   cursor: pointer;
+  flex-shrink: 0;
+}
+.ing-item label {
+  cursor: pointer;
+  flex: 1;
 }
 .ing-item.checked {
   text-decoration: line-through;
@@ -941,7 +985,7 @@ img { max-width: 100%; height: auto; display: block; }
   line-height: 1.75;
 }
 .faq-card.open .faq-body {
-  max-height: 250px;
+  max-height: 1200px;
   padding: 0 24px 20px;
 }
 
@@ -1200,7 +1244,26 @@ img { max-width: 100%; height: auto; display: block; }
   .author-card { flex-direction: column; text-align: center; }
   .footer-wrap { grid-template-columns: 1fr; gap: 32px; }
   .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
-  .nav-links { display: none; }
+  .mobile-menu-btn { display: inline-flex; }
+  .nav-container { position: relative; }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+    padding: 16px 24px 22px;
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow-md);
+    z-index: 400;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a { padding: 10px 4px; border-bottom: 1px solid var(--border-light); }
+  .nav-links a.nav-cta { text-align: center; margin-top: 8px; border-bottom: none; padding: 12px 20px; }
   .newsletter-banner { padding: 32px 16px; margin: 32px 12px; }
   .newsletter-banner h2 { font-size: 24px; }
   .related-grid { grid-template-columns: 1fr; gap: 16px; }
@@ -1208,7 +1271,7 @@ img { max-width: 100%; height: auto; display: block; }
   .tool-btn { flex: 1 1 auto; justify-content: center; }
 }
 </style>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Recipe","name":"Crispy Sheet Pan Sausage and Veggies (The High-Heat Trick)","image":["https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=1200&q=80"],"author":{"@type":"Person","name":"Mia","url":"https://viralmia.me/about"},"publisher":{"@type":"Organization","name":"Viral Mia Kitchen","logo":{"@type":"ImageObject","url":"https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=400&q=80"}},"datePublished":"2026-11-04","dateModified":"2026-11-04","description":"Crisp roasted potatoes, caramelized peppers, and juicy smoked sausage cooked on one rimmed tray in 25 minutes. Quick dinner with zero cleanup stress.","prepTime":"PT10M","cookTime":"PT15M","totalTime":"PT25M","keywords":"sheet pan sausage and veggies, easy kielbasa sheet pan dinner, one pan sausage potatoes peppers, quick 30 minute weeknight dinner, crispy roasted sausage and vegetables","recipeYield":"4","recipeCategory":"Quick Dinners","recipeCuisine":"American","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":63,"bestRating":"5","worstRating":"1"},"nutrition":{"@type":"NutritionInformation","calories":"420 kcal","proteinContent":"21g","carbohydrateContent":"31g","fatContent":"24g","fiberContent":"5g"},"recipeIngredient":["14 oz smoked Polish kielbasa or turkey sausage, sliced into 1/2-inch rounds","1 lb baby Yukon Gold potatoes, halved (or quartered if larger than a golf ball)","2 large bell peppers (one red, one yellow), cut into 1-inch squares","1 medium red onion, cut into 1/2-inch thick wedges","2 tbsp avocado oil (ideal high-smoke-point oil)","1 tbsp Italian seasoning blend (oregano, basil, thyme)","1 tsp garlic powder","1 tsp Morton kosher salt","1/2 tsp freshly cracked black pepper"],"recipeInstructions":[{"@type":"HowToStep","name":"Step 1","text":"Slide an empty, heavy-duty half-sheet pan onto the middle oven rack and preheat the oven to 425°F. Giving the sheet pan at least 10 minutes to absorb heat creates an instant sear surface."},{"@type":"HowToStep","name":"Step 2","text":"Toss the halved baby potatoes, sliced sausage, chopped bell peppers, and onion wedges into a large mixing bowl with the avocado oil, Italian seasoning, garlic powder, salt, and black pepper until evenly coated."},{"@type":"HowToStep","name":"Step 3","text":"Carefully pull the scorching hot sheet pan out of the oven. Immediately dump the sausage and vegetable mixture onto the pan; you should hear a loud, aggressive sizzle. Quickly spread everything into a single layer with cut sides of the potatoes facing down against the metal."},{"@type":"HowToStep","name":"Step 4","text":"Roast undisturbed for 20 minutes. Toss with a metal spatula to flip the sausage rounds and redistribute the peppers, then roast for another 5 to 7 minutes until the potato edges are golden brown and crisp."},{"@type":"HowToStep","name":"Step 5","text":"Pull from the oven, let rest for 2 minutes on the warm pan so resting juices settle, then serve straight from the sheet."}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Recipe","name":"Crispy Sheet Pan Sausage and Veggies (The High-Heat Trick)","image":["https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=1200&q=80"],"author":{"@type":"Person","name":"Mia","url":"https://viralmia.me/about"},"publisher":{"@type":"Organization","name":"Viral Mia Kitchen","logo":{"@type":"ImageObject","url":"https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=400&q=80"}},"datePublished":"2026-11-04","dateModified":"2026-11-04","description":"Crisp roasted potatoes, caramelized peppers, and juicy smoked sausage cooked on one rimmed tray in 25 minutes. Quick dinner with zero cleanup stress.","prepTime":"PT10M","cookTime":"PT25M","totalTime":"PT35M","keywords":"sheet pan sausage and veggies, easy kielbasa sheet pan dinner, one pan sausage potatoes peppers, quick 30 minute weeknight dinner, crispy roasted sausage and vegetables","recipeYield":"4","recipeCategory":"Quick Dinners","recipeCuisine":"American","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":63,"bestRating":"5","worstRating":"1"},"nutrition":{"@type":"NutritionInformation","calories":"420 kcal","proteinContent":"21g","carbohydrateContent":"31g","fatContent":"24g","fiberContent":"5g"},"recipeIngredient":["14 oz smoked Polish kielbasa or turkey sausage, sliced into 1/2-inch rounds","1 lb baby Yukon Gold potatoes, halved (or quartered if larger than a golf ball)","2 large bell peppers (one red, one yellow), cut into 1-inch squares","1 medium red onion, cut into 1/2-inch thick wedges","2 tbsp avocado oil (ideal high-smoke-point oil)","1 tbsp Italian seasoning blend (oregano, basil, thyme)","1 tsp garlic powder","1 tsp Morton kosher salt","1/2 tsp freshly cracked black pepper"],"recipeInstructions":[{"@type":"HowToStep","name":"Step 1","text":"Slide an empty, heavy-duty half-sheet pan onto the middle oven rack and preheat the oven to 425°F. Giving the sheet pan at least 10 minutes to absorb heat creates an instant sear surface."},{"@type":"HowToStep","name":"Step 2","text":"Toss the halved baby potatoes, sliced sausage, chopped bell peppers, and onion wedges into a large mixing bowl with the avocado oil, Italian seasoning, garlic powder, salt, and black pepper until evenly coated."},{"@type":"HowToStep","name":"Step 3","text":"Carefully pull the scorching hot sheet pan out of the oven. Immediately dump the sausage and vegetable mixture onto the pan; you should hear a loud, aggressive sizzle. Quickly spread everything into a single layer with cut sides of the potatoes facing down against the metal."},{"@type":"HowToStep","name":"Step 4","text":"Roast undisturbed for 20 minutes. Toss with a metal spatula to flip the sausage rounds and redistribute the peppers, then roast for another 5 to 7 minutes until the potato edges are golden brown and crisp."},{"@type":"HowToStep","name":"Step 5","text":"Pull from the oven, let rest for 2 minutes on the warm pan so resting juices settle, then serve straight from the sheet."}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://viralmia.me"},{"@type":"ListItem","position":2,"name":"Quick Dinners","item":"https://viralmia.me/category/quick-dinners"},{"@type":"ListItem","position":3,"name":"Crispy Sheet Pan Sausage and Veggies (The High-Heat Trick)","item":"https://viralmia.me/recipes/sheet-pan-sausage-and-veggies"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I substitute the smoked kielbasa if I don't have it?","acceptedAnswer":{"@type":"Answer","text":"Yes! Andouille sausage adds fantastic spice, or you can use pre-cooked chicken-apple sausage from Trader Joe's. Just avoid raw links unless you slice and sear them first, as their raw moisture will steam your veggies."}},{"@type":"Question","name":"How do I prevent the vegetables from getting soggy?","acceptedAnswer":{"@type":"Answer","text":"Do not crowd the baking sheet. If your ingredients are piled two layers deep, the evaporating water has nowhere to go and steams the food. Use a standard 18x13-inch half-sheet pan, or divide the batch across two pans if needed."}}]}</script>
 </head>
@@ -1219,7 +1282,7 @@ img { max-width: 100%; height: auto; display: block; }
 
   <!-- Announcement Bar -->
   <aside class="top-bar">
-    <span>✨ New Recipe Alert!</span> Easy 15-Minute Meals & Kitchen Hacks Updated Daily • <a href="/#recipes" style="text-decoration: underline; color: #fff;">Explore Today's Picks &rarr;</a>
+    <span>✨ New Recipe Alert!</span> Easy 15-Minute Meals &amp; Kitchen Hacks Updated Daily • <a href="/#recipes" style="text-decoration: underline; color: #fff;">Explore Today's Picks &rarr;</a>
   </aside>
 
   <!-- Navigation -->
@@ -1229,7 +1292,8 @@ img { max-width: 100%; height: auto; display: block; }
         <a href="/" class="logo">ViralMia <span>Kitchen</span></a>
         <span class="logo-tagline">Fast • Cozy • Simple</span>
       </div>
-      <nav class="nav-links">
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+      <nav class="nav-links" id="navLinks">
         <a href="/">Home</a>
         <a href="/category/quick-dinners">Quick Dinners</a>
         <a href="/category/air-fryer-meals">Air Fryer</a>
@@ -1268,7 +1332,7 @@ img { max-width: 100%; height: auto; display: block; }
         </div>
       </header>
 
-      <img class="article-hero" src="https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=1200&q=80" alt="Crispy Sheet Pan Sausage and Veggies (The High-Heat Trick)" width="1200" height="675" fetchpriority="high" decoding="async">
+      <img class="article-hero" src="https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Crispy Sheet Pan Sausage and Veggies (The High-Heat Trick)" width="1200" height="675" fetchpriority="high" decoding="async">
 
       <!-- Personal Diary Intro -->
       <div class="diary-card reveal-on-scroll">
@@ -1331,48 +1395,48 @@ img { max-width: 100%; height: auto; display: block; }
           <ul class="ingredients-list">
             
     <li class="ing-item">
-      <input type="checkbox" id="ing-hqnyfk720">
-      <label>14 oz smoked Polish kielbasa or turkey sausage, sliced into 1/2-inch rounds</label>
+      <input type="checkbox" id="ing-0">
+      <label for="ing-0">14 oz smoked Polish kielbasa or turkey sausage, sliced into 1/2-inch rounds</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-96df907l7">
-      <label>1 lb baby Yukon Gold potatoes, halved (or quartered if larger than a golf ball)</label>
+      <input type="checkbox" id="ing-1">
+      <label for="ing-1">1 lb baby Yukon Gold potatoes, halved (or quartered if larger than a golf ball)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-5cesh01fc">
-      <label>2 large bell peppers (one red, one yellow), cut into 1-inch squares</label>
+      <input type="checkbox" id="ing-2">
+      <label for="ing-2">2 large bell peppers (one red, one yellow), cut into 1-inch squares</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-g5ybvi3od">
-      <label>1 medium red onion, cut into 1/2-inch thick wedges</label>
+      <input type="checkbox" id="ing-3">
+      <label for="ing-3">1 medium red onion, cut into 1/2-inch thick wedges</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-57lwbkimp">
-      <label>2 tbsp avocado oil (ideal high-smoke-point oil)</label>
+      <input type="checkbox" id="ing-4">
+      <label for="ing-4">2 tbsp avocado oil (ideal high-smoke-point oil)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-enbfit1lq">
-      <label>1 tbsp Italian seasoning blend (oregano, basil, thyme)</label>
+      <input type="checkbox" id="ing-5">
+      <label for="ing-5">1 tbsp Italian seasoning blend (oregano, basil, thyme)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-spyosgq96">
-      <label>1 tsp garlic powder</label>
+      <input type="checkbox" id="ing-6">
+      <label for="ing-6">1 tsp garlic powder</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-ifw199ggt">
-      <label>1 tsp Morton kosher salt</label>
+      <input type="checkbox" id="ing-7">
+      <label for="ing-7">1 tsp Morton kosher salt</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-ek9vz8mbh">
-      <label>1/2 tsp freshly cracked black pepper</label>
+      <input type="checkbox" id="ing-8">
+      <label for="ing-8">1/2 tsp freshly cracked black pepper</label>
     </li>
   
           </ul>
@@ -1483,7 +1547,7 @@ img { max-width: 100%; height: auto; display: block; }
                 <article class="post-card">
                   <div class="card-img-wrap">
                     <a href="/recipes/15-minute-lemon-herb-butter-shrimp-skillet">
-                      <img class="post-card-img" src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1200&q=80" alt="15-Minute Lemon Herb Butter Shrimp Skillet (One Pan!)" loading="lazy">
+                      <img class="post-card-img" src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="15-Minute Lemon Herb Butter Shrimp Skillet (One Pan!)" loading="lazy">
                     </a>
                     <span class="card-badge">Quick Dinners</span>
                   </div>
@@ -1505,7 +1569,7 @@ img { max-width: 100%; height: auto; display: block; }
                 <article class="post-card">
                   <div class="card-img-wrap">
                     <a href="/recipes/loaded-15-minute-black-bean-taco-bowls">
-                      <img class="post-card-img" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=1200&q=80" alt="15-Minute Loaded Black Bean Taco Bowls (When You Refuse to Do Dishes)" loading="lazy">
+                      <img class="post-card-img" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="15-Minute Loaded Black Bean Taco Bowls (When You Refuse to Do Dishes)" loading="lazy">
                     </a>
                     <span class="card-badge">Quick Dinners</span>
                   </div>
@@ -1527,7 +1591,7 @@ img { max-width: 100%; height: auto; display: block; }
                 <article class="post-card">
                   <div class="card-img-wrap">
                     <a href="/recipes/creamy-tuscan-gnocchi-skillet">
-                      <img class="post-card-img" src="https://images.unsplash.com/photo-1546549032-9571cd6b27df?auto=format&fit=crop&w=1200&q=80" alt="One-Pan Creamy Tuscan Gnocchi: Ready in 15 Minutes" loading="lazy">
+                      <img class="post-card-img" src="https://images.unsplash.com/photo-1546549032-9571cd6b27df?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="One-Pan Creamy Tuscan Gnocchi: Ready in 15 Minutes" loading="lazy">
                     </a>
                     <span class="card-badge">Quick Dinners</span>
                   </div>
@@ -1638,23 +1702,48 @@ img { max-width: 100%; height: auto; display: block; }
         revealElements.forEach(el => observer.observe(el));
       }
 
-      // 3. Live Search Filter
+      // 0. Mobile Navigation Toggle
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      const navLinks = document.getElementById('navLinks');
+      if (mobileMenuBtn && navLinks) {
+        mobileMenuBtn.addEventListener('click', () => {
+          const isOpen = navLinks.classList.toggle('open');
+          mobileMenuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+          mobileMenuBtn.textContent = isOpen ? '✕' : '☰';
+        });
+      }
+
+      // 3. Live Search Filter (with ?q= URL param support & empty state)
       const searchInput = document.getElementById('recipe-search');
+      const searchEmpty = document.getElementById('search-empty');
       if (searchInput) {
-        searchInput.addEventListener('input', (e) => {
-          const query = e.target.value.toLowerCase().trim();
-          const cards = document.querySelectorAll('.post-card');
+        const applySearchFilter = (rawQuery) => {
+          const query = rawQuery.toLowerCase().trim();
+          const cards = document.querySelectorAll('#recipes .post-card');
+          let visibleCount = 0;
           cards.forEach(card => {
             const title = card.querySelector('.post-card-title').textContent.toLowerCase();
             const desc = card.querySelector('.post-card-desc').textContent.toLowerCase();
             const cat = card.querySelector('.card-badge').textContent.toLowerCase();
-            if (title.includes(query) || desc.includes(query) || cat.includes(query)) {
+            if (!query || title.includes(query) || desc.includes(query) || cat.includes(query)) {
               card.style.display = 'flex';
+              visibleCount++;
             } else {
               card.style.display = 'none';
             }
           });
-        });
+          if (searchEmpty) {
+            searchEmpty.style.display = visibleCount === 0 ? 'block' : 'none';
+          }
+        };
+
+        searchInput.addEventListener('input', (e) => applySearchFilter(e.target.value));
+
+        const initialQuery = new URLSearchParams(window.location.search).get('q');
+        if (initialQuery) {
+          searchInput.value = initialQuery;
+          applySearchFilter(initialQuery);
+        }
       }
 
       // 4. Interactive Ingredient Checkbox with Strikethrough
@@ -1743,14 +1832,9 @@ img { max-width: 100%; height: auto; display: block; }
 
     // Copy Ingredients to Clipboard
     function copyIngredients() {
-      const items = Array.from(document.querySelectorAll('.ingredients-list label')).map(l => '• ' + l.textContent.trim()).join('
-');
+      const items = Array.from(document.querySelectorAll('.ingredients-list label')).map(l => '• ' + l.textContent.trim()).join('\n');
       const title = document.querySelector('h1') ? document.querySelector('h1').textContent.trim() : 'Recipe';
-      const text = title + ' - Ingredients:
-
-' + items + '
-
-Source: ' + window.location.href;
+      const text = title + ' - Ingredients:\n\n' + items + '\n\nSource: ' + window.location.href;
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(text).then(() => {
           showToast('📋 Ingredients copied to clipboard!');

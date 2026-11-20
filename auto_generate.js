@@ -29,7 +29,7 @@ const CURATED_FOOD_IMAGES = {
   airFryer: [
     'https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=1200&q=80',
     'https://images.unsplash.com/photo-1585325701165-351af916e581?auto=format&fit=crop&w=1200&q=80',
-    'https://images.unsplash.com/photo-1527477321055-436159750f24?auto=format&fit=crop&w=1200&q=80'
+    'https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=1200&q=80'
   ],
   soup: [
     'https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=1200&q=80',
@@ -62,7 +62,7 @@ const CURATED_FOOD_IMAGES = {
     'https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=1200&q=80'
   ],
   turkey: [
-    'https://images.unsplash.com/photo-1514944298352-78d12e69888d?auto=format&fit=crop&w=1200&q=80',
+    'https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=1200&q=80',
     'https://images.unsplash.com/photo-1574672280600-4accfa5b6f98?auto=format&fit=crop&w=1200&q=80',
     'https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=1200&q=80'
   ],
@@ -134,7 +134,7 @@ const HUMAN_PERSONA_MOODS = [
   },
   {
     name: "The Food Science & Kitchen Experimenter",
-    guideline: "Tone: Enthusiastic, curious, 'game-changing discovery'. Explains why the hack or cooking method works scientifically (e.g. moisture control, starch emulsion, heat retention) in plain, punchy English."
+    guideline: "Tone: Enthusiastic, curious, 'mind-blowing kitchen discovery'. Explains why the hack or cooking method works scientifically (e.g. moisture control, starch emulsion, heat retention) in plain, punchy English."
   },
   {
     name: "The 1-Pan Minimalist & Dish-Hater",
@@ -229,9 +229,22 @@ Return a STRICT, RAW JSON object (no markdown code blocks, just raw JSON) with t
     // Pick contextual high-res food image
     recipeData.heroImage = selectSmartImage(recipeData.title || targetTopic.topic, targetTopic.category);
 
+    // Always sanitize slug to guarantee clean URL-safe lowercase characters (no spaces/special chars)
+    recipeData.slug = String(recipeData.slug || targetTopic.topic)
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/(^-|-$)/g, '');
+
     if (!recipeData.slug) {
-      recipeData.slug = targetTopic.topic.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+      recipeData.slug = `recipe-${Date.now()}`;
     }
+
+    // Ensure required fields exist before writing
+    if (!recipeData.title || !Array.isArray(recipeData.ingredients) || !Array.isArray(recipeData.instructions)) {
+      throw new Error('Generated JSON is missing required recipe fields (title, ingredients, or instructions).');
+    }
+    recipeData.category = recipeData.category || targetTopic.category;
+    recipeData.date = recipeData.date || new Date().toISOString().split('T')[0];
 
     if (!fs.existsSync(POSTS_DIR)) fs.mkdirSync(POSTS_DIR, { recursive: true });
     const postFilePath = path.join(POSTS_DIR, `${recipeData.slug}.json`);
@@ -261,9 +274,11 @@ async function callGeminiWithFallback(prompt, temperature) {
     if (listRes.ok) {
       const listData = await listRes.json();
       const allModels = listData.models || [];
+      const excludedKeywords = ['tts', 'image', 'audio', 'embedding', 'robotics', 'computer-use', 'veo', 'imagen', 'aqa', 'learnlm'];
       const contentModels = allModels
         .filter(m => (m.supportedGenerationMethods || []).includes('generateContent'))
-        .map(m => m.name.replace('models/', ''));
+        .map(m => m.name.replace('models/', ''))
+        .filter(name => !excludedKeywords.some(kw => name.toLowerCase().includes(kw)));
 
       console.log('📋 Discovered supported models:', contentModels.join(', '));
 
@@ -322,8 +337,10 @@ async function callGeminiWithFallback(prompt, temperature) {
       const data = await response.json();
       const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
       if (text) {
+        const cleanedJson = text.trim().replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/i, '').trim();
+        const parsed = JSON.parse(cleanedJson);
         console.log(`✨ Successfully generated recipe using active model "${model}"!`);
-        return JSON.parse(text);
+        return parsed;
       }
     } catch (err) {
       console.warn(`⚠️ Exception calling model "${model}": ${err.message}`);

@@ -33,21 +33,21 @@
   <meta property="og:title" content="Crispy Air Fryer Chicken Bites That Taste Like Takeout | Viral Mia Kitchen">
   <meta property="og:description" content="Crispy on the outside, juicy on the inside! These 12-minute air fryer chicken bites are seasoned to perfection with zero deep-frying oil.">
   <meta property="og:url" content="https://viralmia.me/recipes/crispy-air-fryer-chicken-bites">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=1200&q=80">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&amp;fit=crop&amp;w=1200&amp;q=80">
   <meta property="og:locale" content="en_US">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Crispy Air Fryer Chicken Bites That Taste Like Takeout | Viral Mia Kitchen">
   <meta name="twitter:description" content="Crispy on the outside, juicy on the inside! These 12-minute air fryer chicken bites are seasoned to perfection with zero deep-frying oil.">
-  <meta name="twitter:image" content="https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=1200&q=80">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&amp;fit=crop&amp;w=1200&amp;q=80">
 
   <!-- Performance Preconnect & Preload for Ultra-Fast LCP -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://images.unsplash.com">
   <link rel="dns-prefetch" href="https://images.unsplash.com">
-  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=1200&q=80" fetchpriority="high">
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" fetchpriority="high">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
@@ -203,6 +203,24 @@ img { max-width: 100%; height: auto; display: block; }
   background: var(--primary-dark);
   transform: translateY(-2px) scale(1.03);
   box-shadow: 0 8px 24px rgba(217,72,48,0.4);
+}
+.mobile-menu-btn {
+  display: none;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  font-size: 22px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.mobile-menu-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
 }
 
 /* CINEMATIC HERO SECTION WITH RICH KITCHEN COOKING BACKGROUND & PARTICLES */
@@ -647,6 +665,27 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .breadcrumbs a:hover { color: var(--primary); }
 .article-header { text-align: center; margin-bottom: 34px; }
+.article-header .hero-tag {
+  background: var(--primary-light);
+  color: var(--primary);
+  border: 1px solid rgba(217, 72, 48, 0.22);
+  box-shadow: none;
+  animation: none;
+}
+.search-empty-state {
+  max-width: 600px;
+  margin: 0 auto 80px;
+  padding: 40px 24px;
+  text-align: center;
+  background: var(--card);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-md);
+  color: var(--text-muted);
+}
+.search-empty-state h3 {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
 .article-header h1 {
   font-size: 48px;
   font-weight: 800;
@@ -793,6 +832,11 @@ img { max-width: 100%; height: auto; display: block; }
   accent-color: var(--primary);
   margin-top: 3px;
   cursor: pointer;
+  flex-shrink: 0;
+}
+.ing-item label {
+  cursor: pointer;
+  flex: 1;
 }
 .ing-item.checked {
   text-decoration: line-through;
@@ -941,7 +985,7 @@ img { max-width: 100%; height: auto; display: block; }
   line-height: 1.75;
 }
 .faq-card.open .faq-body {
-  max-height: 250px;
+  max-height: 1200px;
   padding: 0 24px 20px;
 }
 
@@ -1200,7 +1244,26 @@ img { max-width: 100%; height: auto; display: block; }
   .author-card { flex-direction: column; text-align: center; }
   .footer-wrap { grid-template-columns: 1fr; gap: 32px; }
   .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
-  .nav-links { display: none; }
+  .mobile-menu-btn { display: inline-flex; }
+  .nav-container { position: relative; }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+    padding: 16px 24px 22px;
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow-md);
+    z-index: 400;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a { padding: 10px 4px; border-bottom: 1px solid var(--border-light); }
+  .nav-links a.nav-cta { text-align: center; margin-top: 8px; border-bottom: none; padding: 12px 20px; }
   .newsletter-banner { padding: 32px 16px; margin: 32px 12px; }
   .newsletter-banner h2 { font-size: 24px; }
   .related-grid { grid-template-columns: 1fr; gap: 16px; }
@@ -1208,7 +1271,7 @@ img { max-width: 100%; height: auto; display: block; }
   .tool-btn { flex: 1 1 auto; justify-content: center; }
 }
 </style>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Recipe","name":"Crispy Air Fryer Chicken Bites That Taste Like Takeout","image":["https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=1200&q=80"],"author":{"@type":"Person","name":"Mia","url":"https://viralmia.me/about"},"publisher":{"@type":"Organization","name":"Viral Mia Kitchen","logo":{"@type":"ImageObject","url":"https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=400&q=80"}},"datePublished":"2026-11-03","dateModified":"2026-11-03","description":"Crispy on the outside, juicy on the inside! These 12-minute air fryer chicken bites are seasoned to perfection with zero deep-frying oil.","prepTime":"PT10M","cookTime":"PT15M","totalTime":"PT25M","keywords":"air fryer chicken, crispy chicken bites, healthy takeout, easy air fryer dinner, high protein snack","recipeYield":"3","recipeCategory":"Air Fryer Meals","recipeCuisine":"American","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":61,"bestRating":"5","worstRating":"1"},"nutrition":{"@type":"NutritionInformation","calories":"320 kcal","proteinContent":"24g","carbohydrateContent":"42g","fatContent":"14g","fiberContent":"4g"},"recipeIngredient":["1.5 lbs boneless skinless chicken breasts or thighs, cut into 1-inch bite-sized cubes","1 tablespoon olive oil or avocado oil","1/2 cup Panko breadcrumbs (for maximum crunch)","1/4 cup grated Parmesan cheese","1 teaspoon smoked paprika","1 teaspoon garlic powder","1/2 teaspoon onion powder","1/2 teaspoon dried oregano","1/2 teaspoon kosher salt and cracked black pepper"],"recipeInstructions":[{"@type":"HowToStep","name":"Step 1","text":"Prep the Chicken: Pat the cubed chicken completely dry with paper towels. Toss with olive oil so the seasoning adheres evenly."},{"@type":"HowToStep","name":"Step 2","text":"Make the Crunchy Coating: In a shallow bowl, whisk together the Panko breadcrumbs, Parmesan, smoked paprika, garlic powder, onion powder, oregano, salt, and pepper."},{"@type":"HowToStep","name":"Step 3","text":"Coat the Bites: Dredge each piece of chicken through the breadcrumb mixture, pressing firmly so every side gets coated in golden crumbs."},{"@type":"HowToStep","name":"Step 4","text":"Preheat & Arrange: Preheat your air fryer to 400°F (200°C) for 3 minutes. Lightly spray the basket with avocado oil spray. Place chicken in a single layer with space between pieces so hot air circulates."},{"@type":"HowToStep","name":"Step 5","text":"Air Fry: Cook at 400°F for 10-12 minutes, shaking the basket halfway at the 6-minute mark. Chicken is ready when golden brown and internal temperature reads 165°F (74°C). Serve with honey mustard or BBQ sauce!"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Recipe","name":"Crispy Air Fryer Chicken Bites That Taste Like Takeout","image":["https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=1200&q=80"],"author":{"@type":"Person","name":"Mia","url":"https://viralmia.me/about"},"publisher":{"@type":"Organization","name":"Viral Mia Kitchen","logo":{"@type":"ImageObject","url":"https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=400&q=80"}},"datePublished":"2026-11-03","dateModified":"2026-11-03","description":"Crispy on the outside, juicy on the inside! These 12-minute air fryer chicken bites are seasoned to perfection with zero deep-frying oil.","prepTime":"PT10M","cookTime":"PT12M","totalTime":"PT22M","keywords":"air fryer chicken, crispy chicken bites, healthy takeout, easy air fryer dinner, high protein snack","recipeYield":"3","recipeCategory":"Air Fryer Meals","recipeCuisine":"American","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":44,"bestRating":"5","worstRating":"1"},"nutrition":{"@type":"NutritionInformation","calories":"320 kcal","proteinContent":"24g","carbohydrateContent":"42g","fatContent":"14g","fiberContent":"4g"},"recipeIngredient":["1.5 lbs boneless skinless chicken breasts or thighs, cut into 1-inch bite-sized cubes","1 tablespoon olive oil or avocado oil","1/2 cup Panko breadcrumbs (for maximum crunch)","1/4 cup grated Parmesan cheese","1 teaspoon smoked paprika","1 teaspoon garlic powder","1/2 teaspoon onion powder","1/2 teaspoon dried oregano","1/2 teaspoon kosher salt and cracked black pepper"],"recipeInstructions":[{"@type":"HowToStep","name":"Step 1","text":"Prep the Chicken: Pat the cubed chicken completely dry with paper towels. Toss with olive oil so the seasoning adheres evenly."},{"@type":"HowToStep","name":"Step 2","text":"Make the Crunchy Coating: In a shallow bowl, whisk together the Panko breadcrumbs, Parmesan, smoked paprika, garlic powder, onion powder, oregano, salt, and pepper."},{"@type":"HowToStep","name":"Step 3","text":"Coat the Bites: Dredge each piece of chicken through the breadcrumb mixture, pressing firmly so every side gets coated in golden crumbs."},{"@type":"HowToStep","name":"Step 4","text":"Preheat & Arrange: Preheat your air fryer to 400°F (200°C) for 3 minutes. Lightly spray the basket with avocado oil spray. Place chicken in a single layer with space between pieces so hot air circulates."},{"@type":"HowToStep","name":"Step 5","text":"Air Fry: Cook at 400°F for 10-12 minutes, shaking the basket halfway at the 6-minute mark. Chicken is ready when golden brown and internal temperature reads 165°F (74°C). Serve with honey mustard or BBQ sauce!"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://viralmia.me"},{"@type":"ListItem","position":2,"name":"Air Fryer Meals","item":"https://viralmia.me/category/air-fryer-meals"},{"@type":"ListItem","position":3,"name":"Crispy Air Fryer Chicken Bites That Taste Like Takeout","item":"https://viralmia.me/recipes/crispy-air-fryer-chicken-bites"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I use chicken thighs instead of breasts?","acceptedAnswer":{"@type":"Answer","text":"Absolutely! Chicken thighs have slightly more fat, making the bites extra juicy and forgiving if cooked an extra minute or two."}},{"@type":"Question","name":"Can I freeze these ahead of time?","acceptedAnswer":{"@type":"Answer","text":"Yes! Bread the chicken, freeze them uncooked on a baking sheet for 2 hours, then transfer to a freezer bag. Air fry straight from frozen at 380°F for 14-16 minutes!"}}]}</script>
 </head>
@@ -1219,7 +1282,7 @@ img { max-width: 100%; height: auto; display: block; }
 
   <!-- Announcement Bar -->
   <aside class="top-bar">
-    <span>✨ New Recipe Alert!</span> Easy 15-Minute Meals & Kitchen Hacks Updated Daily • <a href="/#recipes" style="text-decoration: underline; color: #fff;">Explore Today's Picks &rarr;</a>
+    <span>✨ New Recipe Alert!</span> Easy 15-Minute Meals &amp; Kitchen Hacks Updated Daily • <a href="/#recipes" style="text-decoration: underline; color: #fff;">Explore Today's Picks &rarr;</a>
   </aside>
 
   <!-- Navigation -->
@@ -1229,7 +1292,8 @@ img { max-width: 100%; height: auto; display: block; }
         <a href="/" class="logo">ViralMia <span>Kitchen</span></a>
         <span class="logo-tagline">Fast • Cozy • Simple</span>
       </div>
-      <nav class="nav-links">
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+      <nav class="nav-links" id="navLinks">
         <a href="/">Home</a>
         <a href="/category/quick-dinners">Quick Dinners</a>
         <a href="/category/air-fryer-meals">Air Fryer</a>
@@ -1258,7 +1322,7 @@ img { max-width: 100%; height: auto; display: block; }
           <span>•</span>
           <span>Published on 2026-11-03</span>
           <span>•</span>
-          <span style="color: var(--gold); font-weight: 700;">★★★★★ 4.9 (61 Reviews)</span>
+          <span style="color: var(--gold); font-weight: 700;">★★★★★ 4.9 (44 Reviews)</span>
         </div>
 
         <!-- Jump to Recipe & Print Actions -->
@@ -1268,7 +1332,7 @@ img { max-width: 100%; height: auto; display: block; }
         </div>
       </header>
 
-      <img class="article-hero" src="https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=1200&q=80" alt="Crispy Air Fryer Chicken Bites That Taste Like Takeout" width="1200" height="675" fetchpriority="high" decoding="async">
+      <img class="article-hero" src="https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Crispy Air Fryer Chicken Bites That Taste Like Takeout" width="1200" height="675" fetchpriority="high" decoding="async">
 
       <!-- Personal Diary Intro -->
       <div class="diary-card reveal-on-scroll">
@@ -1331,48 +1395,48 @@ img { max-width: 100%; height: auto; display: block; }
           <ul class="ingredients-list">
             
     <li class="ing-item">
-      <input type="checkbox" id="ing-ohkpvr354">
-      <label>1.5 lbs boneless skinless chicken breasts or thighs, cut into 1-inch bite-sized cubes</label>
+      <input type="checkbox" id="ing-0">
+      <label for="ing-0">1.5 lbs boneless skinless chicken breasts or thighs, cut into 1-inch bite-sized cubes</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-0ok2dc0p5">
-      <label>1 tablespoon olive oil or avocado oil</label>
+      <input type="checkbox" id="ing-1">
+      <label for="ing-1">1 tablespoon olive oil or avocado oil</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-1r6saloh9">
-      <label>1/2 cup Panko breadcrumbs (for maximum crunch)</label>
+      <input type="checkbox" id="ing-2">
+      <label for="ing-2">1/2 cup Panko breadcrumbs (for maximum crunch)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-95b77yeew">
-      <label>1/4 cup grated Parmesan cheese</label>
+      <input type="checkbox" id="ing-3">
+      <label for="ing-3">1/4 cup grated Parmesan cheese</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-yncrn1a92">
-      <label>1 teaspoon smoked paprika</label>
+      <input type="checkbox" id="ing-4">
+      <label for="ing-4">1 teaspoon smoked paprika</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-8r12e7ynm">
-      <label>1 teaspoon garlic powder</label>
+      <input type="checkbox" id="ing-5">
+      <label for="ing-5">1 teaspoon garlic powder</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-wb5en8aqi">
-      <label>1/2 teaspoon onion powder</label>
+      <input type="checkbox" id="ing-6">
+      <label for="ing-6">1/2 teaspoon onion powder</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-pfttdn3mv">
-      <label>1/2 teaspoon dried oregano</label>
+      <input type="checkbox" id="ing-7">
+      <label for="ing-7">1/2 teaspoon dried oregano</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-3ty6wi9ww">
-      <label>1/2 teaspoon kosher salt and cracked black pepper</label>
+      <input type="checkbox" id="ing-8">
+      <label for="ing-8">1/2 teaspoon kosher salt and cracked black pepper</label>
     </li>
   
           </ul>
@@ -1483,7 +1547,7 @@ img { max-width: 100%; height: auto; display: block; }
                 <article class="post-card">
                   <div class="card-img-wrap">
                     <a href="/recipes/crispy-air-fryer-green-bean-fries">
-                      <img class="post-card-img" src="https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=1200&q=80" alt="Forget Soggy Veggies: These Crispy Air Fryer Green Bean Fries Are My New Obsession" loading="lazy">
+                      <img class="post-card-img" src="https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Forget Soggy Veggies: These Crispy Air Fryer Green Bean Fries Are My New Obsession" loading="lazy">
                     </a>
                     <span class="card-badge">Air Fryer Meals</span>
                   </div>
@@ -1505,7 +1569,7 @@ img { max-width: 100%; height: auto; display: block; }
                 <article class="post-card">
                   <div class="card-img-wrap">
                     <a href="/recipes/juicy-air-fryer-turkey-breast-hack">
-                      <img class="post-card-img" src="https://images.unsplash.com/photo-1574484284002-952d92456975?auto=format&fit=crop&w=1200&q=80" alt="The Juicy Air Fryer Turkey Breast Hack That Cut My Deli Bill in Half" loading="lazy">
+                      <img class="post-card-img" src="https://images.unsplash.com/photo-1574484284002-952d92456975?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Juicy Air Fryer Turkey Breast Hack That Cut My Deli Bill in Half" loading="lazy">
                     </a>
                     <span class="card-badge">Air Fryer Meals</span>
                   </div>
@@ -1527,7 +1591,7 @@ img { max-width: 100%; height: auto; display: block; }
                 <article class="post-card">
                   <div class="card-img-wrap">
                     <a href="/recipes/5-minute-microwave-mug-brownie">
-                      <img class="post-card-img" src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=1200&q=80" alt="Rich & Fudgy 5-Minute Microwave Mug Brownie for Late-Night Cravings" loading="lazy">
+                      <img class="post-card-img" src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Rich &amp; Fudgy 5-Minute Microwave Mug Brownie for Late-Night Cravings" loading="lazy">
                     </a>
                     <span class="card-badge">Desserts & Sweets</span>
                   </div>
@@ -1638,23 +1702,48 @@ img { max-width: 100%; height: auto; display: block; }
         revealElements.forEach(el => observer.observe(el));
       }
 
-      // 3. Live Search Filter
+      // 0. Mobile Navigation Toggle
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      const navLinks = document.getElementById('navLinks');
+      if (mobileMenuBtn && navLinks) {
+        mobileMenuBtn.addEventListener('click', () => {
+          const isOpen = navLinks.classList.toggle('open');
+          mobileMenuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+          mobileMenuBtn.textContent = isOpen ? '✕' : '☰';
+        });
+      }
+
+      // 3. Live Search Filter (with ?q= URL param support & empty state)
       const searchInput = document.getElementById('recipe-search');
+      const searchEmpty = document.getElementById('search-empty');
       if (searchInput) {
-        searchInput.addEventListener('input', (e) => {
-          const query = e.target.value.toLowerCase().trim();
-          const cards = document.querySelectorAll('.post-card');
+        const applySearchFilter = (rawQuery) => {
+          const query = rawQuery.toLowerCase().trim();
+          const cards = document.querySelectorAll('#recipes .post-card');
+          let visibleCount = 0;
           cards.forEach(card => {
             const title = card.querySelector('.post-card-title').textContent.toLowerCase();
             const desc = card.querySelector('.post-card-desc').textContent.toLowerCase();
             const cat = card.querySelector('.card-badge').textContent.toLowerCase();
-            if (title.includes(query) || desc.includes(query) || cat.includes(query)) {
+            if (!query || title.includes(query) || desc.includes(query) || cat.includes(query)) {
               card.style.display = 'flex';
+              visibleCount++;
             } else {
               card.style.display = 'none';
             }
           });
-        });
+          if (searchEmpty) {
+            searchEmpty.style.display = visibleCount === 0 ? 'block' : 'none';
+          }
+        };
+
+        searchInput.addEventListener('input', (e) => applySearchFilter(e.target.value));
+
+        const initialQuery = new URLSearchParams(window.location.search).get('q');
+        if (initialQuery) {
+          searchInput.value = initialQuery;
+          applySearchFilter(initialQuery);
+        }
       }
 
       // 4. Interactive Ingredient Checkbox with Strikethrough
@@ -1743,14 +1832,9 @@ img { max-width: 100%; height: auto; display: block; }
 
     // Copy Ingredients to Clipboard
     function copyIngredients() {
-      const items = Array.from(document.querySelectorAll('.ingredients-list label')).map(l => '• ' + l.textContent.trim()).join('
-');
+      const items = Array.from(document.querySelectorAll('.ingredients-list label')).map(l => '• ' + l.textContent.trim()).join('\n');
       const title = document.querySelector('h1') ? document.querySelector('h1').textContent.trim() : 'Recipe';
-      const text = title + ' - Ingredients:
-
-' + items + '
-
-Source: ' + window.location.href;
+      const text = title + ' - Ingredients:\n\n' + items + '\n\nSource: ' + window.location.href;
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(text).then(() => {
           showToast('📋 Ingredients copied to clipboard!');

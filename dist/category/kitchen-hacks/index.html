@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quick 15-Minute Meals & Smart Kitchen Hacks | Viral Mia Kitchen</title>
+  <title>Kitchen Hacks - Quick Recipes &amp; Kitchen Hacks | Viral Mia Kitchen</title>
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-DWE4LNEEMC"></script>
@@ -17,7 +17,7 @@
 
   <!-- Bing Webmaster Verification -->
   <meta name="msvalidate.01" content="10C2D4086B957B65F94D90B4447965A6">
-  <meta name="description" content="Tested, budget-friendly weeknight dinner recipes, 15-minute comfort food, and life-saving kitchen hacks with Mia. Simple, joyful home cooking for busy everyday lives.">
+  <meta name="description" content="Browse Mia&#39;s tested kitchen hacks recipes and smart kitchen tips—fast, budget-friendly, and designed for busy weeknights.">
   <link rel="canonical" href="https://viralmia.me/category/kitchen-hacks">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="author" content="Mia">
@@ -30,17 +30,17 @@
   <!-- OpenGraph -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Viral Mia Kitchen">
-  <meta property="og:title" content="Quick 15-Minute Meals & Smart Kitchen Hacks | Viral Mia Kitchen">
-  <meta property="og:description" content="Tested, budget-friendly weeknight dinner recipes, 15-minute comfort food, and life-saving kitchen hacks with Mia. Simple, joyful home cooking for busy everyday lives.">
+  <meta property="og:title" content="Kitchen Hacks - Quick Recipes &amp; Kitchen Hacks | Viral Mia Kitchen">
+  <meta property="og:description" content="Browse Mia&#39;s tested kitchen hacks recipes and smart kitchen tips—fast, budget-friendly, and designed for busy weeknights.">
   <meta property="og:url" content="https://viralmia.me/category/kitchen-hacks">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1200&q=80">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80">
   <meta property="og:locale" content="en_US">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Quick 15-Minute Meals & Smart Kitchen Hacks | Viral Mia Kitchen">
-  <meta name="twitter:description" content="Tested, budget-friendly weeknight dinner recipes, 15-minute comfort food, and life-saving kitchen hacks with Mia. Simple, joyful home cooking for busy everyday lives.">
-  <meta name="twitter:image" content="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1200&q=80">
+  <meta name="twitter:title" content="Kitchen Hacks - Quick Recipes &amp; Kitchen Hacks | Viral Mia Kitchen">
+  <meta name="twitter:description" content="Browse Mia&#39;s tested kitchen hacks recipes and smart kitchen tips—fast, budget-friendly, and designed for busy weeknights.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80">
 
   <!-- Performance Preconnect & Preload for Ultra-Fast LCP -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -203,6 +203,24 @@ img { max-width: 100%; height: auto; display: block; }
   background: var(--primary-dark);
   transform: translateY(-2px) scale(1.03);
   box-shadow: 0 8px 24px rgba(217,72,48,0.4);
+}
+.mobile-menu-btn {
+  display: none;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  font-size: 22px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.mobile-menu-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
 }
 
 /* CINEMATIC HERO SECTION WITH RICH KITCHEN COOKING BACKGROUND & PARTICLES */
@@ -647,6 +665,27 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .breadcrumbs a:hover { color: var(--primary); }
 .article-header { text-align: center; margin-bottom: 34px; }
+.article-header .hero-tag {
+  background: var(--primary-light);
+  color: var(--primary);
+  border: 1px solid rgba(217, 72, 48, 0.22);
+  box-shadow: none;
+  animation: none;
+}
+.search-empty-state {
+  max-width: 600px;
+  margin: 0 auto 80px;
+  padding: 40px 24px;
+  text-align: center;
+  background: var(--card);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-md);
+  color: var(--text-muted);
+}
+.search-empty-state h3 {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
 .article-header h1 {
   font-size: 48px;
   font-weight: 800;
@@ -793,6 +832,11 @@ img { max-width: 100%; height: auto; display: block; }
   accent-color: var(--primary);
   margin-top: 3px;
   cursor: pointer;
+  flex-shrink: 0;
+}
+.ing-item label {
+  cursor: pointer;
+  flex: 1;
 }
 .ing-item.checked {
   text-decoration: line-through;
@@ -941,7 +985,7 @@ img { max-width: 100%; height: auto; display: block; }
   line-height: 1.75;
 }
 .faq-card.open .faq-body {
-  max-height: 250px;
+  max-height: 1200px;
   padding: 0 24px 20px;
 }
 
@@ -1200,7 +1244,26 @@ img { max-width: 100%; height: auto; display: block; }
   .author-card { flex-direction: column; text-align: center; }
   .footer-wrap { grid-template-columns: 1fr; gap: 32px; }
   .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
-  .nav-links { display: none; }
+  .mobile-menu-btn { display: inline-flex; }
+  .nav-container { position: relative; }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+    padding: 16px 24px 22px;
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow-md);
+    z-index: 400;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a { padding: 10px 4px; border-bottom: 1px solid var(--border-light); }
+  .nav-links a.nav-cta { text-align: center; margin-top: 8px; border-bottom: none; padding: 12px 20px; }
   .newsletter-banner { padding: 32px 16px; margin: 32px 12px; }
   .newsletter-banner h2 { font-size: 24px; }
   .related-grid { grid-template-columns: 1fr; gap: 16px; }
@@ -1218,7 +1281,7 @@ img { max-width: 100%; height: auto; display: block; }
 
   <!-- Announcement Bar -->
   <aside class="top-bar">
-    <span>✨ New Recipe Alert!</span> Easy 15-Minute Meals & Kitchen Hacks Updated Daily • <a href="/#recipes" style="text-decoration: underline; color: #fff;">Explore Today's Picks &rarr;</a>
+    <span>✨ New Recipe Alert!</span> Easy 15-Minute Meals &amp; Kitchen Hacks Updated Daily • <a href="/#recipes" style="text-decoration: underline; color: #fff;">Explore Today's Picks &rarr;</a>
   </aside>
 
   <!-- Navigation -->
@@ -1228,7 +1291,8 @@ img { max-width: 100%; height: auto; display: block; }
         <a href="/" class="logo">ViralMia <span>Kitchen</span></a>
         <span class="logo-tagline">Fast • Cozy • Simple</span>
       </div>
-      <nav class="nav-links">
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+      <nav class="nav-links" id="navLinks">
         <a href="/">Home</a>
         <a href="/category/quick-dinners">Quick Dinners</a>
         <a href="/category/air-fryer-meals">Air Fryer</a>
@@ -1257,7 +1321,7 @@ img { max-width: 100%; height: auto; display: block; }
       <!-- Floating Foodie Emojis -->
       <span class="floating-particle fp-1" title="Fresh Pasta">🍝</span>
       <span class="floating-particle fp-2" title="Fresh Basil">🌿</span>
-      <span class="floating-particle fp-3" title="Olive Oil & Garlic">🧄</span>
+      <span class="floating-particle fp-3" title="Olive Oil &amp; Garlic">🧄</span>
       <span class="floating-particle fp-4" title="Lemon Zest">🍋</span>
       <span class="floating-particle fp-5" title="Air Fryer">🍗</span>
       <span class="floating-particle fp-6" title="Avocado">🥑</span>
@@ -1267,7 +1331,7 @@ img { max-width: 100%; height: auto; display: block; }
           <span class="pulse-dot"></span>
           <span>✨ Welcome to Mia's Cozy Food Journal</span>
         </div>
-        <h1>Quick 15-Minute Meals &amp; Brilliant Kitchen Hacks</h1>
+        <h1>Kitchen Hacks Recipes &amp; Kitchen Ideas</h1>
         <p>Tested, budget-friendly comfort food recipes and real kitchen hacks tested in my own apartment kitchen for hungry, exhausted weeknights.</p>
 
         <div class="search-wrapper">
@@ -1291,7 +1355,7 @@ img { max-width: 100%; height: auto; display: block; }
 
     <!-- Category Pills -->
     <div class="categories-bar">
-      <a href="/" class="cat-btn ">🍽️ All Recipes</a><a href="/category/kitchen-hacks" class="cat-btn active">💡 Kitchen Hacks</a>
+      <a href="/" class="cat-btn ">🍽️ All Recipes</a><a href="/category/desserts-sweets" class="cat-btn ">🍰 Desserts</a><a href="/category/quick-dinners" class="cat-btn ">🍝 Quick Dinners</a><a href="/category/kitchen-hacks" class="cat-btn active">💡 Kitchen Hacks</a><a href="/category/breakfast-brunch" class="cat-btn ">🥞 Breakfast & Brunch</a><a href="/category/comfort-food" class="cat-btn ">🥣 Comfort Food</a><a href="/category/air-fryer-meals" class="cat-btn ">🍗 Air Fryer Meals</a><a href="/category/snacks-sides" class="cat-btn ">🥨 Snacks & Sides</a>
     </div>
 
     <!-- Main Recipe Grid -->
@@ -1300,7 +1364,7 @@ img { max-width: 100%; height: auto; display: block; }
     <article class="post-card" data-category="Kitchen Hacks">
       <div class="card-img-wrap">
         <a href="/recipes/how-to-chop-onion-without-crying-science-hack">
-          <img class="post-card-img" src="https://images.unsplash.com/photo-1516594798947-e65505dbb29d?auto=format&fit=crop&w=1200&q=80" alt="How to Chop an Onion Without Crying Once (The $0 Science Hack)" loading="lazy">
+          <img class="post-card-img" src="https://images.unsplash.com/photo-1516594798947-e65505dbb29d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="How to Chop an Onion Without Crying Once (The $0 Science Hack)" loading="lazy">
         </a>
         <span class="card-badge">Kitchen Hacks</span>
         <button class="card-heart-btn" aria-label="Favorite recipe">🤍</button>
@@ -1330,7 +1394,7 @@ img { max-width: 100%; height: auto; display: block; }
     <article class="post-card" data-category="Kitchen Hacks">
       <div class="card-img-wrap">
         <a href="/recipes/how-to-reheat-rice-in-microwave-ice-cube-hack">
-          <img class="post-card-img" src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1200&q=80" alt="The $0 Rice Hack: Why I Put Ice Cubes in My Microwave (And Saved $25)" loading="lazy">
+          <img class="post-card-img" src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The $0 Rice Hack: Why I Put Ice Cubes in My Microwave (And Saved $25)" loading="lazy">
         </a>
         <span class="card-badge">Kitchen Hacks</span>
         <button class="card-heart-btn" aria-label="Favorite recipe">🤍</button>
@@ -1360,7 +1424,7 @@ img { max-width: 100%; height: auto; display: block; }
     <article class="post-card" data-category="Kitchen Hacks">
       <div class="card-img-wrap">
         <a href="/recipes/how-to-clean-burnt-pots-baking-soda-vinegar">
-          <img class="post-card-img" src="https://images.unsplash.com/photo-1516594798947-e65505dbb29d?auto=format&fit=crop&w=1200&q=80" alt="I Almost Ruined My Favorite Pot: How to Clean Burnt Pots with $1 Pantry Staples" loading="lazy">
+          <img class="post-card-img" src="https://images.unsplash.com/photo-1516594798947-e65505dbb29d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="I Almost Ruined My Favorite Pot: How to Clean Burnt Pots with $1 Pantry Staples" loading="lazy">
         </a>
         <span class="card-badge">Kitchen Hacks</span>
         <button class="card-heart-btn" aria-label="Favorite recipe">🤍</button>
@@ -1390,7 +1454,7 @@ img { max-width: 100%; height: auto; display: block; }
     <article class="post-card" data-category="Kitchen Hacks">
       <div class="card-img-wrap">
         <a href="/recipes/how-to-store-carrots-and-celery-crisp-in-water">
-          <img class="post-card-img" src="https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=1200&q=80" alt="How to Store Carrots and Celery in Water So They Stay Insanely Crisp for 4 Weeks" loading="lazy">
+          <img class="post-card-img" src="https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="How to Store Carrots and Celery in Water So They Stay Insanely Crisp for 4 Weeks" loading="lazy">
         </a>
         <span class="card-badge">Kitchen Hacks</span>
         <button class="card-heart-btn" aria-label="Favorite recipe">🤍</button>
@@ -1420,7 +1484,7 @@ img { max-width: 100%; height: auto; display: block; }
     <article class="post-card" data-category="Kitchen Hacks">
       <div class="card-img-wrap">
         <a href="/recipes/homemade-cranberry-sauce">
-          <img class="post-card-img" src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1200&q=80" alt="Stop Buying Canned Cranberry Sauce: This 3-Ingredient Homemade Version Takes 10 Minutes" loading="lazy">
+          <img class="post-card-img" src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Stop Buying Canned Cranberry Sauce: This 3-Ingredient Homemade Version Takes 10 Minutes" loading="lazy">
         </a>
         <span class="card-badge">Kitchen Hacks</span>
         <button class="card-heart-btn" aria-label="Favorite recipe">🤍</button>
@@ -1450,7 +1514,7 @@ img { max-width: 100%; height: auto; display: block; }
     <article class="post-card" data-category="Kitchen Hacks">
       <div class="card-img-wrap">
         <a href="/recipes/fast-caramelized-onions-baking-soda-hack">
-          <img class="post-card-img" src="https://images.unsplash.com/photo-1516594798947-e65505dbb29d?auto=format&fit=crop&w=1200&q=80" alt="Forget the 45-Minute Wait: My 10-Minute Caramelized Onion Hack That Actually Works" loading="lazy">
+          <img class="post-card-img" src="https://images.unsplash.com/photo-1516594798947-e65505dbb29d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Forget the 45-Minute Wait: My 10-Minute Caramelized Onion Hack That Actually Works" loading="lazy">
         </a>
         <span class="card-badge">Kitchen Hacks</span>
         <button class="card-heart-btn" aria-label="Favorite recipe">🤍</button>
@@ -1480,7 +1544,7 @@ img { max-width: 100%; height: auto; display: block; }
     <article class="post-card" data-category="Kitchen Hacks">
       <div class="card-img-wrap">
         <a href="/recipes/how-to-freeze-avocados">
-          <img class="post-card-img" src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1200&q=80" alt="Stop Throwing Out Brown Avocados: How to Freeze Them the Right Way" loading="lazy">
+          <img class="post-card-img" src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Stop Throwing Out Brown Avocados: How to Freeze Them the Right Way" loading="lazy">
         </a>
         <span class="card-badge">Kitchen Hacks</span>
         <button class="card-heart-btn" aria-label="Favorite recipe">🤍</button>
@@ -1510,7 +1574,7 @@ img { max-width: 100%; height: auto; display: block; }
     <article class="post-card" data-category="Kitchen Hacks">
       <div class="card-img-wrap">
         <a href="/recipes/how-to-revive-stale-bread">
-          <img class="post-card-img" src="https://images.unsplash.com/photo-1516594798947-e65505dbb29d?auto=format&fit=crop&w=1200&q=80" alt="Stop Throwing Away Hard Loaves: How to Revive Stale Bread Perfectly" loading="lazy">
+          <img class="post-card-img" src="https://images.unsplash.com/photo-1516594798947-e65505dbb29d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Stop Throwing Away Hard Loaves: How to Revive Stale Bread Perfectly" loading="lazy">
         </a>
         <span class="card-badge">Kitchen Hacks</span>
         <button class="card-heart-btn" aria-label="Favorite recipe">🤍</button>
@@ -1540,7 +1604,7 @@ img { max-width: 100%; height: auto; display: block; }
     <article class="post-card" data-category="Kitchen Hacks">
       <div class="card-img-wrap">
         <a href="/recipes/how-to-peel-hard-boiled-eggs-water-hack">
-          <img class="post-card-img" src="https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&fit=crop&w=1200&q=80" alt="Why Everyone Is Wrong About How to Peel Hard Boiled Eggs" loading="lazy">
+          <img class="post-card-img" src="https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Why Everyone Is Wrong About How to Peel Hard Boiled Eggs" loading="lazy">
         </a>
         <span class="card-badge">Kitchen Hacks</span>
         <button class="card-heart-btn" aria-label="Favorite recipe">🤍</button>
@@ -1570,7 +1634,7 @@ img { max-width: 100%; height: auto; display: block; }
     <article class="post-card" data-category="Kitchen Hacks">
       <div class="card-img-wrap">
         <a href="/recipes/how-to-keep-strawberries-fresh-for-3-weeks">
-          <img class="post-card-img" src="https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=1200&q=80" alt="How to Keep Strawberries Fresh for Up to 3 Weeks (The Science Hack)" loading="lazy">
+          <img class="post-card-img" src="https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="How to Keep Strawberries Fresh for Up to 3 Weeks (The Science Hack)" loading="lazy">
         </a>
         <span class="card-badge">Kitchen Hacks</span>
         <button class="card-heart-btn" aria-label="Favorite recipe">🤍</button>
@@ -1578,7 +1642,7 @@ img { max-width: 100%; height: auto; display: block; }
       <div class="post-card-body">
         <div class="card-meta-row">
           <div class="card-rating">
-            ★★★★★ <strong>4.9</strong> <span>(56)</span>
+            ★★★★★ <strong>4.9</strong> <span>(46)</span>
           </div>
           <span>⏱️ 0 mins</span>
         </div>
@@ -1599,10 +1663,16 @@ img { max-width: 100%; height: auto; display: block; }
   
     </main>
 
+    <!-- Empty Search State -->
+    <div id="search-empty" class="search-empty-state" style="display: none;">
+      <h3>🍳 No matching recipes found</h3>
+      <p>Try searching for another keyword like "pasta", "chicken", "soup", or "air fryer".</p>
+    </div>
+
     <!-- Luxury Pre-Footer Newsletter Section -->
     <section class="newsletter-banner reveal-on-scroll">
       <h2>Never Wonder "What's For Dinner?" Again 👩‍🍳</h2>
-      <p>Get Mia's 5-minute grocery cheat-sheet & 5 new quick recipes sent straight to your inbox every Sunday morning.</p>
+      <p>Get Mia's 5-minute grocery cheat-sheet &amp; 5 new quick recipes sent straight to your inbox every Sunday morning.</p>
       <form class="newsletter-form" onsubmit="event.preventDefault(); showToast('🎉 Welcome to the family! Check your inbox ✨'); this.reset();">
         <input type="email" class="newsletter-input" placeholder="Enter your email address..." required>
         <button type="submit" class="newsletter-btn">Get Free Recipes &rarr;</button>
@@ -1696,23 +1766,48 @@ img { max-width: 100%; height: auto; display: block; }
         revealElements.forEach(el => observer.observe(el));
       }
 
-      // 3. Live Search Filter
+      // 0. Mobile Navigation Toggle
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      const navLinks = document.getElementById('navLinks');
+      if (mobileMenuBtn && navLinks) {
+        mobileMenuBtn.addEventListener('click', () => {
+          const isOpen = navLinks.classList.toggle('open');
+          mobileMenuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+          mobileMenuBtn.textContent = isOpen ? '✕' : '☰';
+        });
+      }
+
+      // 3. Live Search Filter (with ?q= URL param support & empty state)
       const searchInput = document.getElementById('recipe-search');
+      const searchEmpty = document.getElementById('search-empty');
       if (searchInput) {
-        searchInput.addEventListener('input', (e) => {
-          const query = e.target.value.toLowerCase().trim();
-          const cards = document.querySelectorAll('.post-card');
+        const applySearchFilter = (rawQuery) => {
+          const query = rawQuery.toLowerCase().trim();
+          const cards = document.querySelectorAll('#recipes .post-card');
+          let visibleCount = 0;
           cards.forEach(card => {
             const title = card.querySelector('.post-card-title').textContent.toLowerCase();
             const desc = card.querySelector('.post-card-desc').textContent.toLowerCase();
             const cat = card.querySelector('.card-badge').textContent.toLowerCase();
-            if (title.includes(query) || desc.includes(query) || cat.includes(query)) {
+            if (!query || title.includes(query) || desc.includes(query) || cat.includes(query)) {
               card.style.display = 'flex';
+              visibleCount++;
             } else {
               card.style.display = 'none';
             }
           });
-        });
+          if (searchEmpty) {
+            searchEmpty.style.display = visibleCount === 0 ? 'block' : 'none';
+          }
+        };
+
+        searchInput.addEventListener('input', (e) => applySearchFilter(e.target.value));
+
+        const initialQuery = new URLSearchParams(window.location.search).get('q');
+        if (initialQuery) {
+          searchInput.value = initialQuery;
+          applySearchFilter(initialQuery);
+        }
       }
 
       // 4. Interactive Ingredient Checkbox with Strikethrough
@@ -1801,14 +1896,9 @@ img { max-width: 100%; height: auto; display: block; }
 
     // Copy Ingredients to Clipboard
     function copyIngredients() {
-      const items = Array.from(document.querySelectorAll('.ingredients-list label')).map(l => '• ' + l.textContent.trim()).join('
-');
+      const items = Array.from(document.querySelectorAll('.ingredients-list label')).map(l => '• ' + l.textContent.trim()).join('\n');
       const title = document.querySelector('h1') ? document.querySelector('h1').textContent.trim() : 'Recipe';
-      const text = title + ' - Ingredients:
-
-' + items + '
-
-Source: ' + window.location.href;
+      const text = title + ' - Ingredients:\n\n' + items + '\n\nSource: ' + window.location.href;
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(text).then(() => {
           showToast('📋 Ingredients copied to clipboard!');

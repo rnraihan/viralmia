@@ -33,21 +33,21 @@
   <meta property="og:title" content="Forget the 45-Minute Wait: My 10-Minute Caramelized Onion Hack That Actually Works | Viral Mia Kitchen">
   <meta property="og:description" content="Stop waiting an hour for jammy onions. This 10-minute baking soda hack is a total life-saver for burgers and pasta when you are starving after work.">
   <meta property="og:url" content="https://viralmia.me/recipes/fast-caramelized-onions-baking-soda-hack">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1516594798947-e65505dbb29d?auto=format&fit=crop&w=1200&q=80">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1516594798947-e65505dbb29d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80">
   <meta property="og:locale" content="en_US">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Forget the 45-Minute Wait: My 10-Minute Caramelized Onion Hack That Actually Works | Viral Mia Kitchen">
   <meta name="twitter:description" content="Stop waiting an hour for jammy onions. This 10-minute baking soda hack is a total life-saver for burgers and pasta when you are starving after work.">
-  <meta name="twitter:image" content="https://images.unsplash.com/photo-1516594798947-e65505dbb29d?auto=format&fit=crop&w=1200&q=80">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1516594798947-e65505dbb29d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80">
 
   <!-- Performance Preconnect & Preload for Ultra-Fast LCP -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://images.unsplash.com">
   <link rel="dns-prefetch" href="https://images.unsplash.com">
-  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1516594798947-e65505dbb29d?auto=format&fit=crop&w=1200&q=80" fetchpriority="high">
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1516594798947-e65505dbb29d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" fetchpriority="high">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
@@ -203,6 +203,24 @@ img { max-width: 100%; height: auto; display: block; }
   background: var(--primary-dark);
   transform: translateY(-2px) scale(1.03);
   box-shadow: 0 8px 24px rgba(217,72,48,0.4);
+}
+.mobile-menu-btn {
+  display: none;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  font-size: 22px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.mobile-menu-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
 }
 
 /* CINEMATIC HERO SECTION WITH RICH KITCHEN COOKING BACKGROUND & PARTICLES */
@@ -647,6 +665,27 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .breadcrumbs a:hover { color: var(--primary); }
 .article-header { text-align: center; margin-bottom: 34px; }
+.article-header .hero-tag {
+  background: var(--primary-light);
+  color: var(--primary);
+  border: 1px solid rgba(217, 72, 48, 0.22);
+  box-shadow: none;
+  animation: none;
+}
+.search-empty-state {
+  max-width: 600px;
+  margin: 0 auto 80px;
+  padding: 40px 24px;
+  text-align: center;
+  background: var(--card);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-md);
+  color: var(--text-muted);
+}
+.search-empty-state h3 {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
 .article-header h1 {
   font-size: 48px;
   font-weight: 800;
@@ -793,6 +832,11 @@ img { max-width: 100%; height: auto; display: block; }
   accent-color: var(--primary);
   margin-top: 3px;
   cursor: pointer;
+  flex-shrink: 0;
+}
+.ing-item label {
+  cursor: pointer;
+  flex: 1;
 }
 .ing-item.checked {
   text-decoration: line-through;
@@ -941,7 +985,7 @@ img { max-width: 100%; height: auto; display: block; }
   line-height: 1.75;
 }
 .faq-card.open .faq-body {
-  max-height: 250px;
+  max-height: 1200px;
   padding: 0 24px 20px;
 }
 
@@ -1200,7 +1244,26 @@ img { max-width: 100%; height: auto; display: block; }
   .author-card { flex-direction: column; text-align: center; }
   .footer-wrap { grid-template-columns: 1fr; gap: 32px; }
   .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
-  .nav-links { display: none; }
+  .mobile-menu-btn { display: inline-flex; }
+  .nav-container { position: relative; }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+    padding: 16px 24px 22px;
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow-md);
+    z-index: 400;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a { padding: 10px 4px; border-bottom: 1px solid var(--border-light); }
+  .nav-links a.nav-cta { text-align: center; margin-top: 8px; border-bottom: none; padding: 12px 20px; }
   .newsletter-banner { padding: 32px 16px; margin: 32px 12px; }
   .newsletter-banner h2 { font-size: 24px; }
   .related-grid { grid-template-columns: 1fr; gap: 16px; }
@@ -1208,7 +1271,7 @@ img { max-width: 100%; height: auto; display: block; }
   .tool-btn { flex: 1 1 auto; justify-content: center; }
 }
 </style>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Recipe","name":"Forget the 45-Minute Wait: My 10-Minute Caramelized Onion Hack That Actually Works","image":["https://images.unsplash.com/photo-1516594798947-e65505dbb29d?auto=format&fit=crop&w=1200&q=80"],"author":{"@type":"Person","name":"Mia","url":"https://viralmia.me/about"},"publisher":{"@type":"Organization","name":"Viral Mia Kitchen","logo":{"@type":"ImageObject","url":"https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=400&q=80"}},"datePublished":"2026-11-12","dateModified":"2026-11-12","description":"Stop waiting an hour for jammy onions. This 10-minute baking soda hack is a total life-saver for burgers and pasta when you are starving after work.","prepTime":"PT10M","cookTime":"PT15M","totalTime":"PT25M","keywords":"fast caramelized onions hack, baking soda onion trick, quick onions for burgers, 10 minute caramelized onions, easy kitchen hacks for beginners","recipeYield":"4","recipeCategory":"Kitchen Hacks","recipeCuisine":"American","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":33,"bestRating":"5","worstRating":"1"},"nutrition":{"@type":"NutritionInformation","calories":"85 kcal","proteinContent":"1g","carbohydrateContent":"9g","fatContent":"6g","fiberContent":"2g"},"recipeIngredient":["2 large yellow onions, thinly sliced (the big bag from Costco works best)","2 tablespoons Kerrygold salted butter","1 tablespoon avocado oil","1/4 teaspoon baking soda (measure this exactly!)","1/2 teaspoon kosher salt","1 tablespoon water for deglazing","1 teaspoon balsamic vinegar (optional, for extra tang)"],"recipeInstructions":[{"@type":"HowToStep","name":"Step 1","text":"Step 1: Melt the butter and oil in a large skillet over medium-high heat until the butter starts to foam slightly."},{"@type":"HowToStep","name":"Step 2","text":"Step 2: Add the sliced onions and kosher salt. Stir them for about 2 minutes until they just start to soften and look glossy."},{"@type":"HowToStep","name":"Step 3","text":"Step 3: Sprinkle the baking soda evenly over the onions. You'll notice they turn yellow almost immediately—don't panic, that is just the pH shift breaking down the sugars."},{"@type":"HowToStep","name":"Step 4","text":"Step 4: Continue to cook, stirring frequently for 8 minutes. If the bottom of the pan gets too dark, splash in that tablespoon of water to scrape up the brown bits and keep the onions jammy. Remove from heat once they are deep gold and soft."}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Recipe","name":"Forget the 45-Minute Wait: My 10-Minute Caramelized Onion Hack That Actually Works","image":["https://images.unsplash.com/photo-1516594798947-e65505dbb29d?auto=format&fit=crop&w=1200&q=80"],"author":{"@type":"Person","name":"Mia","url":"https://viralmia.me/about"},"publisher":{"@type":"Organization","name":"Viral Mia Kitchen","logo":{"@type":"ImageObject","url":"https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=400&q=80"}},"datePublished":"2026-11-12","dateModified":"2026-11-12","description":"Stop waiting an hour for jammy onions. This 10-minute baking soda hack is a total life-saver for burgers and pasta when you are starving after work.","prepTime":"PT5M","cookTime":"PT10M","totalTime":"PT15M","keywords":"fast caramelized onions hack, baking soda onion trick, quick onions for burgers, 10 minute caramelized onions, easy kitchen hacks for beginners","recipeYield":"4","recipeCategory":"Kitchen Hacks","recipeCuisine":"American","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":33,"bestRating":"5","worstRating":"1"},"nutrition":{"@type":"NutritionInformation","calories":"85 kcal","proteinContent":"1g","carbohydrateContent":"9g","fatContent":"6g","fiberContent":"2g"},"recipeIngredient":["2 large yellow onions, thinly sliced (the big bag from Costco works best)","2 tablespoons Kerrygold salted butter","1 tablespoon avocado oil","1/4 teaspoon baking soda (measure this exactly!)","1/2 teaspoon kosher salt","1 tablespoon water for deglazing","1 teaspoon balsamic vinegar (optional, for extra tang)"],"recipeInstructions":[{"@type":"HowToStep","name":"Step 1","text":"Melt the butter and oil in a large skillet over medium-high heat until the butter starts to foam slightly."},{"@type":"HowToStep","name":"Step 2","text":"Add the sliced onions and kosher salt. Stir them for about 2 minutes until they just start to soften and look glossy."},{"@type":"HowToStep","name":"Step 3","text":"Sprinkle the baking soda evenly over the onions. You'll notice they turn yellow almost immediately—don't panic, that is just the pH shift breaking down the sugars."},{"@type":"HowToStep","name":"Step 4","text":"Continue to cook, stirring frequently for 8 minutes. If the bottom of the pan gets too dark, splash in that tablespoon of water to scrape up the brown bits and keep the onions jammy. Remove from heat once they are deep gold and soft."}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://viralmia.me"},{"@type":"ListItem","position":2,"name":"Kitchen Hacks","item":"https://viralmia.me/category/kitchen-hacks"},{"@type":"ListItem","position":3,"name":"Forget the 45-Minute Wait: My 10-Minute Caramelized Onion Hack That Actually Works","item":"https://viralmia.me/recipes/fast-caramelized-onions-baking-soda-hack"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I use red onions instead?","acceptedAnswer":{"@type":"Answer","text":"You definitely can. Red onions get even sweeter with this method, though the color might look a little more purple-grey due to the alkaline reaction from the soda."}},{"@type":"Question","name":"Why do my onions taste slightly like soap?","acceptedAnswer":{"@type":"Answer","text":"You likely used too much baking soda. It only takes a tiny pinch (1/4 tsp for 2 large onions) to trigger the reaction without affecting the flavor profile."}}]}</script>
 </head>
@@ -1219,7 +1282,7 @@ img { max-width: 100%; height: auto; display: block; }
 
   <!-- Announcement Bar -->
   <aside class="top-bar">
-    <span>✨ New Recipe Alert!</span> Easy 15-Minute Meals & Kitchen Hacks Updated Daily • <a href="/#recipes" style="text-decoration: underline; color: #fff;">Explore Today's Picks &rarr;</a>
+    <span>✨ New Recipe Alert!</span> Easy 15-Minute Meals &amp; Kitchen Hacks Updated Daily • <a href="/#recipes" style="text-decoration: underline; color: #fff;">Explore Today's Picks &rarr;</a>
   </aside>
 
   <!-- Navigation -->
@@ -1229,7 +1292,8 @@ img { max-width: 100%; height: auto; display: block; }
         <a href="/" class="logo">ViralMia <span>Kitchen</span></a>
         <span class="logo-tagline">Fast • Cozy • Simple</span>
       </div>
-      <nav class="nav-links">
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+      <nav class="nav-links" id="navLinks">
         <a href="/">Home</a>
         <a href="/category/quick-dinners">Quick Dinners</a>
         <a href="/category/air-fryer-meals">Air Fryer</a>
@@ -1268,7 +1332,7 @@ img { max-width: 100%; height: auto; display: block; }
         </div>
       </header>
 
-      <img class="article-hero" src="https://images.unsplash.com/photo-1516594798947-e65505dbb29d?auto=format&fit=crop&w=1200&q=80" alt="Forget the 45-Minute Wait: My 10-Minute Caramelized Onion Hack That Actually Works" width="1200" height="675" fetchpriority="high" decoding="async">
+      <img class="article-hero" src="https://images.unsplash.com/photo-1516594798947-e65505dbb29d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Forget the 45-Minute Wait: My 10-Minute Caramelized Onion Hack That Actually Works" width="1200" height="675" fetchpriority="high" decoding="async">
 
       <!-- Personal Diary Intro -->
       <div class="diary-card reveal-on-scroll">
@@ -1331,38 +1395,38 @@ img { max-width: 100%; height: auto; display: block; }
           <ul class="ingredients-list">
             
     <li class="ing-item">
-      <input type="checkbox" id="ing-bdqjjyk0i">
-      <label>2 large yellow onions, thinly sliced (the big bag from Costco works best)</label>
+      <input type="checkbox" id="ing-0">
+      <label for="ing-0">2 large yellow onions, thinly sliced (the big bag from Costco works best)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-ua62maqj7">
-      <label>2 tablespoons Kerrygold salted butter</label>
+      <input type="checkbox" id="ing-1">
+      <label for="ing-1">2 tablespoons Kerrygold salted butter</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-ivoa3mwdh">
-      <label>1 tablespoon avocado oil</label>
+      <input type="checkbox" id="ing-2">
+      <label for="ing-2">1 tablespoon avocado oil</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-5tzhuac8u">
-      <label>1/4 teaspoon baking soda (measure this exactly!)</label>
+      <input type="checkbox" id="ing-3">
+      <label for="ing-3">1/4 teaspoon baking soda (measure this exactly!)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-nqus3eg5j">
-      <label>1/2 teaspoon kosher salt</label>
+      <input type="checkbox" id="ing-4">
+      <label for="ing-4">1/2 teaspoon kosher salt</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-9g7u9ae2a">
-      <label>1 tablespoon water for deglazing</label>
+      <input type="checkbox" id="ing-5">
+      <label for="ing-5">1 tablespoon water for deglazing</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-4tsge41gf">
-      <label>1 teaspoon balsamic vinegar (optional, for extra tang)</label>
+      <input type="checkbox" id="ing-6">
+      <label for="ing-6">1 teaspoon balsamic vinegar (optional, for extra tang)</label>
     </li>
   
           </ul>
@@ -1373,13 +1437,13 @@ img { max-width: 100%; height: auto; display: block; }
           <h3>👩‍🍳 Step-by-Step Cooking Instructions</h3>
           <ol class="steps-list">
             
-    <li class="step-row">Step 1: Melt the butter and oil in a large skillet over medium-high heat until the butter starts to foam slightly.</li>
+    <li class="step-row">Melt the butter and oil in a large skillet over medium-high heat until the butter starts to foam slightly.</li>
   
-    <li class="step-row">Step 2: Add the sliced onions and kosher salt. Stir them for about 2 minutes until they just start to soften and look glossy.</li>
+    <li class="step-row">Add the sliced onions and kosher salt. Stir them for about 2 minutes until they just start to soften and look glossy.</li>
   
-    <li class="step-row">Step 3: Sprinkle the baking soda evenly over the onions. You'll notice they turn yellow almost immediately—don't panic, that is just the pH shift breaking down the sugars.</li>
+    <li class="step-row">Sprinkle the baking soda evenly over the onions. You'll notice they turn yellow almost immediately—don't panic, that is just the pH shift breaking down the sugars.</li>
   
-    <li class="step-row">Step 4: Continue to cook, stirring frequently for 8 minutes. If the bottom of the pan gets too dark, splash in that tablespoon of water to scrape up the brown bits and keep the onions jammy. Remove from heat once they are deep gold and soft.</li>
+    <li class="step-row">Continue to cook, stirring frequently for 8 minutes. If the bottom of the pan gets too dark, splash in that tablespoon of water to scrape up the brown bits and keep the onions jammy. Remove from heat once they are deep gold and soft.</li>
   
           </ol>
         </section>
@@ -1471,7 +1535,7 @@ img { max-width: 100%; height: auto; display: block; }
                 <article class="post-card">
                   <div class="card-img-wrap">
                     <a href="/recipes/how-to-chop-onion-without-crying-science-hack">
-                      <img class="post-card-img" src="https://images.unsplash.com/photo-1516594798947-e65505dbb29d?auto=format&fit=crop&w=1200&q=80" alt="How to Chop an Onion Without Crying Once (The $0 Science Hack)" loading="lazy">
+                      <img class="post-card-img" src="https://images.unsplash.com/photo-1516594798947-e65505dbb29d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="How to Chop an Onion Without Crying Once (The $0 Science Hack)" loading="lazy">
                     </a>
                     <span class="card-badge">Kitchen Hacks</span>
                   </div>
@@ -1493,7 +1557,7 @@ img { max-width: 100%; height: auto; display: block; }
                 <article class="post-card">
                   <div class="card-img-wrap">
                     <a href="/recipes/how-to-reheat-rice-in-microwave-ice-cube-hack">
-                      <img class="post-card-img" src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1200&q=80" alt="The $0 Rice Hack: Why I Put Ice Cubes in My Microwave (And Saved $25)" loading="lazy">
+                      <img class="post-card-img" src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The $0 Rice Hack: Why I Put Ice Cubes in My Microwave (And Saved $25)" loading="lazy">
                     </a>
                     <span class="card-badge">Kitchen Hacks</span>
                   </div>
@@ -1515,7 +1579,7 @@ img { max-width: 100%; height: auto; display: block; }
                 <article class="post-card">
                   <div class="card-img-wrap">
                     <a href="/recipes/how-to-clean-burnt-pots-baking-soda-vinegar">
-                      <img class="post-card-img" src="https://images.unsplash.com/photo-1516594798947-e65505dbb29d?auto=format&fit=crop&w=1200&q=80" alt="I Almost Ruined My Favorite Pot: How to Clean Burnt Pots with $1 Pantry Staples" loading="lazy">
+                      <img class="post-card-img" src="https://images.unsplash.com/photo-1516594798947-e65505dbb29d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="I Almost Ruined My Favorite Pot: How to Clean Burnt Pots with $1 Pantry Staples" loading="lazy">
                     </a>
                     <span class="card-badge">Kitchen Hacks</span>
                   </div>
@@ -1626,23 +1690,48 @@ img { max-width: 100%; height: auto; display: block; }
         revealElements.forEach(el => observer.observe(el));
       }
 
-      // 3. Live Search Filter
+      // 0. Mobile Navigation Toggle
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      const navLinks = document.getElementById('navLinks');
+      if (mobileMenuBtn && navLinks) {
+        mobileMenuBtn.addEventListener('click', () => {
+          const isOpen = navLinks.classList.toggle('open');
+          mobileMenuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+          mobileMenuBtn.textContent = isOpen ? '✕' : '☰';
+        });
+      }
+
+      // 3. Live Search Filter (with ?q= URL param support & empty state)
       const searchInput = document.getElementById('recipe-search');
+      const searchEmpty = document.getElementById('search-empty');
       if (searchInput) {
-        searchInput.addEventListener('input', (e) => {
-          const query = e.target.value.toLowerCase().trim();
-          const cards = document.querySelectorAll('.post-card');
+        const applySearchFilter = (rawQuery) => {
+          const query = rawQuery.toLowerCase().trim();
+          const cards = document.querySelectorAll('#recipes .post-card');
+          let visibleCount = 0;
           cards.forEach(card => {
             const title = card.querySelector('.post-card-title').textContent.toLowerCase();
             const desc = card.querySelector('.post-card-desc').textContent.toLowerCase();
             const cat = card.querySelector('.card-badge').textContent.toLowerCase();
-            if (title.includes(query) || desc.includes(query) || cat.includes(query)) {
+            if (!query || title.includes(query) || desc.includes(query) || cat.includes(query)) {
               card.style.display = 'flex';
+              visibleCount++;
             } else {
               card.style.display = 'none';
             }
           });
-        });
+          if (searchEmpty) {
+            searchEmpty.style.display = visibleCount === 0 ? 'block' : 'none';
+          }
+        };
+
+        searchInput.addEventListener('input', (e) => applySearchFilter(e.target.value));
+
+        const initialQuery = new URLSearchParams(window.location.search).get('q');
+        if (initialQuery) {
+          searchInput.value = initialQuery;
+          applySearchFilter(initialQuery);
+        }
       }
 
       // 4. Interactive Ingredient Checkbox with Strikethrough
@@ -1731,14 +1820,9 @@ img { max-width: 100%; height: auto; display: block; }
 
     // Copy Ingredients to Clipboard
     function copyIngredients() {
-      const items = Array.from(document.querySelectorAll('.ingredients-list label')).map(l => '• ' + l.textContent.trim()).join('
-');
+      const items = Array.from(document.querySelectorAll('.ingredients-list label')).map(l => '• ' + l.textContent.trim()).join('\n');
       const title = document.querySelector('h1') ? document.querySelector('h1').textContent.trim() : 'Recipe';
-      const text = title + ' - Ingredients:
-
-' + items + '
-
-Source: ' + window.location.href;
+      const text = title + ' - Ingredients:\n\n' + items + '\n\nSource: ' + window.location.href;
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(text).then(() => {
           showToast('📋 Ingredients copied to clipboard!');

@@ -33,21 +33,21 @@
   <meta property="og:title" content="How to Keep Strawberries Fresh for Up to 3 Weeks (The Science Hack) | Viral Mia Kitchen">
   <meta property="og:description" content="Stop throwing away moldy strawberries after 3 days! Learn the easy 5-minute vinegar soak and glass jar trick that keeps berries plump, sweet, and mold-free for weeks.">
   <meta property="og:url" content="https://viralmia.me/recipes/how-to-keep-strawberries-fresh-for-3-weeks">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=1200&q=80">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&amp;fit=crop&amp;w=1200&amp;q=80">
   <meta property="og:locale" content="en_US">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="How to Keep Strawberries Fresh for Up to 3 Weeks (The Science Hack) | Viral Mia Kitchen">
   <meta name="twitter:description" content="Stop throwing away moldy strawberries after 3 days! Learn the easy 5-minute vinegar soak and glass jar trick that keeps berries plump, sweet, and mold-free for weeks.">
-  <meta name="twitter:image" content="https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=1200&q=80">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&amp;fit=crop&amp;w=1200&amp;q=80">
 
   <!-- Performance Preconnect & Preload for Ultra-Fast LCP -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://images.unsplash.com">
   <link rel="dns-prefetch" href="https://images.unsplash.com">
-  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=1200&q=80" fetchpriority="high">
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" fetchpriority="high">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
@@ -203,6 +203,24 @@ img { max-width: 100%; height: auto; display: block; }
   background: var(--primary-dark);
   transform: translateY(-2px) scale(1.03);
   box-shadow: 0 8px 24px rgba(217,72,48,0.4);
+}
+.mobile-menu-btn {
+  display: none;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  font-size: 22px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.mobile-menu-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
 }
 
 /* CINEMATIC HERO SECTION WITH RICH KITCHEN COOKING BACKGROUND & PARTICLES */
@@ -647,6 +665,27 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .breadcrumbs a:hover { color: var(--primary); }
 .article-header { text-align: center; margin-bottom: 34px; }
+.article-header .hero-tag {
+  background: var(--primary-light);
+  color: var(--primary);
+  border: 1px solid rgba(217, 72, 48, 0.22);
+  box-shadow: none;
+  animation: none;
+}
+.search-empty-state {
+  max-width: 600px;
+  margin: 0 auto 80px;
+  padding: 40px 24px;
+  text-align: center;
+  background: var(--card);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-md);
+  color: var(--text-muted);
+}
+.search-empty-state h3 {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
 .article-header h1 {
   font-size: 48px;
   font-weight: 800;
@@ -793,6 +832,11 @@ img { max-width: 100%; height: auto; display: block; }
   accent-color: var(--primary);
   margin-top: 3px;
   cursor: pointer;
+  flex-shrink: 0;
+}
+.ing-item label {
+  cursor: pointer;
+  flex: 1;
 }
 .ing-item.checked {
   text-decoration: line-through;
@@ -941,7 +985,7 @@ img { max-width: 100%; height: auto; display: block; }
   line-height: 1.75;
 }
 .faq-card.open .faq-body {
-  max-height: 250px;
+  max-height: 1200px;
   padding: 0 24px 20px;
 }
 
@@ -1200,7 +1244,26 @@ img { max-width: 100%; height: auto; display: block; }
   .author-card { flex-direction: column; text-align: center; }
   .footer-wrap { grid-template-columns: 1fr; gap: 32px; }
   .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
-  .nav-links { display: none; }
+  .mobile-menu-btn { display: inline-flex; }
+  .nav-container { position: relative; }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+    padding: 16px 24px 22px;
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow-md);
+    z-index: 400;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a { padding: 10px 4px; border-bottom: 1px solid var(--border-light); }
+  .nav-links a.nav-cta { text-align: center; margin-top: 8px; border-bottom: none; padding: 12px 20px; }
   .newsletter-banner { padding: 32px 16px; margin: 32px 12px; }
   .newsletter-banner h2 { font-size: 24px; }
   .related-grid { grid-template-columns: 1fr; gap: 16px; }
@@ -1208,7 +1271,7 @@ img { max-width: 100%; height: auto; display: block; }
   .tool-btn { flex: 1 1 auto; justify-content: center; }
 }
 </style>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Recipe","name":"How to Keep Strawberries Fresh for Up to 3 Weeks (The Science Hack)","image":["https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=1200&q=80"],"author":{"@type":"Person","name":"Mia","url":"https://viralmia.me/about"},"publisher":{"@type":"Organization","name":"Viral Mia Kitchen","logo":{"@type":"ImageObject","url":"https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=400&q=80"}},"datePublished":"2026-11-03","dateModified":"2026-11-03","description":"Stop throwing away moldy strawberries after 3 days! Learn the easy 5-minute vinegar soak and glass jar trick that keeps berries plump, sweet, and mold-free for weeks.","prepTime":"PT10M","cookTime":"PT15M","totalTime":"PT25M","keywords":"keep strawberries fresh, kitchen hacks, food storage tricks, save money on groceries, produce preservation","recipeYield":"Full Box","recipeCategory":"Kitchen Hacks","recipeCuisine":"American","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":56,"bestRating":"5","worstRating":"1"},"nutrition":{"@type":"NutritionInformation","calories":"45 kcal","proteinContent":"24g","carbohydrateContent":"42g","fatContent":"14g","fiberContent":"4g"},"recipeIngredient":["1-2 cartons of fresh strawberries (any brand or farmers market)","3 cups cold tap water","1 cup white distilled vinegar or apple cider vinegar","Paper towels or a clean kitchen cloth","A clean glass Mason jar or airtight glass storage container"],"recipeInstructions":[{"@type":"HowToStep","name":"Step 1","text":"Prepare the Vinegar Bath: In a large mixing bowl, combine 3 parts cold water with 1 part white vinegar (e.g., 3 cups water to 1 cup vinegar)."},{"@type":"HowToStep","name":"Step 2","text":"The 5-Minute Soak: Gently dump the strawberries into the bath. Let them soak for exactly 5 minutes. The mild acidity naturally kills all invisible mold spores and bacteria on the strawberry skins without altering their sweet flavor."},{"@type":"HowToStep","name":"Step 3","text":"Rinse with Cold Water: Drain the berries into a colander and rinse thoroughly under cold running water for 30 seconds to wash away any remaining vinegar traces."},{"@type":"HowToStep","name":"Step 4","text":"The Most Important Step (Drying): Spread the strawberries on a baking sheet lined with clean paper towels. Let them air-dry completely until there is not a single drop of moisture left on the skin. (Moisture is the #1 enemy of berries!)."},{"@type":"HowToStep","name":"Step 5","text":"Store in Glass: Place a folded dry paper towel at the bottom of a clean glass Mason jar. Gently add the dry strawberries (leave stems on!). Seal tightly with the lid and store in the main compartment of your fridge, NOT the crisper drawer."}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Recipe","name":"How to Keep Strawberries Fresh for Up to 3 Weeks (The Science Hack)","image":["https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=1200&q=80"],"author":{"@type":"Person","name":"Mia","url":"https://viralmia.me/about"},"publisher":{"@type":"Organization","name":"Viral Mia Kitchen","logo":{"@type":"ImageObject","url":"https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=400&q=80"}},"datePublished":"2026-11-03","dateModified":"2026-11-03","description":"Stop throwing away moldy strawberries after 3 days! Learn the easy 5-minute vinegar soak and glass jar trick that keeps berries plump, sweet, and mold-free for weeks.","prepTime":"PT5M","cookTime":"PT0M","totalTime":"PT5M","keywords":"keep strawberries fresh, kitchen hacks, food storage tricks, save money on groceries, produce preservation","recipeYield":"Full Box","recipeCategory":"Kitchen Hacks","recipeCuisine":"American","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":46,"bestRating":"5","worstRating":"1"},"nutrition":{"@type":"NutritionInformation","calories":"45 kcal","proteinContent":"24g","carbohydrateContent":"42g","fatContent":"14g","fiberContent":"4g"},"recipeIngredient":["1-2 cartons of fresh strawberries (any brand or farmers market)","3 cups cold tap water","1 cup white distilled vinegar or apple cider vinegar","Paper towels or a clean kitchen cloth","A clean glass Mason jar or airtight glass storage container"],"recipeInstructions":[{"@type":"HowToStep","name":"Step 1","text":"Prepare the Vinegar Bath: In a large mixing bowl, combine 3 parts cold water with 1 part white vinegar (e.g., 3 cups water to 1 cup vinegar)."},{"@type":"HowToStep","name":"Step 2","text":"The 5-Minute Soak: Gently dump the strawberries into the bath. Let them soak for exactly 5 minutes. The mild acidity naturally kills all invisible mold spores and bacteria on the strawberry skins without altering their sweet flavor."},{"@type":"HowToStep","name":"Step 3","text":"Rinse with Cold Water: Drain the berries into a colander and rinse thoroughly under cold running water for 30 seconds to wash away any remaining vinegar traces."},{"@type":"HowToStep","name":"Step 4","text":"The Most Important Step (Drying): Spread the strawberries on a baking sheet lined with clean paper towels. Let them air-dry completely until there is not a single drop of moisture left on the skin. (Moisture is the #1 enemy of berries!)."},{"@type":"HowToStep","name":"Step 5","text":"Store in Glass: Place a folded dry paper towel at the bottom of a clean glass Mason jar. Gently add the dry strawberries (leave stems on!). Seal tightly with the lid and store in the main compartment of your fridge, NOT the crisper drawer."}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://viralmia.me"},{"@type":"ListItem","position":2,"name":"Kitchen Hacks","item":"https://viralmia.me/category/kitchen-hacks"},{"@type":"ListItem","position":3,"name":"How to Keep Strawberries Fresh for Up to 3 Weeks (The Science Hack)","item":"https://viralmia.me/recipes/how-to-keep-strawberries-fresh-for-3-weeks"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Will the strawberries taste like vinegar?","acceptedAnswer":{"@type":"Answer","text":"Not even a tiny bit! The 30-second cold water rinse completely washes away any trace of vinegar. All you taste is fresh, juicy strawberry goodness."}},{"@type":"Question","name":"Does this hack work on blueberries and blackberries too?","acceptedAnswer":{"@type":"Answer","text":"Yes, absolutely! It works wonders on blueberries, raspberries, and blackberries. Just soak raspberries for only 2-3 minutes since their skin is softer."}}]}</script>
 </head>
@@ -1219,7 +1282,7 @@ img { max-width: 100%; height: auto; display: block; }
 
   <!-- Announcement Bar -->
   <aside class="top-bar">
-    <span>✨ New Recipe Alert!</span> Easy 15-Minute Meals & Kitchen Hacks Updated Daily • <a href="/#recipes" style="text-decoration: underline; color: #fff;">Explore Today's Picks &rarr;</a>
+    <span>✨ New Recipe Alert!</span> Easy 15-Minute Meals &amp; Kitchen Hacks Updated Daily • <a href="/#recipes" style="text-decoration: underline; color: #fff;">Explore Today's Picks &rarr;</a>
   </aside>
 
   <!-- Navigation -->
@@ -1229,7 +1292,8 @@ img { max-width: 100%; height: auto; display: block; }
         <a href="/" class="logo">ViralMia <span>Kitchen</span></a>
         <span class="logo-tagline">Fast • Cozy • Simple</span>
       </div>
-      <nav class="nav-links">
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+      <nav class="nav-links" id="navLinks">
         <a href="/">Home</a>
         <a href="/category/quick-dinners">Quick Dinners</a>
         <a href="/category/air-fryer-meals">Air Fryer</a>
@@ -1258,7 +1322,7 @@ img { max-width: 100%; height: auto; display: block; }
           <span>•</span>
           <span>Published on 2026-11-03</span>
           <span>•</span>
-          <span style="color: var(--gold); font-weight: 700;">★★★★★ 4.9 (56 Reviews)</span>
+          <span style="color: var(--gold); font-weight: 700;">★★★★★ 4.9 (46 Reviews)</span>
         </div>
 
         <!-- Jump to Recipe & Print Actions -->
@@ -1268,7 +1332,7 @@ img { max-width: 100%; height: auto; display: block; }
         </div>
       </header>
 
-      <img class="article-hero" src="https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=1200&q=80" alt="How to Keep Strawberries Fresh for Up to 3 Weeks (The Science Hack)" width="1200" height="675" fetchpriority="high" decoding="async">
+      <img class="article-hero" src="https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="How to Keep Strawberries Fresh for Up to 3 Weeks (The Science Hack)" width="1200" height="675" fetchpriority="high" decoding="async">
 
       <!-- Personal Diary Intro -->
       <div class="diary-card reveal-on-scroll">
@@ -1331,28 +1395,28 @@ img { max-width: 100%; height: auto; display: block; }
           <ul class="ingredients-list">
             
     <li class="ing-item">
-      <input type="checkbox" id="ing-bazgp94fv">
-      <label>1-2 cartons of fresh strawberries (any brand or farmers market)</label>
+      <input type="checkbox" id="ing-0">
+      <label for="ing-0">1-2 cartons of fresh strawberries (any brand or farmers market)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-38bxx2f9t">
-      <label>3 cups cold tap water</label>
+      <input type="checkbox" id="ing-1">
+      <label for="ing-1">3 cups cold tap water</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-xp3rd0f7d">
-      <label>1 cup white distilled vinegar or apple cider vinegar</label>
+      <input type="checkbox" id="ing-2">
+      <label for="ing-2">1 cup white distilled vinegar or apple cider vinegar</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-hfwxceuaq">
-      <label>Paper towels or a clean kitchen cloth</label>
+      <input type="checkbox" id="ing-3">
+      <label for="ing-3">Paper towels or a clean kitchen cloth</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-iwz3tf6vt">
-      <label>A clean glass Mason jar or airtight glass storage container</label>
+      <input type="checkbox" id="ing-4">
+      <label for="ing-4">A clean glass Mason jar or airtight glass storage container</label>
     </li>
   
           </ul>
@@ -1463,7 +1527,7 @@ img { max-width: 100%; height: auto; display: block; }
                 <article class="post-card">
                   <div class="card-img-wrap">
                     <a href="/recipes/how-to-chop-onion-without-crying-science-hack">
-                      <img class="post-card-img" src="https://images.unsplash.com/photo-1516594798947-e65505dbb29d?auto=format&fit=crop&w=1200&q=80" alt="How to Chop an Onion Without Crying Once (The $0 Science Hack)" loading="lazy">
+                      <img class="post-card-img" src="https://images.unsplash.com/photo-1516594798947-e65505dbb29d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="How to Chop an Onion Without Crying Once (The $0 Science Hack)" loading="lazy">
                     </a>
                     <span class="card-badge">Kitchen Hacks</span>
                   </div>
@@ -1485,7 +1549,7 @@ img { max-width: 100%; height: auto; display: block; }
                 <article class="post-card">
                   <div class="card-img-wrap">
                     <a href="/recipes/how-to-reheat-rice-in-microwave-ice-cube-hack">
-                      <img class="post-card-img" src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1200&q=80" alt="The $0 Rice Hack: Why I Put Ice Cubes in My Microwave (And Saved $25)" loading="lazy">
+                      <img class="post-card-img" src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The $0 Rice Hack: Why I Put Ice Cubes in My Microwave (And Saved $25)" loading="lazy">
                     </a>
                     <span class="card-badge">Kitchen Hacks</span>
                   </div>
@@ -1507,7 +1571,7 @@ img { max-width: 100%; height: auto; display: block; }
                 <article class="post-card">
                   <div class="card-img-wrap">
                     <a href="/recipes/how-to-clean-burnt-pots-baking-soda-vinegar">
-                      <img class="post-card-img" src="https://images.unsplash.com/photo-1516594798947-e65505dbb29d?auto=format&fit=crop&w=1200&q=80" alt="I Almost Ruined My Favorite Pot: How to Clean Burnt Pots with $1 Pantry Staples" loading="lazy">
+                      <img class="post-card-img" src="https://images.unsplash.com/photo-1516594798947-e65505dbb29d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="I Almost Ruined My Favorite Pot: How to Clean Burnt Pots with $1 Pantry Staples" loading="lazy">
                     </a>
                     <span class="card-badge">Kitchen Hacks</span>
                   </div>
@@ -1618,23 +1682,48 @@ img { max-width: 100%; height: auto; display: block; }
         revealElements.forEach(el => observer.observe(el));
       }
 
-      // 3. Live Search Filter
+      // 0. Mobile Navigation Toggle
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      const navLinks = document.getElementById('navLinks');
+      if (mobileMenuBtn && navLinks) {
+        mobileMenuBtn.addEventListener('click', () => {
+          const isOpen = navLinks.classList.toggle('open');
+          mobileMenuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+          mobileMenuBtn.textContent = isOpen ? '✕' : '☰';
+        });
+      }
+
+      // 3. Live Search Filter (with ?q= URL param support & empty state)
       const searchInput = document.getElementById('recipe-search');
+      const searchEmpty = document.getElementById('search-empty');
       if (searchInput) {
-        searchInput.addEventListener('input', (e) => {
-          const query = e.target.value.toLowerCase().trim();
-          const cards = document.querySelectorAll('.post-card');
+        const applySearchFilter = (rawQuery) => {
+          const query = rawQuery.toLowerCase().trim();
+          const cards = document.querySelectorAll('#recipes .post-card');
+          let visibleCount = 0;
           cards.forEach(card => {
             const title = card.querySelector('.post-card-title').textContent.toLowerCase();
             const desc = card.querySelector('.post-card-desc').textContent.toLowerCase();
             const cat = card.querySelector('.card-badge').textContent.toLowerCase();
-            if (title.includes(query) || desc.includes(query) || cat.includes(query)) {
+            if (!query || title.includes(query) || desc.includes(query) || cat.includes(query)) {
               card.style.display = 'flex';
+              visibleCount++;
             } else {
               card.style.display = 'none';
             }
           });
-        });
+          if (searchEmpty) {
+            searchEmpty.style.display = visibleCount === 0 ? 'block' : 'none';
+          }
+        };
+
+        searchInput.addEventListener('input', (e) => applySearchFilter(e.target.value));
+
+        const initialQuery = new URLSearchParams(window.location.search).get('q');
+        if (initialQuery) {
+          searchInput.value = initialQuery;
+          applySearchFilter(initialQuery);
+        }
       }
 
       // 4. Interactive Ingredient Checkbox with Strikethrough
@@ -1723,14 +1812,9 @@ img { max-width: 100%; height: auto; display: block; }
 
     // Copy Ingredients to Clipboard
     function copyIngredients() {
-      const items = Array.from(document.querySelectorAll('.ingredients-list label')).map(l => '• ' + l.textContent.trim()).join('
-');
+      const items = Array.from(document.querySelectorAll('.ingredients-list label')).map(l => '• ' + l.textContent.trim()).join('\n');
       const title = document.querySelector('h1') ? document.querySelector('h1').textContent.trim() : 'Recipe';
-      const text = title + ' - Ingredients:
-
-' + items + '
-
-Source: ' + window.location.href;
+      const text = title + ' - Ingredients:\n\n' + items + '\n\nSource: ' + window.location.href;
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(text).then(() => {
           showToast('📋 Ingredients copied to clipboard!');

@@ -12,6 +12,60 @@ function ensureDir(dir) {
   if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
 }
 
+function escapeAttr(str) {
+  return String(str || '')
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+}
+
+function slugify(str) {
+  return String(str || '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '');
+}
+
+function safeJsonLd(obj) {
+  return JSON.stringify(obj).replace(/</g, '\\u003c');
+}
+
+function parseMinutes(timeStr) {
+  if (!timeStr) return 0;
+  const s = String(timeStr).toLowerCase();
+  let total = 0;
+  const hrMatch = s.match(/(\d+(?:\.\d+)?)\s*(?:hr|hour)/);
+  const minMatch = s.match(/(\d+(?:\.\d+)?)\s*(?:min|m\b)/);
+  if (hrMatch) total += Math.round(parseFloat(hrMatch[1]) * 60);
+  if (minMatch) total += Math.round(parseFloat(minMatch[1]));
+  if (!hrMatch && !minMatch) {
+    const num = s.match(/(\d+)/);
+    if (num) total = parseInt(num[1], 10);
+  }
+  return total;
+}
+
+function toIsoDuration(minutes) {
+  const m = Math.max(0, Math.round(minutes || 0));
+  const hrs = Math.floor(m / 60);
+  const rem = m % 60;
+  if (hrs > 0 && rem > 0) return `PT${hrs}H${rem}M`;
+  if (hrs > 0) return `PT${hrs}H`;
+  return `PT${rem}M`;
+}
+
+function deterministicReviewCount(slug) {
+  let hash = 0;
+  const str = String(slug || 'recipe');
+  for (let i = 0; i < str.length; i++) {
+    hash = ((hash << 5) - hash) + str.charCodeAt(i);
+    hash |= 0;
+  }
+  return 38 + (Math.abs(hash) % 25);
+}
+
 function getAllPosts() {
   if (!fs.existsSync(POSTS_DIR)) return [];
   const files = fs.readdirSync(POSTS_DIR).filter(f => f.endsWith('.json'));
@@ -19,8 +73,9 @@ function getAllPosts() {
     try {
       const content = fs.readFileSync(path.join(POSTS_DIR, file), 'utf8');
       const post = JSON.parse(content);
+      post.slug = slugify(post.slug || file.replace(/\.json$/i, ''));
       post.rating = post.rating || '4.9';
-      post.reviewCount = post.reviewCount || Math.floor(Math.random() * 25) + 38;
+      post.reviewCount = post.reviewCount || deterministicReviewCount(post.slug);
       post.nutrition = post.nutrition || {
         calories: post.calories || '380 kcal',
         protein: '24g',
@@ -192,6 +247,24 @@ img { max-width: 100%; height: auto; display: block; }
   background: var(--primary-dark);
   transform: translateY(-2px) scale(1.03);
   box-shadow: 0 8px 24px rgba(217,72,48,0.4);
+}
+.mobile-menu-btn {
+  display: none;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  font-size: 22px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.mobile-menu-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
 }
 
 /* CINEMATIC HERO SECTION WITH RICH KITCHEN COOKING BACKGROUND & PARTICLES */
@@ -636,6 +709,27 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .breadcrumbs a:hover { color: var(--primary); }
 .article-header { text-align: center; margin-bottom: 34px; }
+.article-header .hero-tag {
+  background: var(--primary-light);
+  color: var(--primary);
+  border: 1px solid rgba(217, 72, 48, 0.22);
+  box-shadow: none;
+  animation: none;
+}
+.search-empty-state {
+  max-width: 600px;
+  margin: 0 auto 80px;
+  padding: 40px 24px;
+  text-align: center;
+  background: var(--card);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-md);
+  color: var(--text-muted);
+}
+.search-empty-state h3 {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
 .article-header h1 {
   font-size: 48px;
   font-weight: 800;
@@ -782,6 +876,11 @@ img { max-width: 100%; height: auto; display: block; }
   accent-color: var(--primary);
   margin-top: 3px;
   cursor: pointer;
+  flex-shrink: 0;
+}
+.ing-item label {
+  cursor: pointer;
+  flex: 1;
 }
 .ing-item.checked {
   text-decoration: line-through;
@@ -930,7 +1029,7 @@ img { max-width: 100%; height: auto; display: block; }
   line-height: 1.75;
 }
 .faq-card.open .faq-body {
-  max-height: 250px;
+  max-height: 1200px;
   padding: 0 24px 20px;
 }
 
@@ -1189,7 +1288,26 @@ img { max-width: 100%; height: auto; display: block; }
   .author-card { flex-direction: column; text-align: center; }
   .footer-wrap { grid-template-columns: 1fr; gap: 32px; }
   .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
-  .nav-links { display: none; }
+  .mobile-menu-btn { display: inline-flex; }
+  .nav-container { position: relative; }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+    padding: 16px 24px 22px;
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow-md);
+    z-index: 400;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a { padding: 10px 4px; border-bottom: 1px solid var(--border-light); }
+  .nav-links a.nav-cta { text-align: center; margin-top: 8px; border-bottom: none; padding: 12px 20px; }
   .newsletter-banner { padding: 32px 16px; margin: 32px 12px; }
   .newsletter-banner h2 { font-size: 24px; }
   .related-grid { grid-template-columns: 1fr; gap: 16px; }
@@ -1200,19 +1318,20 @@ img { max-width: 100%; height: auto; display: block; }
 
 // HTML Shell Template
 function layout(title, content, meta = {}) {
-  const metaDesc = meta.description || SITE_DESC;
-  const canonical = meta.canonical || SITE_URL;
-  const ogImage = meta.image || 'https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1200&q=80';
+  const safeTitle = escapeAttr(title);
+  const metaDesc = escapeAttr(meta.description || SITE_DESC);
+  const canonical = escapeAttr(meta.canonical || SITE_URL);
+  const ogImage = escapeAttr(meta.image || 'https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1200&q=80');
   const schemas = meta.schemas || [];
 
-  const schemasHtml = schemas.map(s => `<script type="application/ld+json">${JSON.stringify(s)}</script>`).join('\n  ');
+  const schemasHtml = schemas.map(s => `<script type="application/ld+json">${safeJsonLd(s)}</script>`).join('\n  ');
 
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${title} | ${SITE_NAME}</title>
+  <title>${safeTitle} | ${SITE_NAME}</title>
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-DWE4LNEEMC"></script>
@@ -1239,7 +1358,7 @@ function layout(title, content, meta = {}) {
   <!-- OpenGraph -->
   <meta property="og:type" content="${meta.type || 'website'}">
   <meta property="og:site_name" content="${SITE_NAME}">
-  <meta property="og:title" content="${title} | ${SITE_NAME}">
+  <meta property="og:title" content="${safeTitle} | ${SITE_NAME}">
   <meta property="og:description" content="${metaDesc}">
   <meta property="og:url" content="${canonical}">
   <meta property="og:image" content="${ogImage}">
@@ -1247,7 +1366,7 @@ function layout(title, content, meta = {}) {
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="${title} | ${SITE_NAME}">
+  <meta name="twitter:title" content="${safeTitle} | ${SITE_NAME}">
   <meta name="twitter:description" content="${metaDesc}">
   <meta name="twitter:image" content="${ogImage}">
 
@@ -1256,7 +1375,7 @@ function layout(title, content, meta = {}) {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://images.unsplash.com">
   <link rel="dns-prefetch" href="https://images.unsplash.com">
-  ${meta.preloadImage ? `<link rel="preload" as="image" href="${meta.preloadImage}" fetchpriority="high">` : ''}
+  ${meta.preloadImage ? `<link rel="preload" as="image" href="${escapeAttr(meta.preloadImage)}" fetchpriority="high">` : ''}
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>${GLOBAL_CSS}</style>
@@ -1269,7 +1388,7 @@ function layout(title, content, meta = {}) {
 
   <!-- Announcement Bar -->
   <aside class="top-bar">
-    <span>✨ New Recipe Alert!</span> Easy 15-Minute Meals & Kitchen Hacks Updated Daily • <a href="/#recipes" style="text-decoration: underline; color: #fff;">Explore Today's Picks &rarr;</a>
+    <span>✨ New Recipe Alert!</span> Easy 15-Minute Meals &amp; Kitchen Hacks Updated Daily • <a href="/#recipes" style="text-decoration: underline; color: #fff;">Explore Today's Picks &rarr;</a>
   </aside>
 
   <!-- Navigation -->
@@ -1279,7 +1398,8 @@ function layout(title, content, meta = {}) {
         <a href="/" class="logo">ViralMia <span>Kitchen</span></a>
         <span class="logo-tagline">Fast • Cozy • Simple</span>
       </div>
-      <nav class="nav-links">
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+      <nav class="nav-links" id="navLinks">
         <a href="/">Home</a>
         <a href="/category/quick-dinners">Quick Dinners</a>
         <a href="/category/air-fryer-meals">Air Fryer</a>
@@ -1378,23 +1498,48 @@ function layout(title, content, meta = {}) {
         revealElements.forEach(el => observer.observe(el));
       }
 
-      // 3. Live Search Filter
+      // 0. Mobile Navigation Toggle
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      const navLinks = document.getElementById('navLinks');
+      if (mobileMenuBtn && navLinks) {
+        mobileMenuBtn.addEventListener('click', () => {
+          const isOpen = navLinks.classList.toggle('open');
+          mobileMenuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+          mobileMenuBtn.textContent = isOpen ? '✕' : '☰';
+        });
+      }
+
+      // 3. Live Search Filter (with ?q= URL param support & empty state)
       const searchInput = document.getElementById('recipe-search');
+      const searchEmpty = document.getElementById('search-empty');
       if (searchInput) {
-        searchInput.addEventListener('input', (e) => {
-          const query = e.target.value.toLowerCase().trim();
-          const cards = document.querySelectorAll('.post-card');
+        const applySearchFilter = (rawQuery) => {
+          const query = rawQuery.toLowerCase().trim();
+          const cards = document.querySelectorAll('#recipes .post-card');
+          let visibleCount = 0;
           cards.forEach(card => {
             const title = card.querySelector('.post-card-title').textContent.toLowerCase();
             const desc = card.querySelector('.post-card-desc').textContent.toLowerCase();
             const cat = card.querySelector('.card-badge').textContent.toLowerCase();
-            if (title.includes(query) || desc.includes(query) || cat.includes(query)) {
+            if (!query || title.includes(query) || desc.includes(query) || cat.includes(query)) {
               card.style.display = 'flex';
+              visibleCount++;
             } else {
               card.style.display = 'none';
             }
           });
-        });
+          if (searchEmpty) {
+            searchEmpty.style.display = visibleCount === 0 ? 'block' : 'none';
+          }
+        };
+
+        searchInput.addEventListener('input', (e) => applySearchFilter(e.target.value));
+
+        const initialQuery = new URLSearchParams(window.location.search).get('q');
+        if (initialQuery) {
+          searchInput.value = initialQuery;
+          applySearchFilter(initialQuery);
+        }
       }
 
       // 4. Interactive Ingredient Checkbox with Strikethrough
@@ -1483,9 +1628,9 @@ function layout(title, content, meta = {}) {
 
     // Copy Ingredients to Clipboard
     function copyIngredients() {
-      const items = Array.from(document.querySelectorAll('.ingredients-list label')).map(l => '• ' + l.textContent.trim()).join('\n');
+      const items = Array.from(document.querySelectorAll('.ingredients-list label')).map(l => '• ' + l.textContent.trim()).join('\\n');
       const title = document.querySelector('h1') ? document.querySelector('h1').textContent.trim() : 'Recipe';
-      const text = title + ' - Ingredients:\n\n' + items + '\n\nSource: ' + window.location.href;
+      const text = title + ' - Ingredients:\\n\\n' + items + '\\n\\nSource: ' + window.location.href;
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(text).then(() => {
           showToast('📋 Ingredients copied to clipboard!');
@@ -1502,8 +1647,8 @@ function layout(title, content, meta = {}) {
 </html>`;
 }
 
-// Generate Homepage
-function buildHomePage(posts, currentCategory = 'All') {
+// Generate Homepage & Category Pages
+function buildHomePage(posts, currentCategory = 'All', allCategories = null) {
   const categoryIcons = {
     'All': '🍽️ All Recipes',
     'Quick Dinners': '🍝 Quick Dinners',
@@ -1511,23 +1656,25 @@ function buildHomePage(posts, currentCategory = 'All') {
     'Kitchen Hacks': '💡 Kitchen Hacks',
     'Comfort Food': '🥣 Comfort Food',
     'Breakfast & Brunch': '🥞 Breakfast & Brunch',
-    'Desserts & Sweets': '🍰 Desserts'
+    'Snacks & Sides': '🥨 Snacks & Sides',
+    'Desserts & Sweets': '🍰 Desserts',
+    'Quick Lunches': '🥗 Quick Lunches'
   };
 
-  const categories = ['All', ...new Set(posts.map(p => p.category))];
+  const categories = allCategories || ['All', ...new Set(posts.map(p => p.category))];
 
   const catPills = categories.map(cat => {
     const isAct = cat === currentCategory;
-    const href = cat === 'All' ? '/' : `/category/${cat.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
+    const href = cat === 'All' ? '/' : `/category/${slugify(cat)}`;
     const label = categoryIcons[cat] || `🍳 ${cat}`;
     return `<a href="${href}" class="cat-btn ${isAct ? 'active' : ''}">${label}</a>`;
   }).join('');
 
-  const postCards = posts.map((post, idx) => `
-    <article class="post-card" data-category="${post.category}">
+  const postCards = posts.map((post) => `
+    <article class="post-card" data-category="${escapeAttr(post.category)}">
       <div class="card-img-wrap">
         <a href="/recipes/${post.slug}">
-          <img class="post-card-img" src="${post.heroImage}" alt="${post.title}" loading="lazy">
+          <img class="post-card-img" src="${escapeAttr(post.heroImage)}" alt="${escapeAttr(post.title)}" loading="lazy">
         </a>
         <span class="card-badge">${post.category}</span>
         <button class="card-heart-btn" aria-label="Favorite recipe">🤍</button>
@@ -1555,6 +1702,17 @@ function buildHomePage(posts, currentCategory = 'All') {
     </article>
   `).join('');
 
+  const isCategory = currentCategory !== 'All';
+  const heroHeading = isCategory
+    ? `${currentCategory} Recipes &amp; Kitchen Ideas`
+    : 'Quick 15-Minute Meals &amp; Brilliant Kitchen Hacks';
+  const pageTitle = isCategory
+    ? `${currentCategory} - Quick Recipes & Kitchen Hacks`
+    : 'Quick 15-Minute Meals & Smart Kitchen Hacks';
+  const pageDesc = isCategory
+    ? `Browse Mia's tested ${currentCategory.toLowerCase()} recipes and smart kitchen tips—fast, budget-friendly, and designed for busy weeknights.`
+    : SITE_DESC;
+
   const content = `
     <!-- Cinematic Hero Section with Background Atmosphere -->
     <section class="hero-wrapper">
@@ -1573,7 +1731,7 @@ function buildHomePage(posts, currentCategory = 'All') {
       <!-- Floating Foodie Emojis -->
       <span class="floating-particle fp-1" title="Fresh Pasta">🍝</span>
       <span class="floating-particle fp-2" title="Fresh Basil">🌿</span>
-      <span class="floating-particle fp-3" title="Olive Oil & Garlic">🧄</span>
+      <span class="floating-particle fp-3" title="Olive Oil &amp; Garlic">🧄</span>
       <span class="floating-particle fp-4" title="Lemon Zest">🍋</span>
       <span class="floating-particle fp-5" title="Air Fryer">🍗</span>
       <span class="floating-particle fp-6" title="Avocado">🥑</span>
@@ -1583,7 +1741,7 @@ function buildHomePage(posts, currentCategory = 'All') {
           <span class="pulse-dot"></span>
           <span>✨ Welcome to Mia's Cozy Food Journal</span>
         </div>
-        <h1>Quick 15-Minute Meals &amp; Brilliant Kitchen Hacks</h1>
+        <h1>${heroHeading}</h1>
         <p>Tested, budget-friendly comfort food recipes and real kitchen hacks tested in my own apartment kitchen for hungry, exhausted weeknights.</p>
 
         <div class="search-wrapper">
@@ -1615,10 +1773,16 @@ function buildHomePage(posts, currentCategory = 'All') {
       ${postCards}
     </main>
 
+    <!-- Empty Search State -->
+    <div id="search-empty" class="search-empty-state" style="display: none;">
+      <h3>🍳 No matching recipes found</h3>
+      <p>Try searching for another keyword like "pasta", "chicken", "soup", or "air fryer".</p>
+    </div>
+
     <!-- Luxury Pre-Footer Newsletter Section -->
     <section class="newsletter-banner reveal-on-scroll">
       <h2>Never Wonder "What's For Dinner?" Again 👩‍🍳</h2>
-      <p>Get Mia's 5-minute grocery cheat-sheet & 5 new quick recipes sent straight to your inbox every Sunday morning.</p>
+      <p>Get Mia's 5-minute grocery cheat-sheet &amp; 5 new quick recipes sent straight to your inbox every Sunday morning.</p>
       <form class="newsletter-form" onsubmit="event.preventDefault(); showToast('🎉 Welcome to the family! Check your inbox ✨'); this.reset();">
         <input type="email" class="newsletter-input" placeholder="Enter your email address..." required>
         <button type="submit" class="newsletter-btn">Get Free Recipes &rarr;</button>
@@ -1651,8 +1815,9 @@ function buildHomePage(posts, currentCategory = 'All') {
     ]
   };
 
-  return layout('Quick 15-Minute Meals & Smart Kitchen Hacks', content, {
-    canonical: currentCategory === 'All' ? SITE_URL : `${SITE_URL}/category/${currentCategory.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`,
+  return layout(pageTitle, content, {
+    description: pageDesc,
+    canonical: isCategory ? `${SITE_URL}/category/${slugify(currentCategory)}` : SITE_URL,
     schemas: [websiteSchema, orgSchema],
     preloadImage: '/assets/hero-bg.jpg'
   });
@@ -1660,14 +1825,18 @@ function buildHomePage(posts, currentCategory = 'All') {
 
 // Generate Single Recipe Page
 function buildRecipePage(post, allPosts = []) {
-  const ingredientsHtml = post.ingredients.map(ing => `
+  const ingredientsHtml = (post.ingredients || []).map((ing, idx) => `
     <li class="ing-item">
-      <input type="checkbox" id="ing-${Math.random().toString(36).substr(2, 9)}">
-      <label>${ing}</label>
+      <input type="checkbox" id="ing-${idx}">
+      <label for="ing-${idx}">${ing}</label>
     </li>
   `).join('');
 
-  const stepsHtml = post.instructions.map(step => `
+  const cleanSteps = (post.instructions || []).map(step =>
+    String(step).replace(/^Step\s+\d+\s*[:.-]\s*/i, '').trim()
+  );
+
+  const stepsHtml = cleanSteps.map(step => `
     <li class="step-row">${step}</li>
   `).join('');
 
@@ -1683,6 +1852,11 @@ function buildRecipePage(post, allPosts = []) {
     </div>
   `).join('');
 
+  const prepMins = parseMinutes(post.prepTime) || 5;
+  const cookMins = parseMinutes(post.cookTime);
+  const totalMins = prepMins + cookMins;
+  const catSlug = slugify(post.category);
+
   const recipeSchema = {
     "@context": "https://schema.org",
     "@type": "Recipe",
@@ -1697,9 +1871,9 @@ function buildRecipePage(post, allPosts = []) {
     "datePublished": post.date,
     "dateModified": post.date,
     "description": post.description,
-    "prepTime": "PT10M",
-    "cookTime": "PT15M",
-    "totalTime": "PT25M",
+    "prepTime": toIsoDuration(prepMins),
+    "cookTime": toIsoDuration(cookMins),
+    "totalTime": toIsoDuration(totalMins),
     "keywords": (post.keywords || []).join(', '),
     "recipeYield": post.servings,
     "recipeCategory": post.category,
@@ -1720,7 +1894,7 @@ function buildRecipePage(post, allPosts = []) {
       "fiberContent": post.nutrition?.fiber || "4g"
     },
     "recipeIngredient": post.ingredients,
-    "recipeInstructions": post.instructions.map((step, idx) => ({
+    "recipeInstructions": cleanSteps.map((step, idx) => ({
       "@type": "HowToStep",
       "name": `Step ${idx + 1}`,
       "text": step
@@ -1732,7 +1906,7 @@ function buildRecipePage(post, allPosts = []) {
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": SITE_URL },
-      { "@type": "ListItem", "position": 2, "name": post.category, "item": `${SITE_URL}/category/${post.category.toLowerCase().replace(/[^a-z0-9]+/g, '-')}` },
+      { "@type": "ListItem", "position": 2, "name": post.category, "item": `${SITE_URL}/category/${catSlug}` },
       { "@type": "ListItem", "position": 3, "name": post.title, "item": `${SITE_URL}/recipes/${post.slug}` }
     ]
   };
@@ -1759,7 +1933,7 @@ function buildRecipePage(post, allPosts = []) {
       <!-- Breadcrumbs -->
       <nav class="breadcrumbs" aria-label="Breadcrumb">
         <a href="/">Home</a> &rarr; 
-        <a href="/category/${post.category.toLowerCase().replace(/[^a-z0-9]+/g, '-')}">${post.category}</a> &rarr; 
+        <a href="/category/${catSlug}">${post.category}</a> &rarr; 
         <span>${post.title}</span>
       </nav>
 
@@ -1782,7 +1956,7 @@ function buildRecipePage(post, allPosts = []) {
         </div>
       </header>
 
-      <img class="article-hero" src="${post.heroImage}" alt="${post.title}" width="1200" height="675" fetchpriority="high" decoding="async">
+      <img class="article-hero" src="${escapeAttr(post.heroImage)}" alt="${escapeAttr(post.title)}" width="1200" height="675" fetchpriority="high" decoding="async">
 
       <!-- Personal Diary Intro -->
       <div class="diary-card reveal-on-scroll">
@@ -1920,14 +2094,14 @@ function buildRecipePage(post, allPosts = []) {
           <section class="related-recipes-wrap reveal-on-scroll">
             <div class="sec-title-row">
               <h3>👩‍🍳 You May Also Love</h3>
-              <a href="/category/${post.category.toLowerCase().replace(/[^a-z0-9]+/g, '-')}" class="view-all-link">See all ${post.category} &rarr;</a>
+              <a href="/category/${catSlug}" class="view-all-link">See all ${post.category} &rarr;</a>
             </div>
             <div class="related-grid">
               ${related.map(r => `
                 <article class="post-card">
                   <div class="card-img-wrap">
                     <a href="/recipes/${r.slug}">
-                      <img class="post-card-img" src="${r.heroImage}" alt="${r.title}" loading="lazy">
+                      <img class="post-card-img" src="${escapeAttr(r.heroImage)}" alt="${escapeAttr(r.title)}" loading="lazy">
                     </a>
                     <span class="card-badge">${r.category}</span>
                   </div>
@@ -2087,8 +2261,8 @@ function buildStaticPages() {
   }));
 }
 
-// Generate Sitemap & Robots.txt
-function buildSitemap(posts) {
+// Generate Sitemap, Robots.txt & Cloudflare Redirects
+function buildSitemap(posts, categories = []) {
   const staticUrls = [
     { loc: `${SITE_URL}/`, priority: '1.0', changefreq: 'daily' },
     { loc: `${SITE_URL}/about`, priority: '0.8', changefreq: 'monthly' },
@@ -2096,6 +2270,12 @@ function buildSitemap(posts) {
     { loc: `${SITE_URL}/privacy-policy`, priority: '0.5', changefreq: 'yearly' },
     { loc: `${SITE_URL}/terms`, priority: '0.5', changefreq: 'yearly' }
   ];
+
+  const categoryUrls = categories.map(cat => ({
+    loc: `${SITE_URL}/category/${slugify(cat)}`,
+    priority: '0.8',
+    changefreq: 'daily'
+  }));
 
   const postUrls = posts.map(p => ({
     loc: `${SITE_URL}/recipes/${p.slug}`,
@@ -2106,7 +2286,7 @@ function buildSitemap(posts) {
     title: p.title
   }));
 
-  const allUrls = [...staticUrls, ...postUrls];
+  const allUrls = [...staticUrls, ...categoryUrls, ...postUrls];
 
   const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
@@ -2137,12 +2317,24 @@ Sitemap: ${SITE_URL}/sitemap.xml
 \t<user>10C2D4086B957B65F94D90B4447965A6</user>
 </users>`;
   fs.writeFileSync(path.join(DIST_DIR, 'BingSiteAuth.xml'), bingAuthXml);
+
+  // Cloudflare Pages _redirects for legacy / renamed slugs
+  const redirects = `/recipes/viral-air-fryer-apple%20cider-donuts /recipes/viral-air-fryer-apple-cider-donuts 301
+`;
+  fs.writeFileSync(path.join(DIST_DIR, '_redirects'), redirects);
 }
 
 // Main Build
 function main() {
   console.log('🚀 Running Cinematic Visual & Background Atmosphere Build for Viral Mia...');
   ensureDir(DIST_DIR);
+
+  // Clean stale generated recipe & category folders before rebuilding
+  const distRecipesDir = path.join(DIST_DIR, 'recipes');
+  const distCategoryDir = path.join(DIST_DIR, 'category');
+  if (fs.existsSync(distRecipesDir)) fs.rmSync(distRecipesDir, { recursive: true, force: true });
+  if (fs.existsSync(distCategoryDir)) fs.rmSync(distCategoryDir, { recursive: true, force: true });
+
   const localAssets = path.join(__dirname, 'assets');
   if (fs.existsSync(localAssets)) {
     const distAssets = path.join(DIST_DIR, 'assets');
@@ -2153,8 +2345,11 @@ function main() {
   const posts = getAllPosts();
   console.log(`Loaded ${posts.length} recipes.`);
 
+  const categories = [...new Set(posts.map(p => p.category))];
+  const allCategoryTabs = ['All', ...categories];
+
   // 1. Home
-  fs.writeFileSync(path.join(DIST_DIR, 'index.html'), buildHomePage(posts));
+  fs.writeFileSync(path.join(DIST_DIR, 'index.html'), buildHomePage(posts, 'All', allCategoryTabs));
 
   // 2. Individual Recipe Pages
   posts.forEach(post => {
@@ -2163,21 +2358,20 @@ function main() {
     fs.writeFileSync(path.join(postDir, 'index.html'), buildRecipePage(post, posts));
   });
 
-  // 3. Category Pages
-  const categories = [...new Set(posts.map(p => p.category))];
+  // 3. Category Pages (keep all category filter buttons visible)
   categories.forEach(cat => {
-    const catSlug = cat.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+    const catSlug = slugify(cat);
     const catPosts = posts.filter(p => p.category === cat);
     const catDir = path.join(DIST_DIR, 'category', catSlug);
     ensureDir(catDir);
-    fs.writeFileSync(path.join(catDir, 'index.html'), buildHomePage(catPosts, cat));
+    fs.writeFileSync(path.join(catDir, 'index.html'), buildHomePage(catPosts, cat, allCategoryTabs));
   });
 
   // 4. Static Pages
   buildStaticPages();
 
-  // 5. Sitemap & Robots
-  buildSitemap(posts);
+  // 5. Sitemap, Robots & Redirects
+  buildSitemap(posts, categories);
 
   console.log('✨ Cinematic Build Completed Successfully in /dist!');
 }

@@ -33,21 +33,21 @@
   <meta property="og:title" content="How to Store Carrots and Celery in Water So They Stay Insanely Crisp for 4 Weeks | Viral Mia Kitchen">
   <meta property="og:description" content="Stop throwing away limp veggies! Here is how to store carrots and celery in water to keep them crunchy and fresh for up to a full month of holiday cooking.">
   <meta property="og:url" content="https://viralmia.me/recipes/how-to-store-carrots-and-celery-crisp-in-water">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=1200&q=80">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&amp;fit=crop&amp;w=1200&amp;q=80">
   <meta property="og:locale" content="en_US">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="How to Store Carrots and Celery in Water So They Stay Insanely Crisp for 4 Weeks | Viral Mia Kitchen">
   <meta name="twitter:description" content="Stop throwing away limp veggies! Here is how to store carrots and celery in water to keep them crunchy and fresh for up to a full month of holiday cooking.">
-  <meta name="twitter:image" content="https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=1200&q=80">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&amp;fit=crop&amp;w=1200&amp;q=80">
 
   <!-- Performance Preconnect & Preload for Ultra-Fast LCP -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://images.unsplash.com">
   <link rel="dns-prefetch" href="https://images.unsplash.com">
-  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=1200&q=80" fetchpriority="high">
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" fetchpriority="high">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
@@ -203,6 +203,24 @@ img { max-width: 100%; height: auto; display: block; }
   background: var(--primary-dark);
   transform: translateY(-2px) scale(1.03);
   box-shadow: 0 8px 24px rgba(217,72,48,0.4);
+}
+.mobile-menu-btn {
+  display: none;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  font-size: 22px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.mobile-menu-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
 }
 
 /* CINEMATIC HERO SECTION WITH RICH KITCHEN COOKING BACKGROUND & PARTICLES */
@@ -647,6 +665,27 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .breadcrumbs a:hover { color: var(--primary); }
 .article-header { text-align: center; margin-bottom: 34px; }
+.article-header .hero-tag {
+  background: var(--primary-light);
+  color: var(--primary);
+  border: 1px solid rgba(217, 72, 48, 0.22);
+  box-shadow: none;
+  animation: none;
+}
+.search-empty-state {
+  max-width: 600px;
+  margin: 0 auto 80px;
+  padding: 40px 24px;
+  text-align: center;
+  background: var(--card);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-md);
+  color: var(--text-muted);
+}
+.search-empty-state h3 {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
 .article-header h1 {
   font-size: 48px;
   font-weight: 800;
@@ -793,6 +832,11 @@ img { max-width: 100%; height: auto; display: block; }
   accent-color: var(--primary);
   margin-top: 3px;
   cursor: pointer;
+  flex-shrink: 0;
+}
+.ing-item label {
+  cursor: pointer;
+  flex: 1;
 }
 .ing-item.checked {
   text-decoration: line-through;
@@ -941,7 +985,7 @@ img { max-width: 100%; height: auto; display: block; }
   line-height: 1.75;
 }
 .faq-card.open .faq-body {
-  max-height: 250px;
+  max-height: 1200px;
   padding: 0 24px 20px;
 }
 
@@ -1200,7 +1244,26 @@ img { max-width: 100%; height: auto; display: block; }
   .author-card { flex-direction: column; text-align: center; }
   .footer-wrap { grid-template-columns: 1fr; gap: 32px; }
   .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
-  .nav-links { display: none; }
+  .mobile-menu-btn { display: inline-flex; }
+  .nav-container { position: relative; }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+    padding: 16px 24px 22px;
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow-md);
+    z-index: 400;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a { padding: 10px 4px; border-bottom: 1px solid var(--border-light); }
+  .nav-links a.nav-cta { text-align: center; margin-top: 8px; border-bottom: none; padding: 12px 20px; }
   .newsletter-banner { padding: 32px 16px; margin: 32px 12px; }
   .newsletter-banner h2 { font-size: 24px; }
   .related-grid { grid-template-columns: 1fr; gap: 16px; }
@@ -1208,7 +1271,7 @@ img { max-width: 100%; height: auto; display: block; }
   .tool-btn { flex: 1 1 auto; justify-content: center; }
 }
 </style>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Recipe","name":"How to Store Carrots and Celery in Water So They Stay Insanely Crisp for 4 Weeks","image":["https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=1200&q=80"],"author":{"@type":"Person","name":"Mia","url":"https://viralmia.me/about"},"publisher":{"@type":"Organization","name":"Viral Mia Kitchen","logo":{"@type":"ImageObject","url":"https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=400&q=80"}},"datePublished":"2026-11-15","dateModified":"2026-11-15","description":"Stop throwing away limp veggies! Here is how to store carrots and celery in water to keep them crunchy and fresh for up to a full month of holiday cooking.","prepTime":"PT10M","cookTime":"PT15M","totalTime":"PT25M","keywords":"how to store carrots and celery, keep celery crisp in water, storing cut carrots in mason jars, holiday prep vegetable storage, frugal kitchen hacks for produce","recipeYield":"8","recipeCategory":"Kitchen Hacks","recipeCuisine":"American","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":62,"bestRating":"5","worstRating":"1"},"nutrition":{"@type":"NutritionInformation","calories":"25 kcal","proteinContent":"1g","carbohydrateContent":"6g","fatContent":"0g","fiberContent":"2g"},"recipeIngredient":["2 large bunches fresh celery (trimmed and washed)","2 lbs whole carrots (peeled or scrubbed clean)","6 to 8 cups cold filtered water (enough to submerge veggies)","2 wide-mouth 32-ounce Ball mason jars","Clean kitchen towel or paper towels (for drying prior to cooking)"],"recipeInstructions":[{"@type":"HowToStep","name":"Step 1","text":"Trim and wash: Slice off the white base and leafy tops of the celery stalks (freeze tops for chicken stock later). Peel carrots if desired, or scrub clean under cold water."},{"@type":"HowToStep","name":"Step 2","text":"Cut into batons: Slice carrots and celery ribs into uniform 3- to 4-inch sticks that fit vertically inside a 32-ounce wide-mouth mason jar with about an inch of space below the rim."},{"@type":"HowToStep","name":"Step 3","text":"Pack and submerge: Stand the veggie sticks upright in the clean glass jars. Pour cold filtered water straight over them until every single stick is completely submerged."},{"@type":"HowToStep","name":"Step 4","text":"Seal and chill: Screw the jar lids on and place them on a middle fridge shelf where temperatures stay stable (skip the fridge door, which swings warm)."},{"@type":"HowToStep","name":"Step 5","text":"The 3-day water swap: Every 3 to 4 days, dump the soaking liquid, rinse the sticks under the tap, and refill with fresh cold water to maintain peak snap for up to 4 weeks."}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Recipe","name":"How to Store Carrots and Celery in Water So They Stay Insanely Crisp for 4 Weeks","image":["https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=1200&q=80"],"author":{"@type":"Person","name":"Mia","url":"https://viralmia.me/about"},"publisher":{"@type":"Organization","name":"Viral Mia Kitchen","logo":{"@type":"ImageObject","url":"https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=400&q=80"}},"datePublished":"2026-11-15","dateModified":"2026-11-15","description":"Stop throwing away limp veggies! Here is how to store carrots and celery in water to keep them crunchy and fresh for up to a full month of holiday cooking.","prepTime":"PT10M","cookTime":"PT0M","totalTime":"PT10M","keywords":"how to store carrots and celery, keep celery crisp in water, storing cut carrots in mason jars, holiday prep vegetable storage, frugal kitchen hacks for produce","recipeYield":"8","recipeCategory":"Kitchen Hacks","recipeCuisine":"American","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":62,"bestRating":"5","worstRating":"1"},"nutrition":{"@type":"NutritionInformation","calories":"25 kcal","proteinContent":"1g","carbohydrateContent":"6g","fatContent":"0g","fiberContent":"2g"},"recipeIngredient":["2 large bunches fresh celery (trimmed and washed)","2 lbs whole carrots (peeled or scrubbed clean)","6 to 8 cups cold filtered water (enough to submerge veggies)","2 wide-mouth 32-ounce Ball mason jars","Clean kitchen towel or paper towels (for drying prior to cooking)"],"recipeInstructions":[{"@type":"HowToStep","name":"Step 1","text":"Trim and wash: Slice off the white base and leafy tops of the celery stalks (freeze tops for chicken stock later). Peel carrots if desired, or scrub clean under cold water."},{"@type":"HowToStep","name":"Step 2","text":"Cut into batons: Slice carrots and celery ribs into uniform 3- to 4-inch sticks that fit vertically inside a 32-ounce wide-mouth mason jar with about an inch of space below the rim."},{"@type":"HowToStep","name":"Step 3","text":"Pack and submerge: Stand the veggie sticks upright in the clean glass jars. Pour cold filtered water straight over them until every single stick is completely submerged."},{"@type":"HowToStep","name":"Step 4","text":"Seal and chill: Screw the jar lids on and place them on a middle fridge shelf where temperatures stay stable (skip the fridge door, which swings warm)."},{"@type":"HowToStep","name":"Step 5","text":"The 3-day water swap: Every 3 to 4 days, dump the soaking liquid, rinse the sticks under the tap, and refill with fresh cold water to maintain peak snap for up to 4 weeks."}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://viralmia.me"},{"@type":"ListItem","position":2,"name":"Kitchen Hacks","item":"https://viralmia.me/category/kitchen-hacks"},{"@type":"ListItem","position":3,"name":"How to Store Carrots and Celery in Water So They Stay Insanely Crisp for 4 Weeks","item":"https://viralmia.me/recipes/how-to-store-carrots-and-celery-crisp-in-water"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I substitute mason jars if I don't have them?","acceptedAnswer":{"@type":"Answer","text":"Yes! Any tall, food-safe plastic container, glass pyrex dish, or thoroughly cleaned repurposed pickle jar works. Just make sure the vessel is tall enough to keep the vegetables fully submerged in water."}},{"@type":"Question","name":"How do I prevent the water from turning cloudy or slimy?","acceptedAnswer":{"@type":"Answer","text":"Cloudiness happens when natural starches leach out or tiny bacteria multiply. Prevent this by rinsing your cut sticks before jarring and swapping in clean, cold water every 3 to 4 days without skipping."}}]}</script>
 </head>
@@ -1219,7 +1282,7 @@ img { max-width: 100%; height: auto; display: block; }
 
   <!-- Announcement Bar -->
   <aside class="top-bar">
-    <span>✨ New Recipe Alert!</span> Easy 15-Minute Meals & Kitchen Hacks Updated Daily • <a href="/#recipes" style="text-decoration: underline; color: #fff;">Explore Today's Picks &rarr;</a>
+    <span>✨ New Recipe Alert!</span> Easy 15-Minute Meals &amp; Kitchen Hacks Updated Daily • <a href="/#recipes" style="text-decoration: underline; color: #fff;">Explore Today's Picks &rarr;</a>
   </aside>
 
   <!-- Navigation -->
@@ -1229,7 +1292,8 @@ img { max-width: 100%; height: auto; display: block; }
         <a href="/" class="logo">ViralMia <span>Kitchen</span></a>
         <span class="logo-tagline">Fast • Cozy • Simple</span>
       </div>
-      <nav class="nav-links">
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+      <nav class="nav-links" id="navLinks">
         <a href="/">Home</a>
         <a href="/category/quick-dinners">Quick Dinners</a>
         <a href="/category/air-fryer-meals">Air Fryer</a>
@@ -1268,7 +1332,7 @@ img { max-width: 100%; height: auto; display: block; }
         </div>
       </header>
 
-      <img class="article-hero" src="https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=1200&q=80" alt="How to Store Carrots and Celery in Water So They Stay Insanely Crisp for 4 Weeks" width="1200" height="675" fetchpriority="high" decoding="async">
+      <img class="article-hero" src="https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="How to Store Carrots and Celery in Water So They Stay Insanely Crisp for 4 Weeks" width="1200" height="675" fetchpriority="high" decoding="async">
 
       <!-- Personal Diary Intro -->
       <div class="diary-card reveal-on-scroll">
@@ -1331,28 +1395,28 @@ img { max-width: 100%; height: auto; display: block; }
           <ul class="ingredients-list">
             
     <li class="ing-item">
-      <input type="checkbox" id="ing-vpppt8t04">
-      <label>2 large bunches fresh celery (trimmed and washed)</label>
+      <input type="checkbox" id="ing-0">
+      <label for="ing-0">2 large bunches fresh celery (trimmed and washed)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-0wp07fcsk">
-      <label>2 lbs whole carrots (peeled or scrubbed clean)</label>
+      <input type="checkbox" id="ing-1">
+      <label for="ing-1">2 lbs whole carrots (peeled or scrubbed clean)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-q198w06wp">
-      <label>6 to 8 cups cold filtered water (enough to submerge veggies)</label>
+      <input type="checkbox" id="ing-2">
+      <label for="ing-2">6 to 8 cups cold filtered water (enough to submerge veggies)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-ev39bp2pv">
-      <label>2 wide-mouth 32-ounce Ball mason jars</label>
+      <input type="checkbox" id="ing-3">
+      <label for="ing-3">2 wide-mouth 32-ounce Ball mason jars</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-4217md044">
-      <label>Clean kitchen towel or paper towels (for drying prior to cooking)</label>
+      <input type="checkbox" id="ing-4">
+      <label for="ing-4">Clean kitchen towel or paper towels (for drying prior to cooking)</label>
     </li>
   
           </ul>
@@ -1463,7 +1527,7 @@ img { max-width: 100%; height: auto; display: block; }
                 <article class="post-card">
                   <div class="card-img-wrap">
                     <a href="/recipes/how-to-chop-onion-without-crying-science-hack">
-                      <img class="post-card-img" src="https://images.unsplash.com/photo-1516594798947-e65505dbb29d?auto=format&fit=crop&w=1200&q=80" alt="How to Chop an Onion Without Crying Once (The $0 Science Hack)" loading="lazy">
+                      <img class="post-card-img" src="https://images.unsplash.com/photo-1516594798947-e65505dbb29d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="How to Chop an Onion Without Crying Once (The $0 Science Hack)" loading="lazy">
                     </a>
                     <span class="card-badge">Kitchen Hacks</span>
                   </div>
@@ -1485,7 +1549,7 @@ img { max-width: 100%; height: auto; display: block; }
                 <article class="post-card">
                   <div class="card-img-wrap">
                     <a href="/recipes/how-to-reheat-rice-in-microwave-ice-cube-hack">
-                      <img class="post-card-img" src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1200&q=80" alt="The $0 Rice Hack: Why I Put Ice Cubes in My Microwave (And Saved $25)" loading="lazy">
+                      <img class="post-card-img" src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The $0 Rice Hack: Why I Put Ice Cubes in My Microwave (And Saved $25)" loading="lazy">
                     </a>
                     <span class="card-badge">Kitchen Hacks</span>
                   </div>
@@ -1507,7 +1571,7 @@ img { max-width: 100%; height: auto; display: block; }
                 <article class="post-card">
                   <div class="card-img-wrap">
                     <a href="/recipes/how-to-clean-burnt-pots-baking-soda-vinegar">
-                      <img class="post-card-img" src="https://images.unsplash.com/photo-1516594798947-e65505dbb29d?auto=format&fit=crop&w=1200&q=80" alt="I Almost Ruined My Favorite Pot: How to Clean Burnt Pots with $1 Pantry Staples" loading="lazy">
+                      <img class="post-card-img" src="https://images.unsplash.com/photo-1516594798947-e65505dbb29d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="I Almost Ruined My Favorite Pot: How to Clean Burnt Pots with $1 Pantry Staples" loading="lazy">
                     </a>
                     <span class="card-badge">Kitchen Hacks</span>
                   </div>
@@ -1618,23 +1682,48 @@ img { max-width: 100%; height: auto; display: block; }
         revealElements.forEach(el => observer.observe(el));
       }
 
-      // 3. Live Search Filter
+      // 0. Mobile Navigation Toggle
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      const navLinks = document.getElementById('navLinks');
+      if (mobileMenuBtn && navLinks) {
+        mobileMenuBtn.addEventListener('click', () => {
+          const isOpen = navLinks.classList.toggle('open');
+          mobileMenuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+          mobileMenuBtn.textContent = isOpen ? '✕' : '☰';
+        });
+      }
+
+      // 3. Live Search Filter (with ?q= URL param support & empty state)
       const searchInput = document.getElementById('recipe-search');
+      const searchEmpty = document.getElementById('search-empty');
       if (searchInput) {
-        searchInput.addEventListener('input', (e) => {
-          const query = e.target.value.toLowerCase().trim();
-          const cards = document.querySelectorAll('.post-card');
+        const applySearchFilter = (rawQuery) => {
+          const query = rawQuery.toLowerCase().trim();
+          const cards = document.querySelectorAll('#recipes .post-card');
+          let visibleCount = 0;
           cards.forEach(card => {
             const title = card.querySelector('.post-card-title').textContent.toLowerCase();
             const desc = card.querySelector('.post-card-desc').textContent.toLowerCase();
             const cat = card.querySelector('.card-badge').textContent.toLowerCase();
-            if (title.includes(query) || desc.includes(query) || cat.includes(query)) {
+            if (!query || title.includes(query) || desc.includes(query) || cat.includes(query)) {
               card.style.display = 'flex';
+              visibleCount++;
             } else {
               card.style.display = 'none';
             }
           });
-        });
+          if (searchEmpty) {
+            searchEmpty.style.display = visibleCount === 0 ? 'block' : 'none';
+          }
+        };
+
+        searchInput.addEventListener('input', (e) => applySearchFilter(e.target.value));
+
+        const initialQuery = new URLSearchParams(window.location.search).get('q');
+        if (initialQuery) {
+          searchInput.value = initialQuery;
+          applySearchFilter(initialQuery);
+        }
       }
 
       // 4. Interactive Ingredient Checkbox with Strikethrough
@@ -1723,14 +1812,9 @@ img { max-width: 100%; height: auto; display: block; }
 
     // Copy Ingredients to Clipboard
     function copyIngredients() {
-      const items = Array.from(document.querySelectorAll('.ingredients-list label')).map(l => '• ' + l.textContent.trim()).join('
-');
+      const items = Array.from(document.querySelectorAll('.ingredients-list label')).map(l => '• ' + l.textContent.trim()).join('\n');
       const title = document.querySelector('h1') ? document.querySelector('h1').textContent.trim() : 'Recipe';
-      const text = title + ' - Ingredients:
-
-' + items + '
-
-Source: ' + window.location.href;
+      const text = title + ' - Ingredients:\n\n' + items + '\n\nSource: ' + window.location.href;
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(text).then(() => {
           showToast('📋 Ingredients copied to clipboard!');

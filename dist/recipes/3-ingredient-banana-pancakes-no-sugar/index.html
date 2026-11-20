@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Only 3-Ingredient Banana Pancakes That Don't Turn Into Mush | Viral Mia Kitchen</title>
+  <title>The Only 3-Ingredient Banana Pancakes That Don&#39;t Turn Into Mush | Viral Mia Kitchen</title>
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-DWE4LNEEMC"></script>
@@ -30,24 +30,24 @@
   <!-- OpenGraph -->
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Viral Mia Kitchen">
-  <meta property="og:title" content="The Only 3-Ingredient Banana Pancakes That Don't Turn Into Mush | Viral Mia Kitchen">
+  <meta property="og:title" content="The Only 3-Ingredient Banana Pancakes That Don&#39;t Turn Into Mush | Viral Mia Kitchen">
   <meta property="og:description" content="Skip the sugar and the mountain of dirty dishes. These 3-ingredient banana pancakes are fast, healthy, and actually flip without falling apart in the pan.">
   <meta property="og:url" content="https://viralmia.me/recipes/3-ingredient-banana-pancakes-no-sugar">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1506084868230-bb9d95c24759?auto=format&fit=crop&w=1200&q=80">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1506084868230-bb9d95c24759?auto=format&amp;fit=crop&amp;w=1200&amp;q=80">
   <meta property="og:locale" content="en_US">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="The Only 3-Ingredient Banana Pancakes That Don't Turn Into Mush | Viral Mia Kitchen">
+  <meta name="twitter:title" content="The Only 3-Ingredient Banana Pancakes That Don&#39;t Turn Into Mush | Viral Mia Kitchen">
   <meta name="twitter:description" content="Skip the sugar and the mountain of dirty dishes. These 3-ingredient banana pancakes are fast, healthy, and actually flip without falling apart in the pan.">
-  <meta name="twitter:image" content="https://images.unsplash.com/photo-1506084868230-bb9d95c24759?auto=format&fit=crop&w=1200&q=80">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1506084868230-bb9d95c24759?auto=format&amp;fit=crop&amp;w=1200&amp;q=80">
 
   <!-- Performance Preconnect & Preload for Ultra-Fast LCP -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://images.unsplash.com">
   <link rel="dns-prefetch" href="https://images.unsplash.com">
-  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1506084868230-bb9d95c24759?auto=format&fit=crop&w=1200&q=80" fetchpriority="high">
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1506084868230-bb9d95c24759?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" fetchpriority="high">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
@@ -203,6 +203,24 @@ img { max-width: 100%; height: auto; display: block; }
   background: var(--primary-dark);
   transform: translateY(-2px) scale(1.03);
   box-shadow: 0 8px 24px rgba(217,72,48,0.4);
+}
+.mobile-menu-btn {
+  display: none;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  font-size: 22px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.mobile-menu-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
 }
 
 /* CINEMATIC HERO SECTION WITH RICH KITCHEN COOKING BACKGROUND & PARTICLES */
@@ -647,6 +665,27 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .breadcrumbs a:hover { color: var(--primary); }
 .article-header { text-align: center; margin-bottom: 34px; }
+.article-header .hero-tag {
+  background: var(--primary-light);
+  color: var(--primary);
+  border: 1px solid rgba(217, 72, 48, 0.22);
+  box-shadow: none;
+  animation: none;
+}
+.search-empty-state {
+  max-width: 600px;
+  margin: 0 auto 80px;
+  padding: 40px 24px;
+  text-align: center;
+  background: var(--card);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-md);
+  color: var(--text-muted);
+}
+.search-empty-state h3 {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
 .article-header h1 {
   font-size: 48px;
   font-weight: 800;
@@ -793,6 +832,11 @@ img { max-width: 100%; height: auto; display: block; }
   accent-color: var(--primary);
   margin-top: 3px;
   cursor: pointer;
+  flex-shrink: 0;
+}
+.ing-item label {
+  cursor: pointer;
+  flex: 1;
 }
 .ing-item.checked {
   text-decoration: line-through;
@@ -941,7 +985,7 @@ img { max-width: 100%; height: auto; display: block; }
   line-height: 1.75;
 }
 .faq-card.open .faq-body {
-  max-height: 250px;
+  max-height: 1200px;
   padding: 0 24px 20px;
 }
 
@@ -1200,7 +1244,26 @@ img { max-width: 100%; height: auto; display: block; }
   .author-card { flex-direction: column; text-align: center; }
   .footer-wrap { grid-template-columns: 1fr; gap: 32px; }
   .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
-  .nav-links { display: none; }
+  .mobile-menu-btn { display: inline-flex; }
+  .nav-container { position: relative; }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+    padding: 16px 24px 22px;
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow-md);
+    z-index: 400;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a { padding: 10px 4px; border-bottom: 1px solid var(--border-light); }
+  .nav-links a.nav-cta { text-align: center; margin-top: 8px; border-bottom: none; padding: 12px 20px; }
   .newsletter-banner { padding: 32px 16px; margin: 32px 12px; }
   .newsletter-banner h2 { font-size: 24px; }
   .related-grid { grid-template-columns: 1fr; gap: 16px; }
@@ -1208,7 +1271,7 @@ img { max-width: 100%; height: auto; display: block; }
   .tool-btn { flex: 1 1 auto; justify-content: center; }
 }
 </style>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Recipe","name":"The Only 3-Ingredient Banana Pancakes That Don't Turn Into Mush","image":["https://images.unsplash.com/photo-1506084868230-bb9d95c24759?auto=format&fit=crop&w=1200&q=80"],"author":{"@type":"Person","name":"Mia","url":"https://viralmia.me/about"},"publisher":{"@type":"Organization","name":"Viral Mia Kitchen","logo":{"@type":"ImageObject","url":"https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=400&q=80"}},"datePublished":"2026-11-05","dateModified":"2026-11-05","description":"Skip the sugar and the mountain of dirty dishes. These 3-ingredient banana pancakes are fast, healthy, and actually flip without falling apart in the pan.","prepTime":"PT10M","cookTime":"PT15M","totalTime":"PT25M","keywords":"3 ingredient banana pancakes, no sugar breakfast, healthy banana pancakes oats, easy 2 ingredient pancakes with oats, gluten free banana pancakes","recipeYield":"2","recipeCategory":"Breakfast & Brunch","recipeCuisine":"American","aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","reviewCount":63,"bestRating":"5","worstRating":"1"},"nutrition":{"@type":"NutritionInformation","calories":"310 kcal","proteinContent":"12g","carbohydrateContent":"42g","fatContent":"9g","fiberContent":"6g"},"recipeIngredient":["2 medium very ripe bananas (the more spots, the better)","2 large organic eggs","1/2 cup Quaker quick oats (blitzed or left whole for texture)","1/2 teaspoon ground cinnamon","1 teaspoon avocado oil or Kerrygold butter for the pan","A pinch of kosher salt to balance the sweetness"],"recipeInstructions":[{"@type":"HowToStep","name":"Step 1","text":"Step 1: Use a fork to mash the bananas in a medium bowl until they look like a thick liquid. Don't leave big chunks or the pancakes will break."},{"@type":"HowToStep","name":"Step 2","text":"Step 2: Crack in the eggs and add the oats, cinnamon, and salt. Whisk it vigorously with the same fork until the batter is consistent and slightly bubbly."},{"@type":"HowToStep","name":"Step 3","text":"Step 3: Heat your skillet over medium-low heat with a tiny bit of butter. Drop about 2 tablespoons of batter per pancake. Small pancakes are way easier to flip than giant ones."},{"@type":"HowToStep","name":"Step 4","text":"Step 4: Wait until you see tiny bubbles on the surface and the edges look set, about 3 minutes. Flip carefully and cook for another 2 minutes until golden brown."}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Recipe","name":"The Only 3-Ingredient Banana Pancakes That Don't Turn Into Mush","image":["https://images.unsplash.com/photo-1506084868230-bb9d95c24759?auto=format&fit=crop&w=1200&q=80"],"author":{"@type":"Person","name":"Mia","url":"https://viralmia.me/about"},"publisher":{"@type":"Organization","name":"Viral Mia Kitchen","logo":{"@type":"ImageObject","url":"https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=400&q=80"}},"datePublished":"2026-11-05","dateModified":"2026-11-05","description":"Skip the sugar and the mountain of dirty dishes. These 3-ingredient banana pancakes are fast, healthy, and actually flip without falling apart in the pan.","prepTime":"PT5M","cookTime":"PT10M","totalTime":"PT15M","keywords":"3 ingredient banana pancakes, no sugar breakfast, healthy banana pancakes oats, easy 2 ingredient pancakes with oats, gluten free banana pancakes","recipeYield":"2","recipeCategory":"Breakfast & Brunch","recipeCuisine":"American","aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","reviewCount":63,"bestRating":"5","worstRating":"1"},"nutrition":{"@type":"NutritionInformation","calories":"310 kcal","proteinContent":"12g","carbohydrateContent":"42g","fatContent":"9g","fiberContent":"6g"},"recipeIngredient":["2 medium very ripe bananas (the more spots, the better)","2 large organic eggs","1/2 cup Quaker quick oats (blitzed or left whole for texture)","1/2 teaspoon ground cinnamon","1 teaspoon avocado oil or Kerrygold butter for the pan","A pinch of kosher salt to balance the sweetness"],"recipeInstructions":[{"@type":"HowToStep","name":"Step 1","text":"Use a fork to mash the bananas in a medium bowl until they look like a thick liquid. Don't leave big chunks or the pancakes will break."},{"@type":"HowToStep","name":"Step 2","text":"Crack in the eggs and add the oats, cinnamon, and salt. Whisk it vigorously with the same fork until the batter is consistent and slightly bubbly."},{"@type":"HowToStep","name":"Step 3","text":"Heat your skillet over medium-low heat with a tiny bit of butter. Drop about 2 tablespoons of batter per pancake. Small pancakes are way easier to flip than giant ones."},{"@type":"HowToStep","name":"Step 4","text":"Wait until you see tiny bubbles on the surface and the edges look set, about 3 minutes. Flip carefully and cook for another 2 minutes until golden brown."}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://viralmia.me"},{"@type":"ListItem","position":2,"name":"Breakfast & Brunch","item":"https://viralmia.me/category/breakfast-brunch"},{"@type":"ListItem","position":3,"name":"The Only 3-Ingredient Banana Pancakes That Don't Turn Into Mush","item":"https://viralmia.me/recipes/3-ingredient-banana-pancakes-no-sugar"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I make these without oats?","acceptedAnswer":{"@type":"Answer","text":"You can, but they will be very soft and hard to flip. If you're grain-free, swap the oats for 2 tablespoons of almond flour or coconut flour instead."}},{"@type":"Question","name":"How do I keep them from sticking to the pan?","acceptedAnswer":{"@type":"Answer","text":"Make sure your pan is actually non-stick and don't skimp on a little bit of fat like avocado oil or butter. Keep the heat at medium-low; high heat burns the natural sugars in the banana before the egg sets."}}]}</script>
 </head>
@@ -1219,7 +1282,7 @@ img { max-width: 100%; height: auto; display: block; }
 
   <!-- Announcement Bar -->
   <aside class="top-bar">
-    <span>✨ New Recipe Alert!</span> Easy 15-Minute Meals & Kitchen Hacks Updated Daily • <a href="/#recipes" style="text-decoration: underline; color: #fff;">Explore Today's Picks &rarr;</a>
+    <span>✨ New Recipe Alert!</span> Easy 15-Minute Meals &amp; Kitchen Hacks Updated Daily • <a href="/#recipes" style="text-decoration: underline; color: #fff;">Explore Today's Picks &rarr;</a>
   </aside>
 
   <!-- Navigation -->
@@ -1229,7 +1292,8 @@ img { max-width: 100%; height: auto; display: block; }
         <a href="/" class="logo">ViralMia <span>Kitchen</span></a>
         <span class="logo-tagline">Fast • Cozy • Simple</span>
       </div>
-      <nav class="nav-links">
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+      <nav class="nav-links" id="navLinks">
         <a href="/">Home</a>
         <a href="/category/quick-dinners">Quick Dinners</a>
         <a href="/category/air-fryer-meals">Air Fryer</a>
@@ -1268,7 +1332,7 @@ img { max-width: 100%; height: auto; display: block; }
         </div>
       </header>
 
-      <img class="article-hero" src="https://images.unsplash.com/photo-1506084868230-bb9d95c24759?auto=format&fit=crop&w=1200&q=80" alt="The Only 3-Ingredient Banana Pancakes That Don't Turn Into Mush" width="1200" height="675" fetchpriority="high" decoding="async">
+      <img class="article-hero" src="https://images.unsplash.com/photo-1506084868230-bb9d95c24759?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Only 3-Ingredient Banana Pancakes That Don&#39;t Turn Into Mush" width="1200" height="675" fetchpriority="high" decoding="async">
 
       <!-- Personal Diary Intro -->
       <div class="diary-card reveal-on-scroll">
@@ -1331,33 +1395,33 @@ img { max-width: 100%; height: auto; display: block; }
           <ul class="ingredients-list">
             
     <li class="ing-item">
-      <input type="checkbox" id="ing-we8jeod2p">
-      <label>2 medium very ripe bananas (the more spots, the better)</label>
+      <input type="checkbox" id="ing-0">
+      <label for="ing-0">2 medium very ripe bananas (the more spots, the better)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-g5iser96h">
-      <label>2 large organic eggs</label>
+      <input type="checkbox" id="ing-1">
+      <label for="ing-1">2 large organic eggs</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-jeudjkl7l">
-      <label>1/2 cup Quaker quick oats (blitzed or left whole for texture)</label>
+      <input type="checkbox" id="ing-2">
+      <label for="ing-2">1/2 cup Quaker quick oats (blitzed or left whole for texture)</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-p5rh1cvqb">
-      <label>1/2 teaspoon ground cinnamon</label>
+      <input type="checkbox" id="ing-3">
+      <label for="ing-3">1/2 teaspoon ground cinnamon</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-e72p4hlci">
-      <label>1 teaspoon avocado oil or Kerrygold butter for the pan</label>
+      <input type="checkbox" id="ing-4">
+      <label for="ing-4">1 teaspoon avocado oil or Kerrygold butter for the pan</label>
     </li>
   
     <li class="ing-item">
-      <input type="checkbox" id="ing-0287828ak">
-      <label>A pinch of kosher salt to balance the sweetness</label>
+      <input type="checkbox" id="ing-5">
+      <label for="ing-5">A pinch of kosher salt to balance the sweetness</label>
     </li>
   
           </ul>
@@ -1368,13 +1432,13 @@ img { max-width: 100%; height: auto; display: block; }
           <h3>👩‍🍳 Step-by-Step Cooking Instructions</h3>
           <ol class="steps-list">
             
-    <li class="step-row">Step 1: Use a fork to mash the bananas in a medium bowl until they look like a thick liquid. Don't leave big chunks or the pancakes will break.</li>
+    <li class="step-row">Use a fork to mash the bananas in a medium bowl until they look like a thick liquid. Don't leave big chunks or the pancakes will break.</li>
   
-    <li class="step-row">Step 2: Crack in the eggs and add the oats, cinnamon, and salt. Whisk it vigorously with the same fork until the batter is consistent and slightly bubbly.</li>
+    <li class="step-row">Crack in the eggs and add the oats, cinnamon, and salt. Whisk it vigorously with the same fork until the batter is consistent and slightly bubbly.</li>
   
-    <li class="step-row">Step 3: Heat your skillet over medium-low heat with a tiny bit of butter. Drop about 2 tablespoons of batter per pancake. Small pancakes are way easier to flip than giant ones.</li>
+    <li class="step-row">Heat your skillet over medium-low heat with a tiny bit of butter. Drop about 2 tablespoons of batter per pancake. Small pancakes are way easier to flip than giant ones.</li>
   
-    <li class="step-row">Step 4: Wait until you see tiny bubbles on the surface and the edges look set, about 3 minutes. Flip carefully and cook for another 2 minutes until golden brown.</li>
+    <li class="step-row">Wait until you see tiny bubbles on the surface and the edges look set, about 3 minutes. Flip carefully and cook for another 2 minutes until golden brown.</li>
   
           </ol>
         </section>
@@ -1466,7 +1530,7 @@ img { max-width: 100%; height: auto; display: block; }
                 <article class="post-card">
                   <div class="card-img-wrap">
                     <a href="/recipes/air-fryer-french-toast-sticks">
-                      <img class="post-card-img" src="https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=1200&q=80" alt="Better Than The Freezer Aisle: My Crispy Air Fryer French Toast Sticks" loading="lazy">
+                      <img class="post-card-img" src="https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Better Than The Freezer Aisle: My Crispy Air Fryer French Toast Sticks" loading="lazy">
                     </a>
                     <span class="card-badge">Breakfast & Brunch</span>
                   </div>
@@ -1487,8 +1551,8 @@ img { max-width: 100%; height: auto; display: block; }
               
                 <article class="post-card">
                   <div class="card-img-wrap">
-                    <a href="/recipes/viral-air-fryer-apple cider-donuts">
-                      <img class="post-card-img" src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=1200&q=80" alt="The Viral Air Fryer Apple Cider Donuts Hack You Need Right Now" loading="lazy">
+                    <a href="/recipes/viral-air-fryer-apple-cider-donuts">
+                      <img class="post-card-img" src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Viral Air Fryer Apple Cider Donuts Hack You Need Right Now" loading="lazy">
                     </a>
                     <span class="card-badge">Breakfast & Brunch</span>
                   </div>
@@ -1498,11 +1562,11 @@ img { max-width: 100%; height: auto; display: block; }
                       <span>⏱️ 7 mins</span>
                     </div>
                     <h4 class="post-card-title">
-                      <a href="/recipes/viral-air-fryer-apple cider-donuts">The Viral Air Fryer Apple Cider Donuts Hack You Need Right Now</a>
+                      <a href="/recipes/viral-air-fryer-apple-cider-donuts">The Viral Air Fryer Apple Cider Donuts Hack You Need Right Now</a>
                     </h4>
                     <p class="post-card-desc">Make these insanely easy air fryer apple cider donuts in 10 minutes flat. No yeast, zero hassle...</p>
                     <div class="card-footer" style="padding-top: 10px;">
-                      <a href="/recipes/viral-air-fryer-apple cider-donuts" class="view-btn-arrow">View Recipe &rarr;</a>
+                      <a href="/recipes/viral-air-fryer-apple-cider-donuts" class="view-btn-arrow">View Recipe &rarr;</a>
                     </div>
                   </div>
                 </article>
@@ -1510,7 +1574,7 @@ img { max-width: 100%; height: auto; display: block; }
                 <article class="post-card">
                   <div class="card-img-wrap">
                     <a href="/recipes/5-minute-microwave-mug-brownie">
-                      <img class="post-card-img" src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=1200&q=80" alt="Rich & Fudgy 5-Minute Microwave Mug Brownie for Late-Night Cravings" loading="lazy">
+                      <img class="post-card-img" src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Rich &amp; Fudgy 5-Minute Microwave Mug Brownie for Late-Night Cravings" loading="lazy">
                     </a>
                     <span class="card-badge">Desserts & Sweets</span>
                   </div>
@@ -1621,23 +1685,48 @@ img { max-width: 100%; height: auto; display: block; }
         revealElements.forEach(el => observer.observe(el));
       }
 
-      // 3. Live Search Filter
+      // 0. Mobile Navigation Toggle
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      const navLinks = document.getElementById('navLinks');
+      if (mobileMenuBtn && navLinks) {
+        mobileMenuBtn.addEventListener('click', () => {
+          const isOpen = navLinks.classList.toggle('open');
+          mobileMenuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+          mobileMenuBtn.textContent = isOpen ? '✕' : '☰';
+        });
+      }
+
+      // 3. Live Search Filter (with ?q= URL param support & empty state)
       const searchInput = document.getElementById('recipe-search');
+      const searchEmpty = document.getElementById('search-empty');
       if (searchInput) {
-        searchInput.addEventListener('input', (e) => {
-          const query = e.target.value.toLowerCase().trim();
-          const cards = document.querySelectorAll('.post-card');
+        const applySearchFilter = (rawQuery) => {
+          const query = rawQuery.toLowerCase().trim();
+          const cards = document.querySelectorAll('#recipes .post-card');
+          let visibleCount = 0;
           cards.forEach(card => {
             const title = card.querySelector('.post-card-title').textContent.toLowerCase();
             const desc = card.querySelector('.post-card-desc').textContent.toLowerCase();
             const cat = card.querySelector('.card-badge').textContent.toLowerCase();
-            if (title.includes(query) || desc.includes(query) || cat.includes(query)) {
+            if (!query || title.includes(query) || desc.includes(query) || cat.includes(query)) {
               card.style.display = 'flex';
+              visibleCount++;
             } else {
               card.style.display = 'none';
             }
           });
-        });
+          if (searchEmpty) {
+            searchEmpty.style.display = visibleCount === 0 ? 'block' : 'none';
+          }
+        };
+
+        searchInput.addEventListener('input', (e) => applySearchFilter(e.target.value));
+
+        const initialQuery = new URLSearchParams(window.location.search).get('q');
+        if (initialQuery) {
+          searchInput.value = initialQuery;
+          applySearchFilter(initialQuery);
+        }
       }
 
       // 4. Interactive Ingredient Checkbox with Strikethrough
@@ -1726,14 +1815,9 @@ img { max-width: 100%; height: auto; display: block; }
 
     // Copy Ingredients to Clipboard
     function copyIngredients() {
-      const items = Array.from(document.querySelectorAll('.ingredients-list label')).map(l => '• ' + l.textContent.trim()).join('
-');
+      const items = Array.from(document.querySelectorAll('.ingredients-list label')).map(l => '• ' + l.textContent.trim()).join('\n');
       const title = document.querySelector('h1') ? document.querySelector('h1').textContent.trim() : 'Recipe';
-      const text = title + ' - Ingredients:
-
-' + items + '
-
-Source: ' + window.location.href;
+      const text = title + ' - Ingredients:\n\n' + items + '\n\nSource: ' + window.location.href;
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(text).then(() => {
           showToast('📋 Ingredients copied to clipboard!');
