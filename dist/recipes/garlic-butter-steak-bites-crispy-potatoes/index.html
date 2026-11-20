@@ -53,7 +53,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="preconnect" href="https://images.pexels.com">
+  <link rel="preconnect" href="https://www.themealdb.com">
   <link rel="dns-prefetch" href="https://images.unsplash.com">
+  <link rel="dns-prefetch" href="https://images.pexels.com">
+  <link rel="dns-prefetch" href="https://www.themealdb.com">
   <link rel="preload" as="image" href="https://images.unsplash.com/photo-1558030006-450675393462?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" fetchpriority="high">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
@@ -1533,16 +1537,16 @@ button { font-family: inherit; }
 
         <div class="action-buttons">
           <a href="#recipe-card" class="btn-action btn-primary-action">Jump to Recipe ↓</a>
-          <button onclick="window.print(); showToast('🖨️ Opening printable recipe card...');" class="btn-action">🖨️ Print Recipe</button>
+          <button onclick="window.print(); showToast('🖨️ Opening printable card...');" class="btn-action">🖨️ Print Recipe</button>
           <a href="https://pinterest.com/pin/create/button/?url=https%3A%2F%2Fviralmia.me%2Frecipes%2Fgarlic-butter-steak-bites-crispy-potatoes&media=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1558030006-450675393462%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26q%3D80&description=15-Minute%20Garlic%20Butter%20Steak%20Bites%20with%20Crispy%20Golden%20Potatoes" target="_blank" rel="noopener" class="btn-action" onclick="showToast('📌 Pinning to Pinterest!')">📌 Pin It</a>
         </div>
       </header>
 
       <img class="article-hero" src="https://images.unsplash.com/photo-1558030006-450675393462?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="15-Minute Garlic Butter Steak Bites with Crispy Golden Potatoes" width="1200" height="750" fetchpriority="high" decoding="async">
 
-      <!-- Mia's Kitchen Diary -->
+      <!-- Editorial Kitchen Intro -->
       <div class="diary-card reveal-on-scroll">
-        <div class="diary-badge">💌 Mia's Kitchen Note</div>
+        <div class="diary-badge">💌 Behind This Recipe</div>
         <p class="diary-text">It was pouring rain against my apartment window last Tuesday, the kind of dreary evening where my brain was fried from work and I desperately wanted steakhouse food without putting on real pants or spending forty dollars on takeout. I cranked my mellow indie folk playlist, pulled out my trusty Lodge cast iron, and decided to make these quick garlic butter steak bites. The first time I ever tested this recipe, I made the classic rookie mistake of throwing raw diced potatoes into the pan with the beef—by the time the spuds were edible, the meat was basically leather. Now, I give the baby Yukons a quick three-minute microwave steam first. That way, they hit the screaming hot pan ready to crisp up in flavorful beef fat in just minutes, while the sirloin stays shockingly tender and dripping with rich Kerrygold butter.</p>
       </div>
 
@@ -1554,7 +1558,7 @@ button { font-family: inherit; }
         <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fviralmia.me%2Frecipes%2Fgarlic-butter-steak-bites-crispy-potatoes&text=15-Minute%20Garlic%20Butter%20Steak%20Bites%20with%20Crispy%20Golden%20Potatoes" target="_blank" rel="noopener" class="share-btn share-twitter">X (Twitter)</a>
       </div>
 
-      <!-- OFFICIAL PRINTABLE RECIPE CARD -->
+      <!-- OFFICIAL PRINTABLE CARD -->
       <div class="recipe-card-box reveal-on-scroll" id="recipe-card">
         <div class="recipe-card-header">
           <div>
@@ -1576,7 +1580,7 @@ button { font-family: inherit; }
           </button>
         </div>
 
-        <!-- 5-Column Recipe Stats Grid -->
+        
         <div class="recipe-stats">
           <div class="stat-box">
             <span class="stat-label">Prep Time</span>
@@ -1599,11 +1603,13 @@ button { font-family: inherit; }
             <span class="stat-val">🔥 520 kcal</span>
           </div>
         </div>
+  
 
-        <!-- Ingredients Checklist with Interactive 1x / 2x / 3x Scaler -->
+        <!-- Ingredients / Supplies Checklist -->
         <section class="ingredients-sec">
           <div class="ingredients-header-row">
             <h3>🛒 Ingredients</h3>
+            
             <div class="scaler-group" role="group" aria-label="Scale recipe servings">
               <span class="scaler-label">Scale:</span>
               <button class="scale-btn active" data-scale="1">1x</button>
@@ -1662,10 +1668,10 @@ button { font-family: inherit; }
           </ul>
         </section>
 
-        <!-- Step-by-Step Instructions (Interactive Tap-to-Complete) -->
+        <!-- Step-by-Step Instructions -->
         <section class="steps-sec">
           <h3>👩‍🍳 Instructions</h3>
-          <p style="font-size: 13.5px; color: var(--text-muted); margin: -10px 0 18px;">Tip: Tap any step as you cook to check it off.</p>
+          <p style="font-size: 13.5px; color: var(--text-muted); margin: -10px 0 18px;">Tip: Tap any step as you go to check it off.</p>
           <ol class="steps-list">
             
     <li class="step-row" id="step-1" title="Tap to mark step complete">Place your quartered baby potatoes in a microwave-safe bowl with a splash of water, cover with a damp paper towel, and microwave on high for 3 minutes until just fork-tender. Drain and pat completely dry with paper towels.</li>
@@ -1681,18 +1687,21 @@ button { font-family: inherit; }
           </ol>
         </section>
 
-        <!-- Mia's Secret Kitchen Hack -->
+        <!-- Insider Tip Box -->
         <div class="hack-banner">
-          <div class="hack-banner-title">💡 Mia's Secret Kitchen Hack</div>
+          <div class="hack-banner-title">💡 Don't Skip This Step</div>
           <p>Do not skip par-cooking the potatoes in the microwave! Steaming them for three minutes first softens their starches, meaning they only need a quick blister in the beef fat to get crunchy outside without burning the garlic or drying out your steak.</p>
         </div>
 
-        <!-- Storage & Reheating -->
-        <div style="margin: 30px 0;">
-          <h3 style="font-size: 21px; font-weight: 800; margin-bottom: 8px;">🥡 Storage &amp; Reheating Tips</h3>
+        
+
+        <!-- Storage & Results -->
+        <div style="margin: 28px 0;">
+          <h3 style="font-size: 21px; font-weight: 800; margin-bottom: 8px;">🥡 Leftovers & Make-Ahead Notes</h3>
           <p style="font-size: 15.5px; color: var(--text-muted); line-height: 1.8;">Store leftovers in an airtight glass container in the fridge for up to 3 days. To reheat without making the meat tough, skip the microwave and toss everything back into a hot skillet with a tiny dab of butter for 2 to 3 minutes until warmed through.</p>
         </div>
 
+        
         <!-- Nutrition Facts Breakdown -->
         <div class="nutrition-card">
           <h4>Estimated Nutrition (Per Serving)</h4>
@@ -1719,11 +1728,12 @@ button { font-family: inherit; }
             </div>
           </div>
         </div>
+  
 
         <!-- Interactive Star Rating -->
         <div class="rate-recipe-box">
           <p>Made this recipe? Tap to rate it:</p>
-          <div class="star-picker" id="starPicker" data-slug="garlic-butter-steak-bites-crispy-potatoes" aria-label="Rate this recipe">
+          <div class="star-picker" id="starPicker" data-slug="garlic-butter-steak-bites-crispy-potatoes" aria-label="Rate this post">
             <button class="star-btn" data-val="1" aria-label="1 star">★</button>
             <button class="star-btn" data-val="2" aria-label="2 stars">★</button>
             <button class="star-btn" data-val="3" aria-label="3 stars">★</button>
@@ -1780,7 +1790,7 @@ button { font-family: inherit; }
                 <article class="post-card">
                   <div class="card-img-wrap">
                     <a href="/recipes/15-minute-lemon-herb-butter-shrimp-skillet">
-                      <img class="post-card-img" src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="15-Minute Lemon Herb Butter Shrimp Skillet (One Pan!)" width="400" height="275" loading="lazy" decoding="async">
+                      <img class="post-card-img" src="https://www.themealdb.com/images/media/meals/bx07m71764792853.jpg" alt="15-Minute Lemon Herb Butter Shrimp Skillet (One Pan!)" width="400" height="275" loading="lazy" decoding="async">
                     </a>
                     <span class="card-badge">Quick Dinners</span>
                   </div>
@@ -1802,7 +1812,7 @@ button { font-family: inherit; }
                 <article class="post-card">
                   <div class="card-img-wrap">
                     <a href="/recipes/loaded-15-minute-black-bean-taco-bowls">
-                      <img class="post-card-img" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="15-Minute Loaded Black Bean Taco Bowls (When You Refuse to Do Dishes)" width="400" height="275" loading="lazy" decoding="async">
+                      <img class="post-card-img" src="https://www.themealdb.com/images/media/meals/j8c1d51782772399.jpg" alt="15-Minute Loaded Black Bean Taco Bowls (When You Refuse to Do Dishes)" width="400" height="275" loading="lazy" decoding="async">
                     </a>
                     <span class="card-badge">Quick Dinners</span>
                   </div>

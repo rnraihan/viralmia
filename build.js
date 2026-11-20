@@ -1606,7 +1606,11 @@ function layout(title, content, meta = {}) {
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="preconnect" href="https://images.pexels.com">
+  <link rel="preconnect" href="https://www.themealdb.com">
   <link rel="dns-prefetch" href="https://images.unsplash.com">
+  <link rel="dns-prefetch" href="https://images.pexels.com">
+  <link rel="dns-prefetch" href="https://www.themealdb.com">
   ${meta.preloadImage ? `<link rel="preload" as="image" href="${escapeAttr(meta.preloadImage)}" fetchpriority="high">` : ''}
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
@@ -2256,8 +2260,25 @@ function buildHomePage(posts, currentCategory = 'All', allCategories = null) {
   });
 }
 
-// Generate Single Recipe Page
+// Generate Single Recipe or Kitchen Hack Guide Page (Dual-Mode Authentic Editorial Rendering)
 function buildRecipePage(post, allPosts = []) {
+  const isHackGuide = post.category === 'Kitchen Hacks';
+
+  // Deterministic editorial heading variety so posts never look copy-pasted by a bot
+  let slugHash = 0;
+  for (let i = 0; i < (post.slug || '').length; i++) slugHash = (slugHash * 31 + post.slug.charCodeAt(i)) | 0;
+  const variantIdx = Math.abs(slugHash);
+
+  const recipeStoryHeadings = ["Mia's Kitchen Note", "Behind This Recipe", "Why This Works Every Time", "From Mia's Apartment Kitchen", "Notes From Testing This Dish"];
+  const hackStoryHeadings = ["Why This Kitchen Trick Works", "Test-Kitchen Discovery", "Stop Wasting Time & Groceries", "The Kitchen Science Behind It"];
+  const recipeHackHeadings = ["Mia's Test-Kitchen Secret", "Don't Skip This Step", "The One Shortcut That Matters", "My Favorite Flavor Upgrade"];
+  const hackProHeadings = ["Key Takeaway for Best Results", "Pro Tip From Mia's Kitchen", "Avoid This Common Mistake"];
+  const storageHeadings = ["Storage & Reheating Tips", "Leftovers & Make-Ahead Notes", "Keeping It Fresh Later", "Fridge & Reheat Guide"];
+
+  const storyHeading = post.storyHeading || (isHackGuide ? hackStoryHeadings[variantIdx % hackStoryHeadings.length] : recipeStoryHeadings[variantIdx % recipeStoryHeadings.length]);
+  const hackHeading = post.hackHeading || (isHackGuide ? hackProHeadings[variantIdx % hackProHeadings.length] : recipeHackHeadings[variantIdx % recipeHackHeadings.length]);
+  const storageHeading = post.storageHeading || (isHackGuide ? "How Long It Lasts & Best Results" : storageHeadings[variantIdx % storageHeadings.length]);
+
   const ingredientsHtml = (post.ingredients || []).map((ing, idx) => `
     <li class="ing-item">
       <input type="checkbox" id="ing-${idx}">
@@ -2291,7 +2312,24 @@ function buildRecipePage(post, allPosts = []) {
   const catSlug = slugify(post.category);
   const recipeUrl = `${SITE_URL}/recipes/${post.slug}`;
 
-  const recipeSchema = {
+  // Use genuine HowTo schema for Kitchen Hacks and Recipe schema for Recipes (Google E-E-A-T best practice!)
+  const primarySchema = isHackGuide ? {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": recipeUrl },
+    "name": post.title,
+    "description": post.description,
+    "image": { "@type": "ImageObject", "url": post.heroImage, "width": 1200, "height": 800 },
+    "totalTime": toIsoDuration(Math.max(1, totalMins)),
+    "inLanguage": "en-US",
+    "supply": (post.ingredients || []).map(item => ({ "@type": "HowToSupply", "name": item })),
+    "step": cleanSteps.map((step, idx) => ({
+      "@type": "HowToStep",
+      "name": `Step ${idx + 1}`,
+      "text": step,
+      "url": `${recipeUrl}#step-${idx + 1}`
+    }))
+  } : {
     "@context": "https://schema.org",
     "@type": "Recipe",
     "mainEntityOfPage": { "@type": "WebPage", "@id": recipeUrl },
@@ -2365,82 +2403,29 @@ function buildRecipePage(post, allPosts = []) {
     }))
   } : null;
 
-  const schemas = [recipeSchema, breadcrumbSchema];
+  const schemas = [primarySchema, breadcrumbSchema];
   if (faqSchema) schemas.push(faqSchema);
 
   const shareUrl = encodeURIComponent(recipeUrl);
   const shareTitle = encodeURIComponent(post.title);
   const shareImg = encodeURIComponent(post.heroImage);
 
-  const content = `
-    <article class="article-wrap">
-      <!-- Breadcrumbs -->
-      <nav class="breadcrumbs" aria-label="Breadcrumb">
-        <a href="/">Home</a> &rsaquo;
-        <a href="/category/${catSlug}">${post.category}</a> &rsaquo;
-        <span>${post.title}</span>
-      </nav>
-
-      <!-- Editorial Article Header -->
-      <header class="article-header">
-        <div class="hero-tag">${post.category}</div>
-        <h1>${post.title}</h1>
-        <p class="article-dek">${post.description}</p>
-        <div class="article-byline">
-          <img class="byline-avatar" src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=100&q=80" alt="Mia" width="30" height="30">
-          <span>By <strong>Mia</strong></span>
-          <span>•</span>
-          <span>Updated ${formatUsDate(post.date)}</span>
-          <span>•</span>
-          <span style="color: var(--gold); font-weight: 800;">★★★★★ ${post.rating} (${post.reviewCount} Reviews)</span>
-        </div>
-
-        <div class="action-buttons">
-          <a href="#recipe-card" class="btn-action btn-primary-action">Jump to Recipe ↓</a>
-          <button onclick="window.print(); showToast('🖨️ Opening printable recipe card...');" class="btn-action">🖨️ Print Recipe</button>
-          <a href="https://pinterest.com/pin/create/button/?url=${shareUrl}&media=${shareImg}&description=${shareTitle}" target="_blank" rel="noopener" class="btn-action" onclick="showToast('📌 Pinning to Pinterest!')">📌 Pin It</a>
-        </div>
-      </header>
-
-      <img class="article-hero" src="${escapeAttr(post.heroImage)}" alt="${escapeAttr(post.title)}" width="1200" height="750" fetchpriority="high" decoding="async">
-
-      <!-- Mia's Kitchen Diary -->
-      <div class="diary-card reveal-on-scroll">
-        <div class="diary-badge">💌 Mia's Kitchen Note</div>
-        <p class="diary-text">${post.story}</p>
-      </div>
-
-      <!-- Social Sharing Bar -->
-      <div class="social-share reveal-on-scroll">
-        <span class="share-label">Save &amp; Share:</span>
-        <a href="https://pinterest.com/pin/create/button/?url=${shareUrl}&media=${shareImg}&description=${shareTitle}" target="_blank" rel="noopener" class="share-btn share-pinterest" onclick="showToast('📌 Saved to Pinterest!')">📌 Save to Pinterest</a>
-        <a href="https://www.facebook.com/sharer/sharer.php?u=${shareUrl}" target="_blank" rel="noopener" class="share-btn share-facebook">Facebook</a>
-        <a href="https://twitter.com/intent/tweet?url=${shareUrl}&text=${shareTitle}" target="_blank" rel="noopener" class="share-btn share-twitter">X (Twitter)</a>
-      </div>
-
-      <!-- OFFICIAL PRINTABLE RECIPE CARD -->
-      <div class="recipe-card-box reveal-on-scroll" id="recipe-card">
-        <div class="recipe-card-header">
-          <div>
-            <h2>${post.title}</h2>
-            <p class="recipe-card-desc">${post.description}</p>
+  const statsGridHtml = isHackGuide ? `
+        <div class="recipe-stats" style="grid-template-columns: repeat(3, 1fr);">
+          <div class="stat-box">
+            <span class="stat-label">Time Needed</span>
+            <span class="stat-val">⏱️ ${formatTotalTime(totalMins)}</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-label">Difficulty</span>
+            <span class="stat-val">✨ Super Easy</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-label">Est. Cost</span>
+            <span class="stat-val">💵 ${post.costPerServing || 'Under $1'}</span>
           </div>
         </div>
-
-        <!-- Cook Mode / Copy / Print Toolbar -->
-        <div class="recipe-action-toolbar">
-          <button id="cookModeBtn" class="tool-btn" onclick="toggleCookMode()">
-            <span>💡</span> <span id="cookModeText">Cook Mode (Keep Screen Awake)</span>
-          </button>
-          <button class="tool-btn" onclick="copyIngredients()">
-            <span>📋</span> <span>Copy Ingredients</span>
-          </button>
-          <button class="tool-btn" onclick="window.print()">
-            <span>🖨️</span> <span>Print Card</span>
-          </button>
-        </div>
-
-        <!-- 5-Column Recipe Stats Grid -->
+  ` : `
         <div class="recipe-stats">
           <div class="stat-box">
             <span class="stat-label">Prep Time</span>
@@ -2463,45 +2448,16 @@ function buildRecipePage(post, allPosts = []) {
             <span class="stat-val">🔥 ${post.calories}</span>
           </div>
         </div>
+  `;
 
-        <!-- Ingredients Checklist with Interactive 1x / 2x / 3x Scaler -->
-        <section class="ingredients-sec">
-          <div class="ingredients-header-row">
-            <h3>🛒 Ingredients</h3>
-            <div class="scaler-group" role="group" aria-label="Scale recipe servings">
-              <span class="scaler-label">Scale:</span>
-              <button class="scale-btn active" data-scale="1">1x</button>
-              <button class="scale-btn" data-scale="2">2x</button>
-              <button class="scale-btn" data-scale="3">3x</button>
-            </div>
-          </div>
-          <p style="font-size: 13.5px; color: var(--text-muted); margin-bottom: 12px;">US standard measurements • Tap any ingredient to check it off:</p>
-          <ul class="ingredients-list">
-            ${ingredientsHtml}
-          </ul>
-        </section>
-
-        <!-- Step-by-Step Instructions (Interactive Tap-to-Complete) -->
-        <section class="steps-sec">
-          <h3>👩‍🍳 Instructions</h3>
-          <p style="font-size: 13.5px; color: var(--text-muted); margin: -10px 0 18px;">Tip: Tap any step as you cook to check it off.</p>
-          <ol class="steps-list">
-            ${stepsHtml}
-          </ol>
-        </section>
-
-        <!-- Mia's Secret Kitchen Hack -->
-        <div class="hack-banner">
-          <div class="hack-banner-title">💡 Mia's Secret Kitchen Hack</div>
-          <p>${post.proHack}</p>
+  const servingIdeaHtml = post.servingIdea ? `
+        <div style="margin: 26px 0; padding: 20px 24px; background: var(--bg); border-radius: var(--radius-md); border: 1px solid var(--border-light);">
+          <h3 style="font-size: 19px; font-weight: 800; margin-bottom: 6px;">${isHackGuide ? '✨ Best Ways to Use This Hack' : '🍷 What to Serve With This'}</h3>
+          <p style="font-size: 15.5px; color: var(--text-muted); line-height: 1.75; margin: 0;">${post.servingIdea}</p>
         </div>
+  ` : '';
 
-        <!-- Storage & Reheating -->
-        <div style="margin: 30px 0;">
-          <h3 style="font-size: 21px; font-weight: 800; margin-bottom: 8px;">🥡 Storage &amp; Reheating Tips</h3>
-          <p style="font-size: 15.5px; color: var(--text-muted); line-height: 1.8;">${post.storage}</p>
-        </div>
-
+  const nutritionHtml = isHackGuide ? '' : `
         <!-- Nutrition Facts Breakdown -->
         <div class="nutrition-card">
           <h4>Estimated Nutrition (Per Serving)</h4>
@@ -2528,11 +2484,125 @@ function buildRecipePage(post, allPosts = []) {
             </div>
           </div>
         </div>
+  `;
+
+  const content = `
+    <article class="article-wrap">
+      <!-- Breadcrumbs -->
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a> &rsaquo;
+        <a href="/category/${catSlug}">${post.category}</a> &rsaquo;
+        <span>${post.title}</span>
+      </nav>
+
+      <!-- Editorial Article Header -->
+      <header class="article-header">
+        <div class="hero-tag">${post.category}</div>
+        <h1>${post.title}</h1>
+        <p class="article-dek">${post.description}</p>
+        <div class="article-byline">
+          <img class="byline-avatar" src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=100&q=80" alt="Mia" width="30" height="30">
+          <span>By <strong>Mia</strong></span>
+          <span>•</span>
+          <span>Updated ${formatUsDate(post.date)}</span>
+          <span>•</span>
+          <span style="color: var(--gold); font-weight: 800;">★★★★★ ${post.rating} (${post.reviewCount} Reviews)</span>
+        </div>
+
+        <div class="action-buttons">
+          <a href="#recipe-card" class="btn-action btn-primary-action">${isHackGuide ? 'Jump to Guide ↓' : 'Jump to Recipe ↓'}</a>
+          <button onclick="window.print(); showToast('🖨️ Opening printable card...');" class="btn-action">🖨️ ${isHackGuide ? 'Print Guide' : 'Print Recipe'}</button>
+          <a href="https://pinterest.com/pin/create/button/?url=${shareUrl}&media=${shareImg}&description=${shareTitle}" target="_blank" rel="noopener" class="btn-action" onclick="showToast('📌 Pinning to Pinterest!')">📌 Pin It</a>
+        </div>
+      </header>
+
+      <img class="article-hero" src="${escapeAttr(post.heroImage)}" alt="${escapeAttr(post.title)}" width="1200" height="750" fetchpriority="high" decoding="async">
+
+      <!-- Editorial Kitchen Intro -->
+      <div class="diary-card reveal-on-scroll">
+        <div class="diary-badge">💌 ${storyHeading}</div>
+        <p class="diary-text">${post.story}</p>
+      </div>
+
+      <!-- Social Sharing Bar -->
+      <div class="social-share reveal-on-scroll">
+        <span class="share-label">Save &amp; Share:</span>
+        <a href="https://pinterest.com/pin/create/button/?url=${shareUrl}&media=${shareImg}&description=${shareTitle}" target="_blank" rel="noopener" class="share-btn share-pinterest" onclick="showToast('📌 Saved to Pinterest!')">📌 Save to Pinterest</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=${shareUrl}" target="_blank" rel="noopener" class="share-btn share-facebook">Facebook</a>
+        <a href="https://twitter.com/intent/tweet?url=${shareUrl}&text=${shareTitle}" target="_blank" rel="noopener" class="share-btn share-twitter">X (Twitter)</a>
+      </div>
+
+      <!-- OFFICIAL PRINTABLE CARD -->
+      <div class="recipe-card-box reveal-on-scroll" id="recipe-card">
+        <div class="recipe-card-header">
+          <div>
+            <h2>${post.title}</h2>
+            <p class="recipe-card-desc">${post.description}</p>
+          </div>
+        </div>
+
+        <!-- Cook Mode / Copy / Print Toolbar -->
+        <div class="recipe-action-toolbar">
+          <button id="cookModeBtn" class="tool-btn" onclick="toggleCookMode()">
+            <span>💡</span> <span id="cookModeText">Cook Mode (Keep Screen Awake)</span>
+          </button>
+          <button class="tool-btn" onclick="copyIngredients()">
+            <span>📋</span> <span>${isHackGuide ? 'Copy Checklist' : 'Copy Ingredients'}</span>
+          </button>
+          <button class="tool-btn" onclick="window.print()">
+            <span>🖨️</span> <span>Print Card</span>
+          </button>
+        </div>
+
+        ${statsGridHtml}
+
+        <!-- Ingredients / Supplies Checklist -->
+        <section class="ingredients-sec">
+          <div class="ingredients-header-row">
+            <h3>${isHackGuide ? '🧰 What You Need' : '🛒 Ingredients'}</h3>
+            ${isHackGuide ? '' : `
+            <div class="scaler-group" role="group" aria-label="Scale recipe servings">
+              <span class="scaler-label">Scale:</span>
+              <button class="scale-btn active" data-scale="1">1x</button>
+              <button class="scale-btn" data-scale="2">2x</button>
+              <button class="scale-btn" data-scale="3">3x</button>
+            </div>`}
+          </div>
+          <p style="font-size: 13.5px; color: var(--text-muted); margin-bottom: 12px;">${isHackGuide ? 'Gather these simple everyday kitchen items:' : 'US standard measurements • Tap any ingredient to check it off:'}</p>
+          <ul class="ingredients-list">
+            ${ingredientsHtml}
+          </ul>
+        </section>
+
+        <!-- Step-by-Step Instructions -->
+        <section class="steps-sec">
+          <h3>${isHackGuide ? '⚡ Step-by-Step Method' : '👩‍🍳 Instructions'}</h3>
+          <p style="font-size: 13.5px; color: var(--text-muted); margin: -10px 0 18px;">Tip: Tap any step as you go to check it off.</p>
+          <ol class="steps-list">
+            ${stepsHtml}
+          </ol>
+        </section>
+
+        <!-- Insider Tip Box -->
+        <div class="hack-banner">
+          <div class="hack-banner-title">💡 ${hackHeading}</div>
+          <p>${post.proHack}</p>
+        </div>
+
+        ${servingIdeaHtml}
+
+        <!-- Storage & Results -->
+        <div style="margin: 28px 0;">
+          <h3 style="font-size: 21px; font-weight: 800; margin-bottom: 8px;">🥡 ${storageHeading}</h3>
+          <p style="font-size: 15.5px; color: var(--text-muted); line-height: 1.8;">${post.storage}</p>
+        </div>
+
+        ${nutritionHtml}
 
         <!-- Interactive Star Rating -->
         <div class="rate-recipe-box">
-          <p>Made this recipe? Tap to rate it:</p>
-          <div class="star-picker" id="starPicker" data-slug="${escapeAttr(post.slug)}" aria-label="Rate this recipe">
+          <p>${isHackGuide ? 'Did this hack help you? Tap to rate it:' : 'Made this recipe? Tap to rate it:'}</p>
+          <div class="star-picker" id="starPicker" data-slug="${escapeAttr(post.slug)}" aria-label="Rate this post">
             <button class="star-btn" data-val="1" aria-label="1 star">★</button>
             <button class="star-btn" data-val="2" aria-label="2 stars">★</button>
             <button class="star-btn" data-val="3" aria-label="3 stars">★</button>

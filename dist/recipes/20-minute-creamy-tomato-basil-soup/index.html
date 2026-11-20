@@ -53,7 +53,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="preconnect" href="https://images.pexels.com">
+  <link rel="preconnect" href="https://www.themealdb.com">
   <link rel="dns-prefetch" href="https://images.unsplash.com">
+  <link rel="dns-prefetch" href="https://images.pexels.com">
+  <link rel="dns-prefetch" href="https://www.themealdb.com">
   <link rel="preload" as="image" href="https://images.unsplash.com/photo-1603105037880-880cd4edfb0d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" fetchpriority="high">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
@@ -1533,16 +1537,16 @@ button { font-family: inherit; }
 
         <div class="action-buttons">
           <a href="#recipe-card" class="btn-action btn-primary-action">Jump to Recipe ↓</a>
-          <button onclick="window.print(); showToast('🖨️ Opening printable recipe card...');" class="btn-action">🖨️ Print Recipe</button>
+          <button onclick="window.print(); showToast('🖨️ Opening printable card...');" class="btn-action">🖨️ Print Recipe</button>
           <a href="https://pinterest.com/pin/create/button/?url=https%3A%2F%2Fviralmia.me%2Frecipes%2F20-minute-creamy-tomato-basil-soup&media=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1603105037880-880cd4edfb0d%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26q%3D80&description=20-Minute%20Creamy%20Tomato%20Basil%20Soup%20That%20Saved%20My%20Sanity" target="_blank" rel="noopener" class="btn-action" onclick="showToast('📌 Pinning to Pinterest!')">📌 Pin It</a>
         </div>
       </header>
 
       <img class="article-hero" src="https://images.unsplash.com/photo-1603105037880-880cd4edfb0d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="20-Minute Creamy Tomato Basil Soup That Saved My Sanity" width="1200" height="750" fetchpriority="high" decoding="async">
 
-      <!-- Mia's Kitchen Diary -->
+      <!-- Editorial Kitchen Intro -->
       <div class="diary-card reveal-on-scroll">
-        <div class="diary-badge">💌 Mia's Kitchen Note</div>
+        <div class="diary-badge">💌 Why This Works Every Time</div>
         <p class="diary-text">If my nine-hour workday had a physical form, it would be a tangled pile of laundry and a cold cup of coffee left on my desk. By the time I finally dragged myself into my tiny kitchen, DoorDash wanted twenty-eight dollars just to deliver a mediocre burrito. Absolutely not. I opened the pantry, saw a lonely can of crushed tomatoes, and decided I was making this creamy tomato basil soup from scratch. It literally takes twenty minutes, uses just one pot so cleanup is basically nonexistent, and hits every single craving. The first time I tested this recipe, I rushed the garlic and burned it to a crisp in my skillet—so trust me, keep the heat medium-low and let it bloom slowly. Poured into a mug with a side of toasted sourdough, it completely salvaged a chaotic Tuesday night.</p>
       </div>
 
@@ -1554,7 +1558,7 @@ button { font-family: inherit; }
         <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fviralmia.me%2Frecipes%2F20-minute-creamy-tomato-basil-soup&text=20-Minute%20Creamy%20Tomato%20Basil%20Soup%20That%20Saved%20My%20Sanity" target="_blank" rel="noopener" class="share-btn share-twitter">X (Twitter)</a>
       </div>
 
-      <!-- OFFICIAL PRINTABLE RECIPE CARD -->
+      <!-- OFFICIAL PRINTABLE CARD -->
       <div class="recipe-card-box reveal-on-scroll" id="recipe-card">
         <div class="recipe-card-header">
           <div>
@@ -1576,7 +1580,7 @@ button { font-family: inherit; }
           </button>
         </div>
 
-        <!-- 5-Column Recipe Stats Grid -->
+        
         <div class="recipe-stats">
           <div class="stat-box">
             <span class="stat-label">Prep Time</span>
@@ -1599,11 +1603,13 @@ button { font-family: inherit; }
             <span class="stat-val">🔥 390 kcal</span>
           </div>
         </div>
+  
 
-        <!-- Ingredients Checklist with Interactive 1x / 2x / 3x Scaler -->
+        <!-- Ingredients / Supplies Checklist -->
         <section class="ingredients-sec">
           <div class="ingredients-header-row">
             <h3>🛒 Ingredients</h3>
+            
             <div class="scaler-group" role="group" aria-label="Scale recipe servings">
               <span class="scaler-label">Scale:</span>
               <button class="scale-btn active" data-scale="1">1x</button>
@@ -1657,10 +1663,10 @@ button { font-family: inherit; }
           </ul>
         </section>
 
-        <!-- Step-by-Step Instructions (Interactive Tap-to-Complete) -->
+        <!-- Step-by-Step Instructions -->
         <section class="steps-sec">
           <h3>👩‍🍳 Instructions</h3>
-          <p style="font-size: 13.5px; color: var(--text-muted); margin: -10px 0 18px;">Tip: Tap any step as you cook to check it off.</p>
+          <p style="font-size: 13.5px; color: var(--text-muted); margin: -10px 0 18px;">Tip: Tap any step as you go to check it off.</p>
           <ol class="steps-list">
             
     <li class="step-row" id="step-1" title="Tap to mark step complete">Melt the butter in a medium saucepan over medium-low heat. Toss in the minced garlic and sauté for about 1 minute until fragrant and just turning golden—don't let it burn or it will taste bitter!</li>
@@ -1674,18 +1680,21 @@ button { font-family: inherit; }
           </ol>
         </section>
 
-        <!-- Mia's Secret Kitchen Hack -->
+        <!-- Insider Tip Box -->
         <div class="hack-banner">
-          <div class="hack-banner-title">💡 Mia's Secret Kitchen Hack</div>
+          <div class="hack-banner-title">💡 Mia's Test-Kitchen Secret</div>
           <p>Stir in your heavy cream off the direct heat source. If the soup is boiling furiously when the dairy hits the pot, it can curdle and look grainy. A gentle warm-up keeps it silky smooth.</p>
         </div>
 
-        <!-- Storage & Reheating -->
-        <div style="margin: 30px 0;">
-          <h3 style="font-size: 21px; font-weight: 800; margin-bottom: 8px;">🥡 Storage &amp; Reheating Tips</h3>
+        
+
+        <!-- Storage & Results -->
+        <div style="margin: 28px 0;">
+          <h3 style="font-size: 21px; font-weight: 800; margin-bottom: 8px;">🥡 Storage & Reheating Tips</h3>
           <p style="font-size: 15.5px; color: var(--text-muted); line-height: 1.8;">Store leftovers in an airtight glass container in the fridge for up to 4 days. Reheat gently on the stovetop over medium-low heat, stirring occasionally. Avoid boiling or the cream might separate.</p>
         </div>
 
+        
         <!-- Nutrition Facts Breakdown -->
         <div class="nutrition-card">
           <h4>Estimated Nutrition (Per Serving)</h4>
@@ -1712,11 +1721,12 @@ button { font-family: inherit; }
             </div>
           </div>
         </div>
+  
 
         <!-- Interactive Star Rating -->
         <div class="rate-recipe-box">
           <p>Made this recipe? Tap to rate it:</p>
-          <div class="star-picker" id="starPicker" data-slug="20-minute-creamy-tomato-basil-soup" aria-label="Rate this recipe">
+          <div class="star-picker" id="starPicker" data-slug="20-minute-creamy-tomato-basil-soup" aria-label="Rate this post">
             <button class="star-btn" data-val="1" aria-label="1 star">★</button>
             <button class="star-btn" data-val="2" aria-label="2 stars">★</button>
             <button class="star-btn" data-val="3" aria-label="3 stars">★</button>
@@ -1773,7 +1783,7 @@ button { font-family: inherit; }
                 <article class="post-card">
                   <div class="card-img-wrap">
                     <a href="/recipes/slow-cooker-potato-leek-soup">
-                      <img class="post-card-img" src="https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Lazy Girl Guide to Silky Slow Cooker Potato Leek Soup" width="400" height="275" loading="lazy" decoding="async">
+                      <img class="post-card-img" src="https://images.pexels.com/photos/31997380/pexels-photo-31997380.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" alt="The Lazy Girl Guide to Silky Slow Cooker Potato Leek Soup" width="400" height="275" loading="lazy" decoding="async">
                     </a>
                     <span class="card-badge">Comfort Food</span>
                   </div>
@@ -1795,7 +1805,7 @@ button { font-family: inherit; }
                 <article class="post-card">
                   <div class="card-img-wrap">
                     <a href="/recipes/grandmas-fluffy-buttermilk-biscuits-25-minutes">
-                      <img class="post-card-img" src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Grandma’s 25-Minute Fluffy Buttermilk Biscuits (Under $3 a Batch!)" width="400" height="275" loading="lazy" decoding="async">
+                      <img class="post-card-img" src="https://www.themealdb.com/images/media/meals/q47rkb1762324620.jpg" alt="Grandma’s 25-Minute Fluffy Buttermilk Biscuits (Under $3 a Batch!)" width="400" height="275" loading="lazy" decoding="async">
                     </a>
                     <span class="card-badge">Comfort Food</span>
                   </div>
@@ -1817,7 +1827,7 @@ button { font-family: inherit; }
                 <article class="post-card">
                   <div class="card-img-wrap">
                     <a href="/recipes/cozy-apple-pear-crisp-oat-crunch">
-                      <img class="post-card-img" src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Cozy Apple &amp; Pear Crisp with Golden Oat Crunch" width="400" height="275" loading="lazy" decoding="async">
+                      <img class="post-card-img" src="https://www.themealdb.com/images/media/meals/xvsurr1511719182.jpg" alt="Cozy Apple &amp; Pear Crisp with Golden Oat Crunch" width="400" height="275" loading="lazy" decoding="async">
                     </a>
                     <span class="card-badge">Comfort Food</span>
                   </div>

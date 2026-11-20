@@ -53,7 +53,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="preconnect" href="https://images.pexels.com">
+  <link rel="preconnect" href="https://www.themealdb.com">
   <link rel="dns-prefetch" href="https://images.unsplash.com">
+  <link rel="dns-prefetch" href="https://images.pexels.com">
+  <link rel="dns-prefetch" href="https://www.themealdb.com">
   <link rel="preload" as="image" href="https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" fetchpriority="high">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
@@ -1533,16 +1537,16 @@ button { font-family: inherit; }
 
         <div class="action-buttons">
           <a href="#recipe-card" class="btn-action btn-primary-action">Jump to Recipe ↓</a>
-          <button onclick="window.print(); showToast('🖨️ Opening printable recipe card...');" class="btn-action">🖨️ Print Recipe</button>
+          <button onclick="window.print(); showToast('🖨️ Opening printable card...');" class="btn-action">🖨️ Print Recipe</button>
           <a href="https://pinterest.com/pin/create/button/?url=https%3A%2F%2Fviralmia.me%2Frecipes%2F15-minute-loaded-baked-potato-soup&media=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1547592166-23ac45744acd%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26q%3D80&description=The%2015-Minute%20Loaded%20Baked%20Potato%20Soup%20That%20Saved%20My%20Cold%20Weeknights" target="_blank" rel="noopener" class="btn-action" onclick="showToast('📌 Pinning to Pinterest!')">📌 Pin It</a>
         </div>
       </header>
 
       <img class="article-hero" src="https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The 15-Minute Loaded Baked Potato Soup That Saved My Cold Weeknights" width="1200" height="750" fetchpriority="high" decoding="async">
 
-      <!-- Mia's Kitchen Diary -->
+      <!-- Editorial Kitchen Intro -->
       <div class="diary-card reveal-on-scroll">
-        <div class="diary-badge">💌 Mia's Kitchen Note</div>
+        <div class="diary-badge">💌 Behind This Recipe</div>
         <p class="diary-text">Working late in my chilly apartment last Tuesday, the absolute last thing I wanted to do was chop veggies for an hour. Honestly, I was this close to ordering delivery from the local pub—until I saw the $25 bill staring back at me on my phone screen. Nope! I raided my fridge instead and pulled together this loaded baked potato soup in right around 15 minutes using a bag of russet potatoes from Aldi and some leftover cheddar. It cost me maybe $4 total to feed myself, and it warmed me right up to my bones. The first time I tested this, I cranked the skillet way too high and scorched the bottom of my pot—keep the heat medium-low once the milk goes in so everything stays velvety smooth. If you need a fast, budget-friendly bowl of pure comfort tonight, this is it.</p>
       </div>
 
@@ -1554,7 +1558,7 @@ button { font-family: inherit; }
         <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fviralmia.me%2Frecipes%2F15-minute-loaded-baked-potato-soup&text=The%2015-Minute%20Loaded%20Baked%20Potato%20Soup%20That%20Saved%20My%20Cold%20Weeknights" target="_blank" rel="noopener" class="share-btn share-twitter">X (Twitter)</a>
       </div>
 
-      <!-- OFFICIAL PRINTABLE RECIPE CARD -->
+      <!-- OFFICIAL PRINTABLE CARD -->
       <div class="recipe-card-box reveal-on-scroll" id="recipe-card">
         <div class="recipe-card-header">
           <div>
@@ -1576,7 +1580,7 @@ button { font-family: inherit; }
           </button>
         </div>
 
-        <!-- 5-Column Recipe Stats Grid -->
+        
         <div class="recipe-stats">
           <div class="stat-box">
             <span class="stat-label">Prep Time</span>
@@ -1599,11 +1603,13 @@ button { font-family: inherit; }
             <span class="stat-val">🔥 390 kcal</span>
           </div>
         </div>
+  
 
-        <!-- Ingredients Checklist with Interactive 1x / 2x / 3x Scaler -->
+        <!-- Ingredients / Supplies Checklist -->
         <section class="ingredients-sec">
           <div class="ingredients-header-row">
             <h3>🛒 Ingredients</h3>
+            
             <div class="scaler-group" role="group" aria-label="Scale recipe servings">
               <span class="scaler-label">Scale:</span>
               <button class="scale-btn active" data-scale="1">1x</button>
@@ -1662,10 +1668,10 @@ button { font-family: inherit; }
           </ul>
         </section>
 
-        <!-- Step-by-Step Instructions (Interactive Tap-to-Complete) -->
+        <!-- Step-by-Step Instructions -->
         <section class="steps-sec">
           <h3>👩‍🍳 Instructions</h3>
-          <p style="font-size: 13.5px; color: var(--text-muted); margin: -10px 0 18px;">Tip: Tap any step as you cook to check it off.</p>
+          <p style="font-size: 13.5px; color: var(--text-muted); margin: -10px 0 18px;">Tip: Tap any step as you go to check it off.</p>
           <ol class="steps-list">
             
     <li class="step-row" id="step-1" title="Tap to mark step complete">Melt the Kerrygold butter in a medium soup pot over medium heat. Toss in the diced russet potatoes and let them sauté for about 3 minutes until they start smelling earthy and golden on the edges.</li>
@@ -1679,18 +1685,21 @@ button { font-family: inherit; }
           </ol>
         </section>
 
-        <!-- Mia's Secret Kitchen Hack -->
+        <!-- Insider Tip Box -->
         <div class="hack-banner">
-          <div class="hack-banner-title">💡 Mia's Secret Kitchen Hack</div>
+          <div class="hack-banner-title">💡 My Favorite Flavor Upgrade</div>
           <p>Don't use pre-shredded bagged cheese if you can help it! The anti-caking powders they coat it with will make your soup grainy instead of silky. Grating a block of sharp cheddar takes 60 seconds and makes a huge difference.</p>
         </div>
 
-        <!-- Storage & Reheating -->
-        <div style="margin: 30px 0;">
-          <h3 style="font-size: 21px; font-weight: 800; margin-bottom: 8px;">🥡 Storage &amp; Reheating Tips</h3>
+        
+
+        <!-- Storage & Results -->
+        <div style="margin: 28px 0;">
+          <h3 style="font-size: 21px; font-weight: 800; margin-bottom: 8px;">🥡 Fridge & Reheat Guide</h3>
           <p style="font-size: 15.5px; color: var(--text-muted); line-height: 1.8;">Store leftover soup in an airtight container in the fridge for up to 3 days. Reheat it gently on the stovetop over low heat with a splash of milk to bring back that creamy texture, as it thickens up quite a bit overnight.</p>
         </div>
 
+        
         <!-- Nutrition Facts Breakdown -->
         <div class="nutrition-card">
           <h4>Estimated Nutrition (Per Serving)</h4>
@@ -1717,11 +1726,12 @@ button { font-family: inherit; }
             </div>
           </div>
         </div>
+  
 
         <!-- Interactive Star Rating -->
         <div class="rate-recipe-box">
           <p>Made this recipe? Tap to rate it:</p>
-          <div class="star-picker" id="starPicker" data-slug="15-minute-loaded-baked-potato-soup" aria-label="Rate this recipe">
+          <div class="star-picker" id="starPicker" data-slug="15-minute-loaded-baked-potato-soup" aria-label="Rate this post">
             <button class="star-btn" data-val="1" aria-label="1 star">★</button>
             <button class="star-btn" data-val="2" aria-label="2 stars">★</button>
             <button class="star-btn" data-val="3" aria-label="3 stars">★</button>
@@ -1778,7 +1788,7 @@ button { font-family: inherit; }
                 <article class="post-card">
                   <div class="card-img-wrap">
                     <a href="/recipes/slow-cooker-potato-leek-soup">
-                      <img class="post-card-img" src="https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Lazy Girl Guide to Silky Slow Cooker Potato Leek Soup" width="400" height="275" loading="lazy" decoding="async">
+                      <img class="post-card-img" src="https://images.pexels.com/photos/31997380/pexels-photo-31997380.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" alt="The Lazy Girl Guide to Silky Slow Cooker Potato Leek Soup" width="400" height="275" loading="lazy" decoding="async">
                     </a>
                     <span class="card-badge">Comfort Food</span>
                   </div>
@@ -1800,7 +1810,7 @@ button { font-family: inherit; }
                 <article class="post-card">
                   <div class="card-img-wrap">
                     <a href="/recipes/grandmas-fluffy-buttermilk-biscuits-25-minutes">
-                      <img class="post-card-img" src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Grandma’s 25-Minute Fluffy Buttermilk Biscuits (Under $3 a Batch!)" width="400" height="275" loading="lazy" decoding="async">
+                      <img class="post-card-img" src="https://www.themealdb.com/images/media/meals/q47rkb1762324620.jpg" alt="Grandma’s 25-Minute Fluffy Buttermilk Biscuits (Under $3 a Batch!)" width="400" height="275" loading="lazy" decoding="async">
                     </a>
                     <span class="card-badge">Comfort Food</span>
                   </div>
@@ -1822,7 +1832,7 @@ button { font-family: inherit; }
                 <article class="post-card">
                   <div class="card-img-wrap">
                     <a href="/recipes/cozy-apple-pear-crisp-oat-crunch">
-                      <img class="post-card-img" src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Cozy Apple &amp; Pear Crisp with Golden Oat Crunch" width="400" height="275" loading="lazy" decoding="async">
+                      <img class="post-card-img" src="https://www.themealdb.com/images/media/meals/xvsurr1511719182.jpg" alt="Cozy Apple &amp; Pear Crisp with Golden Oat Crunch" width="400" height="275" loading="lazy" decoding="async">
                     </a>
                     <span class="card-badge">Comfort Food</span>
                   </div>

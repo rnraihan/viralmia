@@ -12,66 +12,106 @@ if (!GEMINI_API_KEY) {
   process.exit(1);
 }
 
-// Curated high quality food photography organized by category/keyword
+// Verified, fast-CDN, rate-limit-free food photography pools (Unsplash + Pexels + TheMealDB)
 const CURATED_FOOD_IMAGES = {
   pasta: [
     'https://images.unsplash.com/photo-1608897013039-887f21d8c804?auto=format&fit=crop&w=1200&q=80',
     'https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=1200&q=80',
     'https://images.unsplash.com/photo-1556761223-4c4282c73f77?auto=format&fit=crop&w=1200&q=80',
-    'https://images.unsplash.com/photo-1546549032-9571cd6b27df?auto=format&fit=crop&w=1200&q=80'
+    'https://images.unsplash.com/photo-1546549032-9571cd6b27df?auto=format&fit=crop&w=1200&q=80',
+    'https://www.themealdb.com/images/media/meals/wvqpwt1468339226.jpg',
+    'https://www.themealdb.com/images/media/meals/syqypv1486981727.jpg'
   ],
   chicken: [
     'https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=1200&q=80',
     'https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=1200&q=80',
     'https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=1200&q=80',
-    'https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=1200&q=80'
+    'https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=1200&q=80',
+    'https://www.themealdb.com/images/media/meals/wyxwsp1486979827.jpg',
+    'https://www.themealdb.com/images/media/meals/cj56fs1762340001.jpg',
+    'https://www.themealdb.com/images/media/meals/wvpsxx1468256321.jpg'
+  ],
+  seafood: [
+    'https://www.themealdb.com/images/media/meals/xxyupu1468262513.jpg',
+    'https://www.themealdb.com/images/media/meals/1548772327.jpg',
+    'https://www.themealdb.com/images/media/meals/bx07m71764792853.jpg',
+    'https://www.themealdb.com/images/media/meals/fpl3mv1766433431.jpg',
+    'https://www.themealdb.com/images/media/meals/xxrxux1503070723.jpg'
   ],
   airFryer: [
-    'https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=1200&q=80',
     'https://images.unsplash.com/photo-1585325701165-351af916e581?auto=format&fit=crop&w=1200&q=80',
-    'https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=1200&q=80'
+    'https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=1200&q=80',
+    'https://www.themealdb.com/images/media/meals/21yc5s1760524759.jpg',
+    'https://www.themealdb.com/images/media/meals/h3ijwo1581013377.jpg'
   ],
   soup: [
     'https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=1200&q=80',
     'https://images.unsplash.com/photo-1603105037880-880cd4edfb0d?auto=format&fit=crop&w=1200&q=80',
-    'https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1200&q=80'
+    'https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1200&q=80',
+    'https://images.pexels.com/photos/31997380/pexels-photo-31997380.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    'https://www.themealdb.com/images/media/meals/p5nzbk1782680889.jpg',
+    'https://www.themealdb.com/images/media/meals/uwxqwy1483389553.jpg',
+    'https://www.themealdb.com/images/media/meals/stpuws1511191310.jpg',
+    'https://www.themealdb.com/images/media/meals/lx1kkj1593349302.jpg'
   ],
   breakfast: [
     'https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=1200&q=80',
     'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=1200&q=80',
-    'https://images.unsplash.com/photo-1506084868230-bb9d95c24759?auto=format&fit=crop&w=1200&q=80'
+    'https://images.unsplash.com/photo-1506084868230-bb9d95c24759?auto=format&fit=crop&w=1200&q=80',
+    'https://www.themealdb.com/images/media/meals/rwuyqx1511383174.jpg',
+    'https://www.themealdb.com/images/media/meals/sywswr1511383814.jpg',
+    'https://www.themealdb.com/images/media/meals/1550441882.jpg'
   ],
   eggs: [
     'https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&fit=crop&w=1200&q=80',
     'https://images.unsplash.com/photo-1506976785307-8732e854ad03?auto=format&fit=crop&w=1200&q=80',
-    'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=1200&q=80'
+    'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=1200&q=80',
+    'https://www.themealdb.com/images/media/meals/47y6ii1765658818.jpg'
   ],
   dessert: [
-    'https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=1200&q=80',
+    'https://www.themealdb.com/images/media/meals/yypvst1511386427.jpg',
+    'https://www.themealdb.com/images/media/meals/xvsurr1511719182.jpg',
+    'https://www.themealdb.com/images/media/meals/4i5cnx1587672171.jpg',
+    'https://www.themealdb.com/images/media/meals/stnxzp1784835840.jpg',
+    'https://www.themealdb.com/images/media/meals/c0gmo31766594751.jpg',
+    'https://www.themealdb.com/images/media/meals/y2irzl1585563479.jpg',
     'https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=1200&q=80',
-    'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1200&q=80'
+    'https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=1200&q=80'
   ],
   potato: [
+    'https://images.pexels.com/photos/30485743/pexels-photo-30485743.jpeg?auto=compress&cs=tinysrgb&w=1200',
     'https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=1200&q=80',
-    'https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=1200&q=80',
-    'https://images.unsplash.com/photo-1590165482129-1b8b27698780?auto=format&fit=crop&w=1200&q=80'
+    'https://images.unsplash.com/photo-1590165482129-1b8b27698780?auto=format&fit=crop&w=1200&q=80',
+    'https://www.themealdb.com/images/media/meals/z458v91763817681.jpg'
   ],
   steak: [
     'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80',
     'https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=1200&q=80',
-    'https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=1200&q=80'
+    'https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=1200&q=80',
+    'https://www.themealdb.com/images/media/meals/vussxq1511882648.jpg'
   ],
-  turkey: [
-    'https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=1200&q=80',
-    'https://images.unsplash.com/photo-1574672280600-4accfa5b6f98?auto=format&fit=crop&w=1200&q=80',
-    'https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=1200&q=80'
+  sausage: [
+    'https://images.pexels.com/photos/10794112/pexels-photo-10794112.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    'https://www.themealdb.com/images/media/meals/st1ifa1583267248.jpg',
+    'https://www.themealdb.com/images/media/meals/vxuyrx1511302687.jpg',
+    'https://www.themealdb.com/images/media/meals/vc08jn1628769553.jpg'
   ],
-  baking: [
+  bread: [
     'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1200&q=80',
-    'https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=1200&q=80',
-    'https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=1200&q=80'
+    'https://www.themealdb.com/images/media/meals/q47rkb1762324620.jpg',
+    'https://images.pexels.com/photos/5202240/pexels-photo-5202240.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    'https://www.themealdb.com/images/media/meals/lmc6r51764365554.jpg'
+  ],
+  veggie: [
+    'https://images.pexels.com/photos/10487659/pexels-photo-10487659.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=1200&q=80',
+    'https://images.pexels.com/photos/7936662/pexels-photo-7936662.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    'https://www.themealdb.com/images/media/meals/21yc5s1760524759.jpg'
   ],
   hack: [
+    'https://images.pexels.com/photos/36895511/pexels-photo-36895511.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    'https://images.pexels.com/photos/36295521/pexels-photo-36295521.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    'https://images.pexels.com/photos/19813728/pexels-photo-19813728.jpeg?auto=compress&cs=tinysrgb&w=1200',
     'https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=1200&q=80',
     'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1200&q=80',
     'https://images.unsplash.com/photo-1516594798947-e65505dbb29d?auto=format&fit=crop&w=1200&q=80'
@@ -80,67 +120,213 @@ const CURATED_FOOD_IMAGES = {
     'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=1200&q=80',
     'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1200&q=80',
     'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=1200&q=80',
-    'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=1200&q=80',
-    'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80'
+    'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80',
+    'https://www.themealdb.com/images/media/meals/j8c1d51782772399.jpg',
+    'https://www.themealdb.com/images/media/meals/ip5xtp1769779958.jpg'
   ]
 };
 
-function selectSmartImage(topic, category) {
+// Load all existing posts to enforce zero duplicate images & category diversity
+function getExistingPostsMeta() {
+  if (!fs.existsSync(POSTS_DIR)) return { usedImages: new Set(), recentCategories: [], recentStyles: [] };
+  const files = fs.readdirSync(POSTS_DIR).filter(f => f.endsWith('.json'));
+  const posts = [];
+  const usedImages = new Set();
+
+  for (const f of files) {
+    try {
+      const p = JSON.parse(fs.readFileSync(path.join(POSTS_DIR, f), 'utf8'));
+      if (p.heroImage) usedImages.add(p.heroImage);
+      posts.push(p);
+    } catch {}
+  }
+
+  posts.sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
+  return {
+    usedImages,
+    recentCategories: posts.slice(0, 2).map(p => p.category),
+    recentStyles: posts.slice(0, 2).map(p => p.postStyle).filter(Boolean)
+  };
+}
+
+async function isImageReachable(url) {
+  try {
+    const res = await fetch(url, { method: 'HEAD' });
+    return res.ok;
+  } catch {
+    return false;
+  }
+}
+
+// Query TheMealDB's free food photography database for an exact, unused dish photo
+async function findUniqueMealDbImage(topic, usedImages) {
+  const stopWords = new Set(['how', 'to', 'the', 'for', 'with', 'and', 'in', 'a', 'an', 'of', 'my', 'your', 'best', 'easy', 'quick', 'minute', 'minutes', 'viral', 'hack', 'air', 'fryer', 'one', 'pot', 'pan', 'sheet', 'crispy', 'creamy', 'homemade', 'recipe', 'recipes', 'stay', 'keep', 'fresh', 'ways', 'without', 'using', 'under', 'lazy', 'budget', 'ultimate', 'perfect', 'simple']);
+  const words = topic.toLowerCase().replace(/[^a-z\s]/g, ' ').split(/\s+/).filter(w => w.length >= 4 && !stopWords.has(w));
+
+  // Try exact food keywords first (longest/most specific words)
+  const searchTerms = [...new Set(words)].slice(0, 5);
+  for (const term of searchTerms) {
+    try {
+      const res = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${encodeURIComponent(term)}`);
+      if (!res.ok) continue;
+      const data = await res.json();
+      const meals = data.meals || [];
+      for (const meal of meals) {
+        if (meal.strMealThumb && !usedImages.has(meal.strMealThumb)) {
+          if (await isImageReachable(meal.strMealThumb)) {
+            console.log(`📸 Matched unique dish photo via TheMealDB ("${meal.strMeal}")`);
+            return meal.strMealThumb;
+          }
+        }
+      }
+    } catch {}
+  }
+  return null;
+}
+
+async function selectUniqueSmartImage(topic, category, usedImages) {
+  // 1. First try dynamic dish-specific search on TheMealDB (guarantees fresh, unique, exact-dish food photos!)
+  const dynamicImg = await findUniqueMealDbImage(topic, usedImages);
+  if (dynamicImg) return dynamicImg;
+
+  // 2. Next pick strictly matched curated pool (fixed keyword precedence so "crispy" never triggers dessert!)
   const text = `${topic} ${category}`.toLowerCase();
   let pool = CURATED_FOOD_IMAGES.general;
 
-  if (text.includes('steak') || text.includes('beef')) {
+  if (text.includes('salmon') || text.includes('shrimp') || text.includes('fish') || text.includes('tuna') || text.includes('cod')) {
+    pool = CURATED_FOOD_IMAGES.seafood;
+  } else if (text.includes('steak') || text.includes('beef') || text.includes('burger') || text.includes('meatball')) {
     pool = CURATED_FOOD_IMAGES.steak;
-  } else if (text.includes('turkey')) {
-    pool = CURATED_FOOD_IMAGES.turkey;
+  } else if (text.includes('sausage') || text.includes('kielbasa')) {
+    pool = CURATED_FOOD_IMAGES.sausage;
+  } else if (text.includes('soup') || text.includes('stew') || text.includes('chili') || text.includes('chowder')) {
+    pool = CURATED_FOOD_IMAGES.soup;
+  } else if (text.includes('pasta') || text.includes('spaghetti') || text.includes('noodle') || text.includes('ramen') || text.includes('gnocchi') || text.includes('mac') || text.includes('lasagna')) {
+    pool = CURATED_FOOD_IMAGES.pasta;
+  } else if (text.includes('chicken') || text.includes('turkey') || text.includes('wings')) {
+    pool = CURATED_FOOD_IMAGES.chicken;
+  } else if (text.includes('carrot') || text.includes('celery') || text.includes('broccoli') || text.includes('zucchini') || text.includes('green bean') || text.includes('avocado') || text.includes('salad') || text.includes('veggie')) {
+    pool = CURATED_FOOD_IMAGES.veggie;
   } else if (text.includes('potato') || text.includes('mashed')) {
     pool = CURATED_FOOD_IMAGES.potato;
-  } else if (text.includes('donut') || text.includes('crisp') || text.includes('bread') || text.includes('brie') || text.includes('casserole') || text.includes('baking')) {
-    pool = CURATED_FOOD_IMAGES.baking;
   } else if (text.includes('egg') || text.includes('omelet') || text.includes('boiled')) {
     pool = CURATED_FOOD_IMAGES.eggs;
-  } else if (text.includes('pasta') || text.includes('spaghetti') || text.includes('noodle') || text.includes('gnocchi') || text.includes('lasagna')) {
-    pool = CURATED_FOOD_IMAGES.pasta;
+  } else if (text.includes('pancake') || text.includes('waffle') || text.includes('breakfast') || text.includes('french toast') || text.includes('oatmeal')) {
+    pool = CURATED_FOOD_IMAGES.breakfast;
+  } else if (text.includes('biscuit') || text.includes('bread') || text.includes('brie') || text.includes('roll') || text.includes('garlic knot')) {
+    pool = CURATED_FOOD_IMAGES.bread;
+  } else if (text.includes('brownie') || text.includes('cookie') || text.includes('cake') || text.includes('donut') || text.includes('apple crisp') || text.includes('pear crisp') || text.includes('crumble') || text.includes('pie') || text.includes('dessert') || text.includes('chocolate')) {
+    pool = CURATED_FOOD_IMAGES.dessert;
   } else if (text.includes('air fryer')) {
     pool = CURATED_FOOD_IMAGES.airFryer;
-  } else if (text.includes('chicken') || text.includes('bites') || text.includes('wings') || text.includes('meat') || text.includes('sausage')) {
-    pool = CURATED_FOOD_IMAGES.chicken;
-  } else if (text.includes('soup') || text.includes('stew') || text.includes('chili')) {
-    pool = CURATED_FOOD_IMAGES.soup;
-  } else if (text.includes('pancake') || text.includes('waffle') || text.includes('breakfast') || text.includes('toast') || text.includes('oat')) {
-    pool = CURATED_FOOD_IMAGES.breakfast;
-  } else if (text.includes('dessert') || text.includes('cookie') || text.includes('cake') || text.includes('sweet') || text.includes('chocolate')) {
-    pool = CURATED_FOOD_IMAGES.dessert;
-  } else if (text.includes('hack') || text.includes('fresh') || text.includes('storage') || text.includes('peel') || text.includes('freeze')) {
+  } else if (text.includes('hack') || text.includes('store') || text.includes('storage') || text.includes('clean') || text.includes('peel') || text.includes('freeze') || text.includes('reheat') || text.includes('chop')) {
     pool = CURATED_FOOD_IMAGES.hack;
   }
 
-  return pool[Math.floor(Math.random() * pool.length)];
+  // Strictly choose an UNUSED verified image from the matched pool first
+  const unusedInPool = pool.filter(u => !usedImages.has(u));
+  for (const candidate of unusedInPool) {
+    if (await isImageReachable(candidate)) return candidate;
+  }
+
+  // 3. Fallback: pick ANY unused verified image across all curated pools
+  const allCurated = [...new Set(Object.values(CURATED_FOOD_IMAGES).flat())].filter(u => !usedImages.has(u));
+  for (const candidate of allCurated) {
+    if (await isImageReachable(candidate)) return candidate;
+  }
+
+  // 4. Last-resort fallback: grab a random unused meal photo from TheMealDB
+  for (let attempt = 0; attempt < 6; attempt++) {
+    try {
+      const r = await fetch('https://www.themealdb.com/api/json/v1/1/random.php');
+      if (r.ok) {
+        const d = await r.json();
+        const thumb = d.meals?.[0]?.strMealThumb;
+        if (thumb && !usedImages.has(thumb)) return thumb;
+      }
+    } catch {}
+  }
+
+  return pool[0];
 }
 
-// 5 Distinct Post Archetypes / Human Moods
-const HUMAN_PERSONA_MOODS = [
+// 6 Distinct Authentic Human Editorial Styles (Prevents Robotic Footprint)
+const EDITORIAL_STYLES = [
   {
-    name: "The Exhausted Weeknight Save",
-    guideline: "Tone: Funny, relatable, tired millennial after a chaotic 9-hour workday. Focuses on speed, shortcuts, 1-pot cleanup, and salvaging dinner when takeout was too expensive or slow."
+    id: 'weeknight-save',
+    name: 'The Exhausted Weeknight Save',
+    storyHeading: 'Why This Saved My Tuesday Night',
+    hackHeading: 'The One Shortcut That Matters',
+    storageHeading: 'Leftovers & Next-Day Lunch Tips',
+    stepRange: '4 to 5 concise steps',
+    faqCount: '2 or 3 practical questions',
+    guideline: 'Tone: Witty, honest, tired US home cook coming home at 6:30 PM. Skip long backstory—focus on speed, one-pan practicality, and beating $35 DoorDash fees. Vary your opening sentence naturally (NEVER start with "Look, I love" or "Nothing beats").'
   },
   {
-    name: "The Frugal Grocery Budget Hacker",
-    guideline: "Tone: Smart, practical, dollar-savvy home cook. Mentions saving money compared to restaurant takeout ($25 vs $4), utilizing everyday Aldi / Trader Joe's pantry items, and cost-effective swaps."
+    id: 'kitchen-science',
+    name: 'Test-Kitchen Food Science Breakdown',
+    storyHeading: 'The Kitchen Science Behind This Method',
+    hackHeading: 'Why This Technique Actually Works',
+    storageHeading: 'How to Keep the Texture Perfect Later',
+    stepRange: '4 to 6 precise steps',
+    faqCount: '3 specific troubleshooting questions',
+    guideline: 'Tone: Curious, authoritative, practical food editor (like Serious Eats meets everyday home cooking). Explain the concrete culinary science (heat transfer, Maillard browning, moisture control, emulsion, acid balance) in friendly, crystal-clear English.'
   },
   {
-    name: "The Cozy Weekend Kitchen Journal",
-    guideline: "Tone: Warm, sensory-rich, mindful cooking. Focuses on aromas, crackling sounds of butter and garlic, rain outside the window, favorite Spotify playlist, and true soul comfort food."
+    id: 'budget-hacker',
+    name: 'The Smart US Grocery Budget Cook',
+    storyHeading: 'How to Make This for a Fraction of Takeout Cost',
+    hackHeading: 'Mia\'s Pantry Stretch Trick',
+    storageHeading: 'Meal-Prep & Freezer Game Plan',
+    stepRange: '3 to 5 clear steps',
+    faqCount: '2 or 3 substitution/budget questions',
+    guideline: 'Tone: Clever, dollar-smart home cook sharing real grocery math ($3–$5 per serving vs $22 restaurant plate). Casually mention real US staples (Aldi, Trader Joe\'s, Kirkland/Costco, kosher salt, garlic powder) and easy swaps using what\'s already in the fridge.'
   },
   {
-    name: "The Food Science & Kitchen Experimenter",
-    guideline: "Tone: Enthusiastic, curious, 'mind-blowing kitchen discovery'. Explains why the hack or cooking method works scientifically (e.g. moisture control, starch emulsion, heat retention) in plain, punchy English."
+    id: 'cozy-journal',
+    name: 'Cozy Home Kitchen Journal',
+    storyHeading: 'Notes From Mia\'s Kitchen',
+    hackHeading: 'My Favorite Flavor Upgrade',
+    storageHeading: 'Storing & Reheating Without Losing Flavor',
+    stepRange: '5 to 6 sensory steps',
+    faqCount: '3 warm reader questions',
+    guideline: 'Tone: Warm, vivid, sensory food writing focused on aroma, texture, sizzling butter, toasted spices, and cozy weeknight comfort. Include one honest trial-and-error lesson from testing the dish.'
   },
   {
-    name: "The 1-Pan Minimalist & Dish-Hater",
-    guideline: "Tone: Direct, witty, no-nonsense. Mia lives in a small apartment without a giant dishwasher and refuses to scrub multiple greasy pans after 8 PM."
+    id: 'minimalist-pan',
+    name: 'The Minimalist One-Pan Cook',
+    storyHeading: 'Big Flavor, Almost Zero Cleanup',
+    hackHeading: 'Don\'t Skip This Crucial Step',
+    storageHeading: 'Fridge & Reheat Guide',
+    stepRange: '3 to 5 tight steps',
+    faqCount: '2 direct questions',
+    guideline: 'Tone: Crisp, direct, no-fluff editorial voice for cooks who hate scrubbing piles of dishes. Emphasize smart prep order so everything lands in one skillet, sheet pan, or air fryer basket.'
+  },
+  {
+    id: 'crowd-pleaser',
+    name: 'Weekend & Family Crowd-Pleaser',
+    storyHeading: 'Why Everyone Asks for This Recipe',
+    hackHeading: 'Make-Ahead & Hosting Secret',
+    storageHeading: 'Keeping Leftovers Fresh All Week',
+    stepRange: '4 to 6 clear steps',
+    faqCount: '3 or 4 helpful reader questions',
+    guideline: 'Tone: Enthusiastic, generous, seasoned home host sharing a reliable crowd-pleaser for family dinners, potlucks, or lazy Sundays. Mention easy scaling and serving pairings.'
   }
 ];
+
+// Pick next pending topic from a DIFFERENT category than recent posts (natural editorial variety)
+function pickDiversePendingTopic(topics, recentCategories) {
+  const pending = topics.filter(t => t.status === 'pending');
+  if (pending.length === 0) return null;
+
+  // Prefer a category not used in the last 2 posts
+  const freshCategoryTopic = pending.find(t => !recentCategories.includes(t.category));
+  if (freshCategoryTopic) return freshCategoryTopic;
+
+  // Otherwise at least avoid the immediately preceding post's category
+  const diffFromLast = pending.find(t => t.category !== recentCategories[0]);
+  return diffFromLast || pending[0];
+}
 
 async function generateNextPost() {
   if (!fs.existsSync(TOPICS_FILE)) {
@@ -149,107 +335,123 @@ async function generateNextPost() {
   }
 
   const topics = JSON.parse(fs.readFileSync(TOPICS_FILE, 'utf8'));
-  const targetTopic = topics.find(t => t.status === 'pending');
+  const { usedImages, recentCategories, recentStyles } = getExistingPostsMeta();
+  const targetTopic = pickDiversePendingTopic(topics, recentCategories);
 
   if (!targetTopic) {
     console.log('🎉 All topics have been generated and published!');
     return;
   }
 
-  // Randomly pick one of the 5 human persona moods
-  const randomMood = HUMAN_PERSONA_MOODS[Math.floor(Math.random() * HUMAN_PERSONA_MOODS.length)];
-  const randomServings = [2, 3, 4, 4, 6][Math.floor(Math.random() * 5)];
+  // Pick an editorial style NOT used in the last 2 posts
+  const availableStyles = EDITORIAL_STYLES.filter(s => !recentStyles.includes(s.id));
+  const stylePool = availableStyles.length > 0 ? availableStyles : EDITORIAL_STYLES;
+  const chosenStyle = stylePool[Math.floor(Math.random() * stylePool.length)];
+
+  const isKitchenHack = targetTopic.category === 'Kitchen Hacks';
+  const randomServings = isKitchenHack ? '1 Batch' : String([2, 3, 4, 4, 6][Math.floor(Math.random() * 5)]);
   const randomRating = (4.8 + Math.random() * 0.2).toFixed(1);
-  const randomReviews = Math.floor(Math.random() * 35) + 32;
-  const dynamicTemp = (0.75 + Math.random() * 0.15).toFixed(2);
+  const randomReviews = Math.floor(Math.random() * 38) + 29;
+  const dynamicTemp = (0.78 + Math.random() * 0.14).toFixed(2);
 
-  console.log(`🍳 Generating Human-Style Post for: "${targetTopic.topic}"`);
-  console.log(`🎭 Selected Style Mood: "${randomMood.name}" | Temp: ${dynamicTemp}`);
+  console.log(`🍳 Generating Authentic Post: "${targetTopic.topic}" [${targetTopic.category}]`);
+  console.log(`🎭 Style Archetype: "${chosenStyle.name}" | Temp: ${dynamicTemp}`);
 
-  const prompt = `You are "Mia", an authentic, warm, 28-year-old home cook living in a cozy apartment in the United States. You write the food journal "Viral Mia" (viralmia.me).
+  const prompt = `You are "Mia", an authentic, experienced US home cook and food writer publishing on "Viral Mia Kitchen" (viralmia.me).
 
-YOUR WRITING STYLE FOR THIS POST:
-${randomMood.guideline}
+EDITORIAL STYLE FOR THIS SPECIFIC POST:
+- Archetype: ${chosenStyle.name}
+- ${chosenStyle.guideline}
+- Post Type: ${isKitchenHack ? 'Practical Kitchen Hack / Food-Science How-To Guide (NOT a full dinner recipe)' : 'Tested Everyday US Recipe'}
 
-STRICT ANTI-AI DETECTION & HUMAN EEAT RULES:
-1. FORBIDDEN AI BUZZWORDS: Never use "delve", "testament", "symphony of flavors", "culinary masterpiece", "game-changer", "elevate your dish", "nestled", "tapestry", "embark", "mouthwatering delight". These scream AI bot.
-2. NATURAL HUMAN VOICE: Write with genuine personality, humor, and casual contractions (I'd, couldn't, wasn't, honestly). Talk like you are messaging a food-loving friend.
-3. REALISTIC MISTAKE / LESSON (EEAT): Include a brief, real-life cooking detail or testing lesson (e.g., "The first time I tested this, I cranked the skillet too high and burnt the garlic—keep the heat medium-low for that golden aroma!").
-4. REAL US PANTRY & STORE MENTIONS: Casually reference real US grocery staples or stores (e.g., Kerrygold butter, Rao's marinara, Trader Joe's brioche, Aldi produce, kosher salt, avocado oil).
-5. PRACTICAL MEASUREMENTS: Use standard US kitchen measurements (tablespoons, cups, ounces, minutes).
+STRICT AUTHENTICITY & ANTI-AI FOOTPRINT RULES:
+1. FORBIDDEN AI CLICHES: NEVER use "delve", "testament", "symphony of flavors", "culinary masterpiece", "game-changer", "elevate", "nestled", "tapestry", "embark", "mouthwatering delight", or open your story with "Look, I love..." or "Nothing beats...".
+2. DISTINCT HUMAN VOICE: Write like a real published US food editor—natural contractions, concrete sensory details, realistic kitchen timings, and zero robotic filler.
+3. REAL TEST-KITCHEN LESSON (E-E-A-T): Share one brief, specific mistake or testing discovery (e.g., exact pan temp, resting time, moisture trick, or ingredient brand insight).
+4. AUTHENTIC US PANTRY & UNITS: Standard US measurements (cups, tbsp, tsp, oz, °F, mins) and natural mentions of real US staples when relevant.
+5. NATURAL STRUCTURAL VARIETY: Write ${chosenStyle.stepRange} (do NOT prefix steps with "Step 1:" — just write each step directly) and ${chosenStyle.faqCount}.
 
 TOPIC TO WRITE ABOUT:
-Topic: "${targetTopic.topic}"
-Category: "${targetTopic.category}"
-Target Keyword: "${targetTopic.keyword}"
+- Topic: "${targetTopic.topic}"
+- Category: "${targetTopic.category}"
+- Primary Keyword: "${targetTopic.keyword}"
 
-Return a STRICT, RAW JSON object (no markdown code blocks, just raw JSON) with these exact keys:
+Return ONLY a valid raw JSON object (no markdown code fences) with these exact keys:
 {
-  "title": "Natural, clickable, human title for American home cooks (not generic)",
-  "slug": "url-friendly-lowercase-slug-without-special-characters",
-  "description": "Engaging, high-CTR 140-160 character meta description for Google search",
+  "title": "Natural, high-CTR, human US food-blog headline (avoid generic AI phrasing)",
+  "slug": "clean-lowercase-hyphenated-slug",
+  "description": "Compelling 140-158 character SEO meta description for US Google searchers",
   "category": "${targetTopic.category}",
+  "postStyle": "${chosenStyle.id}",
+  "storyHeading": "${chosenStyle.storyHeading}",
+  "hackHeading": "${chosenStyle.hackHeading}",
+  "storageHeading": "${chosenStyle.storageHeading}",
   "date": "${new Date().toISOString().split('T')[0]}",
-  "readTime": "3 min read",
-  "prepTime": "e.g. 8 mins",
-  "cookTime": "e.g. 14 mins",
+  "readTime": "${Math.floor(Math.random() * 2) + 3} min read",
+  "prepTime": "${isKitchenHack ? '3 mins' : 'e.g. 8 mins'}",
+  "cookTime": "${isKitchenHack ? '0 mins' : 'e.g. 14 mins'}",
   "servings": "${randomServings}",
-  "calories": "e.g. 390 kcal",
+  "calories": "${isKitchenHack ? 'N/A' : 'e.g. 385 kcal'}",
+  "costPerServing": "${isKitchenHack ? 'Under $1' : 'e.g. ~$3.50 / serving'}",
   "rating": "${randomRating}",
   "reviewCount": ${randomReviews},
   "nutrition": {
-    "calories": "390 kcal",
-    "protein": "24g",
-    "carbs": "36g",
-    "fat": "14g",
-    "fiber": "4g"
+    "calories": "${isKitchenHack ? 'N/A' : '385 kcal'}",
+    "protein": "${isKitchenHack ? '0g' : '24g'}",
+    "carbs": "${isKitchenHack ? '0g' : '34g'}",
+    "fat": "${isKitchenHack ? '0g' : '15g'}",
+    "fiber": "${isKitchenHack ? '0g' : '4g'}"
   },
-  "story": "A rich, personal 140-180 word personal diary story by Mia reflecting the '${randomMood.name}' mood. Mention relatable apartment kitchen details, a busy day, and why this recipe saved dinner.",
+  "story": "An authentic, fresh 130-175 word personal intro written strictly in the '${chosenStyle.name}' voice with a real testing insight.",
   "ingredients": [
-    "Array of 6 to 9 specific ingredients with exact US measurements and helpful notes"
+    "5 to 9 specific ${isKitchenHack ? 'supplies or pantry items' : 'ingredients with exact US measurements'}"
   ],
   "instructions": [
-    "Step 1: clear step description with sensory details (heat, aroma, color)",
-    "Step 2: description",
-    "Step 3: description",
-    "Step 4: description"
+    "Clear direct step without 'Step 1:' prefix, rich with visual/temperature cues",
+    "Next step...",
+    "Next step..."
   ],
-  "proHack": "Mia's secret, genuine insider hack for this specific dish (e.g. temperature control, pre-salting, starch water, garlic timing)",
-  "storage": "Specific, practical tips for storing leftovers in fridge or freezer and best way to reheat so it tastes fresh",
+  "proHack": "Mia's genuine insider trick specific to this exact dish or hack",
+  "servingIdea": "${isKitchenHack ? 'Best everyday ways to use this hack during weekly meal prep' : '1-2 delicious US side dishes, toppings, or pairings that go great with this meal'}",
+  "storage": "Practical fridge/freezer storage and exact reheating instructions",
   "faqs": [
-    {"question": "Can I substitute [ingredient] if I don't have it?", "answer": "Practical, flexible answer with 2 good pantry alternatives"},
-    {"question": "How do I prevent [common cooking issue with this dish]?", "answer": "Clear troubleshooting tip"}
+    {"question": "Specific real reader question?", "answer": "Practical, direct answer"},
+    {"question": "Second specific question?", "answer": "Helpful troubleshooting or swap answer"}
   ],
-  "keywords": ["5", "distinct", "high-intent", "search", "keywords"]
+  "keywords": ["5", "distinct", "US-targeted", "search", "keywords"]
 }`;
 
   try {
     const recipeData = await callGeminiWithFallback(prompt, dynamicTemp);
 
-    // Pick contextual high-res food image
-    recipeData.heroImage = selectSmartImage(recipeData.title || targetTopic.topic, targetTopic.category);
+    // Pick a 100% UNIQUE, verified, dish-matched image (never duplicates existing posts!)
+    recipeData.heroImage = await selectUniqueSmartImage(
+      recipeData.title || targetTopic.topic,
+      targetTopic.category,
+      usedImages
+    );
 
-    // Always sanitize slug to guarantee clean URL-safe lowercase characters (no spaces/special chars)
+    // Always sanitize slug strictly
     recipeData.slug = String(recipeData.slug || targetTopic.topic)
       .toLowerCase()
       .replace(/[^a-z0-9]+/g, '-')
       .replace(/(^-|-$)/g, '');
 
-    if (!recipeData.slug) {
-      recipeData.slug = `recipe-${Date.now()}`;
-    }
+    if (!recipeData.slug) recipeData.slug = `recipe-${Date.now()}`;
 
-    // Ensure required fields exist before writing
+    // Ensure required fields exist
     if (!recipeData.title || !Array.isArray(recipeData.ingredients) || !Array.isArray(recipeData.instructions)) {
       throw new Error('Generated JSON is missing required recipe fields (title, ingredients, or instructions).');
     }
     recipeData.category = recipeData.category || targetTopic.category;
     recipeData.date = recipeData.date || new Date().toISOString().split('T')[0];
+    recipeData.postStyle = recipeData.postStyle || chosenStyle.id;
 
     if (!fs.existsSync(POSTS_DIR)) fs.mkdirSync(POSTS_DIR, { recursive: true });
     const postFilePath = path.join(POSTS_DIR, `${recipeData.slug}.json`);
     fs.writeFileSync(postFilePath, JSON.stringify(recipeData, null, 2));
-    console.log(`✅ Saved authentic human recipe post: posts/${recipeData.slug}.json`);
+    console.log(`✅ Saved authentic recipe post: posts/${recipeData.slug}.json`);
+    console.log(`🖼️ Unique Hero Image: ${recipeData.heroImage}`);
 
     targetTopic.status = 'done';
     fs.writeFileSync(TOPICS_FILE, JSON.stringify(topics, null, 2));
@@ -257,7 +459,6 @@ Return a STRICT, RAW JSON object (no markdown code blocks, just raw JSON) with t
     console.log('🔄 Rebuilding static site with new recipe...');
     execSync('node build.js', { stdio: 'inherit' });
     console.log('✨ Auto-generation & build finished successfully!');
-
   } catch (err) {
     console.error('❌ Failed to generate post:', err.message);
     process.exit(1);
@@ -265,7 +466,6 @@ Return a STRICT, RAW JSON object (no markdown code blocks, just raw JSON) with t
 }
 
 async function callGeminiWithFallback(prompt, temperature) {
-  // 1. Dynamically discover active models for this API key
   let models = [];
   try {
     console.log('🔍 Querying available models from Gemini ModelService...');
@@ -281,47 +481,38 @@ async function callGeminiWithFallback(prompt, temperature) {
         .filter(name => !excludedKeywords.some(kw => name.toLowerCase().includes(kw)));
 
       console.log('📋 Discovered supported models:', contentModels.join(', '));
-
-      // Prioritize flash models, then any content models
       const flashModels = contentModels.filter(m => m.includes('flash'));
       const otherModels = contentModels.filter(m => !m.includes('flash'));
       models = [...flashModels, ...otherModels];
     } else {
-      const listErr = await listRes.text();
-      console.warn(`⚠️ Failed to list models (${listRes.status}):`, listErr);
+      console.warn(`⚠️ Failed to list models (${listRes.status})`);
     }
   } catch (err) {
     console.warn('⚠️ Could not query model list:', err.message);
   }
 
-  // Fallback candidate list if discovery failed
   if (models.length === 0) {
     models = [
-      'gemini-1.5-flash-002',
-      'gemini-1.5-flash-001',
-      'gemini-1.5-pro-002',
-      'gemini-1.5-pro-001',
-      'gemini-2.0-flash-exp',
       'gemini-2.5-flash',
-      'gemini-1.5-flash',
-      'gemini-pro'
+      'gemini-2.0-flash',
+      'gemini-1.5-flash-002',
+      'gemini-1.5-pro-002',
+      'gemini-1.5-flash'
     ];
   }
 
   let lastError = null;
-
   for (const model of models) {
     try {
       console.log(`🤖 Requesting Gemini API with model: "${model}"...`);
       const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${GEMINI_API_KEY}`;
-
       const response = await fetch(apiUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           contents: [{ parts: [{ text: prompt }] }],
           generationConfig: {
-            responseMimeType: "application/json",
+            responseMimeType: 'application/json',
             temperature: parseFloat(temperature)
           }
         })

@@ -53,7 +53,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="preconnect" href="https://images.pexels.com">
+  <link rel="preconnect" href="https://www.themealdb.com">
   <link rel="dns-prefetch" href="https://images.unsplash.com">
+  <link rel="dns-prefetch" href="https://images.pexels.com">
+  <link rel="dns-prefetch" href="https://www.themealdb.com">
   <link rel="preload" as="image" href="https://images.unsplash.com/photo-1574484284002-952d92456975?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" fetchpriority="high">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
@@ -1533,16 +1537,16 @@ button { font-family: inherit; }
 
         <div class="action-buttons">
           <a href="#recipe-card" class="btn-action btn-primary-action">Jump to Recipe ↓</a>
-          <button onclick="window.print(); showToast('🖨️ Opening printable recipe card...');" class="btn-action">🖨️ Print Recipe</button>
+          <button onclick="window.print(); showToast('🖨️ Opening printable card...');" class="btn-action">🖨️ Print Recipe</button>
           <a href="https://pinterest.com/pin/create/button/?url=https%3A%2F%2Fviralmia.me%2Frecipes%2Fjuicy-air-fryer-turkey-breast-hack&media=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1574484284002-952d92456975%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1200%26q%3D80&description=The%20Juicy%20Air%20Fryer%20Turkey%20Breast%20Hack%20That%20Cut%20My%20Deli%20Bill%20in%20Half" target="_blank" rel="noopener" class="btn-action" onclick="showToast('📌 Pinning to Pinterest!')">📌 Pin It</a>
         </div>
       </header>
 
       <img class="article-hero" src="https://images.unsplash.com/photo-1574484284002-952d92456975?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="The Juicy Air Fryer Turkey Breast Hack That Cut My Deli Bill in Half" width="1200" height="750" fetchpriority="high" decoding="async">
 
-      <!-- Mia's Kitchen Diary -->
+      <!-- Editorial Kitchen Intro -->
       <div class="diary-card reveal-on-scroll">
-        <div class="diary-badge">💌 Mia's Kitchen Note</div>
+        <div class="diary-badge">💌 Why This Works Every Time</div>
         <p class="diary-text">Last Tuesday, I almost caved and ordered a turkey club on DoorDash. With the sneaky service fees and tip, lunch was going to run me $24.80. For sliced turkey! Instead, I pulled a two-pound split turkey breast out of my freezer that I snagged on markdown at Aldi for $6.20. I used to think turkey breast cooked on a random weeknight was guaranteed sawdust. The first time I tested this in my air fryer, I cranked the basket to 400°F right away and dried out the outer meat before the center even hit temp. Lesson learned: cook lower at 360°F and pull it at exactly 160°F to let carryover heat do the heavy lifting. Smearing garlic-herb Kerrygold butter under the skin protects the breast while crisping the top like crackling. I got two dinners out of this, plus lunch slices for days. Total cost per meal sat right at $3.40, completely blowing away that takeout order.</p>
       </div>
 
@@ -1554,7 +1558,7 @@ button { font-family: inherit; }
         <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fviralmia.me%2Frecipes%2Fjuicy-air-fryer-turkey-breast-hack&text=The%20Juicy%20Air%20Fryer%20Turkey%20Breast%20Hack%20That%20Cut%20My%20Deli%20Bill%20in%20Half" target="_blank" rel="noopener" class="share-btn share-twitter">X (Twitter)</a>
       </div>
 
-      <!-- OFFICIAL PRINTABLE RECIPE CARD -->
+      <!-- OFFICIAL PRINTABLE CARD -->
       <div class="recipe-card-box reveal-on-scroll" id="recipe-card">
         <div class="recipe-card-header">
           <div>
@@ -1576,7 +1580,7 @@ button { font-family: inherit; }
           </button>
         </div>
 
-        <!-- 5-Column Recipe Stats Grid -->
+        
         <div class="recipe-stats">
           <div class="stat-box">
             <span class="stat-label">Prep Time</span>
@@ -1599,11 +1603,13 @@ button { font-family: inherit; }
             <span class="stat-val">🔥 260 kcal</span>
           </div>
         </div>
+  
 
-        <!-- Ingredients Checklist with Interactive 1x / 2x / 3x Scaler -->
+        <!-- Ingredients / Supplies Checklist -->
         <section class="ingredients-sec">
           <div class="ingredients-header-row">
             <h3>🛒 Ingredients</h3>
+            
             <div class="scaler-group" role="group" aria-label="Scale recipe servings">
               <span class="scaler-label">Scale:</span>
               <button class="scale-btn active" data-scale="1">1x</button>
@@ -1657,10 +1663,10 @@ button { font-family: inherit; }
           </ul>
         </section>
 
-        <!-- Step-by-Step Instructions (Interactive Tap-to-Complete) -->
+        <!-- Step-by-Step Instructions -->
         <section class="steps-sec">
           <h3>👩‍🍳 Instructions</h3>
-          <p style="font-size: 13.5px; color: var(--text-muted); margin: -10px 0 18px;">Tip: Tap any step as you cook to check it off.</p>
+          <p style="font-size: 13.5px; color: var(--text-muted); margin: -10px 0 18px;">Tip: Tap any step as you go to check it off.</p>
           <ol class="steps-list">
             
     <li class="step-row" id="step-1" title="Tap to mark step complete">Thoroughly pat the turkey breast dry using two layers of paper towels. Moisture is the enemy of crisp skin, so get it bone-dry all over.</li>
@@ -1674,18 +1680,21 @@ button { font-family: inherit; }
           </ol>
         </section>
 
-        <!-- Mia's Secret Kitchen Hack -->
+        <!-- Insider Tip Box -->
         <div class="hack-banner">
-          <div class="hack-banner-title">💡 Mia's Secret Kitchen Hack</div>
+          <div class="hack-banner-title">💡 My Favorite Flavor Upgrade</div>
           <p>Smear the seasoned butter underneath the skin rather than just on top. The skin acts like a miniature oven shield, keeping the garlic and herbs from scorching in high-speed air while the melting butter constantly bastes the lean breast meat from the inside.</p>
         </div>
 
-        <!-- Storage & Reheating -->
-        <div style="margin: 30px 0;">
-          <h3 style="font-size: 21px; font-weight: 800; margin-bottom: 8px;">🥡 Storage &amp; Reheating Tips</h3>
+        
+
+        <!-- Storage & Results -->
+        <div style="margin: 28px 0;">
+          <h3 style="font-size: 21px; font-weight: 800; margin-bottom: 8px;">🥡 Fridge & Reheat Guide</h3>
           <p style="font-size: 15.5px; color: var(--text-muted); line-height: 1.8;">Store leftovers in a sealed glass container in the fridge for up to 4 days. Keep the remaining piece whole and only slice what you plan to eat right away so the cut edges don't dry out. To reheat without ruining the texture, warm slices in the air fryer at 300°F for 3 to 4 minutes with a spoonful of broth or butter.</p>
         </div>
 
+        
         <!-- Nutrition Facts Breakdown -->
         <div class="nutrition-card">
           <h4>Estimated Nutrition (Per Serving)</h4>
@@ -1712,11 +1721,12 @@ button { font-family: inherit; }
             </div>
           </div>
         </div>
+  
 
         <!-- Interactive Star Rating -->
         <div class="rate-recipe-box">
           <p>Made this recipe? Tap to rate it:</p>
-          <div class="star-picker" id="starPicker" data-slug="juicy-air-fryer-turkey-breast-hack" aria-label="Rate this recipe">
+          <div class="star-picker" id="starPicker" data-slug="juicy-air-fryer-turkey-breast-hack" aria-label="Rate this post">
             <button class="star-btn" data-val="1" aria-label="1 star">★</button>
             <button class="star-btn" data-val="2" aria-label="2 stars">★</button>
             <button class="star-btn" data-val="3" aria-label="3 stars">★</button>
@@ -1773,7 +1783,7 @@ button { font-family: inherit; }
                 <article class="post-card">
                   <div class="card-img-wrap">
                     <a href="/recipes/crispy-air-fryer-green-bean-fries">
-                      <img class="post-card-img" src="https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Forget Soggy Veggies: These Crispy Air Fryer Green Bean Fries Are My New Obsession" width="400" height="275" loading="lazy" decoding="async">
+                      <img class="post-card-img" src="https://www.themealdb.com/images/media/meals/21yc5s1760524759.jpg" alt="Forget Soggy Veggies: These Crispy Air Fryer Green Bean Fries Are My New Obsession" width="400" height="275" loading="lazy" decoding="async">
                     </a>
                     <span class="card-badge">Air Fryer Meals</span>
                   </div>
@@ -1817,7 +1827,7 @@ button { font-family: inherit; }
                 <article class="post-card">
                   <div class="card-img-wrap">
                     <a href="/recipes/5-minute-microwave-mug-brownie">
-                      <img class="post-card-img" src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Rich &amp; Fudgy 5-Minute Microwave Mug Brownie for Late-Night Cravings" width="400" height="275" loading="lazy" decoding="async">
+                      <img class="post-card-img" src="https://www.themealdb.com/images/media/meals/yypvst1511386427.jpg" alt="Rich &amp; Fudgy 5-Minute Microwave Mug Brownie for Late-Night Cravings" width="400" height="275" loading="lazy" decoding="async">
                     </a>
                     <span class="card-badge">Desserts & Sweets</span>
                   </div>
