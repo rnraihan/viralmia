@@ -135,13 +135,14 @@ function getExistingPostsMeta() {
 
   for (const f of files) {
     try {
-      const p = JSON.parse(fs.readFileSync(path.join(POSTS_DIR, f), 'utf8'));
+      const full = path.join(POSTS_DIR, f);
+      const p = JSON.parse(fs.readFileSync(full, 'utf8'));
       if (p.heroImage) usedImages.add(p.heroImage);
-      posts.push(p);
+      posts.push({ ...p, _mtime: fs.statSync(full).mtimeMs });
     } catch {}
   }
 
-  posts.sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
+  posts.sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0) || b._mtime - a._mtime);
   return {
     usedImages,
     recentCategories: posts.slice(0, 2).map(p => p.category),
@@ -448,6 +449,12 @@ Return ONLY a valid raw JSON object (no markdown code fences) with these exact k
     recipeData.postStyle = recipeData.postStyle || chosenStyle.id;
 
     if (!fs.existsSync(POSTS_DIR)) fs.mkdirSync(POSTS_DIR, { recursive: true });
+    let finalSlug = recipeData.slug;
+    let suffix = 2;
+    while (fs.existsSync(path.join(POSTS_DIR, `${finalSlug}.json`))) {
+      finalSlug = `${recipeData.slug}-${suffix++}`;
+    }
+    recipeData.slug = finalSlug;
     const postFilePath = path.join(POSTS_DIR, `${recipeData.slug}.json`);
     fs.writeFileSync(postFilePath, JSON.stringify(recipeData, null, 2));
     console.log(`✅ Saved authentic recipe post: posts/${recipeData.slug}.json`);
@@ -509,6 +516,7 @@ async function callGeminiWithFallback(prompt, temperature) {
       const response = await fetch(apiUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
+        signal: AbortSignal.timeout(45000),
         body: JSON.stringify({
           contents: [{ parts: [{ text: prompt }] }],
           generationConfig: {

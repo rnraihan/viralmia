@@ -9,9 +9,14 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: viralmia-auto-post
+  cancel-in-progress: false
+
 jobs:
   auto-post:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
 
     steps:
       - name: Checkout Code
@@ -33,5 +38,10 @@ jobs:
           git config --global user.name "Mia"
           git config --global user.email "mia@viralmia.me"
           git add -A posts/ topics.json dist/
-          git commit -m "✨ Fresh home recipe published: $(date '+%Y-%m-%d')" || echo "No changes to commit"
-          git push origin main
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "✨ Fresh home recipe published: $(date '+%Y-%m-%d')"
+            git pull --rebase origin main
+            git push origin main
+          fi
