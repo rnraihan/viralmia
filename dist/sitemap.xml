@@ -37,6 +37,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://viralmia.me/category/quick-dinners</loc>
+    <lastmod>2026-11-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://viralmia.me/category/kitchen-hacks</loc>
     <lastmod>2026-11-22</lastmod>
     <changefreq>daily</changefreq>
@@ -50,12 +56,6 @@
   </url>
   <url>
     <loc>https://viralmia.me/category/desserts-sweets</loc>
-    <lastmod>2026-11-22</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://viralmia.me/category/quick-dinners</loc>
     <lastmod>2026-11-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
@@ -80,6 +80,16 @@
     <image:image>
       <image:loc>https://www.themealdb.com/images/media/meals/5vhbzt1782239221.jpg</image:loc>
       <image:title>Crispy Air Fryer Sweet Potato Cubes (Garlic Herb Crunch on a Budget)</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://viralmia.me/recipes/easy-beef-and-broccoli-stir-fry</loc>
+    <lastmod>2026-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.themealdb.com/images/media/meals/pbzcrx1763765096.jpg</image:loc>
+      <image:title>15-Minute Beef and Broccoli Stir Fry That Beats the Delivery Fee</image:title>
     </image:image>
   </url>
   <url>
