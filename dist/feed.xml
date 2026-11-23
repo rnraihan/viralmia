@@ -7,6 +7,15 @@
     <language>en-us</language>
     <atom:link href="https://viralmia.me/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>The Science of 2-Ingredient Bagels: Why Strained Yogurt Changes Everything</title>
+      <link>https://viralmia.me/recipes/2-ingredient-protein-bagels-science</link>
+      <guid isPermaLink="true">https://viralmia.me/recipes/2-ingredient-protein-bagels-science</guid>
+      <pubDate>Mon, 23 Nov 2026 12:00:00 GMT</pubDate>
+      <category>Breakfast &amp; Brunch</category>
+      <description>Master the high-protein bagel with this kitchen-tested guide. Learn how the acid in Greek yogurt reacts with leavening for a chewy, no-yeast crumb in 25 minutes.</description>
+      <enclosure url="https://www.themealdb.com/images/media/meals/y2irzl1585563479.jpg" type="image/jpeg" />
+    </item>
+    <item>
       <title>Stop Wasting Produce: The Exact Foil Trick for Crisp Celery and Carrots</title>
       <link>https://viralmia.me/recipes/foil-trick-for-crisp-celery-and-carrots</link>
       <guid isPermaLink="true">https://viralmia.me/recipes/foil-trick-for-crisp-celery-and-carrots</guid>
@@ -221,15 +230,6 @@
       <category>Comfort Food</category>
       <description>Skip the hour-long bake! Make this quick 15-minute sweet potato casserole with a buttery pecan crunch topping right in your cozy kitchen.</description>
       <enclosure url="https://images.unsplash.com/photo-1590165482129-1b8b27698780?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
-    </item>
-    <item>
-      <title>My Go-To Creamy White Chicken Chili (The One-Pot 30-Minute Shortcut)</title>
-      <link>https://viralmia.me/recipes/creamy-white-chicken-chili-one-pot</link>
-      <guid isPermaLink="true">https://viralmia.me/recipes/creamy-white-chicken-chili-one-pot</guid>
-      <pubDate>Wed, 11 Nov 2026 12:00:00 GMT</pubDate>
-      <category>Comfort Food</category>
-      <description>This creamy white chicken chili is the ultimate rainy day hug. It’s thick, rich, and tastes like it simmered for hours, but only takes one pot and 30 minutes.</description>
-      <enclosure url="https://www.themealdb.com/images/media/meals/p5nzbk1782680889.jpg" type="image/jpeg" />
     </item>
   </channel>
 </rss>

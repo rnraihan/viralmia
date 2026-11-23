@@ -31,6 +31,12 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://viralmia.me/category/breakfast-brunch</loc>
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://viralmia.me/category/kitchen-hacks</loc>
     <lastmod>2026-11-23</lastmod>
     <changefreq>daily</changefreq>
@@ -61,16 +67,20 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://viralmia.me/category/breakfast-brunch</loc>
+    <loc>https://viralmia.me/category/air-fryer-meals</loc>
     <lastmod>2026-11-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://viralmia.me/category/air-fryer-meals</loc>
+    <loc>https://viralmia.me/recipes/2-ingredient-protein-bagels-science</loc>
     <lastmod>2026-11-23</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.themealdb.com/images/media/meals/y2irzl1585563479.jpg</image:loc>
+      <image:title>The Science of 2-Ingredient Bagels: Why Strained Yogurt Changes Everything</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://viralmia.me/recipes/foil-trick-for-crisp-celery-and-carrots</loc>
