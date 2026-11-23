@@ -7,6 +7,15 @@
     <language>en-us</language>
     <atom:link href="https://viralmia.me/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Stop Wasting Produce: The Exact Foil Trick for Crisp Celery and Carrots</title>
+      <link>https://viralmia.me/recipes/foil-trick-for-crisp-celery-and-carrots</link>
+      <guid isPermaLink="true">https://viralmia.me/recipes/foil-trick-for-crisp-celery-and-carrots</guid>
+      <pubDate>Mon, 23 Nov 2026 12:00:00 GMT</pubDate>
+      <category>Kitchen Hacks</category>
+      <description>Learn how to store celery and carrots so they stay crisp and fresh for a whole month. Skip plastic bags and use this simple aluminum foil kitchen hack.</description>
+      <enclosure url="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
       <title>Crispy Air Fryer Sweet Potato Cubes (Garlic Herb Crunch on a Budget)</title>
       <link>https://viralmia.me/recipes/air-fryer-crispy-sweet-potato-cubes</link>
       <guid isPermaLink="true">https://viralmia.me/recipes/air-fryer-crispy-sweet-potato-cubes</guid>
@@ -221,15 +230,6 @@
       <category>Comfort Food</category>
       <description>This creamy white chicken chili is the ultimate rainy day hug. It’s thick, rich, and tastes like it simmered for hours, but only takes one pot and 30 minutes.</description>
       <enclosure url="https://www.themealdb.com/images/media/meals/p5nzbk1782680889.jpg" type="image/jpeg" />
-    </item>
-    <item>
-      <title>Why Brown Butter Mashed Potatoes Beat $20 Steakhouse Sides</title>
-      <link>https://viralmia.me/recipes/brown-butter-mashed-potatoes</link>
-      <guid isPermaLink="true">https://viralmia.me/recipes/brown-butter-mashed-potatoes</guid>
-      <pubDate>Tue, 10 Nov 2026 12:00:00 GMT</pubDate>
-      <category>Comfort Food</category>
-      <description>Make ultra-silky brown butter mashed potatoes at home in just 20 minutes. Skip pricey steakhouse sides and save cash with this easy weeknight recipe.</description>
-      <enclosure url="https://images.pexels.com/photos/30485743/pexels-photo-30485743.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" type="image/jpeg" />
     </item>
   </channel>
 </rss>
