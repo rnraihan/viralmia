@@ -7,6 +7,15 @@
     <language>en-us</language>
     <atom:link href="https://viralmia.me/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>The Mac and Cheese My Family Requests Every Single Sunday</title>
+      <link>https://viralmia.me/recipes/sunday-night-baked-macaroni-cheese</link>
+      <guid isPermaLink="true">https://viralmia.me/recipes/sunday-night-baked-macaroni-cheese</guid>
+      <pubDate>Tue, 24 Nov 2026 12:00:00 GMT</pubDate>
+      <category>Comfort Food</category>
+      <description>A reliable, ultra-creamy baked macaroni and cheese recipe with a sharp cheddar blend and a crispy panko crust. The ultimate crowd-pleaser for your next dinner.</description>
+      <enclosure url="https://www.themealdb.com/images/media/meals/oal8x31764119345.jpg" type="image/jpeg" />
+    </item>
+    <item>
       <title>The Science of 2-Ingredient Bagels: Why Strained Yogurt Changes Everything</title>
       <link>https://viralmia.me/recipes/2-ingredient-protein-bagels-science</link>
       <guid isPermaLink="true">https://viralmia.me/recipes/2-ingredient-protein-bagels-science</guid>
@@ -221,15 +230,6 @@
       <category>Kitchen Hacks</category>
       <description>Stop waiting an hour for jammy onions. This 10-minute baking soda hack is a total life-saver for burgers and pasta when you are starving after work.</description>
       <enclosure url="https://images.pexels.com/photos/36295521/pexels-photo-36295521.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" type="image/jpeg" />
-    </item>
-    <item>
-      <title>The 15-Minute Sweet Potato Casserole (Skip the 1-Hour Bake)</title>
-      <link>https://viralmia.me/recipes/15-minute-sweet-potato-casserole-pecan-streusel</link>
-      <guid isPermaLink="true">https://viralmia.me/recipes/15-minute-sweet-potato-casserole-pecan-streusel</guid>
-      <pubDate>Wed, 11 Nov 2026 12:00:00 GMT</pubDate>
-      <category>Comfort Food</category>
-      <description>Skip the hour-long bake! Make this quick 15-minute sweet potato casserole with a buttery pecan crunch topping right in your cozy kitchen.</description>
-      <enclosure url="https://images.unsplash.com/photo-1590165482129-1b8b27698780?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
     </item>
   </channel>
 </rss>

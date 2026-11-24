@@ -1,0 +1,71 @@
+{
+  "title": "The Mac and Cheese My Family Requests Every Single Sunday",
+  "slug": "sunday-night-baked-macaroni-cheese",
+  "description": "A reliable, ultra-creamy baked macaroni and cheese recipe with a sharp cheddar blend and a crispy panko crust. The ultimate crowd-pleaser for your next dinner.",
+  "category": "Comfort Food",
+  "postStyle": "crowd-pleaser",
+  "storyHeading": "Why Everyone Asks for This Recipe",
+  "hackHeading": "Make-Ahead & Hosting Secret",
+  "storageHeading": "Keeping Leftovers Fresh All Week",
+  "date": "2026-11-24",
+  "readTime": "4 min read",
+  "prepTime": "15 mins",
+  "cookTime": "30 mins",
+  "servings": "8",
+  "calories": "510 kcal",
+  "costPerServing": "~$2.25 / serving",
+  "rating": "5.0",
+  "reviewCount": 142,
+  "nutrition": {
+    "calories": "510 kcal",
+    "protein": "22g",
+    "carbs": "48g",
+    "fat": "26g",
+    "fiber": "2g"
+  },
+  "story": "Last Sunday, I had twelve people squeezed around my dining table, and this baked macaroni and cheese was the first thing to vanish. It’s my go-to for potlucks because it scales up easily and stays creamy even after sitting out for a bit. During my initial testing, I found that if you boil the elbows for the full package time, they turn to mush once they hit the oven. I now pull mine three minutes early—they should still have a firm bite when you drain them. Also, skip the bagged shredded cheese. The starch they add to prevent clumping stops the sauce from reaching that silky, pull-apart texture we all want. I use a mix of sharp cheddar for the punch and Gruyère for that nutty, rich melt. It’s a heavy-hitter for kids and adults alike, especially with that butter-toasted panko crust providing a much-needed crunch against the velvety cheese sauce.",
+  "ingredients": [
+    "1 lb elbow macaroni",
+    "1/2 cup unsalted butter",
+    "1/2 cup all-purpose flour",
+    "4 cups whole milk, slightly warmed",
+    "3 cups extra sharp cheddar cheese, grated by hand",
+    "1 cup Gruyère cheese, grated by hand",
+    "1 cup panko breadcrumbs",
+    "1 tsp smoked paprika",
+    "1/2 tsp dry mustard powder"
+  ],
+  "instructions": [
+    "Preheat your oven to 375°F and lightly grease a 9x13-inch ceramic or glass baking dish with butter.",
+    "Boil the elbow macaroni in a large pot of salted water for about 3 minutes less than the package directions for al dente; the pasta should be slightly undercooked.",
+    "In a large heavy-bottomed pot, melt the butter over medium heat and whisk in the flour for 1 minute to cook off the raw flour taste.",
+    "Gradually pour in the milk while whisking constantly until the sauce thickens enough to coat the back of a spoon, then stir in the mustard powder and paprika.",
+    "Remove the pot from the heat and fold in the hand-grated cheeses until the sauce is completely smooth before tossing in the cooked pasta.",
+    "Pour the mixture into your prepared dish, sprinkle the panko mixed with a tablespoon of melted butter over the top, and bake for 25 minutes until the sauce is bubbling and the top is deep golden brown."
+  ],
+  "proHack": "If you are prepping this for a party, make the cheese sauce slightly thinner than you think you need by adding an extra half-cup of milk. The pasta absorbs moisture as it sits, and this prevents the dish from getting tight or dry during transport.",
+  "servingIdea": "This is heavy, so I usually pair it with a crisp green salad tossed in a sharp lemon vinaigrette or some simple roasted broccoli to cut through the richness.",
+  "storage": "Store leftovers in an airtight container for up to 4 days. Reheat in the oven at 325°F with a splash of milk to bring the creaminess back, or use the microwave in 30-second bursts.",
+  "faqs": [
+    {
+      "question": "Can I use pre-shredded cheese to save time?",
+      "answer": "I really recommend against it. Pre-shredded cheese is coated in potato starch or cellulose to keep it from sticking in the bag, which makes the baked sauce grainy instead of smooth."
+    },
+    {
+      "question": "How do I keep the panko from burning?",
+      "answer": "Keep an eye on the oven during the last 5 minutes. If it's browning too fast, tent the dish loosely with foil so the cheese keeps bubbling without scorching the crumbs."
+    },
+    {
+      "question": "Is there a good sub for Gruyère?",
+      "answer": "Absolutely. If you can't find it or want to save a few dollars, Monterey Jack or even a mild Provolone provides a similar creamy melt, though you’ll lose a bit of that nutty flavor."
+    }
+  ],
+  "keywords": [
+    "baked macaroni and cheese",
+    "comfort food",
+    "family dinner recipes",
+    "creamy mac and cheese",
+    "panko topping"
+  ],
+  "heroImage": "https://www.themealdb.com/images/media/meals/oal8x31764119345.jpg"
+}
