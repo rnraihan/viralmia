@@ -7,6 +7,15 @@
     <language>en-us</language>
     <atom:link href="https://viralmia.me/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Air Fryer Garlic Butter Steak Bites That Beat a $25 Steakhouse Plate</title>
+      <link>https://viralmia.me/recipes/air-fryer-garlic-butter-steak-bites</link>
+      <guid isPermaLink="true">https://viralmia.me/recipes/air-fryer-garlic-butter-steak-bites</guid>
+      <pubDate>Wed, 25 Nov 2026 12:00:00 GMT</pubDate>
+      <category>Quick Dinners</category>
+      <description>Make tender air fryer steak bites at home for $3.50 a serving. Drenched in rich herbed garlic butter, this quick 10-minute dinner beats takeout.</description>
+      <enclosure url="https://www.themealdb.com/images/media/meals/u2lhqb1763331899.jpg" type="image/jpeg" />
+    </item>
+    <item>
       <title>The Mac and Cheese My Family Requests Every Single Sunday</title>
       <link>https://viralmia.me/recipes/sunday-night-baked-macaroni-cheese</link>
       <guid isPermaLink="true">https://viralmia.me/recipes/sunday-night-baked-macaroni-cheese</guid>
@@ -221,15 +230,6 @@
       <category>Comfort Food</category>
       <description>Ditch the extra dishes. This gooey, one-pan cranberry brie bread is the ultimate low-effort, high-reward comfort food for busy weeknights. Ready in 20 minutes.</description>
       <enclosure url="https://images.pexels.com/photos/5202240/pexels-photo-5202240.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" type="image/jpeg" />
-    </item>
-    <item>
-      <title>Forget the 45-Minute Wait: My 10-Minute Caramelized Onion Hack That Actually Works</title>
-      <link>https://viralmia.me/recipes/fast-caramelized-onions-baking-soda-hack</link>
-      <guid isPermaLink="true">https://viralmia.me/recipes/fast-caramelized-onions-baking-soda-hack</guid>
-      <pubDate>Thu, 12 Nov 2026 12:00:00 GMT</pubDate>
-      <category>Kitchen Hacks</category>
-      <description>Stop waiting an hour for jammy onions. This 10-minute baking soda hack is a total life-saver for burgers and pasta when you are starving after work.</description>
-      <enclosure url="https://images.pexels.com/photos/36295521/pexels-photo-36295521.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" type="image/jpeg" />
     </item>
   </channel>
 </rss>
