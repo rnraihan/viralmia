@@ -7,6 +7,15 @@
     <language>en-us</language>
     <atom:link href="https://viralmia.me/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>10-Minute Greek Chickpea Salad with Tangy Feta Dressing</title>
+      <link>https://viralmia.me/recipes/greek-chickpea-salad-feta-dressing</link>
+      <guid isPermaLink="true">https://viralmia.me/recipes/greek-chickpea-salad-feta-dressing</guid>
+      <pubDate>Thu, 26 Nov 2026 12:00:00 GMT</pubDate>
+      <category>Quick Lunches</category>
+      <description>Crisp cucumbers, creamy garbanzos, and a fast emulsified feta dressing. Learn the moisture-control secret that keeps this lunch salad crunchy for days.</description>
+      <enclosure url="https://www.themealdb.com/images/media/meals/k29viq1585565980.jpg" type="image/jpeg" />
+    </item>
+    <item>
       <title>Air Fryer Garlic Butter Steak Bites That Beat a $25 Steakhouse Plate</title>
       <link>https://viralmia.me/recipes/air-fryer-garlic-butter-steak-bites</link>
       <guid isPermaLink="true">https://viralmia.me/recipes/air-fryer-garlic-butter-steak-bites</guid>
@@ -221,15 +230,6 @@
       <category>Kitchen Hacks</category>
       <description>Skip the canned jelly this Thanksgiving. Make this ridiculously easy 3-ingredient homemade cranberry sauce in just 10 minutes with zero cleanup hassle.</description>
       <enclosure url="https://images.pexels.com/photos/5718126/pexels-photo-5718126.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" type="image/jpeg" />
-    </item>
-    <item>
-      <title>Sheet Pan Maple Dijon Sausage and Veggies for Busy Weeknights</title>
-      <link>https://viralmia.me/recipes/sheet-pan-fall-sausage</link>
-      <guid isPermaLink="true">https://viralmia.me/recipes/sheet-pan-fall-sausage</guid>
-      <pubDate>Fri, 13 Nov 2026 12:00:00 GMT</pubDate>
-      <category>Quick Dinners</category>
-      <description>Make this easy sheet pan fall sausage dinner with sweet potatoes and Brussels sprouts. Fast, cheap, and cleanup is a breeze. Save money tonight!</description>
-      <enclosure url="https://images.pexels.com/photos/10794112/pexels-photo-10794112.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" type="image/jpeg" />
     </item>
   </channel>
 </rss>
