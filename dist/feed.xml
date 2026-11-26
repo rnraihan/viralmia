@@ -7,6 +7,15 @@
     <language>en-us</language>
     <atom:link href="https://viralmia.me/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Crispy Baked Tortilla Pizza That Bakes in Under 10 Minutes</title>
+      <link>https://viralmia.me/recipes/crispy-baked-tortilla-pizza-under-10-minutes</link>
+      <guid isPermaLink="true">https://viralmia.me/recipes/crispy-baked-tortilla-pizza-under-10-minutes</guid>
+      <pubDate>Thu, 26 Nov 2026 12:00:00 GMT</pubDate>
+      <category>Quick Dinners</category>
+      <description>Make a crispy baked tortilla pizza in under 10 minutes with this foolproof recipe. Perfect for busy weeknights, movie nights, and fast family dinners.</description>
+      <enclosure url="https://www.themealdb.com/images/media/meals/j223gc1784579841.jpg" type="image/jpeg" />
+    </item>
+    <item>
       <title>10-Minute Greek Chickpea Salad with Tangy Feta Dressing</title>
       <link>https://viralmia.me/recipes/greek-chickpea-salad-feta-dressing</link>
       <guid isPermaLink="true">https://viralmia.me/recipes/greek-chickpea-salad-feta-dressing</guid>
@@ -221,15 +230,6 @@
       <category>Quick Dinners</category>
       <description>Skip the sink full of dishes with this 15-minute creamy tuscan gnocchi. Crispy potato pillows swimming in a garlicky parmesan sauce. Totally foolproof.</description>
       <enclosure url="https://images.unsplash.com/photo-1546549032-9571cd6b27df?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
-    </item>
-    <item>
-      <title>Stop Buying Canned Cranberry Sauce: This 3-Ingredient Homemade Version Takes 10 Minutes</title>
-      <link>https://viralmia.me/recipes/homemade-cranberry-sauce</link>
-      <guid isPermaLink="true">https://viralmia.me/recipes/homemade-cranberry-sauce</guid>
-      <pubDate>Fri, 13 Nov 2026 12:00:00 GMT</pubDate>
-      <category>Kitchen Hacks</category>
-      <description>Skip the canned jelly this Thanksgiving. Make this ridiculously easy 3-ingredient homemade cranberry sauce in just 10 minutes with zero cleanup hassle.</description>
-      <enclosure url="https://images.pexels.com/photos/5718126/pexels-photo-5718126.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" type="image/jpeg" />
     </item>
   </channel>
 </rss>
