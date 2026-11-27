@@ -7,6 +7,15 @@
     <language>en-us</language>
     <atom:link href="https://viralmia.me/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>How to Test Egg Freshness with a Glass of Water</title>
+      <link>https://viralmia.me/recipes/how-to-test-egg-freshness</link>
+      <guid isPermaLink="true">https://viralmia.me/recipes/how-to-test-egg-freshness</guid>
+      <pubDate>Fri, 27 Nov 2026 12:00:00 GMT</pubDate>
+      <category>Kitchen Hacks</category>
+      <description>Stop guessing how long eggs have been in your fridge. Learn the simple water float test to check egg freshness in seconds without cracking the shell.</description>
+      <enclosure url="https://www.themealdb.com/images/media/meals/nmxec11782498644.jpg" type="image/jpeg" />
+    </item>
+    <item>
       <title>Crispy Baked Tortilla Pizza That Bakes in Under 10 Minutes</title>
       <link>https://viralmia.me/recipes/crispy-baked-tortilla-pizza-under-10-minutes</link>
       <guid isPermaLink="true">https://viralmia.me/recipes/crispy-baked-tortilla-pizza-under-10-minutes</guid>
@@ -221,15 +230,6 @@
       <category>Comfort Food</category>
       <description>Make this easy apple crisp in under 30 minutes! Sweet apples, juicy pears, and a buttery oat topping create the ultimate cozy weeknight comfort food.</description>
       <enclosure url="https://www.themealdb.com/images/media/meals/xvsurr1511719182.jpg" type="image/jpeg" />
-    </item>
-    <item>
-      <title>One-Pan Creamy Tuscan Gnocchi: Ready in 15 Minutes</title>
-      <link>https://viralmia.me/recipes/creamy-tuscan-gnocchi-skillet</link>
-      <guid isPermaLink="true">https://viralmia.me/recipes/creamy-tuscan-gnocchi-skillet</guid>
-      <pubDate>Sat, 14 Nov 2026 12:00:00 GMT</pubDate>
-      <category>Quick Dinners</category>
-      <description>Skip the sink full of dishes with this 15-minute creamy tuscan gnocchi. Crispy potato pillows swimming in a garlicky parmesan sauce. Totally foolproof.</description>
-      <enclosure url="https://images.unsplash.com/photo-1546549032-9571cd6b27df?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
     </item>
   </channel>
 </rss>

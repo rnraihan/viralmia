@@ -1,0 +1,60 @@
+{
+  "title": "How to Test Egg Freshness with a Glass of Water",
+  "slug": "how-to-test-egg-freshness",
+  "description": "Stop guessing how long eggs have been in your fridge. Learn the simple water float test to check egg freshness in seconds without cracking the shell.",
+  "category": "Kitchen Hacks",
+  "postStyle": "minimalist-pan",
+  "storyHeading": "Big Flavor, Almost Zero Cleanup",
+  "hackHeading": "Don't Skip This Crucial Step",
+  "storageHeading": "Fridge & Reheat Guide",
+  "date": "2026-11-27",
+  "readTime": "3 min read",
+  "prepTime": "3 mins",
+  "cookTime": "0 mins",
+  "servings": "1 Batch",
+  "calories": "N/A",
+  "costPerServing": "Under $1",
+  "rating": "5.0",
+  "reviewCount": 63,
+  "nutrition": {
+    "calories": "N/A",
+    "protein": "0g",
+    "carbs": "0g",
+    "fat": "0g",
+    "fiber": "0g"
+  },
+  "story": "I used to toss perfectly good eggs just because they were past the stamped carton date, until I tested the physics behind the shell. Chicken eggshells are porous, meaning tiny amounts of air slowly pass through and replace the moisture inside over time. When I first tried floating grocery store eggs in a Pyrex measuring cup, I realized date stamps are mostly a suggestion. While testing dozens of cartons over the years, I discovered that tap water temperature matters—ice-cold water can temporarily compress internal air cells and give you a false reading. Use room temperature water every time for an accurate gauge.",
+  "ingredients": [
+    "1 dozen whole eggs in their shells",
+    "1 deep drinking glass or clear bowl",
+    "Cold tap water, brought to room temperature",
+    "Paper towels for drying",
+    "Small paring knife for backup safety checks"
+  ],
+  "instructions": [
+    "Fill your clear glass or bowl with about four inches of room-temperature tap water, ensuring the liquid is deep enough for an egg to tip completely over.",
+    "Drop an egg gently into the water and watch how it settles, keeping your eyes on whether it sinks flat, tilts upward, or floats to the top.",
+    "Read the results instantly: a flat sinker is ultra-fresh, a tilted egg is a few weeks old and best for hard-boiling, and a full floater needs to go straight into the trash."
+  ],
+  "proHack": "If an egg stands upright on its bottom but doesn't float to the top, it is completely safe to eat—just use it for frying or scrambling rather than poaching.",
+  "servingIdea": "Sort your weekly grocery haul immediately after unpacking so you always grab the oldest safe eggs for weekend meal prep.",
+  "storage": "Keep unwashed whole eggs in their original carton on an inner shelf of your refrigerator where the temperature stays coldest, avoiding the door where warm air hits every time you open it.",
+  "faqs": [
+    {
+      "question": "Why does an old egg float in water?",
+      "answer": "As moisture evaporates through the porous shell over time, air replaces it inside a pocket at the large end of the egg, increasing its buoyancy."
+    },
+    {
+      "question": "Can a floating egg still make you sick?",
+      "answer": "Yes, floaters have large air pockets and degraded structural proteins, making them prone to bacterial growth like Salmonella."
+    }
+  ],
+  "keywords": [
+    "how to test egg freshness",
+    "egg float test",
+    "are my eggs bad",
+    "kitchen hacks",
+    "egg storage tips"
+  ],
+  "heroImage": "https://www.themealdb.com/images/media/meals/nmxec11782498644.jpg"
+}
