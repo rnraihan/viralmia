@@ -7,6 +7,15 @@
     <language>en-us</language>
     <atom:link href="https://viralmia.me/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>3 Ingredient Cloud Bread That Actually Holds Together Without Falling Apart</title>
+      <link>https://viralmia.me/recipes/3-ingredient-cloud-bread</link>
+      <guid isPermaLink="true">https://viralmia.me/recipes/3-ingredient-cloud-bread</guid>
+      <pubDate>Fri, 27 Nov 2026 12:00:00 GMT</pubDate>
+      <category>Breakfast &amp; Brunch</category>
+      <description>Make airy 3 ingredient cloud bread at home for pennies. Skip the expensive bakery runs with this easy, low-carb US grocery budget recipe.</description>
+      <enclosure url="https://www.themealdb.com/images/media/meals/lmc6r51764365554.jpg" type="image/jpeg" />
+    </item>
+    <item>
       <title>How to Test Egg Freshness with a Glass of Water</title>
       <link>https://viralmia.me/recipes/how-to-test-egg-freshness</link>
       <guid isPermaLink="true">https://viralmia.me/recipes/how-to-test-egg-freshness</guid>
@@ -221,15 +230,6 @@
       <category>Kitchen Hacks</category>
       <description>Stop throwing away limp veggies! Here is how to store carrots and celery in water to keep them crunchy and fresh for up to a full month of holiday cooking.</description>
       <enclosure url="https://images.pexels.com/photos/10487659/pexels-photo-10487659.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" type="image/jpeg" />
-    </item>
-    <item>
-      <title>Cozy Apple &amp; Pear Crisp with Golden Oat Crunch</title>
-      <link>https://viralmia.me/recipes/cozy-apple-pear-crisp-oat-crunch</link>
-      <guid isPermaLink="true">https://viralmia.me/recipes/cozy-apple-pear-crisp-oat-crunch</guid>
-      <pubDate>Sat, 14 Nov 2026 12:00:00 GMT</pubDate>
-      <category>Comfort Food</category>
-      <description>Make this easy apple crisp in under 30 minutes! Sweet apples, juicy pears, and a buttery oat topping create the ultimate cozy weeknight comfort food.</description>
-      <enclosure url="https://www.themealdb.com/images/media/meals/xvsurr1511719182.jpg" type="image/jpeg" />
     </item>
   </channel>
 </rss>
