@@ -7,6 +7,15 @@
     <language>en-us</language>
     <atom:link href="https://viralmia.me/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>15-Minute Sweet Chili Glazed Meatballs</title>
+      <link>https://viralmia.me/recipes/15-minute-sweet-chili-glazed-meatballs</link>
+      <guid isPermaLink="true">https://viralmia.me/recipes/15-minute-sweet-chili-glazed-meatballs</guid>
+      <pubDate>Sat, 28 Nov 2026 12:00:00 GMT</pubDate>
+      <category>Quick Dinners</category>
+      <description>Whip up these fast, crowd-pleasing sweet chili glazed meatballs in just 15 minutes using simple pantry staples. Perfect for busy weeknights or parties.</description>
+      <enclosure url="https://www.themealdb.com/images/media/meals/z458v91763817681.jpg" type="image/jpeg" />
+    </item>
+    <item>
       <title>3 Ingredient Cloud Bread That Actually Holds Together Without Falling Apart</title>
       <link>https://viralmia.me/recipes/3-ingredient-cloud-bread</link>
       <guid isPermaLink="true">https://viralmia.me/recipes/3-ingredient-cloud-bread</guid>
@@ -221,15 +230,6 @@
       <category>Air Fryer Meals</category>
       <description>Skip the greasy potato fries! These air fryer green beans are ultra-crunchy, perfectly seasoned, and paired with a zesty garlic aioli. Quick, easy, and healthy.</description>
       <enclosure url="https://www.themealdb.com/images/media/meals/21yc5s1760524759.jpg" type="image/jpeg" />
-    </item>
-    <item>
-      <title>How to Store Carrots and Celery in Water So They Stay Insanely Crisp for 4 Weeks</title>
-      <link>https://viralmia.me/recipes/how-to-store-carrots-and-celery-crisp-in-water</link>
-      <guid isPermaLink="true">https://viralmia.me/recipes/how-to-store-carrots-and-celery-crisp-in-water</guid>
-      <pubDate>Sun, 15 Nov 2026 12:00:00 GMT</pubDate>
-      <category>Kitchen Hacks</category>
-      <description>Stop throwing away limp veggies! Here is how to store carrots and celery in water to keep them crunchy and fresh for up to a full month of holiday cooking.</description>
-      <enclosure url="https://images.pexels.com/photos/10487659/pexels-photo-10487659.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" type="image/jpeg" />
     </item>
   </channel>
 </rss>
